@@ -70,7 +70,7 @@ body{
     position: absolute;
     top: -1%;
     color: #626262;
-    background-image: url(img/somunlogo.png);
+    background-image: url(https://somoonhouse.com/img/somunlogo.png);
     margin: auto auto;
     position: relative;
     top: 50%;
@@ -86,7 +86,7 @@ body{
     top: -1%;
     right: 0;
     color: #626262;
-    background-image: url(img/XX.png);
+    background-image: url(https://somoonhouse.com/img/XX.png);
     background-size: 41px 43px;
     height: 41px;
     width: 43px;
@@ -150,7 +150,7 @@ span{
     right: 5%;
     top: 50%;
     transform: translate(0, -50%);
-    background-image: url(img/reqbtn2.png);
+    background-image: url(https://somoonhouse.com/img/reqbtn2.png);
     background-size: 145px 56px;
     cursor: pointer;
     display: inline-block;

@@ -94,8 +94,8 @@ while(rs.next()){
 	String item_area = rs.getString("Area");
 	String item_due = rs.getString("Due");
 	String item_budget = rs.getString("Budget");
-	String item_visit = rs.getString("Visit");
-	String item_compare = rs.getString("compare");
+	String item_consulting = rs.getString("Consulting");
+	String item_compare = rs.getString("Compare");
 	String item_applydate = rs.getString("Apply_date");
 	String item_calling = rs.getString("Calling");
 	//String item_state = rs.getString("State");
@@ -108,7 +108,7 @@ while(rs.next()){
 	applymap.put("area", item_area);
 	applymap.put("due", item_due);
 	applymap.put("budget", item_budget);
-	applymap.put("visit", item_visit);
+	applymap.put("consulting", item_consulting);
 	applymap.put("compare", item_compare);
 	applymap.put("applydate", item_applydate);
 	applymap.put("calling", item_calling);
@@ -116,7 +116,7 @@ while(rs.next()){
 	}
 
 if(s_id.equals("null") || s_id.equals("NULL") || s_id.equals("Null") || s_id == null || s_id.equals("")){
-	applymap.put("visit", -1);
+	applymap.put("consulting", -1);
 	applymap.put("compare", -1);
 }
 %>
@@ -160,12 +160,12 @@ input[type="checkbox"] + label span {
     height: 24px;
     margin: -2px 10px 0 0;
     vertical-align: middle;
-    background: url(img/checkbox.svg) left top no-repeat;
+    background: url(https://somoonhouse.com/img/checkbox.svg) left top no-repeat;
     cursor: pointer;
     background-size: cover;
 }
 input[type="checkbox"]:checked + label span {
-    background:url(img/checkbox.svg)  -26px top no-repeat;
+    background:url(https://somoonhouse.com/img/checkbox.svg)  -26px top no-repeat;
      background-size: cover;
 }
 #container {
@@ -345,7 +345,7 @@ select{
 <div id="somun_navbar">
 	<div id="somun_menu"></div>
 	<div style="float:left;width:100%;height:max-content;margin-bottom:10px;text-align:center;">
-	<div id="somun_logo"><a href="index.jsp"><img style="width:128px;"src="img/somunlogo.png"></a></div>
+	<div id="somun_logo"><a href="index.jsp"><img style="width:128px;"src="https://somoonhouse.com/img/somunlogo.png"></a></div>
 	<div style="margin:auto;width:max-content;color: #31b1f2;font-size:10pt;">대구 1등 리모델링 플랫폼</div>
 	</div>
 </div>
@@ -369,7 +369,7 @@ select{
     			<div class="info"><span>평수</span> <%out.println(applymap.get("area"));%></div>
     			<div class="info"><span>예정일</span> <%out.println(applymap.get("due"));%></div>
     			<div class="info"><span>예산</span> <%out.println(applymap.get("budget"));%></div>
-    			<div class="info"><span>방문상담</span> <%if(applymap.get("visit").equals("1")) out.println("예"); else out.println("아니오");%></div>
+    			<div class="info"><span>방문상담</span> <%if(applymap.get("consulting").equals("1")) out.println("예"); else out.println("아니오");%></div>
     			<div class="info"><span>비교견적</span> <%if(applymap.get("compare").equals("1")) out.println("예"); else out.println("아니오");%></div>
     			<div class="info"><span>연락방식</span> <%if(applymap.get("calling").equals("1")) out.println("업체의 전화를 기다리겠습니다."); else out.println("직접 업체에 전화하겠습니다.");%></div>
     			<div class="info"><span>신청날짜</span> <%out.println(applymap.get("applydate"));%></div>
