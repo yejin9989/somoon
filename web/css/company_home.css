@@ -1,0 +1,205 @@
+@import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@font-face{
+    font-family:'Nanum Gothic',sans-serif;
+}
+html{
+    height: 100%;
+}
+body{
+    width:100%;
+    height:100%;
+    margin: 0;
+}
+*{
+    font-family:'Nanum Gothic',sans-serif;
+    font-size: 11pt;
+    color: #313131;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+}
+#container{
+    background: #fdfdfd;
+    height: fit-content;
+    max-width: 500px;
+    padding: 30px;
+    box-sizing: border-box;
+    margin: auto;
+    text-align:center;
+    box-shadow: 0px 0px 7px 0px #00000030;
+}
+#profile_img{
+    margin: 29px auto;
+    border: 1px solid #e8e8e8;
+    border-radius: 74px;
+    height: 155px;
+    width: 155px;
+    text-align: center;
+    overflow: hidden;
+    background: url(/img/1.jpg);
+    background-size: 155px;
+}
+#company_name{
+    width: fit-content;
+    margin: 10px auto;
+    font-weight: 700;
+    font-size: 21pt;
+    color: #272727;
+}
+#company_address{
+    width: fit-content;
+    margin: 7px auto;
+    font-size: 11pt;
+    color: #6d6d6d;
+}
+hr{
+    border: 1px solid #fdfdfd;
+    border-top: 1px solid #bfbfbf;
+    margin: 30px auto;
+    width: 116px;
+}
+#introduction{
+    margin: auto;
+    max-width: 400px;
+    font-size: 11pt;
+    font-weight: 500;
+}
+#introduction:before, #introduction:after{
+    content: "";
+    background: url(/sources/Quotation-Symbol-PNG.png);
+    background-size: 39px 25px;
+    width: 39px;
+    height: 21px;
+    display: inline-block;
+}
+#introduction:after{
+    transform: rotate(180deg);
+    top: 5px;
+    position: relative;
+}
+#introduction div{
+    display: inline-block;
+    max-width: 380px;
+    line-height: 13pt;
+    font-size: 11pt;
+}
+#request_btn, #edit_btn{
+    background: #7d99fd;
+    margin: 37px auto;
+    color: white;
+    width: 190px;
+    height: 51px;
+    line-height: 51px;
+    border-radius: 10px;
+    font-size: 11pt;
+}
+#edit_btn{
+    border:none;
+}
+#company_abilities{
+    margin: 18px auto;
+    max-width: 400px;
+}
+#company_abilities div{
+    margin: 3px 1px;
+    display: inline-block;
+    background: #b4b4b4;
+    color: white;
+    border-radius: 12px;
+    padding: 8px;
+    font-size: 10pt;
+}
+.delete_ability{
+    text-decoration: underline;
+    color: white;
+    cursor: pointer;
+}
+#add_ability{
+    cursor: pointer;
+    color: white;
+}
+#edit_info{
+    text-decoration: underline;
+    cursor: pointer;
+}
+#edit_info:after{
+    content: " ";
+    background: url(/sources/edit.png);
+    width: 20px;
+    height: 18px;
+    background-size: 20px;
+    display: inline-block;
+}
+textarea{
+    width: 400px;
+    height: 200px;
+}
+input[id="as_provide"] + label, .as_provide1{
+    padding:5px;
+    border-radius:3px;
+    background: #7d99fd;
+    color:white;
+    font-size:9pt;
+    display:inline-block;
+    box-shadow: 0px 0px 2px 1px #b9ceff;
+}
+input[id="as_provide"]:checked + label, .as_provide0{
+    padding: 5px;
+    border-radius: 3px;
+    background: #a7a7a7;
+    color: white;
+    font-size: 9pt;
+    display: block;
+    box-shadow: 0px 0px 2px 1px #b9ceff;
+    width: fit-content;
+    margin: auto;
+}
+input[type="text"]{
+    border: none;
+    background: #e7e7e7;
+    padding: 8px;
+    margin: 5px;
+    border-radius: 3px;
+}
+input[class="tag"]{
+    background:#b4b4b4;
+    color:white;
+}
+input[class="tag"]:focus{
+    color:white;
+}
+#added{
+    padding:0 10px !important;
+    margin: 5px 5px !important;
+    height: 35px;
+}
+#added input{
+    width:100px;
+    margin:0;
+}
+span{
+    color:white;
+}
+#company_address input{
+    width: 300px;
+    text-align: center;
+}
+.submitBtn{
+    display: inline-block;
+    width: 150px;
+    height: 33px;
+    background: #7d99fd;
+    color: white;
+    border: 0;
+    border-radius: 3px;
+    margin: 3px;
+    line-height: 33px;
+    padding: 1px 0;
+    cursor: pointer;
+}
+.submitBtn:hover{
+    background: #98afff;
+}
+#btnArea{
+    margin:auto;
+    padding: 9px 0 0;
+}

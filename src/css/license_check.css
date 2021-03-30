@@ -1,0 +1,104 @@
+.status{
+	color: white;
+	border-radius: 3px;
+	font-size: 10pt;
+	padding: 3px 20px;
+	width: fit-content;
+	margin: auto;
+}
+.stt0{
+	/*대기*/
+	background:#5692ff;
+}
+.stt1{
+	/*승인*/
+	background:#00bd54;
+}
+.stt2{
+	/*반려*/
+	background:#ce4c00;
+}
+table{
+	max-width: 450px;
+	margin: 44px auto 0;
+	border-collapse: collapse;
+}
+td{
+	padding: 10px 17px;
+}
+tr{
+	border-bottom: 1px solid #e6e6e6;
+}
+#container{
+	height:100%;
+}
+h2{
+	font-size: 15pt;
+}
+tbody tr:hover{
+	background: #0095ff1c;
+	cursor: pointer;
+}
+.blank{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width:370px;
+	height: 670px;
+	background: white;
+	box-shadow: -1px 5px 9px 4px #0000001f;
+	text-align: center;
+	display: none;
+}
+.close{
+	position:absolute;
+	top: 10px;
+	right:10px;
+	font-size: 15pt;
+}
+.close:hover{
+	cursor:pointer;
+}
+.license-img-area{
+	width:300px;
+	height:400px;
+	display:inline-block;
+	margin: 41px 0 11px;
+}
+.ok, .cancel{
+	display: inline-block;
+	width: 112px;
+	height: 35px;
+	line-height: 35px;
+	color: white;
+	margin: 4px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+.ok{
+	background:#00bd54;
+}
+.cancel{
+	background:#ce4c00;
+}
+.com-title{
+	font-size: 15pt;
+	margin: 20px 0;
+	font-weight: bold;
+}
+textarea{
+	margin: 10px;
+	width: 300px;
+	height: 70px;
+}
+
+
+
+
+
+
+
+
+
+
