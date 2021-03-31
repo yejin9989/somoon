@@ -205,13 +205,13 @@ for(i=1; i<=division1.size(); i++){
 		<div class="form_mini" id="form8">
 		<!-- 상담방식(방문/영상/필요없음) -->
 			<div class="form_title">원하는 상담방식을 골라주세요.</div>
-			<div class="form_content block">    	
+			<div class="form_content block">
+				<input type="radio" name="consulting" id="consulting_no"  class="block" value="0">
+				<label for="consulting_no"  class="will">전화상담</label>
 				<input type="radio" name="consulting" id="visit" value="1" class="block">
 				<label for="visit" class="please">방문상담</label>
     			<input type="radio" name="consulting" id="video"  value="2" class="block">
     			<label for="video"  class="will">영상상담</label>
-    			<input type="radio" name="consulting" id="consulting_no"  class="block" value="0">
-    			<label for="consulting_no"  class="will">상담필요없음</label>
     		</div>
     		<div class="notice">
     			<p>
@@ -235,7 +235,7 @@ for(i=1; i<=division1.size(); i++){
 			<div class="form_title">상담을 위해 정보를 입력해주세요.</div>
 			<div class="form_content">
 				<div class="item"><span class="nametag">성함</span><input type="text" name="name" class="block"></div>
-				<div class="item"><span class="nametag">휴대폰</span><input type="text" name="phone" class="block"></div>
+				<div class="item"><span class="nametag">휴대폰</span><input type="number" name="phone" class="block"></div>
 				<!-- div class="item"><span class="nametag">휴대폰</span><input type="text" class="cert_input" name="phone"><input type="button" class="cert_btn" id="cert_start" value="인증"></div>
 				<div class="item"><span class="nametag">인증번호</span><input type="text" class="cert_input" name="certificate_num"><input type="button" class="cert_btn" id="cert_ok" value="확인"></div-->
 				<input type="checkbox" name="agree" class="block"> 개인정보 활용동의 
