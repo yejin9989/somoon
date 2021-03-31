@@ -249,13 +249,13 @@ for(i=1; i<=division1.size(); i++){
 		</div>
 		<div class="estimate_navigator" id="navigator2" style="display:none;">
 			<div class="prev">뒤로</div>
-			<div class="next" id="yesnext" style="display: none">다음</div>
-			<div class="not" id="notnext">다음</div>
+			<div class="next" id="yesnext">다음</div>
+			<div class="not" id="notnext" style="display: none">다음</div>
 		</div>
 		<div class="estimate_navigator" id="navigator3" style="display:none;">
 			<div class="prev">뒤로</div>
-			<input type="submit" id="yesfinish" style="display: none" value="완료">
-			<div class="not" id="notfinish">완료</div>
+			<input type="submit" id="yesfinish" value="완료">
+			<div class="not" id="notfinish" style="display: none">완료</div>
 		</div>
 		</form>
 	</div>
@@ -353,12 +353,7 @@ $('document').ready(function(){
 		}
 	}
 	$('.form_mini input').on("propertychange change keyup paste input", function(){
-		if(form_vaild() == true){
-			//turnon();
-		}
-		else{
-			//turnoff();
-		}
+		//form_vaild();
 	})
 	//시작
 	$('.start').click(function(){
@@ -367,10 +362,10 @@ $('document').ready(function(){
 		
 		$(this).parent().css('display', 'none');
 		$('#navigator2').css('display', 'block');
-		$('#yesnext').css('display', 'none');
-		$('#notnext').css('display', 'inline-block');
+		//$('#yesnext').css('display', 'none');
+		//$('#notnext').css('display', 'inline-block');
 
-		form_vaild();
+		//form_vaild();
 	})
 	
 	//다음 폼
@@ -394,9 +389,9 @@ $('document').ready(function(){
 		}
 		elem.css('display', 'none');
 		$('#form'+num).css('display', 'block');
-		$('#yesnext').css('display', 'none');
-		$('#notnext').css('display', 'inline-block');
-		form_vaild();
+		//$('#yesnext').css('display', 'none');
+		//$('#notnext').css('display', 'inline-block');
+		//form_vaild();
 
 	})
 	
@@ -425,9 +420,9 @@ $('document').ready(function(){
 		}
 		elem.css('display', 'none');
 		$('#form'+num).css('display', 'block');
-		form_vaild($('#form'+num+' input'));
+		//form_vaild($('#form'+num+' input'));
 	})
-	
+
 	function partly(){
 		var num;
 		$('#form5 input').each(function(){
