@@ -317,7 +317,6 @@
 						<div class="info"><span>예정일</span> <%out.println(hm.get("due"));%></div>
 						<div class="info"><span>예산</span> <%out.println(hm.get("budget"));%></div>
 						<div class="info"><span>방문상담</span> <%if(hm.get("consulting").equals("1")) out.println("예"); else out.println("아니오");%></div>
-						<!--div class="info"><span>비교견적</span> <%if(hm.get("compare").equals("1")) out.println("예"); else out.println("아니오");%></div-->
 						<div class="info"><span>신청날짜</span> <%out.println(hm.get("applydate"));%></div>
 						<div class="info"><span>연락방식</span> <%if(hm.get("calling").equals("1")) out.println("업체의 전화를 기다리고 있습니다."); else out.println("고객님이 직접 전화하실 예정입니다.");%></div>
 						<div class="info"><span>처리상태</span> <div class="state"><%if(assignedmap.get(hm.get("number")).equals("0")){%><div id="stt0"><% out.println("상담 대기");%></div><%}%>
