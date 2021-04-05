@@ -117,11 +117,8 @@ applyEle.on('click', function(){
 </script>
 
 <div id="somun_navbar">
-	<div id="somun_menu"></div>
-	<div style="float:left;width:100%;height:max-content;margin-bottom:10px;text-align:center;">
-	<div id="somun_logo"><a href="index.jsp"><img style="width:105px;"src="https://somoonhouse.com/img/somunlogo.png"></a></div>
-	<div style="margin:auto;width:max-content;color: #6d6d6d;font-size:10pt;">우리 동네 리모델링 플랫폼</div>
-	</div>
+	<div id="somun_logo"><a href="index.jsp"><img style="height:30px;"src="https://somoonhouse.com/otherimg/index/somunlogo.jpg"></a></div>
+	<div id="alert"><a href="index.jsp"><img style="height:30px;"src="https://somoonhouse.com/otherimg/index/alert.jpg"></a></div>
 </div>
 <div id="main">
 	<div id="recommend">
@@ -367,7 +364,7 @@ applyEle.on('click', function(){
 		<input type="hidden"  style="width:500px;" id="entX"  name="entX" />
 		<input type="hidden"  style="width:500px;" id="entY"  name="entY" />
 	</form>	
-    <div id="content" style="float:left;width:100%;margin:14px auto;">
+    <div id="content" style="float:left;width:100%;">
     
       <%
     String clientId = "G8MVoxXfGciyZW5dF4p1";//애플리케이션 클라이언트 아이디값";
