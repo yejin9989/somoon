@@ -118,7 +118,7 @@ applyEle.on('click', function(){
 
 <div id="somun_navbar">
 	<div id="somun_logo"><a href="index.jsp"><img style="height:30px;"src="https://somoonhouse.com/otherimg/index/somunlogo.jpg"></a></div>
-	<div id="alert"><a href="index.jsp"><img style="height:30px;"src="https://somoonhouse.com/otherimg/index/alert.jpg"></a></div>
+	<div id="alert"><a href="alert.jsp"><img style="height:30px;"src="https://somoonhouse.com/otherimg/index/alert.jpg"></a></div>
 </div>
 <div id="main">
 	<div id="recommend">
