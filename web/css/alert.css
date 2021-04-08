@@ -1,0 +1,133 @@
+@import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css?display=swap);
+@font-face{
+    font-family:'Nanum Gothic',sans-serif;
+}
+*{
+    font-family:'Nanum Gothic',sans-serif;
+}
+select{
+    /*ios대응*/
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+select::-ms-expand{
+    display:none; /* 화살표 없애기 for IE10, 11*/
+}
+body {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    border:0px;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    align-items: center;
+    justify-content: center;
+    background-color:white;
+}
+#container{
+    width:100%;
+    max-width:700px;
+    margin:0 auto;
+    box-shadow: 0px 0px 20px #f4f4f4;
+}
+a{
+    text-decoration:none;
+}
+#somun_navbar{
+    float: left;
+    width: 100%;
+    height: 38px;
+    text-align: center;
+    padding: 16px 0 6px;
+    /*line-height:30px;*/
+}
+#somun_logo{
+    /*border: 1px solid blue;*/
+    display: inline-block;
+    /*background: url("https://somoonhouse.com/img/somunhouselogo.png") no-repeat;*/
+    width: max-content;
+    float:left;
+    position: relative;
+    font-weight: bold;
+    color: #31b1f2;
+    font-size: 36px;
+    left: 4%;
+}
+#alert{
+    display: inline-block;
+    float:right;
+    right: 4%;
+    position: relative;
+}
+#somun_logo a{
+    color: #31b1f2;
+}
+#somun_logo a:visited{
+    color: #31b1f2;
+}
+#somun_logo a:hover{
+    color: #31b1f2;
+}
+#somun_logo a:active{
+    color: #31b1f2;
+}
+#main{
+    width:100%;display:inline-block;
+}
+#topBtn,
+#applyBtn{
+    position:fixed;
+    right:2%;
+    width:50px;
+    height:50px;
+    display:block;
+    color: #fff;
+    font-size:13px;
+    text-align:center;
+    border-radius:24px;
+    z-index:11;
+    box-shadow: 1px 3px 7px #a9a9a9;
+}
+#topBtn{
+    bottom:10px;
+    background: #000;
+    line-height:50px;
+}
+#applyBtn{
+    bottom: 70px;
+    background: #4098f4;
+}
+#applyBtn div{
+    padding: 9px;
+}
+/*
+
+공통 아닌부분-----------------------------------------------------
+
+*/
+#full-image, #full-image img{
+    width: 100%;
+}
+#change_btn{
+    width: 95px;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 3px;
+    color: white;
+    background: #3e70ff;
+    position: fixed;
+    bottom: 26px;
+    text-align: center;
+    left: 50%;
+    transform: translate(-50%, 0);
+    box-shadow: 1px 3px 7px #a9a9a9;
+    cursor: pointer;
+}
+@media (max-width : 768px) {
+}
+    @media (max-width: 510px) {
+    }
+    @media (max-width: 370px) {
+    }

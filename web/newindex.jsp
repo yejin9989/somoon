@@ -48,7 +48,7 @@
     </script>
     <div id="somun_navbar">
         <div id="somun_logo"><a href="index.jsp"><img style="height:30px;"src="https://somoonhouse.com/otherimg/index/somunlogo.jpg"></a></div>
-        <div id="alert"><a href="index.jsp"><img style="height:30px;"src="https://somoonhouse.com/otherimg/index/alert.jpg"></a></div>
+        <div id="alert"><a href="alert.jsp"><img style="height:30px;"src="https://somoonhouse.com/otherimg/index/alert.jpg"></a></div>
     </div>
     <div id="main">
         <div id="recommend">
@@ -203,16 +203,51 @@
                     <h2>달서구 인기사례</h2>
                     <div><!--4칸짜리 틀-->
                         <div><!--한 블럭-->
-                            <div><이미지>0</이미지></div>
+                            <div>이미지</div>
+                            <div>설명</div>
+                        </div>
+                        <div><!--한 블럭-->
+                            <div>이미지</div>
+                            <div>설명</div>
+                        </div>
+                        <div><!--한 블럭-->
+                            <div>이미지</div>
+                            <div>설명</div>
+                        </div>
+                        <div><!--한 블럭-->
+                            <div>이미지</div>
+                            <div>설명</div>
                         </div>
                     </div>
                 </div>
                 <div class="banner" id="banner1"><img src="https://somoonhouse.com/otherimg/index/banner2.jpg"></div>
                 <div>
                     <!--소문난집 이용후기-->
+                    <h2>소문난집 이용후기</h2>
+                    <div>
+                        이미지칸
+                    </div>
                 </div>
-                <div>
-                    <!--인기사례 4칸-->
+                <div><!--인기사례 4칸-->
+                    <h2>달서구 인기사례</h2>
+                    <div><!--4칸짜리 틀-->
+                        <div><!--한 블럭-->
+                            <div>이미지</div>
+                            <div>설명</div>
+                        </div>
+                        <div><!--한 블럭-->
+                            <div>이미지</div>
+                            <div>설명</div>
+                        </div>
+                        <div><!--한 블럭-->
+                            <div>이미지</div>
+                            <div>설명</div>
+                        </div>
+                        <div><!--한 블럭-->
+                            <div>이미지</div>
+                            <div>설명</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="banner" id="banner1"><img src="https://somoonhouse.com/otherimg/index/banner3.jpg"></div>
             </div>
