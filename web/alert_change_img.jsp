@@ -51,7 +51,7 @@
     </style>
 </head>
 <body>
-<form name="form" method="post" enctype="multipart/form-data" action="_alert_change_img.jsp">
+<form action="_alert_change_img.jsp" method="post" enctype="multipart/form-data">
     <img style="width: 316px;" id="preview-image" src="https://dummyimage.com/500x500/ffffff/000000.png&text=preview+image">
     <div id="buttons">
         <label for="change">
@@ -63,7 +63,7 @@
             <div>업로드</div>
         </label>
     </div>
-    <input type="file" id="change">
+    <input type="file" id="change" name="filename1">
     <input type="submit" id="submit">
 </form>
 <script>

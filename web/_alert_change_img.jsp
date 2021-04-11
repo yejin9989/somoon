@@ -14,29 +14,29 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <%
-        String file1[] = new String[10];
-        request.setCharacterEncoding("UTF-8");
+        String file1 = "";
         String realFolder = "";
         String filename1 = "";
         int maxSize = 1024*1024*5;
         String encType = "UTF-8";
-        String saveFile = "otherimg/alert";
-        ServletContext sContext = getServletContext();
-        realFolder = sContext.getRealPath(saveFile);
+        String savefile = "otherimg"; //ohterimg/alert 폴더에는 저장을 못하더라... 이유가 뭘까용
+        ServletContext scontext = getServletContext();
+        realFolder = scontext.getRealPath(savefile);
 
         Connection conn = DBUtil.getMySQLConnection();
         try{
             MultipartRequest multi=new MultipartRequest(request, realFolder, maxSize, encType, new DefaultFileRenamePolicy());
             Enumeration<?> files = multi.getFileNames();
-            file1[0] = (String)files.nextElement();
-            filename1 = multi.getFilesystemName(file1[0]);
+            file1 = (String)files.nextElement();
+            filename1 = multi.getFilesystemName(file1);
         } catch(Exception e) {
             e.printStackTrace();
         }
 
+        out.println("filename : " + filename1 + "\n");
         if(filename1 != null)
-            file1[0] = "https://somoonhouse.com/otherimg/alert" + "/" + filename1;
-        //    out.println("filename : " + file1[0] + "\n");
+            file1 = "https://somoonhouse.com/otherimg" + "/" + filename1;
+        out.println("filename : " + file1 + "\n");
 
         //이전 파일명 가져오기
         PreparedStatement pstmt = null;
@@ -72,7 +72,7 @@
         //db에 파일명 추가
         sql = "INSERT INTO ALERT VALUES(1, ?)";
         pstmt = conn.prepareStatement(sql);
-        pstmt.setString(1, file1[0]);
+        pstmt.setString(1, file1);
         pstmt.executeUpdate();
         pstmt.close();
     %>
