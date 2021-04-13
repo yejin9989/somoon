@@ -427,7 +427,9 @@ query = "";
 conn = DBUtil.getMySQLConnection();
 rs = null;
 String build = null;
+String keyword = null;
 build = request.getParameter("bdNm");
+keyword = request.getParameter("keyword");
 query = "Select * from REMODELING";
 
 if(build != "" && build != null && !build.equals("all")){
@@ -450,6 +452,12 @@ else if(request_areas != null && !request_areas[0].equals("all")){
 		query += " And Apart_name Like \"%"+apartment+"%\"";
 	}
 }
+if(keyword != "" && keyword != null){
+	query = "Select * from REMODELING R, KEYWORD_ASSIGNED A, KEYWORD K";
+	query += " where K.Id = " + keyword;
+	query += " and A.Keyword_id = K.Id";
+	query += " and A.Item_id = R.number";
+}
 //else if(request_areas == null){
 	//query += " Where Second_area = 147";
 //}
@@ -469,6 +477,7 @@ query += " order by Apart_name asc"; //limit 10
 else{*/
 	pstmt = conn.prepareStatement(query);
 //}
+	//out.println(pstmt);
 rs = pstmt.executeQuery();
 String item[][] = new String[100000][20];
 i = 0;

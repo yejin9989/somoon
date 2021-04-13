@@ -16,6 +16,16 @@
     PreparedStatement pstmt = null;
     String query = "";
 %>
+<%
+//키워드 받아오기
+    query = "select * from KEYWORD";
+    pstmt = conn.prepareStatement(query);
+    rs = pstmt.executeQuery();
+    ArrayList<String> keyword = new ArrayList<String>();
+    while(rs.next()) {
+        keyword.add(rs.getString("Name"));
+    }
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -186,16 +196,29 @@
                     <button onclick="goItemUpload();" style="width:150px;height:45px;margin:40px 15px;border-radius:5px; background-color:#29aef2; color:white; font-size:17px; border:none;">사례등록  ></button>
                 </div>
                 <%}%>
-                <div>
+                <div id="keyword">
                     <!--이런 인테리어는 어떠세요? 소문난집 인기키워드-->
                     <h2>이런 인테리어는 어떠세요?</h2>
                     <h3>소문난집 인기 키워드</h3>
                     <ul>
-                        <li>모던인테리어</li>
-                        <li>카페 같은 집</li>
-                        <li>깔끔</li>
-                        <li>고급</li>
-                        <li>웨인스코팅</li>
+                        <%
+                            for(i=0; i<keyword.size(); i++){
+                                out.print("<li id='keyword"+i+"'>");
+                                out.print("<a href='" + "index.jsp?keyword=" + i + "'>");
+                                out.print(keyword.get(i));
+                                out.print("</a>");
+                                out.print("</li>");
+                            }
+                        %>
+                        <%
+                        if(s_id.equals("100")){
+                            out.print("<li id='keyword"+i+"'>");
+                            out.print("<a href='add_keyword.jsp' target='_blank'>");
+                            out.print("+");
+                            out.print("</a>");
+                            out.print("</li>");
+                        }
+                        %>
                     </ul>
                 </div>
                 <div class="banner" id="banner1"><img src="https://somoonhouse.com/otherimg/index/banner1.jpg"></div>

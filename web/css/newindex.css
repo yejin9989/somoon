@@ -412,6 +412,30 @@ input#search {
 .banner img{
     width: 100%;
 }
+#keyword h2{
+    margin: 30px 0px 5px 48px;
+    font-size: 12pt;
+}
+#keyword h3{
+    margin: 6px 0px 5px 48px;
+    font-size: 14pt;
+}
+#keyword ul{
+    margin: 7px 0;
+}
+#keyword li{
+    list-style: none;
+    display: inline-block;
+    padding: 4px 15px;
+    border: 1px solid #2d2d2d;
+    border-radius: 20px;
+    font-size: 11pt;
+    color: black;
+    margin: 3px 2px;
+}
+#keyword a:hover, #keyword a:visited, #keyword a:active, #keyword a{
+    color: black;
+}
 @media (max-width : 768px) {
     #somun_logo {
     }
