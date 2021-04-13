@@ -54,7 +54,7 @@
         <div id="full-image">
             <%
             for(String img_path : imgs){
-                %><img src="<%=img_path%>"><%
+                %><img id="alert_img" src="<%=img_path%>"><%
             }
             %>
         </div>
@@ -91,6 +91,11 @@
 <script>
     $('#change_btn').click(function(){
         window.open("alert_change_img.jsp", "_blank", "width=334px, height=600px")
+    })
+</script>
+<script>
+    $('#alert_img').click(function(){
+        location.href="http://localhost:8080/somoonhouse_war_exploded/remodeling_form.jsp?item_num=0";
     })
 </script>
 </body>
