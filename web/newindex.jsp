@@ -198,7 +198,25 @@
                         <li>웨인스코팅</li>
                     </ul>
                 </div>
-                <div class="banner" id="banner1"><img src="https://somoonhouse.com/otherimg/index/banner1.jpg"></div>
+                <div class="banner" id="banner1">
+                    <%
+                        // get images from Banner table
+                        conn = DBUtil.getMySQLConnection();
+                        String[][] banners = new String[3][2];
+                        query = "select * from BANNER order by Id ASC";
+                        pstmt = conn.prepareStatement(query);
+                        rs = pstmt.executeQuery();
+                        i = 0;
+                        while(rs.next()) {
+                            banners[i][0] = rs.getString("Image");
+                            banners[i][1] = rs.getString("Url");
+                            i++;
+                        }
+                    %>
+                    <a href = "<%=banners[0][1]%>" target="_self">
+                        <img src="<%=banners[0][0]%>">
+                    </a>
+                </div>
                 <div><!--인기사례 4칸-->
                     <h2>달서구 인기사례</h2>
                     <div><!--4칸짜리 틀-->
@@ -220,7 +238,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="banner" id="banner1"><img src="https://somoonhouse.com/otherimg/index/banner2.jpg"></div>
+                <div class="banner" id="banner2">
+                    <a href = "<%=banners[1][1]%>" target="_self">
+                        <img src="<%=banners[1][0]%>">
+                    </a>
+                </div>
                 <div>
                     <!--소문난집 이용후기-->
                     <h2>소문난집 이용후기</h2>
@@ -249,7 +271,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="banner" id="banner1"><img src="https://somoonhouse.com/otherimg/index/banner3.jpg"></div>
+                <div class="banner" id="banner3">
+                    <a href = "<%=banners[2][1]%>" target="_self">
+                        <img src="<%=banners[2][0]%>">
+                    </a>
+                </div>
             </div>
         </div>
     </div>
