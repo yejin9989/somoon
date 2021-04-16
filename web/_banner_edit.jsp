@@ -67,12 +67,8 @@
             error++;
         }
 
-        if(filename1 != null) {
-            out.println("uploaded file name: " + filename1);
-            file1 = "otherimg" + "/" + filename1;
+        if(filename1 != null) file1 = "otherimg" + "/" + filename1;
 
-        out.print("filename : " + file1);
-    }
         if(error == 0) {
             String sql = "";
             PreparedStatement pstmt = null;
@@ -84,12 +80,11 @@
             pstmt.setString(2, url); // Url
             pstmt.setString(3, id); // Id
             pstmt.executeUpdate();
-            out.print("sql : " + pstmt.toString());
 
             pstmt.close();%>
     <script>
-        // alert('수정을 완료했습니다.');
-        // self.close();
+        alert('수정을 완료했습니다.');
+        self.close();
     </script>
     <%
         }
