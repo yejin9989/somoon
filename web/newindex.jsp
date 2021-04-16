@@ -239,6 +239,10 @@
                     <a href = "<%=banners[0][1]%>" target="_self">
                         <img src="<%=banners[0][0]%>">
                     </a>
+                    <%if(s_id.equals("100")) /* 관리자 계정일 경우 */ { %>
+                <%--                    <a href="_dropremodeling.jsp?id=1" target="_blank" style="color:red; text-decoration:underline;">X삭제</a>--%>
+                    <span onclick="goBannerEdit(1);" style="color:blue;text-decoration:underline;">수정</span>
+                    <%}%>
                 </div>
                 <div><!--인기사례 4칸-->
                     <h2>달서구 인기사례</h2>
@@ -265,6 +269,10 @@
                     <a href = "<%=banners[1][1]%>" target="_self">
                         <img src="<%=banners[1][0]%>">
                     </a>
+                    <%if(s_id.equals("100")) /* 관리자 계정일 경우 */ { %>
+                    <%--                    <a href="_dropremodeling.jsp?id=2" target="_blank" style="color:red; text-decoration:underline;">X삭제</a>--%>
+                    <span onclick="goBannerEdit(2);" style="color:blue;text-decoration:underline;">수정</span>
+                    <%}%>
                 </div>
                 <div>
                     <!--소문난집 이용후기-->
@@ -298,6 +306,10 @@
                     <a href = "<%=banners[2][1]%>" target="_self">
                         <img src="<%=banners[2][0]%>">
                     </a>
+                    <%if(s_id.equals("100")) /* 관리자 계정일 경우 */ { %>
+                    <%--                    <a href="_dropremodeling.jsp?id=3" target="_blank" style="color:red; text-decoration:underline;">X삭제</a>--%>
+                    <span onclick="goBannerEdit(3);" style="color:blue;text-decoration:underline;">수정</span>
+                    <%}%>
                 </div>
             </div>
         </div>
@@ -399,6 +411,10 @@
 
         function goItemUpload(){
             window.open("item_upload.jsp","pop");
+        }
+
+        function goBannerEdit(id){
+            window.open("banner_edit.jsp?id="+id,"pop","width=570,height=420, scrollbars=yes, resizable=yes");
         }
     </script>
     <script>
