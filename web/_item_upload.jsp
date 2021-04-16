@@ -122,7 +122,10 @@
 		out.println("행정구역을 못찾겠어요 ㅠㅠ");
 	}
 	pstmt = null;
-	sql = "INSERT INTO REMODELING VALUES(Default, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DEFAULT, ?, DEFAULT, ?, ?, 0)";
+	sql = "INSERT INTO REMODELING" +
+			"(Number, Id, Title, Write_date, Company, Fee, Address, Apart_name, Buliding" +
+			"Xpos, Ypos, Etc, content, URL, Price_Area, Period, Part, Root_area, Second_area, Hit)" +
+			" VALUES(Default, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DEFAULT, ?, DEFAULT, ?, ?, 0)";
 	
 	//현재날짜 받아오기
 	Calendar cal = Calendar.getInstance();
