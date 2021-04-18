@@ -412,6 +412,17 @@ input#search {
 .banner img{
     width: 100%;
 }
+#attach_keyword{
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background: #4098f4;
+    color: white;
+    padding: 11px 32px;
+    border-radius: 21px;
+    box-shadow: 0px 2px 3px 1px #00000030;
+}
 @media (max-width : 768px) {
     #somun_logo {
     }

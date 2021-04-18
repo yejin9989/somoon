@@ -1,51 +1,51 @@
 <%@ page import="java.net.URLEncoder" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+		 pageEncoding="UTF-8"%>
 <%@ page language="java" import="java.text.*,java.sql.*,java.util.Calendar,java.util.*" %>
 <%@ page import="com.oreilly.servlet.MultipartRequest,com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
-<%@ page language="java" import="myPackage.DBUtil" %> 
-<%@ page language="java" import="myPackage.Link" %> 
+<%@ page language="java" import="myPackage.DBUtil" %>
+<%@ page language="java" import="myPackage.Link" %>
 <%@ page language="java" import="myPackage.GetImage" %>
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setCharacterEncoding("UTF-8"); %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<%
-	String id = session.getAttribute("s_id")+"";
-	String now = "_item_upload.jsp";
-	String url = "";
- 	String roadAddrPart1 = "";
-	String bdNm = "";
-	String building = "";
-	String title = "";
-	String content = "";
-	String company = "";
-	String fee = "";
-	String etc = "";
-	String entX = "";
-	String entY = "";
-	String file1[] = new String[10];
-	String price_area = "";
-	String period = "";
-	String part = "";
-	request.setCharacterEncoding("UTF-8");
-	 String realFolder = "";
-	 String filename1 = "";
-	 int maxSize = 1024*1024*5;
-	 String encType = "UTF-8";
-	 String savefile = "img";
-	 ServletContext scontext = getServletContext();
-	 realFolder = scontext.getRealPath(savefile);
-	 
-	Connection conn = DBUtil.getMySQLConnection();
-	try{
-		  MultipartRequest multi=new MultipartRequest(request, realFolder, maxSize, encType, new DefaultFileRenamePolicy());
-		 	url = multi.getParameter("url")+"";
-		 	if(url.equals("")) url = "NULL";
-		 	roadAddrPart1 = multi.getParameter("roadAddrPart1")+"";
-		 	if(roadAddrPart1.equals("")) roadAddrPart1 = "NULL";
+		String id = session.getAttribute("s_id")+"";
+		String now = "_item_upload.jsp";
+		String url = "";
+		String roadAddrPart1 = "";
+		String bdNm = "";
+		String building = "";
+		String title = "";
+		String content = "";
+		String company = "";
+		String fee = "";
+		String etc = "";
+		String entX = "";
+		String entY = "";
+		String file1[] = new String[10];
+		String price_area = "";
+		String period = "";
+		String part = "";
+		request.setCharacterEncoding("UTF-8");
+		String realFolder = "";
+		String filename1 = "";
+		int maxSize = 1024*1024*5;
+		String encType = "UTF-8";
+		String savefile = "img";
+		ServletContext scontext = getServletContext();
+		realFolder = scontext.getRealPath(savefile);
+
+		Connection conn = DBUtil.getMySQLConnection();
+		try{
+			MultipartRequest multi=new MultipartRequest(request, realFolder, maxSize, encType, new DefaultFileRenamePolicy());
+			url = multi.getParameter("url")+"";
+			if(url.equals("")) url = "NULL";
+			roadAddrPart1 = multi.getParameter("roadAddrPart1")+"";
+			if(roadAddrPart1.equals("")) roadAddrPart1 = "NULL";
 			bdNm = multi.getParameter("bdNm")+"";
 			if(bdNm.equals("")) bdNm = "NULL";
 			building = multi.getParameter("building")+"";
@@ -69,15 +69,15 @@
 			if(period.equals("")) period = "NULL";
 			part = multi.getParameter("part")+"";
 			if(part.equals("")) part = "NULL";
-		  Enumeration<?> files = multi.getFileNames();
-		     file1[0] = (String)files.nextElement();
-		     filename1 = multi.getFilesystemName(file1[0]);
-		 } catch(Exception e) {
-		  e.printStackTrace();
-		 }
-	int error=0;
-	if((title.equals("NULL") || filename1 == null) && url.equals("")){
-		%><script>alert("제목,사진과 url중 하나를 입력해주시길 바랍니다"); window,history.back();</script><%
+			Enumeration<?> files = multi.getFileNames();
+			file1[0] = (String)files.nextElement();
+			filename1 = multi.getFilesystemName(file1[0]);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		int error=0;
+		if((title.equals("NULL") || filename1 == null) && url.equals("")){
+	%><script>alert("제목,사진과 url중 하나를 입력해주시길 바랍니다"); window,history.back();</script><%
 		error++;
 	}
 	else if(title.equals("NULL") || filename1 == null){
@@ -92,9 +92,8 @@
 			out.println("파일이없어요\n");
 		}
 	}
-
 	if(filename1 != null)
-			file1[0] = "img" + "/" + filename1;
+		file1[0] = "img" + "/" + filename1;
 	out.println("filename : " + file1[0] + "\n");
 	//주소에서 지역 추출
 	String keyword = "";
@@ -122,11 +121,8 @@
 		out.println("행정구역을 못찾겠어요 ㅠㅠ");
 	}
 	pstmt = null;
-	sql = "INSERT INTO REMODELING" +
-			"(Number, Id, Title, Write_date, Company, Fee, Address, Apart_name, Buliding" +
-			"Xpos, Ypos, Etc, content, URL, Price_Area, Period, Part, Root_area, Second_area, Hit)" +
-			" VALUES(Default, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DEFAULT, ?, DEFAULT, ?, ?, 0)";
-	
+	sql = "INSERT INTO REMODELING VALUES(Default, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?, ?, ?, ?, ?, DEFAULT, ?, DEFAULT, ?, ?, 0)";
+
 	//현재날짜 받아오기
 	Calendar cal = Calendar.getInstance();
 	String year = Integer.toString(cal.get(Calendar.YEAR));
@@ -134,7 +130,7 @@
 	String date = Integer.toString(cal.get(Calendar.DATE));
 	String todayformat = year+"-"+month+"-"+date;
 	java.sql.Date d = java.sql.Date.valueOf(todayformat);
-	
+
 	pstmt = conn.prepareStatement(sql);
 	pstmt.setString(1, "0");
 	pstmt.setString(2, title);
@@ -155,7 +151,7 @@
 	if(error == 0){
 		pstmt.executeUpdate();
 	}
-	
+
 	//사진 넣기
 	sql = "SELECT MAX(Number) FROM REMODELING";
 	pstmt = conn.prepareStatement(sql);
@@ -166,12 +162,11 @@
 	}
 	int i;
 	out.println("img[] size : "+ file1.length);
-	 for(i=0; i<file1.length; i++){
-		 out.println("img["+i+"] : "+file1[i]);
-		 if(file1[i] == null || file1[i].equals("null"))
-			 break;
+	for(i=0; i<file1.length; i++){
+		out.println("img["+i+"] : "+file1[i]);
+		if(file1[i] == null || file1[i].equals("null"))
+			break;
 
-		
 		sql = "Insert into RMDL_IMG values(?, ?, ?)";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setInt(1, max);
@@ -180,13 +175,13 @@
 		if(error == 0){
 			pstmt.executeUpdate();
 		}
-	 }
+	}
 	pstmt.close();
 	conn.close();
-	%>
+%>
 	<script>
-	alert('등록을 완료했습니다.');
-	self.close();
+		alert('등록을 완료했습니다.');
+		self.close();
 	</script>
 </head>
 <body>

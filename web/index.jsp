@@ -565,8 +565,9 @@ for(i = 0; i < item.length; i++){
 	if(s_id.equals("100"))
 	{%>
 		<div style="width:100%;text-align:center;margin-bottom:20px;">
+			<!--<button onclick="goRecItemUpload();" style="width:150px;height:45px;margin:40px 15px;border-radius:5px; background-color:#29aef2; color:white; font-size:17px; border:none;">추천사례등록  ></button>-->
 			<button onclick="goRecItemUpload();" style="width:150px;height:45px;margin:40px 15px;border-radius:5px; background-color:#29aef2; color:white; font-size:17px; border:none;">추천사례등록  ></button>
-			<button onclick="goItemUpload();" style="width:150px;height:45px;margin:40px 15px;border-radius:5px; background-color:#29aef2; color:white; font-size:17px; border:none;">사례등록  ></button>
+			<a href="item_upload.jsp" target="_blank" style="width:150px;height:45px;margin:40px 15px;border-radius:5px; background-color:#29aef2; color:white; font-size:17px; border:none;">사례등록  ></a>
 		</div>
 		<%}%>
     <%
@@ -663,7 +664,6 @@ for(i = 0; i < item.length; i++){
 		{%>
 			<a href="_dropremodeling.jsp?num=<%=item[i][0]%>" target="_blank" style="color:red; text-decoration:underline;">X삭제</a>
 			<a href="remodeling_edit.jsp?num=<%=item[i][0]%>" target="_blank" style="color:blue;text-decoration:underline;">수정</a>
-		
 		<%}%>
 		<a href="remodeling_form.jsp?item_num=<%=item[i][0]%>"><div class="req_btn"></div></a>
 		</div>
@@ -856,7 +856,13 @@ for(i = 0; i < item.length; i++){
     }
     %>
 </div>
-
+<%
+if(keyword != null && !keyword.equals("")){
+	%><div id='attach_keyword'><%
+	out.print("이 키워드에 사례추가");
+	%></div><%
+}
+%>
 <%
 pstmt.close();
 rs.close();
@@ -907,6 +913,9 @@ function ajax_click(obj){
     	 location.href = "index.jsp?Daegu="+Daegu+"&pagenumstr="+pagenumber;
     }
 }
+$('#attach_keyword').click(function(){
+	location.href = "attach_keyword.jsp";
+})
 </script>
 <script>
 function frame(){
@@ -958,7 +967,6 @@ $(window).resize(function(){
 $(document).ready(function(){
 	frame()
 });
-
 </script>
 <script>
 $(document).ready(function(){
