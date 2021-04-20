@@ -92,8 +92,7 @@
 </script>
 <script>
     $('#change_btn').click(function(){
-        // window.open("alert_change_img.jsp", "_blank", "width=334px, height=600px")
-
+        window.open("banner_change_img.jsp?id=<%=id%>", "_blanck", "width=334px, height=600px")
     })
 </script>
 <script>
