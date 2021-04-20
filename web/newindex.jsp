@@ -236,7 +236,8 @@
                             i++;
                         }
                     %>
-                    <a href = "<%=banners[0][1]%>" target="_self">
+<%--                    <a href = "<%=banners[0][1]%>" target="_self">--%>
+                    <a href = "http://localhost:8080/somoonhouse_war_exploded/banner1.jsp?id=1" target="_self">
                         <img src="<%=banners[0][0]%>">
                     </a>
                     <%if(s_id.equals("100")) /* 관리자 계정일 경우 */ { %>
@@ -266,7 +267,8 @@
                     </div>
                 </div>
                 <div class="banner" id="banner2">
-                    <a href = "<%=banners[1][1]%>" target="_self">
+<%--                    <a href = "<%=banners[1][1]%>" target="_self">--%>
+    <a href = "http://localhost:8080/somoonhouse_war_exploded/banner1.jsp?id=2" target="_self">
                         <img src="<%=banners[1][0]%>">
                     </a>
                     <%if(s_id.equals("100")) /* 관리자 계정일 경우 */ { %>
@@ -303,7 +305,8 @@
                     </div>
                 </div>
                 <div class="banner" id="banner3">
-                    <a href = "<%=banners[2][1]%>" target="_self">
+<%--                    <a href = "<%=banners[2][1]%>" target="_self">--%>
+                    <a href = "http://localhost:8080/somoonhouse_war_exploded/banner1.jsp?id=3" target="_self">
                         <img src="<%=banners[2][0]%>">
                     </a>
                     <%if(s_id.equals("100")) /* 관리자 계정일 경우 */ { %>

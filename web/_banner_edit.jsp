@@ -67,7 +67,7 @@
             error++;
         }
 
-        if(filename1 != null) file1 = "otherimg" + "/" + filename1;
+        if(filename1 != null) file1 = "https://somoonhouse.com/otherimg" + "/" + filename1;
 
         if(error == 0) {
             String sql = "";
