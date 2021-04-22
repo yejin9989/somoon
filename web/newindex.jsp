@@ -21,9 +21,9 @@
     query = "select * from KEYWORD";
     pstmt = conn.prepareStatement(query);
     rs = pstmt.executeQuery();
-    ArrayList<String> keyword = new ArrayList<String>();
+    HashMap<String, String> keyword = new HashMap<String, String>();
     while(rs.next()) {
-        keyword.add(rs.getString("Name"));
+        keyword.put(rs.getString("Id"), rs.getString("Name"));
     }
 %>
 <!DOCTYPE html>
@@ -202,18 +202,23 @@
                     <h3>소문난집 인기 키워드</h3>
                     <ul>
                         <%
-                            for(i=0; i<keyword.size(); i++){
-                                out.print("<li id='keyword"+i+"'>");
-                                out.print("<a href='" + "index.jsp?keyword=" + i + "'>");
-                                out.print(keyword.get(i));
+                            for(String id : keyword.keySet()){
+                                out.print("<li id='keyword"+id+"'>");
+                                out.print("<a href='" + "index.jsp?keyword=" + id + "'>");
+                                out.print(keyword.get(id));
                                 out.print("</a>");
+                                if(s_id.equals("100")) {
+                                    out.print("<a href='" + "_drop_keyword.jsp?keyword=" + id + "' style='color:red;'>");
+                                    out.print("X");
+                                    out.print("</a>");
+                                }
                                 out.print("</li>");
                             }
                         %>
                         <%
                         if(s_id.equals("100")){
                             out.print("<li id='keyword"+i+"'>");
-                            out.print("<a href='add_keyword.jsp' target='_blank'>");
+                            out.print("<a href='add_keyword.jsp'>");
                             out.print("+");
                             out.print("</a>");
                             out.print("</li>");
