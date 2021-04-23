@@ -665,9 +665,12 @@ for(i = 0; i < item.length; i++){
     	<%
 		if(s_id.equals("100") || s_id.equals(item[i][1]))//관리자 계정이거나 본인 글 일 경우
 		{%>
-			<a href="_dropremodeling.jsp?num=<%=item[i][0]%>" target="_blank" style="color:red; text-decoration:underline;">X삭제</a>
+            <a href="_dropremodeling.jsp?num=<%=item[i][0]%>" target="_blank" style="color:red; text-decoration:underline;">X삭제</a>
 			<a href="remodeling_edit.jsp?num=<%=item[i][0]%>" target="_blank" style="color:blue;text-decoration:underline;">수정</a>
-		<%}%>
+			<%if(keyword != null &&!keyword.equals("")){%>
+			<a href="_detach_keyword.jsp?num=<%=item[i][0]%>&keyword=<%=keyword%>" target="_blank" style="color:red; text-decoration:underline;">-키워드에서 삭제</a>
+			<%}
+		}%>
 		<a href="remodeling_form.jsp?item_num=<%=item[i][0]%>"><div class="req_btn"></div></a>
 		</div>
     	</div>
@@ -907,6 +910,7 @@ function ajax_click(obj){
     var Daegu = $("input[name='Daegu']:checked").val();
     var pagenumber = $(obj).attr("title");
     var apartment = "<%=build%>";
+    var keyword = "<%=keyword%>";
     if(apartment == "null") apartment="";
     if(pagenumber == null) pagenumber=1;
     if(a=="pageidx"){
@@ -917,7 +921,7 @@ function ajax_click(obj){
     }
 }
 $('#attach_keyword').click(function(){
-	location.href = "attach_keyword.jsp";
+	location.href = "attach_keyword.jsp?keyword="+"<%=keyword%>";
 })
 </script>
 <script>
