@@ -274,11 +274,31 @@
                     <span onclick="goBannerEdit(2);" style="color:blue;text-decoration:underline;">수정</span>
                     <%}%>
                 </div>
-                <div>
+                <div id="review">
                     <!--소문난집 이용후기-->
                     <h2>소문난집 이용후기</h2>
-                    <div>
-                        이미지칸
+                    <div class="center">
+                        <%
+                            // 리뷰 받아오기
+                            query = "select * from REVIEW order by Id ASC";
+                            pstmt = conn.prepareStatement(query);
+                            rs = pstmt.executeQuery();
+                            String reviews[] = new String[100];
+                            int review_cnt = 0;
+                            while(rs.next()) {
+                                reviews[review_cnt] = rs.getString("Image");
+                        %>
+                        <div>
+                            <div class="center_img">
+                                <div>
+                                    <img src="<%=reviews[review_cnt]%>" class="eotkd" />
+                                </div>
+                            </div>
+                        </div>
+                        <%
+                                review_cnt++;
+                            }
+                        %>
                     </div>
                 </div>
                 <div><!--인기사례 4칸-->
