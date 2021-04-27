@@ -11,6 +11,10 @@
     response.setDateHeader("Expires", 31536000);
 %>
 <%
+int i;
+String mylog = "";
+%>
+<%
     Connection conn = DBUtil.getMySQLConnection();
     ResultSet rs = null;
     PreparedStatement pstmt = null;
@@ -25,6 +29,87 @@
     while(rs.next()) {
         keyword.put(rs.getString("Id"), rs.getString("Name"));
     }
+    pstmt.close();
+
+    //인기사례 지역 두개 받아오기
+    String[] popular_area = new String[2];
+    query = "select * from POPULAR_AREA order by Id ASC";
+    pstmt = conn.prepareStatement(query);
+    rs = pstmt.executeQuery();
+    i = 0;
+    while(rs.next()){
+        popular_area[i] = rs.getString("Second_area");
+        mylog += "인기지역" + i + popular_area[i] + "\n";
+        i++;
+    }
+    pstmt.close();
+
+    //인기사례 지역 한글 받아오기
+    String[] popular_area_str = new String[2];
+    for(i=0; i<popular_area.length; i++){
+        query = "select * from SECOND_AREA where Area_number = ?";
+        pstmt = conn.prepareStatement(query);
+        pstmt.setString(1, popular_area[i]);
+        rs = pstmt.executeQuery();
+        while(rs.next()){
+            popular_area_str[i] = rs.getString("Area_name");
+            mylog += "인기지역" + i + popular_area_str[i] + "\n";
+        }
+        pstmt.close();
+    }
+
+    //인기사례 지역의 인기사례 받아오기
+    LinkedList<HashMap<String, String>> popular0 = new LinkedList<HashMap<String, String>>();
+    LinkedList<HashMap<String, String>> popular1 = new LinkedList<HashMap<String, String>>();
+    for(i = 0; i < popular_area.length; i++){
+        query = "select * from REMODELING where Second_area = ? and Popular = 1 limit 4";
+        pstmt = conn.prepareStatement(query);
+        pstmt.setString(1, popular_area[i]);
+        rs = pstmt.executeQuery();
+        mylog += "인기지역" + i + popular_area_str[i] + "의 인기사례" + "\n";
+        while(rs.next()){
+            HashMap<String, String> mymap = new HashMap<String, String>();
+            mymap.put("Number", rs.getString("Number"));
+            mymap.put("Title", rs.getString("Title"));
+            if(i == 0)
+                popular0.add(mymap);
+            else
+                popular1.add(mymap);
+            mylog += mymap + "\n";
+        }
+        pstmt.close();
+    }
+    mylog += "현재 linked list 상태 : ";
+    mylog += popular0;
+    mylog += popular1;
+    //인기사례 지역의 인기사례 사진 받아오기
+    LinkedList<String> popular_img0 = new LinkedList<String>();
+    for(i=0; i<popular0.size(); i++){
+        query = " select * from RMDL_IMG where Number = ? order by Number2 ASC limit 1";
+        pstmt = conn.prepareStatement(query);
+        pstmt.setString(1, popular0.get(i).get("Number"));
+        rs = pstmt.executeQuery();
+        mylog += "인기사례" + i + popular0.get(i).get("Title") + "의 사진경로" + "\n";
+        while(rs.next()){
+            popular_img0.add(rs.getString("Path"));
+            mylog += rs.getString("Path") + "\n";
+        }
+        pstmt.close();
+    }
+    LinkedList<String> popular_img1 = new LinkedList<String>();
+    for(i=0; i<popular1.size(); i++){
+        query = " select * from RMDL_IMG where Number = ? order by Number2 ASC limit 1";
+        pstmt = conn.prepareStatement(query);
+        pstmt.setString(1, popular1.get(i).get("Number"));
+        rs = pstmt.executeQuery();
+        mylog += "인기사례" + i + popular1.get(i).get("Title") + "의 사진경로" + "\n";
+        while(rs.next()){
+            popular_img1.add(rs.getString("Path"));
+            mylog += rs.getString("Path") + "\n";
+        }
+        pstmt.close();
+    }
+
 %>
 <!DOCTYPE html>
 <html>
@@ -70,7 +155,7 @@
                     pstmt = conn.prepareStatement(query);
                     rs = pstmt.executeQuery();
                     String recitem[][] = new String[100][18];
-                    int i = 0;
+                    i = 0;
                     while(rs.next()){
                         recitem[i][0] = rs.getString("Number");
                         recitem[i][3] = rs.getString("Path");
@@ -249,25 +334,35 @@
                     <span onclick="goBannerEdit(1);" style="color:blue;text-decoration:underline;">수정</span>
                     <%}%>
                 </div>
-                <div><!--인기사례 4칸-->
-                    <h2>달서구 인기사례</h2>
-                    <div><!--4칸짜리 틀-->
-                        <div><!--한 블럭-->
-                            <div>이미지</div>
-                            <div>설명</div>
-                        </div>
-                        <div><!--한 블럭-->
-                            <div>이미지</div>
-                            <div>설명</div>
-                        </div>
-                        <div><!--한 블럭-->
-                            <div>이미지</div>
-                            <div>설명</div>
-                        </div>
-                        <div><!--한 블럭-->
-                            <div>이미지</div>
-                            <div>설명</div>
-                        </div>
+                <div class="popular-container"><!--인기사례 4칸-->
+                    <div class="popular-title">
+                    <%if(s_id.equals("100")){
+                        %><input type="text" value="<%=popular_area_str[0]%>"><%
+                    }
+                    else{
+                        out.print(popular_area_str[0]);
+                    }%>
+                        인기사례
+                    </div>
+                    <div class="popular-items"><!--4칸짜리 틀-->
+                        <%for(i=0; i<popular0.size(); i++){
+                            out.print("<a href='_hit.jsp?num=" + popular0.get(i).get("Number") + "'>");
+                            out.print("<div class='popular-item'>"); //한 블럭 시작
+
+                            out.print("<div class='popular-item-img-container'>");//이미지블럭
+                            out.print("<img src='" + popular_img0.get(i) + "'>");
+                            out.print("</div>");//이미지블럭끝
+
+                            out.print("<div class='popular-item-desc'>");//설명블럭
+                            out.print(popular0.get(i).get("Title"));
+                            out.print("</div>");//설명블럭 끝
+
+                            out.print("</div>"); //한 블럭 끝
+                            out.print("</a>");
+                        }%>
+                    </div>
+                    <div class="popular-more">
+                        더보기
                     </div>
                 </div>
                 <div class="banner" id="banner2">
@@ -306,25 +401,35 @@
                         %>
                     </div>
                 </div>
-                <div><!--인기사례 4칸-->
-                    <h2>달서구 인기사례</h2>
-                    <div><!--4칸짜리 틀-->
-                        <div><!--한 블럭-->
-                            <div>이미지</div>
-                            <div>설명</div>
-                        </div>
-                        <div><!--한 블럭-->
-                            <div>이미지</div>
-                            <div>설명</div>
-                        </div>
-                        <div><!--한 블럭-->
-                            <div>이미지</div>
-                            <div>설명</div>
-                        </div>
-                        <div><!--한 블럭-->
-                            <div>이미지</div>
-                            <div>설명</div>
-                        </div>
+                <div class="popular-container"><!--인기사례 4칸-->
+                    <div class="popular-title">
+                        <%if(s_id.equals("100")){
+                        %><input type="text" value="<%="달서구"%>"><%
+                        }
+                        else{
+                            out.print("달서구");
+                        }%>
+                        인기사례
+                    </div>
+                    <div class="popular-items"><!--4칸짜리 틀-->
+                        <%for(i=0; i<popular1.size(); i++){
+                            out.print("<a href='_hit.jsp?num=" + popular0.get(i).get("Number") + "'>");
+                            out.print("<div class='popular-item'>"); //한 블럭 시작
+
+                            out.print("<div class='popular-item-img-container'>");//이미지블럭
+                            out.print("<img src='" + popular_img1.get(i) + "'>");
+                            out.print("</div>");//이미지블럭끝
+
+                            out.print("<div class='popular-item-desc'>");//설명블럭
+                            out.print(popular1.get(i).get("Title"));
+                            out.print("</div>");//설명블럭 끝
+
+                            out.print("</div>"); //한 블럭 끝
+                            out.print("</a>");
+                        }%>
+                    </div>
+                    <div class="popular-more">
+                        더보기
                     </div>
                 </div>
                 <div class="banner" id="banner3">

@@ -121,7 +121,7 @@
 		out.println("행정구역을 못찾겠어요 ㅠㅠ");
 	}
 	pstmt = null;
-	sql = "INSERT INTO REMODELING VALUES(Default, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?, ?, ?, ?, ?, DEFAULT, ?, DEFAULT, ?, ?, 0)";
+	sql = "INSERT INTO REMODELING VALUES(Default, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?, ?, ?, ?, ?, DEFAULT, ?, DEFAULT, ?, ?, 0, DEFAULT)";
 
 	//현재날짜 받아오기
 	Calendar cal = Calendar.getInstance();

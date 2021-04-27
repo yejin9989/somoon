@@ -413,11 +413,11 @@ input#search {
     width: 100%;
 }
 #keyword h2{
-    margin: 30px 0px 5px 48px;
+    margin: 30px 0px 5px 30px;
     font-size: 12pt;
 }
 #keyword h3{
-    margin: 6px 0px 5px 48px;
+    margin: 6px 0px 5px 30px;
     font-size: 14pt;
 }
 #keyword ul{
@@ -435,6 +435,63 @@ input#search {
 }
 #keyword a:hover, #keyword a:visited, #keyword a:active, #keyword a{
     color: black;
+}
+.popular-container{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 4% 30px;
+}
+.popular-title{
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 14pt;
+    font-weight: bold;
+    padding: 16px 0;
+}
+.popular-items{
+    box-sizing: border-box;
+    width: 100%;
+    height: 433px;
+}
+.popular-item{
+    box-sizing: border-box;
+    width: 48%;
+    height: 48%;
+    margin: 1%;
+    display: inline-block;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0px 0px 5px 0px #0000002e;
+}
+.popular-item-img-container{
+    box-sizing: border-box;
+    width: 100%;
+    height: 80%;
+}
+.popular-item-img-container img{
+    box-sizing: border-box;
+    width: 90%;
+    height: 90%;
+    top: 50%;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 0px;
+}
+.popular-item-desc{
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 10.5pt;
+    height: 20%;
+    padding: 0 0 0 5%;
+    color: #232323;
+}
+.popular-more{
+    text-align: center;
+    border: 1px solid #595959;
+    padding: 3px 0px;
+    border-radius: 8px;
+    margin: 0px 0;
 }
 @media (max-width : 768px) {
     #somun_logo {
