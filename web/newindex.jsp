@@ -81,7 +81,7 @@
                         <div>
                             <a href = "<%=recitem[i][3]%>" target="_self">
                                 <img src="<%=imgstr%>" class="eotkd">
-                                </a>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -282,26 +282,28 @@
                 <div id="review">
                     <!--소문난집 이용후기-->
                     <h2>소문난집 이용후기</h2>
-                    <div class="center">
+                    <div class="center2">
                         <%
                             // 리뷰 받아오기
                             query = "select * from REVIEW order by Id ASC";
                             pstmt = conn.prepareStatement(query);
                             rs = pstmt.executeQuery();
-                            String reviews[] = new String[100];
-                            int review_cnt = 0;
+//                            String reviews[] = new String[100];
+                            String review_url = "";
+//                            int review_cnt = 0;
                             while(rs.next()) {
-                                reviews[review_cnt] = rs.getString("Image");
+//                                reviews[review_cnt] = rs.getString("Image");
+                                review_url = rs.getString("Image");
                         %>
                         <div>
                             <div class="center_img">
                                 <div>
-                                    <img src="<%=reviews[review_cnt]%>" class="eotkd" />
+                                    <img src="<%=review_url%>" class="eotkd2" />
                                 </div>
                             </div>
                         </div>
                         <%
-                                review_cnt++;
+//                                review_cnt++;
                             }
                         %>
                     </div>
@@ -362,9 +364,9 @@
         }
     </script>
     <script>
-        function frame(){
+        function frame(str){
             var div = $(".center div"); // 이미지를 감싸는 div
-            var img = $(".eotkd"); // 이미지
+            var img = $(str); // 이미지
             var divWidth = div[0].offsetWidth
             var divHeight = div[0].offsetHeight-10;
             if(divWidth >= 510){
@@ -406,18 +408,27 @@
         }
 
         $(window).resize(function(){
-            frame()
+            frame(".eotkd")
+            frame(".eotkd2")
         });
         $(document).ready(function(){
-            frame()
+            frame(".eotkd")
+            frame(".eotkd2")
         });
-
     </script>
     <script>
         $(document).ready(function(){
             $('.center').slick({
                 centerMode: true,
                 centerPadding: '50px',
+                slidesToShow: 1,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                arrows: false
+            });
+            $('.center2').slick({
+                centerMode: true,
+                centerPadding: '0px',
                 slidesToShow: 1,
                 autoplay: true,
                 autoplaySpeed: 3000,
