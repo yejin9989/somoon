@@ -1,0 +1,4 @@
+.display-items, .general-items, .delete-theme{
+    cursor: pointer;
+    text-decoration: underline;
+}

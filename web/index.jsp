@@ -612,15 +612,22 @@ for(i = 0; i < item.length; i++){
     	pstmt.setString(1, item[i][0]);
     	rs = pstmt.executeQuery();
     	%><div class="notslider<%=classes%>" style="overflow:hidden;height:100%;border-radius:7px;"><%
-    	while(rs.next()){
-    		%>
-    		<div class="itemdiv">
-    		<a href = "_hit1.jsp?num=<%=item[i][0]%>" target="_self">
-    		<img src="<%=rs.getString("Path").replaceAll("%25", "%").replaceAll("%", "%25")%>">
-    		</a>
-    		</div>
-    		<%
-    	}
+			while(rs.next()){
+		%>
+			<div class="itemdiv">
+				<a href = "_hit1.jsp?num=<%=item[i][0]%>" target="_self">
+					<img src="<%
+    		if(rs.getString("Path") == null){
+    			out.print("img/not_found.png");
+    		}
+    		else{
+    			out.print(rs.getString("Path").replaceAll("%25", "%").replaceAll("%", "%25"));
+    		}
+    		%>">
+				</a>
+			</div>
+			<%
+				}
     	%>
 		</div>
 		<script>

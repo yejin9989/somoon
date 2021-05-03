@@ -31,85 +31,42 @@ String mylog = "";
     }
     pstmt.close();
 
-    //인기사례 지역 두개 받아오기
-    String[] popular_area = new String[2];
-    query = "select * from POPULAR_AREA order by Id ASC";
+    //테마 두가지 받아오기, 테마번호, 테마이름
+    LinkedList<HashMap<String, String>> theme = new LinkedList<HashMap<String, String>>();
+    query = "select * from THEME where Display = 1 order by Id ASC";
     pstmt = conn.prepareStatement(query);
     rs = pstmt.executeQuery();
     i = 0;
     while(rs.next()){
-        popular_area[i] = rs.getString("Second_area");
-        mylog += "인기지역" + i + popular_area[i] + "\n";
+        HashMap<String, String> mymap = new HashMap<String, String>();
+        mymap.put("Id", rs.getString("Id"));
+        mymap.put("Name", rs.getString("Name"));
+        theme.add(mymap);
+        mylog += "테마" + i + mymap + "\n";
         i++;
     }
     pstmt.close();
 
-    //인기사례 지역 한글 받아오기
-    String[] popular_area_str = new String[2];
-    for(i=0; i<popular_area.length; i++){
-        query = "select * from SECOND_AREA where Area_number = ?";
+    //테마 별 인기사례 받아오기 (순서, 사례, 사례정보)
+    LinkedList<LinkedList<HashMap<String, String>>> theme_items = new LinkedList<LinkedList<HashMap<String, String>>>();
+    for(i = 0; i < theme.size(); i++){
+        query = "select * from THEME_ASSIGNED A, REMODELING R, RMDL_IMG I where A.Theme_id = ? and A.Display = 1 and R.Number = A.Item_id and I.Number = R.Number and I.Number2=1 limit 4";
         pstmt = conn.prepareStatement(query);
-        pstmt.setString(1, popular_area[i]);
+        pstmt.setString(1, theme.get(i).get("Id"));
         rs = pstmt.executeQuery();
-        while(rs.next()){
-            popular_area_str[i] = rs.getString("Area_name");
-            mylog += "인기지역" + i + popular_area_str[i] + "\n";
-        }
-        pstmt.close();
-    }
-
-    //인기사례 지역의 인기사례 받아오기
-    LinkedList<HashMap<String, String>> popular0 = new LinkedList<HashMap<String, String>>();
-    LinkedList<HashMap<String, String>> popular1 = new LinkedList<HashMap<String, String>>();
-    for(i = 0; i < popular_area.length; i++){
-        query = "select * from REMODELING where Second_area = ? and Popular = 1 limit 4";
-        pstmt = conn.prepareStatement(query);
-        pstmt.setString(1, popular_area[i]);
-        rs = pstmt.executeQuery();
-        mylog += "인기지역" + i + popular_area_str[i] + "의 인기사례" + "\n";
+        mylog += "테마" + i + theme.get(i).get("Name") + "의 인기사례:" + "\n";
+        LinkedList<HashMap<String, String>> mylist = new LinkedList<HashMap<String, String>>();
         while(rs.next()){
             HashMap<String, String> mymap = new HashMap<String, String>();
-            mymap.put("Number", rs.getString("Number"));
+            mymap.put("Id", rs.getString("Item_id"));
+            mymap.put("Img", rs.getString("Path"));
             mymap.put("Title", rs.getString("Title"));
-            if(i == 0)
-                popular0.add(mymap);
-            else
-                popular1.add(mymap);
-            mylog += mymap + "\n";
+            mylog += mymap + ", ";
+            mylist.add(mymap);
         }
+        theme_items.add(mylist);
         pstmt.close();
     }
-    mylog += "현재 linked list 상태 : ";
-    mylog += popular0;
-    mylog += popular1;
-    //인기사례 지역의 인기사례 사진 받아오기
-    LinkedList<String> popular_img0 = new LinkedList<String>();
-    for(i=0; i<popular0.size(); i++){
-        query = " select * from RMDL_IMG where Number = ? order by Number2 ASC limit 1";
-        pstmt = conn.prepareStatement(query);
-        pstmt.setString(1, popular0.get(i).get("Number"));
-        rs = pstmt.executeQuery();
-        mylog += "인기사례" + i + popular0.get(i).get("Title") + "의 사진경로" + "\n";
-        while(rs.next()){
-            popular_img0.add(rs.getString("Path"));
-            mylog += rs.getString("Path") + "\n";
-        }
-        pstmt.close();
-    }
-    LinkedList<String> popular_img1 = new LinkedList<String>();
-    for(i=0; i<popular1.size(); i++){
-        query = " select * from RMDL_IMG where Number = ? order by Number2 ASC limit 1";
-        pstmt = conn.prepareStatement(query);
-        pstmt.setString(1, popular1.get(i).get("Number"));
-        rs = pstmt.executeQuery();
-        mylog += "인기사례" + i + popular1.get(i).get("Title") + "의 사진경로" + "\n";
-        while(rs.next()){
-            popular_img1.add(rs.getString("Path"));
-            mylog += rs.getString("Path") + "\n";
-        }
-        pstmt.close();
-    }
-
 %>
 <!DOCTYPE html>
 <html>
@@ -128,19 +85,6 @@ String mylog = "";
         <span id="topBtn">top</span>
         <span id="applyBtn"><div>상담<br>신청</div></span>
     </div>
-    <script>
-        var topEle = $('#topBtn');
-        var delay = 1000;
-        topEle.on('click', function(){
-            $('html, body').stop().animate({scrollTop:0}, delay);
-        })
-    </script>
-    <script>
-        var applyEle = $('#applyBtn');
-        applyEle.on('click', function(){
-            location.href = "remodeling_form.jsp?item_num=0";
-        })
-    </script>
     <div id="somun_navbar">
         <div id="somun_logo"><a href="index.jsp"><img style="height:30px;"src="https://somoonhouse.com/otherimg/index/somunlogo.jpg"></a></div>
         <div id="alert"><a href="alert.jsp"><img style="height:30px;"src="https://somoonhouse.com/otherimg/index/alert.jpg"></a></div>
@@ -335,35 +279,34 @@ String mylog = "";
                     <%}%>
                 </div>
                 <div class="popular-container"><!--인기사례 4칸-->
-                    <div class="popular-title">
                     <%if(s_id.equals("100")){
-                        %><input type="text" value="<%=popular_area_str[0]%>"><%
-                    }
-                    else{
-                        out.print(popular_area_str[0]);
-                    }%>
-                        인기사례
+                    %><div class="theme-edit" id="theme0">테마변경</div><%
+                        }%>
+                    <div class="popular-title">
+                        <%=theme.get(0).get("Name")%>
                     </div>
                     <div class="popular-items"><!--4칸짜리 틀-->
-                        <%for(i=0; i<popular0.size(); i++){
-                            out.print("<a href='_hit.jsp?num=" + popular0.get(i).get("Number") + "'>");
+                        <%for(i=0; i<theme_items.get(0).size(); i++){
+                            out.print("<a href='_hit.jsp?num=" + theme_items.get(0).get(i).get("Number") + "'>");
                             out.print("<div class='popular-item'>"); //한 블럭 시작
 
                             out.print("<div class='popular-item-img-container'>");//이미지블럭
-                            out.print("<img src='" + popular_img0.get(i) + "'>");
+                            out.print("<img src='" + theme_items.get(0).get(i).get("Img") + "'>");
                             out.print("</div>");//이미지블럭끝
 
                             out.print("<div class='popular-item-desc'>");//설명블럭
-                            out.print(popular0.get(i).get("Title"));
+                            out.print(theme_items.get(0).get(i).get("Title"));
                             out.print("</div>");//설명블럭 끝
 
                             out.print("</div>"); //한 블럭 끝
                             out.print("</a>");
-                        }%>
+                            }%>
                     </div>
-                    <div class="popular-more">
-                        더보기
-                    </div>
+                    <a href="index.jsp?theme=<%=theme.get(0).get("Id")%>">
+                        <div class="popular-more">
+                            더보기
+                        </div>
+                    </a>
                 </div>
                 <div class="banner" id="banner2">
                     <a href = "banner1.jsp?id=2" target="_self">
@@ -402,35 +345,34 @@ String mylog = "";
                     </div>
                 </div>
                 <div class="popular-container"><!--인기사례 4칸-->
-                    <div class="popular-title">
-                        <%if(s_id.equals("100")){
-                        %><input type="text" value="<%="달서구"%>"><%
-                        }
-                        else{
-                            out.print("달서구");
+                    <%if(s_id.equals("100")){
+                    %><div class="theme-edit" id="theme1">테마변경</div><%
                         }%>
-                        인기사례
+                    <div class="popular-title">
+                        <%=theme.get(1).get("Name")%>
                     </div>
                     <div class="popular-items"><!--4칸짜리 틀-->
-                        <%for(i=0; i<popular1.size(); i++){
-                            out.print("<a href='_hit.jsp?num=" + popular0.get(i).get("Number") + "'>");
+                        <%for(i=0; i<theme_items.get(1).size(); i++){
+                            out.print("<a href='_hit.jsp?num=" + theme_items.get(1).get(i).get("Number") + "'>");
                             out.print("<div class='popular-item'>"); //한 블럭 시작
 
                             out.print("<div class='popular-item-img-container'>");//이미지블럭
-                            out.print("<img src='" + popular_img1.get(i) + "'>");
+                            out.print("<img src='" + theme_items.get(1).get(i).get("Img") + "'>");
                             out.print("</div>");//이미지블럭끝
 
                             out.print("<div class='popular-item-desc'>");//설명블럭
-                            out.print(popular1.get(i).get("Title"));
+                            out.print(theme_items.get(1).get(i).get("Title"));
                             out.print("</div>");//설명블럭 끝
 
                             out.print("</div>"); //한 블럭 끝
                             out.print("</a>");
-                        }%>
+                            }%>
                     </div>
-                    <div class="popular-more">
-                        더보기
-                    </div>
+                    <a href="index.jsp?theme=<%=theme.get(1).get("Id")%>">
+                        <div class="popular-more">
+                            더보기
+                        </div>
+                    </a>
                 </div>
                 <div class="banner" id="banner3">
 <%--                    <a href = "<%=banners[2][1]%>" target="_self">--%>
@@ -445,7 +387,9 @@ String mylog = "";
             </div>
         </div>
     </div>
-    <footer>푸터</footer>
+    <footer>
+        <img src="https://somoonhouse.com/img/footer.png" style="width:100%">
+    </footer>
 </div>
     <%
         if(pstmt != null) {
@@ -458,6 +402,27 @@ String mylog = "";
     <!-- jsp:include page="footer.jsp" flush="false"/ -->
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+      var topEle = $('#topBtn');
+      var delay = 1000;
+      topEle.on('click', function(){
+          $('html, body').stop().animate({scrollTop:0}, delay);
+      })
+    </script>
+    <script>
+        var applyEle = $('#applyBtn');
+        applyEle.on('click', function(){
+        location.href = "remodeling_form.jsp?item_num=0";
+        })
+    </script>
+    <script>
+        $('.theme-edit').click(function(){
+            var id = $(this).attr('id');
+            id = id.replaceAll('theme', '');
+            var url = 'theme_edit.jsp' + '?' + 'theme=' + id;
+            window.open(url);
+        })
+    </script>
     <script>
         function ajax_click(obj){
             var a = $(obj).attr("class");
