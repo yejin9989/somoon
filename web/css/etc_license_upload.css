@@ -47,11 +47,3 @@ form {
 .text-red {
     color: red;
 }
-
-/* review_del */
-.review_box {
-    display: inline;
-}
-.reivew_id {
-    display: inline;
-}
