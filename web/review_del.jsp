@@ -38,9 +38,8 @@
             reviews_id[review_cnt] = rs.getString("Id");
             review_url = rs.getString("Image");
     %>
-    <div class="review_box">
+    <div class="review_box" style="display: block">
         <input class="id" id="id" name="id" type="radio" value="<%=reviews_id[review_cnt]%>" />
-<%--        <span><%=reviews_id[review_cnt]%></span>--%>
         <img src="<%=review_url%>" class="review_img" style="height:300px;width:300px;" />
     </div>
     <%

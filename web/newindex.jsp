@@ -301,16 +301,16 @@
                                     <img src="<%=review_url%>" class="eotkd2" />
                                 </div>
                             </div>
-                            <%if(s_id.equals("100")) /* 관리자 계정일 경우 */ { %>
-                                <span onclick="goReviewUpload();" style="color:blue;text-decoration:underline;">추가</span>
-                                <span onclick="goReviewDel();" style="color:red;text-decoration:underline;">삭제</span>
-                            <%}%>
                         </div>
                         <%
                                 review_cnt++;
                             }
                         %>
                     </div>
+                    <%if(s_id.equals("100")) /* 관리자 계정일 경우 */ { %>
+                        <span onclick="goReviewUpload();" style="color:blue;text-decoration:underline;">추가</span>
+                        <span onclick="goReviewDel();" style="color:red;text-decoration:underline;">삭제</span>
+                    <%}%>
                 </div>
                 <div><!--인기사례 4칸-->
                     <h2>달서구 인기사례</h2>
