@@ -82,8 +82,17 @@
     theme = request.getParameter("theme_id");
     query = "Select * from REMODELING";
 
+    if(theme != "" && theme != null){
+        query = "Select *" +
+                " From REMODELING" +
+                " Where Number NOT IN (" +
+                " Select Item_id" +
+                " From THEME_ASSIGNED" +
+                " Where theme_id = ?)";
+        //query = "select * from REMODELING R, THEME_ASSIGNED A where R.Number = A.Item_id and A.theme_id = ?";
+    }
     if(build != "" && build != null && !build.equals("all")){
-        query += " where Apart_name Like \"%"+build+"%\"";
+        query += " and Apart_name Like \"%"+build+"%\"";
         query += " or Title Like \"%"+build+"%\"";
         query += " or Company Like \"%"+build+"%\"";
     }
@@ -101,15 +110,6 @@
         if(apartment != "" && apartment != null && !apartment.equals("all")){
             query += " And Apart_name Like \"%"+apartment+"%\"";
         }
-    }
-    if(theme != "" && theme != null){
-        query = "Select *" +
-                " From REMODELING" +
-                " Where Number NOT IN (" +
-                " Select Item_id" +
-                " From THEME_ASSIGNED" +
-                " Where theme_id = ?)";
-        //query = "select * from REMODELING R, THEME_ASSIGNED A where R.Number = A.Item_id and A.theme_id = ?";
     }
     query += " order by Apart_name asc"; //limit 10
     pstmt = conn.prepareStatement(query);
@@ -222,7 +222,8 @@
 
         </form>
         <div>
-            <form id="form" name="form" method="POST" action="index.jsp">
+            <form id="form" name="form" method="POST" action="theme_general_item_upload.jsp">
+                <input type="hidden" name="theme_id" value="<%=theme%>">
                 <div id="searcharea">
                     <input type="text" id="bdNm"  name="bdNm" placeholder="아파트명, 회사명으로 사례를 찾아보세요"/>
                     <input type="button" onClick="goPopup();" value="주소찾기" id="jusobtn"/>
@@ -275,7 +276,7 @@
                     <button onclick="goItemUpload();" style="width:150px;height:45px;margin:40px 15px;border-radius:5px; background-color:#29aef2; color:white; font-size:17px; border:none;">사례등록  ></button>
                 </div>
                 <%}%>
-                <form action="_theme_display_item_upload.jsp">
+                <form action="_theme_general_item_upload.jsp">
                     <input type="hidden" name="theme_id" value="<%=theme%>">
                     <%
                         for(i=startnum; i<endnum; i++){
@@ -529,7 +530,7 @@
         else{ //중간
         %>
         <a class="pageidx" onClick="ajax_click(this)" href="#" title="<%=pagenum-1%>">이전</a>
-        <a class="pageidx" onClick="ajax_click(this)" href="#" title="<%=pagenum-2%>"><%=pagenum-2%></a> <!-- index.jsp?pagenumstr=<%=pagenum%> -->
+        <a class="pageidx" onClick="ajax_click(this)" href="#" title="<%=pagenum-2%>"><%=pagenum-2%></a>dff <!-- index.jsp?pagenumstr=<%=pagenum%> -->
         <a class="pageidx" onClick="ajax_click(this)" href="#" title="<%=pagenum-1%>"><%=pagenum-1%></a> <!-- index.jsp?pagenumstr=<%=pagenum+1%> -->
         <a class="pageidx" onClick="ajax_click(this)" href="#" title="<%=pagenum%>" style="color:blue;"><b><%=pagenum%></b></a> <!-- index.jsp?pagenumstr=<%=pagenum%> -->
         <a class="pageidx" onClick="ajax_click(this)" href="#" title="<%=pagenum+1%>"><%=pagenum+1%></a> <!-- index.jsp?pagenumstr=<%=pagenum-1%> -->

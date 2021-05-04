@@ -82,8 +82,19 @@
     keyword = request.getParameter("keyword");
     query = "Select * from REMODELING";
 
+    if(!keyword.equals("") && keyword != null){
+        query = "Select *" +
+                " From REMODELING" +
+                " Where Number NOT IN (" +
+                " Select Item_id" +
+                " From KEYWORD_ASSIGNED" +
+                " Where Keyword_id = ?)";
+        /* query = "SELECT * " +
+                "FROM REMODELING R LEFT OUTER JOIN KEYWORD_ASSIGNED K " +
+                "ON R.Number = K.Item_id and K.Keyword_id != " + keyword;*/
+    }
     if(build != "" && build != null && !build.equals("all")){
-        query += " where Apart_name Like \"%"+build+"%\"";
+        query += " and Apart_name Like \"%"+build+"%\"";
         query += " or Title Like \"%"+build+"%\"";
         query += " or Company Like \"%"+build+"%\"";
     }
@@ -101,17 +112,6 @@
         if(apartment != "" && apartment != null && !apartment.equals("all")){
             query += " And Apart_name Like \"%"+apartment+"%\"";
         }
-    }
-    if(keyword != "" && keyword != null){
-        query = "Select *" +
-                " From REMODELING" +
-                " Where Number NOT IN (" +
-                " Select Item_id" +
-                " From KEYWORD_ASSIGNED" +
-                " Where Keyword_id = ?)";
-        /* query = "SELECT * " +
-                "FROM REMODELING R LEFT OUTER JOIN KEYWORD_ASSIGNED K " +
-                "ON R.Number = K.Item_id and K.Keyword_id != " + keyword;*/
     }
     query += " order by Apart_name asc"; //limit 10
     pstmt = conn.prepareStatement(query);
@@ -148,7 +148,8 @@
                 && item[i][4].indexOf("굿") == -1
                 && item[i][4].indexOf("AT") == -1
                 && item[i][4].indexOf("아이비") == -1
-                && item[i][4].indexOf("지온") == -1)
+                && item[i][4].indexOf("지온") == -1
+                && item[i][4].indexOf("상상") == -1)
             continue;
         //거리계산//item[i][12] = String.valueOf(Math.sqrt(((x-Float.parseFloat(item[i][10]))*(x-Float.parseFloat(item[i][10])))+((y-Float.parseFloat(item[i][9]))*(y-Float.parseFloat(item[i][9])))));
         //if(item[i][4].indexOf("오픈하우스") == -1) continue; 오픈하우스를 오픈함
@@ -223,7 +224,8 @@
 
         </form>
         <div>
-            <form id="form" name="form" method="POST" action="index.jsp">
+            <form id="form" name="form" method="POST" action="attach_keyword.jsp">
+                <input type="hidden" name="keyword" value="<%=keyword%>">
                 <div id="searcharea">
                     <input type="text" id="bdNm"  name="bdNm" placeholder="아파트명, 회사명으로 사례를 찾아보세요"/>
                     <input type="button" onClick="goPopup();" value="주소찾기" id="jusobtn"/>
@@ -554,6 +556,7 @@
             var Daegu = $("input[name='Daegu']:checked").val();
             var pagenumber = $(obj).attr("title");
             var apartment = "<%=build%>";
+            var keyword = "<%=keyword%>";
             if(apartment == "null") apartment="";
             if(pagenumber == null) pagenumber=1;
             if(a=="pageidx"){
