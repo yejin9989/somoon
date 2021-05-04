@@ -110,7 +110,7 @@ String mylog = "";
                         <div>
                             <a href = "<%=recitem[i][3]%>" target="_self">
                                 <img src="<%=imgstr%>" class="eotkd">
-                                </a>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -274,8 +274,8 @@ String mylog = "";
                         <img src="<%=banners[0][0]%>">
                     </a>
                     <%if(s_id.equals("100")) /* 관리자 계정일 경우 */ { %>
-                <%--                    <a href="_dropremodeling.jsp?id=1" target="_blank" style="color:red; text-decoration:underline;">X삭제</a>--%>
-                    <span onclick="goBannerEdit(1);" style="color:blue;text-decoration:underline;">수정</span>
+<%--                        <a href="_dropremodeling.jsp?id=1" target="_blank" style="color:red; text-decoration:underline;">X삭제</a>--%>
+                        <span onclick="goBannerEdit(1);" style="color:blue;text-decoration:underline;">수정</span>
                     <%}%>
                 </div>
                 <div class="popular-container"><!--인기사례 4칸-->
@@ -314,29 +314,35 @@ String mylog = "";
                     </a>
                     <%if(s_id.equals("100")) /* 관리자 계정일 경우 */ { %>
                     <%--                    <a href="_dropremodeling.jsp?id=2" target="_blank" style="color:red; text-decoration:underline;">X삭제</a>--%>
-                    <span onclick="goBannerEdit(2);" style="color:blue;text-decoration:underline;">수정</span>
+                        <span onclick="goBannerEdit(2);" style="color:blue;text-decoration:underline;">수정</span>
                     <%}%>
                 </div>
                 <div id="review">
                     <!--소문난집 이용후기-->
                     <h2>소문난집 이용후기</h2>
-                    <div class="center">
+                    <div class="center2">
                         <%
                             // 리뷰 받아오기
                             query = "select * from REVIEW order by Id ASC";
                             pstmt = conn.prepareStatement(query);
                             rs = pstmt.executeQuery();
-                            String reviews[] = new String[100];
+                            String reviews_id[] = new String[100];
+                            String review_url = "";
                             int review_cnt = 0;
                             while(rs.next()) {
-                                reviews[review_cnt] = rs.getString("Image");
+                                reviews_id[review_cnt] = rs.getString("Id");
+                                review_url = rs.getString("Image");
                         %>
                         <div>
                             <div class="center_img">
                                 <div>
-                                    <img src="<%=reviews[review_cnt]%>" class="eotkd" />
+                                    <img src="<%=review_url%>" class="eotkd2" />
                                 </div>
                             </div>
+                            <%if(s_id.equals("100")) /* 관리자 계정일 경우 */ { %>
+                                <span onclick="goReviewUpload();" style="color:blue;text-decoration:underline;">추가</span>
+                                <span onclick="goReviewDel();" style="color:red;text-decoration:underline;">삭제</span>
+                            <%}%>
                         </div>
                         <%
                                 review_cnt++;
@@ -432,9 +438,9 @@ String mylog = "";
         }
     </script>
     <script>
-        function frame(){
+        function frame(str){
             var div = $(".center div"); // 이미지를 감싸는 div
-            var img = $(".eotkd"); // 이미지
+            var img = $(str); // 이미지
             var divWidth = div[0].offsetWidth
             var divHeight = div[0].offsetHeight-10;
             if(divWidth >= 510){
@@ -476,18 +482,27 @@ String mylog = "";
         }
 
         $(window).resize(function(){
-            frame()
+            frame(".eotkd")
+            frame(".eotkd2")
         });
         $(document).ready(function(){
-            frame()
+            frame(".eotkd")
+            frame(".eotkd2")
         });
-
     </script>
     <script>
         $(document).ready(function(){
             $('.center').slick({
                 centerMode: true,
                 centerPadding: '50px',
+                slidesToShow: 1,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                arrows: false
+            });
+            $('.center2').slick({
+                centerMode: true,
+                centerPadding: '0px',
                 slidesToShow: 1,
                 autoplay: true,
                 autoplaySpeed: 3000,
@@ -511,6 +526,14 @@ String mylog = "";
 
         function goBannerEdit(id){
             window.open("banner_edit.jsp?id="+id,"pop","width=570,height=420, scrollbars=yes, resizable=yes");
+        }
+
+        function goReviewUpload() {
+            window.open("review_upload.jsp", "pop", "width=570, height=420, scrollbars=yes, resizable=yes");
+        }
+
+        function goReviewDel(id) {
+            window.open("review_del.jsp", "pop", "width=570, height=420, scrollbars=yes, resizable=yes");
         }
     </script>
     <script>
