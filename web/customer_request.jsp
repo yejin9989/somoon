@@ -370,7 +370,6 @@ select{
     			<div class="info"><span>예정일</span> <%out.println(applymap.get("due"));%></div>
     			<div class="info"><span>예산</span> <%out.println(applymap.get("budget"));%></div>
     			<div class="info"><span>방문상담</span> <%if(applymap.get("consulting").equals("1")) out.println("예"); else out.println("아니오");%></div>
-    			<div class="info"><span>비교견적</span> <%if(applymap.get("compare").equals("1")) out.println("예"); else out.println("아니오");%></div>
     			<div class="info"><span>연락방식</span> <%if(applymap.get("calling").equals("1")) out.println("업체의 전화를 기다리겠습니다."); else out.println("직접 업체에 전화하겠습니다.");%></div>
     			<div class="info"><span>신청날짜</span> <%out.println(applymap.get("applydate"));%></div>
     			<div class="info"><span>처리상태</span>
