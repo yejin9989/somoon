@@ -578,7 +578,7 @@ for(i = 0; i < item.length; i++){
     //pageitemnum -> 페이지 총 개수
     //pagenum -> 현재 페이지
     int pageitemnum = 0;
-    if(itemnum != 1) pageitemnum = ((itemnum-1)/20)+1;
+    if(itemnum != 1) pageitemnum = ((itemnum-1)/10)+1;
     else pageitemnum = 1;
     
     int pagenum = Integer.parseInt(pagenumstr);
@@ -594,12 +594,12 @@ for(i = 0; i < item.length; i++){
     int startnum; //시작하는 번호
     int endnum; //끝나는 번호
     if(pagenum == pageitemnum){ //현재페이지 == 페이지 총 개수
-    	startnum = (20*pagenum)-20;
+    	startnum = (10*pagenum)-10;
     	endnum = itemnum;
     }
     else{
-    	startnum = (20*pagenum)-20;
-    	endnum = 20*pagenum;
+    	startnum = (10*pagenum)-10;
+    	endnum = 10*pagenum;
     }
     for(i=startnum; i<endnum; i++){
     	%>
