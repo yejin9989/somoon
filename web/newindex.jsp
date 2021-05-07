@@ -68,6 +68,48 @@ String mylog = "";
         pstmt.close();
     }
 %>
+<%
+//사례 받아오기
+    String xx = request.getParameter("entX");
+    String yy = request.getParameter("entY");
+    float x = 0;
+    float y = 0;
+    if (xx != null && !xx.equals("")) x = Float.parseFloat(xx);
+    if (yy != null && !yy.equals("")) y = Float.parseFloat(yy);
+    pstmt = null;
+    query = "";
+    conn = DBUtil.getMySQLConnection();
+    rs = null;
+    query = "Select R.Number, Title, Company, Hit, I.Path from REMODELING R, RMDL_IMG I where R.Number = I.Number and I.Number2 = 1 order by Apart_name asc";
+    pstmt = conn.prepareStatement(query);
+    rs = pstmt.executeQuery();
+    String item[][] = new String[1000][20];
+    i = 0;
+    while(rs.next()){
+        item[i][0] = rs.getString("Number");
+        item[i][1] = rs.getString("Title");
+        item[i][2] = rs.getString("Company");
+        item[i][3] = rs.getString("Hit");
+        item[i][4] = rs.getString("Path");
+        if(item[i][2].indexOf("남다른") == -1
+                && item[i][2].indexOf("이노") == -1
+                && item[i][2].indexOf("태웅") == -1
+                && item[i][2].indexOf("그레이") == -1
+                && item[i][2].indexOf("JYP") == -1
+                && item[i][2].indexOf("솔트") == -1
+                && item[i][2].indexOf("바르다") == -1
+                && item[i][2].indexOf("굿") == -1
+                && item[i][2].indexOf("AT") == -1
+                && item[i][2].indexOf("아이비") == -1
+                && item[i][2].indexOf("지온") == -1
+                && item[i][2].indexOf("다온") == -1
+                && item[i][2].indexOf("영") == -1
+                && item[i][2].indexOf("상상") == -1)
+            continue;
+        //거리계산 String.valueOf(Math.sqrt(((x-Float.parseFloat(item[i][10]))*(x-Float.parseFloat(item[i][10])))+((y-Float.parseFloat(item[i][9]))*(y-Float.parseFloat(item[i][9])))));
+        i++;
+    }
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -182,7 +224,7 @@ String mylog = "";
                 <input type="hidden"  style="width:500px;" id="entY"  name="entY" />
             </form>
             <div id="content" style="float:left;width:100%;">
-
+                <div class="items">
                 <%
                     String clientId = "G8MVoxXfGciyZW5dF4p1";//애플리케이션 클라이언트 아이디값";
                     String redirectURI = URLEncoder.encode("http://somoonhouse.com/callback.jsp", "UTF-8");
@@ -225,6 +267,39 @@ String mylog = "";
                     <button onclick="goItemUpload();" style="width:150px;height:45px;margin:40px 15px;border-radius:5px; background-color:#29aef2; color:white; font-size:17px; border:none;">사례등록  ></button>
                 </div>
                 <%}%>
+                <%
+                    for(i=0; i< 10; i++){
+                %>
+                <div class="item">
+                    <div class="notslider<%=classes%>" style="overflow:hidden;height:100%;border-radius:7px;">
+                        <div class="itemdiv">
+                            <a href = "_hit1.jsp?num=<%=item[i][0]%>" target="_self">
+                            <img src="<%=item[i][4]%>">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 견적요청버튼 -->
+                <a href = "_hit1.jsp?num=<%=item[i][0]%>" target="_self">
+                    <div class="item">
+                        <div class="itemdiv">
+                            <div style="font-size:10px;color:#999999"><%=item[i][2]%></div><!-- 회사이름 -->
+                            <div style="font-size:14px;font-weight:bold;margin:8px 0;color:#3d3d3d"><%=item[i][1]%></div>
+                            <div style="font-size:9px;color:#363636">조회수 <%=item[i][3]%></div>
+                            <%
+                                if(s_id.equals("100"))//관리자 계정이거나 본인 글 일 경우
+                                {%>
+                            <a href="_dropremodeling.jsp?num=<%=item[i][0]%>" target="_blank" style="color:red; text-decoration:underline;">X삭제</a>
+                            <a href="remodeling_edit.jsp?num=<%=item[i][0]%>" target="_blank" style="color:blue;text-decoration:underline;">수정</a>
+                                <%}%>
+                            <a href="remodeling_form.jsp?item_num=<%=item[i][0]%>"><div class="req_btn"></div></a>
+                        </div>
+                    </div>
+                </a>
+                <%
+                    }
+                %>
+                </div>
                 <div id="keyword">
                     <!--이런 인테리어는 어떠세요? 소문난집 인기키워드-->
                     <h2>이런 인테리어는 어떠세요?</h2>
@@ -285,6 +360,11 @@ String mylog = "";
                     <div class="popular-title">
                         <%=theme.get(0).get("Name")%>
                     </div>
+                    <a href="index.jsp?theme_id=<%=theme.get(0).get("Id")%>">
+                        <div class="popular-more">
+                            더보기
+                        </div>
+                    </a>
                     <div class="popular-items"><!--4칸짜리 틀-->
                         <%for(i=0; i<theme_items.get(0).size(); i++){
                             out.print("<a href='_hit.jsp?num=" + theme_items.get(0).get(i).get("Number") + "'>");
@@ -302,11 +382,6 @@ String mylog = "";
                             out.print("</a>");
                             }%>
                     </div>
-                    <a href="index.jsp?theme=<%=theme.get(0).get("Id")%>">
-                        <div class="popular-more">
-                            더보기
-                        </div>
-                    </a>
                 </div>
                 <div class="banner" id="banner2">
                     <a href = "banner1.jsp?id=2" target="_self">
@@ -357,6 +432,11 @@ String mylog = "";
                     <div class="popular-title">
                         <%=theme.get(1).get("Name")%>
                     </div>
+                    <a href="index.jsp?theme=<%=theme.get(1).get("Id")%>">
+                        <div class="popular-more">
+                            더보기
+                        </div>
+                    </a>
                     <div class="popular-items"><!--4칸짜리 틀-->
                         <%for(i=0; i<theme_items.get(1).size(); i++){
                             out.print("<a href='_hit.jsp?num=" + theme_items.get(1).get(i).get("Number") + "'>");
@@ -374,11 +454,6 @@ String mylog = "";
                             out.print("</a>");
                             }%>
                     </div>
-                    <a href="index.jsp?theme=<%=theme.get(1).get("Id")%>">
-                        <div class="popular-more">
-                            더보기
-                        </div>
-                    </a>
                 </div>
                 <div class="banner" id="banner3">
 <%--                    <a href = "<%=banners[2][1]%>" target="_self">--%>
@@ -501,6 +576,14 @@ String mylog = "";
                 arrows: false
             });
             $('.center2').slick({
+                centerMode: true,
+                centerPadding: '0px',
+                slidesToShow: 1,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                arrows: false
+            });
+            $('.center3').slick({
                 centerMode: true,
                 centerPadding: '0px',
                 slidesToShow: 1,

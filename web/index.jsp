@@ -586,11 +586,6 @@ for(i = 0; i < item.length; i++){
 	%>
     
     <%
-    //추천 사례들 먼저 정렬
-    for(i=0; i<recnum; i++){
-    	
-    }
-    
     int startnum; //시작하는 번호
     int endnum; //끝나는 번호
     if(pagenum == pageitemnum){ //현재페이지 == 페이지 총 개수
