@@ -58,7 +58,7 @@ String mylog = "";
         LinkedList<HashMap<String, String>> mylist = new LinkedList<HashMap<String, String>>();
         while(rs.next()){
             HashMap<String, String> mymap = new HashMap<String, String>();
-            mymap.put("Id", rs.getString("Item_id"));
+            mymap.put("Item_id", rs.getString("Number"));
             mymap.put("Img", rs.getString("Path"));
             mymap.put("Title", rs.getString("Title"));
             mylog += mymap + ", ";
@@ -367,7 +367,7 @@ String mylog = "";
                     </a>
                     <div class="popular-items"><!--4칸짜리 틀-->
                         <%for(i=0; i<theme_items.get(0).size(); i++){
-                            out.print("<a href='_hit.jsp?num=" + theme_items.get(0).get(i).get("Number") + "'>");
+                            out.print("<a href='_hit.jsp?num=" + theme_items.get(0).get(i).get("Item_id") + "'>");
                             out.print("<div class='popular-item'>"); //한 블럭 시작
 
                             out.print("<div class='popular-item-img-container'>");//이미지블럭
@@ -439,7 +439,7 @@ String mylog = "";
                     </a>
                     <div class="popular-items"><!--4칸짜리 틀-->
                         <%for(i=0; i<theme_items.get(1).size(); i++){
-                            out.print("<a href='_hit.jsp?num=" + theme_items.get(1).get(i).get("Number") + "'>");
+                            out.print("<a href='_hit.jsp?num=" + theme_items.get(1).get(i).get("Item_id") + "'>");
                             out.print("<div class='popular-item'>"); //한 블럭 시작
 
                             out.print("<div class='popular-item-img-container'>");//이미지블럭
