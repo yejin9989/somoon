@@ -643,12 +643,9 @@ for(i = 0; i < item.length; i++){
     	<div style="font-size:9px;color:#363636">조회수 <%=item[i][17]%></div>
     	<!-- div style="font-size:9px;color:#363636">스크랩 12개</div-->
     	<!-- div style="font-size:9px;margin:5px 0;">평당 <%=item[i][14]%>/시공기간 <%=item[i][15]%> 이상</div-->
-    	<!-- 
-    	<%
-    	if(item[i][5] == null){
-    		%><div style="font-size:19px;font-weight:bold;margin:25px 0 15px 0;color:#3d3d3d"><%=item[i][5]%>만원</div><%
-    	}
-    	%> -->
+		<% if(item[i][5] != null && !(item[i][5].equals("")) && !(item[i][5].equals("NULL"))){%>
+			<div style="font-size:19px;font-weight:bold;margin:25px 0 15px 0;color:#3d3d3d"><%=item[i][5]%>만원</div>
+		<%}%>
     	<!-- div style="font-size:10px;"><span style="border-radius:3px;padding:2px;color:white;background-color:orange"><%/*if(item[i][16].equals("1")) out.println("부분시공불가"); else out.println("부분시공가능");*/%></span></div-->
     	<!-- div>
     	<h2 style="padding:20px;line-height:1.5em;"><%=item[i][2]%></h2>

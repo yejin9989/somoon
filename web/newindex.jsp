@@ -80,7 +80,7 @@ String mylog = "";
     query = "";
     conn = DBUtil.getMySQLConnection();
     rs = null;
-    query = "Select R.Number, Title, Company, Hit, I.Path from REMODELING R, RMDL_IMG I where R.Number = I.Number and I.Number2 = 1 order by Apart_name asc";
+    query = "Select R.Number, Title, Company, Hit, I.Path, Fee from REMODELING R, RMDL_IMG I where R.Number = I.Number and I.Number2 = 1 order by Apart_name asc";
     pstmt = conn.prepareStatement(query);
     rs = pstmt.executeQuery();
     String item[][] = new String[1000][20];
@@ -91,6 +91,7 @@ String mylog = "";
         item[i][2] = rs.getString("Company");
         item[i][3] = rs.getString("Hit");
         item[i][4] = rs.getString("Path");
+        item[i][5] = rs.getString("Fee");
         if(item[i][2].indexOf("남다른") == -1
                 && item[i][2].indexOf("이노") == -1
                 && item[i][2].indexOf("태웅") == -1
@@ -286,6 +287,9 @@ String mylog = "";
                             <div style="font-size:10px;color:#999999"><%=item[i][2]%></div><!-- 회사이름 -->
                             <div style="font-size:14px;font-weight:bold;margin:8px 0;color:#3d3d3d"><%=item[i][1]%></div>
                             <div style="font-size:9px;color:#363636">조회수 <%=item[i][3]%></div>
+                            <% if(item[i][5] != null && !(item[i][5].equals("")) && !(item[i][5].equals("NULL"))){%>
+                            <div style="font-size:19px;font-weight:bold;margin:25px 0 15px 0;color:#3d3d3d"><%=item[i][5]%>만원</div>
+                            <%}%>
                             <%
                                 if(s_id.equals("100"))//관리자 계정이거나 본인 글 일 경우
                                 {%>
@@ -392,9 +396,10 @@ String mylog = "";
                         <span onclick="goBannerEdit(2);" style="color:blue;text-decoration:underline;">수정</span>
                     <%}%>
                 </div>
+                <div class="popular-container">
                 <div id="review">
                     <!--소문난집 이용후기-->
-                    <h2>소문난집 이용후기</h2>
+                    <h3>소문난집 이용후기</h3>
                     <div class="center2">
                         <%
                             // 리뷰 받아오기
@@ -411,7 +416,7 @@ String mylog = "";
                         <div>
                             <div class="center_img">
                                 <div>
-                                    <img src="<%=review_url%>" class="eotkd2" />
+                                    <img src="<%=review_url%>" class="eotkd2" style="width:100%!important;margin-left:0!important;" />
                                 </div>
                             </div>
                         </div>
@@ -424,6 +429,7 @@ String mylog = "";
                         <span onclick="goReviewUpload();" style="color:blue;text-decoration:underline;">추가</span>
                         <span onclick="goReviewDel();" style="color:red;text-decoration:underline;">삭제</span>
                     <%}%>
+                </div>
                 </div>
                 <div class="popular-container"><!--인기사례 4칸-->
                     <%if(s_id.equals("100")){
@@ -558,11 +564,11 @@ String mylog = "";
 
         $(window).resize(function(){
             frame(".eotkd")
-            frame(".eotkd2")
+            // frame(".eotkd2")
         });
         $(document).ready(function(){
             frame(".eotkd")
-            frame(".eotkd2")
+            // frame(".eotkd2")
         });
     </script>
     <script>

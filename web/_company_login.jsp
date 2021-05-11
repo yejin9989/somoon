@@ -21,7 +21,7 @@ String sql = "";
 ResultSet rs = null;
 
 //세션 생성 create session
-session.setAttribute("page", "remodeling_request.jsp"); // 현재 페이지 current page
+session.setAttribute("page", "company.jsp"); // 현재 페이지 current page
 //세션 가져오기 get session
 String now = session.getAttribute("page")+""; // 현재 페이지 current page
 String s_id = session.getAttribute("s_id")+"";// 현재 사용자 current user
@@ -64,7 +64,9 @@ if(pw != null){
 		pstmt.executeUpdate();
 		
 		//개인페이지로
-		response.sendRedirect("https://somoonhouse.com/company_request.jsp");
+		// response.sendRedirect("https://somoonhouse.com/company.jsp");
+		// 임시
+		response.sendRedirect("http://localhost:8080/somoonhouse_war_exploded/company.jsp");
 	}
 }
 //DB개체 정리
