@@ -178,7 +178,7 @@ span{
 		</div>
 		<div class="pink"></div>
 		<div id="buttonbar">
-			<div id="copywrite">소문난집을 통해 상담신청을 하셔야<br> <span>비교견적</span>을 받아보실 수 있습니다.</div>
+			<div id="copywrite">소문난집을 통해 상담신청을 하셔야<br> <span>시공 감독 서비스(2회)</span>를 받아보실 수 있습니다.</div>
 			<div id="rem_req_btn"></div>
 		</div>
 	</div>
