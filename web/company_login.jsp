@@ -195,7 +195,7 @@ conn.close();
 %>
 <script>
 window.onload = function() {
-	if(<%=company_name%> == null){
+	if("<%=company_name%>" == null){
 		alert("유효하지 않은 접근입니다!");
 		location.href = "index.jsp";
 	}
