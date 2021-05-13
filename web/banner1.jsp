@@ -46,7 +46,7 @@
 <div id="container">
     <div>
         <span id="topBtn">top</span>
-        <span id="applyBtn"><div>상담<br>신청</div><%=id%></span>
+        <span id="applyBtn"><div>상담<br>신청</div></span>
     </div>
     <div id="somun_navbar">
         <div id="somun_logo"><a href="index.jsp"><img style="height:30px;"src="https://somoonhouse.com/otherimg/index/somunlogo.jpg"></a></div>
@@ -97,7 +97,7 @@
 </script>
 <script>
     $('#alert_img').click(function(){
-        location.href="http://localhost:8080/somoonhouse_war_exploded/remodeling_form.jsp?item_num=0";
+        location.href="remodeling_form.jsp?item_num=0";
     })
 </script>
 </body>

@@ -95,7 +95,7 @@
 </script>
 <script>
     $('#alert_img').click(function(){
-        location.href="http://localhost:8080/somoonhouse_war_exploded/remodeling_form.jsp?item_num=0";
+        location.href="remodeling_form.jsp?item_num=0";
     })
 </script>
 </body>
