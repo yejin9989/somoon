@@ -48,7 +48,7 @@ company_introduction = company_introduction.replace("\n", "<br>");
 
 //사업자 등록 연도로 부터 경력 계산
 String career = "";
-if(company_start_year != null && !company_start_year.equals("미입력")) {
+if(company_start_year != null && !company_start_year.equals("null") && !company_start_year.equals("")) {
 	Calendar cal = Calendar.getInstance();
 	int today = cal.get(Calendar.YEAR);
 	int car = today - Integer.parseInt(company_start_year) + 1;

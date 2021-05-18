@@ -110,16 +110,16 @@ if(s_id.equals("")){
 		<form action="_company_edit.jsp" method="post">
 		<div id="profile_img"></div>
 		<div id="company_name"><%=company_name%></div>
-		<input type="checkbox" name="as_provide" class="mycheck" id="as_provide" value="1" <%=checked%>><label id="as_label" for="as_provide">A/S 제공</label>
+<%--		<input type="checkbox" name="as_provide" class="mycheck" id="as_provide" value="1" <%=checked%>><label id="as_label" for="as_provide">A/S 제공</label>--%>
 		<div id="btnArea">
 			<input type="button" onClick="goLicenseUpload();" class="submitBtn" id="business_license" value="사업자등록증 제출하기"/>
 			<input type="button" onClick="goCertificateUpload();" class="submitBtn" id="etc_license" value="기타 자격증 제출" />
 		</div>
 		<div id="company_address"><input type="text" name="company_area" value="<%=company_area%>"></div>
 		<div id="as_warranty"><div class="input_label">A/S 기간</div><input type="text" name="company_as_warranty" value="<%=company_as_warranty%>"></div>
-		<div id="as_fee"><div class="input_label">A/S 금액</div><input type="text" name="company_as_fee" value="<%=company_as_fee%>"></div>
-		<div id="company_career"><div class="input_label">사업자 등록 연도</div><input type="text" name="company_start_year" value="${(company_start_year)?company_start_year:'미입력'}"><div class="input_desc">* 사업자등록연도를 기준으로 경력이 반영됩니다. 실제 경력이 다를 경우 담당자에 연락 요망</div></div>
-		<div id="company_limit_fee"><div class="input_label">최소 시공금액</div><input type="text" name="company_limit_fee" value="${(company_limit_fee)?company_limit_fee:'미입력'}"><div class="input_desc">* 만(원) 단위로 입력하세요.</div></div>
+		<div id="as_fee"><div class="input_label">A/S 금액</div><input type="text" name="company_as_fee" value="<%=company_as_fee%>"><div class="input_desc">* 만(원) 단위로 입력하세요.</div></div>
+		<div id="company_career"><div class="input_label">사업자 등록 연도</div><input type="text" name="company_start_year" value="<%=company_start_year%>"><div class="input_desc">* 사업자등록연도를 기준으로 경력이 반영됩니다. 실제 경력이 다를 경우 담당자에 연락 요망</div></div>
+		<div id="company_limit_fee"><div class="input_label">최소 시공금액</div><input type="text" name="company_limit_fee" value="<%=company_limit_fee%>"><div class="input_desc">* 만(원) 단위로 입력하세요.</div></div>
 		<div id="company_abilities">
 			<%
 			for(String key: company_abilities.keySet()){
@@ -148,18 +148,18 @@ conn.close();
 */
 %>
 <script>
-function checking(){
-	if($('input[name=as_provide]').is(":checked")){
-		$("#as_label").html("A/S 미제공");
-		$("#as_warranty").css("display","none");
-		$("#as_fee").css("display","none");
-	}
-	else{
-		$("#as_label").html("A/S 제공");
-		$("#as_warranty").css("display","block");
-		$("#as_fee").css("display","block");
-	}	
-}
+// function checking(){
+// 	if($('input[name=as_provide]').is(":checked")){
+// 		$("#as_label").html("A/S 미제공");
+// 		$("#as_warranty").css("display","none");
+// 		$("#as_fee").css("display","none");
+// 	}
+// 	else{
+// 		$("#as_label").html("A/S 제공");
+// 		$("#as_warranty").css("display","block");
+// 		$("#as_fee").css("display","block");
+// 	}
+// }
 $("#add_ability").click(function(){
 	$(this).before("<div id=\"added\">+<input type=\"text\" class=\"tag\" name=\"tag\"></div>");
 })
