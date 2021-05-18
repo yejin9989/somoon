@@ -121,7 +121,19 @@ hr{
     text-decoration: underline;
     cursor: pointer;
 }
-#edit_info:after{
+#company_remodeling{
+    text-decoration: underline;
+    cursor: pointer;
+}
+#edit_info:after {
+    content: " ";
+    background: url(/sources/edit.png);
+    width: 20px;
+    height: 18px;
+    background-size: 20px;
+    display: inline-block;
+}
+#company_remodeling:after {
     content: " ";
     background: url(/sources/edit.png);
     width: 20px;
@@ -202,4 +214,15 @@ span{
 #btnArea{
     margin:auto;
     padding: 9px 0 0;
+}
+.input_label {
+    width: 140px;
+    display: inline-block;
+}
+.input_desc {
+    font-size: 7pt;
+    color: red;
+    text-align: left;
+    width: 316px;
+    padding-left: 65px;
 }
