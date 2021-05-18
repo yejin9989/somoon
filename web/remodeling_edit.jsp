@@ -29,6 +29,7 @@
 	String price_area = "";
 	String period = "";
 	String part = "";
+	String area = "";
 	while(rs.next()){
 		url = rs.getString("URL");
 		addr = rs.getString("Address");
@@ -44,6 +45,7 @@
 	 	price_area = rs.getString("Price_area");
 	 	period = rs.getString("Period");
 	 	part = rs.getString("Part");
+	 	area = rs.getString("Area");
 	 	
 
 	 	if(url == null || url.equals("") || url.equals("NULL"))
@@ -74,6 +76,8 @@
 	 		period = "";
 	 	if(part == null || part.equals("") || part.equals("NULL"))
 	 		part = "";
+	 	if(area == null || area.equals("") || area.equals("NULL"))
+	 		area = "";
 	}
 
 %>
@@ -119,7 +123,6 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
 		document.form.emdNo.value = emdNo;
 		document.form.entX.value = entX;
 		document.form.entY.value = entY;
-		
 		
 }
 
@@ -167,7 +170,7 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
 			<tr><td>시공사       			</td><td><input type="text"  style="width:500px;" id="company"  name="company" value="<%=company%>"></td></tr>
 			<tr><td>시공비용       		</td><td><input type="text"  style="width:500px;" id="fee"  name="fee" value="<%=fee%>"></td></tr>
 			<tr><td>기타사항       		</td><td><input type="text"  style="width:500px;" id="etc"  name="etc" value="<%=etc%>"></td></tr>
-			<tr><td>평당금액      		</td><td><input type="text"  style="width:500px;" id="price_area"  value="<%=price_area%>" name="price_area" /></td></tr>
+			<tr><td>평수      		</td><td><input type="text"  style="width:500px;" id="area"  value="<%=area%>" name="area" /></td></tr>
 			<tr><td>시공기간       		</td><td><input type="text"  style="width:500px;" id="period" value="<%=period%>" name="period" /></td></tr>
 			<tr><td>부분시공가능여부 		</td><td><input type="text"  style="width:500px;" id="part" value="<%=part%>" name="part" /></td></tr>
 		</table>
