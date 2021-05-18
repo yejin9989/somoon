@@ -58,7 +58,9 @@
 			pstmt.executeUpdate();
 
 			//개인페이지로
-			response.sendRedirect("https://somoonhouse.com/company_request.jsp");
+//			response.sendRedirect("https://somoonhouse.com/company_request.jsp");
+			// 임시
+			response.sendRedirect("http://localhost:8080/somoonhouse_war_exploded/company_request.jsp");
 		}
 	}
 //DB개체 정리
