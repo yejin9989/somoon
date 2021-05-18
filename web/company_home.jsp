@@ -126,6 +126,7 @@ if(s_id.equals("")){
 		if(s_id.equals(company_id)){
 			%>
 			<div id="edit_info">정보 수정하기</div>
+			<div id="company_remodeling">내 사례 관리</div>
 			<%
 		}
 		%>
@@ -142,6 +143,9 @@ conn.close();
 <script>
 	$("#edit_info").click(function(){
 		location.href="company_edit.jsp";
+	})
+	$("#company_remodeling").click(function(){
+		location.href="company_remodeling.jsp";
 	})
 $(document).ready(function(){
 	$('#profile_img').css("background", "url(<%=company_img%>) 50% 50% / 198px");
