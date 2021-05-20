@@ -26,7 +26,6 @@ String name = session.getAttribute("name")+"";
 String company_id = request.getParameter("company");
 company_id = "1";
 
-String as_provide = request.getParameter("as_provide");
 String company_area = request.getParameter("company_area");
 String company_as_warranty = request.getParameter("company_as_warranty");
 String company_as_fee = request.getParameter("company_as_fee");
@@ -35,14 +34,18 @@ String[] company_abilities = request.getParameterValues("tag");
 //ArrayList<String> company_abilities = new ArrayList<String>();
 String company_introduction = request.getParameter("company_introduction");
 String company_limit_fee = request.getParameter("company_limit_fee");
+if(company_limit_fee.equals("null")) company_limit_fee = null;
 String company_start_year = request.getParameter("company_start_year");
+if(company_start_year.equals("null")) company_start_year = null;
+%><script>alert(<%=company_as_warranty%>)</script><%
 
 //A/S제공여부 boolean처리
 String company_as_provide = "";
-if(as_provide == null)
-	company_as_provide = "1";
-else
+if(company_as_warranty.equals("null") || company_as_warranty.equals("0"))
 	company_as_provide = "0";
+else
+	company_as_provide = "1";
+
 //소개글 줄 바꿈 대치 시켜야함
 company_introduction = company_introduction.replace("\n", "<br>");
 

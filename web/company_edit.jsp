@@ -116,7 +116,16 @@ if(s_id.equals("")){
 			<input type="button" onClick="goCertificateUpload();" class="submitBtn" id="etc_license" value="기타 자격증 제출" />
 		</div>
 		<div id="company_address"><input type="text" name="company_area" value="<%=company_area%>"></div>
-		<div id="as_warranty"><div class="input_label">A/S 기간</div><input type="text" name="company_as_warranty" value="<%=company_as_warranty%>"></div>
+		<div id="as_warranty"><div class="input_label">A/S 기간</div>
+			<select id="select_as_warranty" name="company_as_warranty">
+				<option value="0" <%if(company_as_warranty == null || company_as_warranty.equals("0")){%>selected="selected"<%}%>>제공안함</option>
+				<option value="1" <%if(company_as_warranty.equals("1")){%>selected="selected"<%}%>>1년</option>
+				<option value="2" <%if(company_as_warranty.equals("2")){%>selected="selected"<%}%>>2년</option>
+				<option value="3" <%if(company_as_warranty.equals("3")){%>selected="selected"<%}%>>3년</option>
+				<option value="4" <%if(company_as_warranty.equals("4")){%>selected="selected"<%}%>>4년</option>
+				<option value="5+" <%if(company_as_warranty.equals("5+")){%>selected="selected"<%}%>>5년 이상</option>
+			</select>
+		</div>
 		<div id="as_fee"><div class="input_label">A/S 금액</div><input type="text" name="company_as_fee" value="<%=company_as_fee%>"><div class="input_desc">* 만(원) 단위로 입력하세요.</div></div>
 		<div id="company_career"><div class="input_label">사업자 등록 연도</div><input type="text" name="company_start_year" value="<%=company_start_year%>"><div class="input_desc">* 사업자등록연도를 기준으로 경력이 반영됩니다. 실제 경력이 다를 경우 담당자에 연락 요망</div></div>
 		<div id="company_limit_fee"><div class="input_label">최소 시공금액</div><input type="text" name="company_limit_fee" value="<%=company_limit_fee%>"><div class="input_desc">* 만(원) 단위로 입력하세요.</div></div>

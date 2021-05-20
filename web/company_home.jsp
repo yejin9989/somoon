@@ -97,17 +97,13 @@ if(s_id.equals("")){
 	<div id="container">
 		<div id="profile_img"></div>
 		<div id="company_name"><%=company_name%></div>
-		<%
-		if(company_as_provide.equals("1")){
-			%>
-			<div class="as_provide<%=company_as_provide%>">A/S 제공</div>
+			<div class="as_provide<%=company_as_provide%>">A/S <%if(company_as_provide.equals("0")){%>미<%}%>제공</div>
 			<div id="company_address"><%=company_area%></div>
-			<div id="company_address">A/S 기간  <%=company_as_warranty%></div>
-			<div id="company_address">A/S 금액  <%=company_as_fee%></div>
-			<%
-		}
-		%>	
-		<div id="company_address">경력 기간 <%=company_career%></div>
+		<% if(company_as_provide.equals("1")){ %>
+			<div id="company_address">A/S 기간  <%=company_as_warranty%><%if(company_as_warranty.equals("5")){%>년 이상<%}else%>년</div>
+			<div id="company_address">A/S 금액  <%if(!company_as_fee.equals("null")){%><%=company_as_fee%>만원<%}else%>미입력</div>
+		<%}%>
+		<div id="company_address">경력 기간 <%if(!company_career.equals("null")){%><%=company_career%>년<%}else%>미입력</div>
 		<div id="company_abilities">
 			<%
 			for(i=0;i<company_abilities.size();i++){

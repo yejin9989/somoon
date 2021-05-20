@@ -172,6 +172,15 @@ input[type="text"]{
     margin: 5px;
     border-radius: 3px;
 }
+select{
+    width: 162px;
+    border: none;
+    background: #e7e7e7;
+    padding: 8px;
+    margin: 5px;
+    border-radius: 3px;
+    margin-left: -0.1px;
+}
 input[class="tag"]{
     background:#b4b4b4;
     color:white;
