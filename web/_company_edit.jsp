@@ -3,6 +3,7 @@
     pageEncoding="UTF-8"%>
 <%@ page language="java" import="java.text.*,java.sql.*,java.util.*,java.security.*,java.math.BigInteger" %>
 <%@ page language="java" import="myPackage.*" %>
+<%@ page import ="java.util.Calendar"%>
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setContentType("text/html; charset=utf-8"); %>
 <% session.setAttribute("page", "remodeling_form.jsp"); %>
@@ -25,33 +26,49 @@ String name = session.getAttribute("name")+"";
 String company_id = request.getParameter("company");
 company_id = "1";
 
-String as_provide = request.getParameter("as_provide");
 String company_area = request.getParameter("company_area");
 String company_as_warranty = request.getParameter("company_as_warranty");
 String company_as_fee = request.getParameter("company_as_fee");
-String company_career = request.getParameter("company_career");
+//String company_career = request.getParameter("company_career");
 String[] company_abilities = request.getParameterValues("tag");
 //ArrayList<String> company_abilities = new ArrayList<String>();
 String company_introduction = request.getParameter("company_introduction");
+String company_limit_fee = request.getParameter("company_limit_fee");
+if(company_limit_fee.equals("null")) company_limit_fee = null;
+String company_start_year = request.getParameter("company_start_year");
+if(company_start_year.equals("null")) company_start_year = null;
+%><script>alert(<%=company_as_warranty%>)</script><%
 
 //A/S제공여부 boolean처리
 String company_as_provide = "";
-if(as_provide == null)
-	company_as_provide = "1";
-else
+if(company_as_warranty.equals("null") || company_as_warranty.equals("0"))
 	company_as_provide = "0";
+else
+	company_as_provide = "1";
+
 //소개글 줄 바꿈 대치 시켜야함
 company_introduction = company_introduction.replace("\n", "<br>");
 
-query = "update COMPANY set Address=?, Career=?, Introduction=?, As_warranty=?, As_fee=?, As_provide = ? where Id = ?";
+//사업자 등록 연도로 부터 경력 계산
+String career = "";
+if(company_start_year != null && !company_start_year.equals("null") && !company_start_year.equals("")) {
+	Calendar cal = Calendar.getInstance();
+	int today = cal.get(Calendar.YEAR);
+	int car = today - Integer.parseInt(company_start_year) + 1;
+	career = Integer.toString(car);
+}
+
+query = "update COMPANY set Address=?, Career=?, Introduction=?, As_warranty=?, As_fee=?, As_provide = ?, Limit_fee = ?, Start_year=? where Id = ?";
 pstmt = conn.prepareStatement(query);
 pstmt.setString(1, company_area);
-pstmt.setString(2, company_career);
+pstmt.setString(2, career);
 pstmt.setString(3, company_introduction);
 pstmt.setString(4, company_as_warranty);
 pstmt.setString(5, company_as_fee);
 pstmt.setString(6, company_as_provide);
-pstmt.setString(7, company_id);
+pstmt.setString(7, company_limit_fee);
+pstmt.setString(8, company_start_year);
+pstmt.setString(9, company_id);
 pstmt.executeUpdate();
 
 //태그 처리
@@ -103,12 +120,14 @@ if(company_abilities != null){
 <body>
 <%
 //DB개체 정리
-/*
 pstmt.close();
-rs.close();
-query="";
+//rs.close();
+//query="";
 conn.close();
-*/
 %>
+<script>
+	alert('수정을 완료했습니다.');
+	self.close();
+</script>
 </body>
 </html>

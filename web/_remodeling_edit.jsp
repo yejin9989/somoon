@@ -32,6 +32,7 @@
 	String price_area = "";
 	String period = "";
 	String part = "";
+	String area = "";
 	String file1[] = new String[10];
 	request.setCharacterEncoding("UTF-8");
 	 String realFolder = "";
@@ -67,12 +68,14 @@
 			if(entX.equals("")) entX = null;
 			entY = multi.getParameter("entY")+"";
 			if(entY.equals("")) entY = null;
-			price_area = multi.getParameter("price_area")+"";
-			if(price_area.equals("")) price_area = null;
+//			price_area = multi.getParameter("price_area")+"";
+//			if(price_area.equals("")) price_area = null;
 			period = multi.getParameter("period")+"";
 			if(period.equals("")) period = null;
 			part = multi.getParameter("part")+"";
 			if(part.equals("")) part = null;
+			area = multi.getParameter("area")+"";
+			if(area.equals("")) area = null;
 			
 		  Enumeration<?> files = multi.getFileNames();
 		     file1[0] = (String)files.nextElement();
@@ -190,8 +193,13 @@
 				pstmt.executeUpdate();
 			}
 	}
+
+	if(area != null && fee != null && !area.equals("") && !fee.equals("")) {
+		int int_area = Integer.parseInt(area), int_fee = Integer.parseInt(fee);
+		price_area = Integer.toString(Math.round(int_fee / int_area));
+	} else price_area = null;
 	
-	String sql = "Update REMODELING set Title=?, Company=?, Fee=?, Address=?, Apart_name=?, Building=?, Xpos=?, Ypos=?, Etc=?, Content=?, URL=?, Price_area=?, Period=?, Part=? where Number = ?";	
+	String sql = "Update REMODELING set Title=?, Company=?, Fee=?, Address=?, Apart_name=?, Building=?, Xpos=?, Ypos=?, Etc=?, Content=?, URL=?, Price_area=?, Period=?, Part=?, Area=? where Number = ?";
 	PreparedStatement pstmt = null;
 	pstmt = conn.prepareStatement(sql);
 	pstmt.setString(1, title);
@@ -208,8 +216,8 @@
 	pstmt.setString(12, price_area);
 	pstmt.setString(13, period);
 	pstmt.setString(14, part);
-	pstmt.setString(15, num);
-
+	pstmt.setString(15, area);
+	pstmt.setString(16, num);
 	if(error == 0){
 		pstmt.executeUpdate();
 	}
