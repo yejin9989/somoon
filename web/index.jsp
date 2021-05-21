@@ -80,7 +80,7 @@
 	query = "";
 	conn = DBUtil.getMySQLConnection();
 	rs = null;
-	query = "Select R.Number, Title, Company, Hit, I.Path, Fee from REMODELING R, RMDL_IMG I where R.Number = I.Number and I.Number2 = 1 order by Apart_name asc";
+	query = "Select R.Number, Title, Company, Hit, I.Path, Fee, As_warranty, Career from REMODELING R, RMDL_IMG I, COMPANY C where R.Number = I.Number and I.Number2 = 1 and C.Name Like R.Company order by Apart_name asc";
 	pstmt = conn.prepareStatement(query);
 	rs = pstmt.executeQuery();
 	String item[][] = new String[1000][20];
@@ -92,6 +92,8 @@
 		item[i][3] = rs.getString("Hit");
 		item[i][4] = rs.getString("Path").replaceAll("%25", "%").replaceAll("%", "%25");
 		item[i][5] = rs.getString("Fee");
+		item[i][6] = rs.getString("As_warranty");
+		item[i][7] = rs.getString("Career");
 		if(item[i][2].indexOf("남다른") == -1
 				&& item[i][2].indexOf("이노") == -1
 				&& item[i][2].indexOf("태웅") == -1
@@ -105,7 +107,8 @@
 				&& item[i][2].indexOf("지온") == -1
 				&& item[i][2].indexOf("다온") == -1
 				&& item[i][2].indexOf("영") == -1
-				&& item[i][2].indexOf("상상") == -1)
+				&& item[i][2].indexOf("상상") == -1
+				&& item[i][2].indexOf("온테리어") == -1)
 			continue;
 		//거리계산 String.valueOf(Math.sqrt(((x-Float.parseFloat(item[i][10]))*(x-Float.parseFloat(item[i][10])))+((y-Float.parseFloat(item[i][9]))*(y-Float.parseFloat(item[i][9])))));
 		i++;
@@ -284,7 +287,17 @@
 					<a href = "_hit1.jsp?num=<%=item[i][0]%>" target="_self">
 						<div class="item">
 							<div class="itemdiv">
-								<div style="font-size:10px;color:#999999"><%=item[i][2]%></div><!-- 회사이름 -->
+								<div style="font-size:10px;color:#999999;display:inline-block"><%=item[i][2]%></div><!-- 회사이름 -->
+								<%
+									if(item[i][6] != null && !item[i][6].equals("null")){
+									%><div id="as">AS&nbsp<%=item[i][6]%>년</div><%
+									}
+								%>
+								<%
+									if(item[i][7]!=null && !item[i][7].equals("미입력")){
+									%><div id="career">경력 <%=item[i][7]%>년차</div><%
+									}
+								%>
 								<div style="font-size:14px;font-weight:bold;margin:8px 0;color:#3d3d3d"><%=item[i][1]%></div>
 								<div style="font-size:9px;color:#363636">조회수 <%=item[i][3]%></div>
 								<% if(item[i][5] != null && !(item[i][5].equals("")) && !(item[i][5].equals("NULL"))){%>

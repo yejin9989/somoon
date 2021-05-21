@@ -398,6 +398,15 @@ input#search {
     font-size: 7pt;
     margin: 6px 0 3px;
 }
+#career{
+    display: inline-block;
+    background: #279927;
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 7pt;
+    margin: 6px 0 3px;
+}
 #no-result-div {
     text-align: center;
     height: 400px;

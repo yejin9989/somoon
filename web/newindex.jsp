@@ -479,7 +479,7 @@ else{*/
 //}
                     //out.println(pstmt);
                     rs = pstmt.executeQuery();
-                    String item[][] = new String[100000][20];
+                    String item[][] = new String[100000][21];
                     i = 0;
                     while(rs.next()){
                         item[i][0] = rs.getString("Number");
@@ -513,7 +513,9 @@ else{*/
                                 && item[i][4].indexOf("지온") == -1
                                 && item[i][4].indexOf("다온") == -1
                                 && item[i][4].indexOf("영") == -1
-                                && item[i][4].indexOf("상상") == -1)
+                                && item[i][4].indexOf("상상") == -1
+                                && item[i][4].indexOf("나담") == -1
+                                && item[i][4].indexOf("온테리어") == -1)
                             continue;
                         //거리계산//item[i][12] = String.valueOf(Math.sqrt(((x-Float.parseFloat(item[i][10]))*(x-Float.parseFloat(item[i][10])))+((y-Float.parseFloat(item[i][9]))*(y-Float.parseFloat(item[i][9])))));
                         //if(item[i][4].indexOf("오픈하우스") == -1) continue; 오픈하우스를 오픈함
@@ -528,6 +530,7 @@ else{*/
                             while (rs.next()) {
                                 item[i][18] = rs.getString("As_provide");
                                 item[i][19] = rs.getString("As_warranty");
+                                item[i][20] = rs.getString("Career");
                             }
                         }
                     }
@@ -636,8 +639,12 @@ for(i = 0; i < item.length; i++){
                             <%classes = Integer.toString(Integer.parseInt(classes)+1);%>
                             <div style="font-size:10px;color:#999999"><%=item[i][4]%></div><!-- 닉넴 -->
                             <%
-                                if(item[i][18] != null && item[i][18].equals("1")){%>
-                            <div id="as">A/S <%=item[i][19]%></div>
+                                if(item[i][19] != null){%>
+                            <div id="as">A/S <%=item[i][19]%>년</div>
+                            <%}%>
+                            <%
+                                if(item[i][20] != null && !item[i][20].contains("미입력")){%>
+                            <div id="career">경력 <%=item[i][20]%>년차</div>
                             <%}%>
                             <div style="font-size:14px;font-weight:bold;margin:8px 0;color:#3d3d3d"><%=item[i][2]%></div>
                             <div style="font-size:9px;color:#363636">조회수 <%=item[i][17]%></div>
@@ -862,7 +869,7 @@ for(i = 0; i < item.length; i++){
         %>
     </div>
     <%
-        if(keyword != null && !keyword.equals("")){
+        if(keyword != null && !keyword.equals("") && s_id.equals("100")){
     %><div id='attach_keyword'><%
     out.print("이 키워드에 사례추가");
 %></div><%
