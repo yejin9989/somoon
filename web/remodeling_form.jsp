@@ -150,7 +150,7 @@ for(i=1; i<=division1.size(); i++){
 				<input type="radio" name="budget" id="above10000" class="block" value="1억원 이상">
 				<label for="above10000">1억원 이상</label>
 				<input type="radio" name="budget" id="undefined" class="block" value="미정(상담 후 결정)">
-				<label for="undefined">미정(상담 후 결정)</label>
+				<label for="undefined">미정</label>
 					
 			</div>
 		</div>
