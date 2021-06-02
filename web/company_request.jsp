@@ -80,6 +80,7 @@
 			String item_name = rs.getString("Name");
 			String item_phone = rs.getString("Phone");
 			String item_address = rs.getString("Address");
+			String item_building = rs.getString("Building_type")+"";
 			String item_area = rs.getString("Area");
 			String item_due = rs.getString("Due");
 			String item_budget = rs.getString("Budget");
@@ -89,11 +90,21 @@
 			String item_state = rs.getString("State");
 			String item_calling = rs.getString("Calling");
 
+			//빌딩타입 한글로 변경
+			if(item_building != null && !item_building.equals("null")){
+				String[] building_types = {"아파트", "빌라", "주택", "원룸"};
+				item_building = building_types[Integer.parseInt(item_building)];
+			}
+			else {
+				item_building = "정보없음";
+			}
+
 			applymap.put("number", item_number);
 			applymap.put("itemnum", item_itemnum);
 			applymap.put("name", item_name);
 			applymap.put("phone", item_phone);
 			applymap.put("address", item_address);
+			applymap.put("building", item_building);
 			applymap.put("area", item_area);
 			applymap.put("due", item_due);
 			applymap.put("budget", item_budget);
@@ -313,6 +324,7 @@
 						<div class="info"><span>이름</span> <%out.println(hm.get("name"));%></div>
 						<div class="info"><span>전화번호</span> <%out.println(hm.get("phone"));%></div>
 						<div class="info"><span>주소</span> <%out.println(hm.get("address"));%></div>
+						<div class="info"><span>건물종류</span> <%out.println(hm.get("building"));%></div>
 						<div class="info"><span>평수</span> <%out.println(hm.get("area"));%></div>
 						<div class="info"><span>예정일</span> <%out.println(hm.get("due"));%></div>
 						<div class="info"><span>예산</span> <%out.println(hm.get("budget"));%></div>

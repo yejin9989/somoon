@@ -47,6 +47,7 @@ while(rs.next()){
 	String item_name = rs.getString("Name")+"";
 	String item_phone = rs.getString("Phone")+"";
 	String item_address = rs.getString("Address")+"";
+	String item_building = rs.getString("Building_type")+"";
 	String item_area = rs.getString("Area")+"";
 	String item_due = rs.getString("Due")+"";
 	String item_budget = rs.getString("Budget")+"";
@@ -85,6 +86,14 @@ while(rs.next()){
 			item_url = rs2.getString("URL");
 		}
 	}
+	//빌딩타입 한글로 변경
+	if(item_building != null && !item_building.equals("null")){
+		String[] building_types = {"아파트", "빌라", "주택", "원룸"};
+		item_building = building_types[Integer.parseInt(item_building)];
+	}
+	else {
+		item_building = "정보없음";
+	}
 	//업체전달 완료일 경우
 	if(item_state.equals("1")){
 		String status[] = {"상담 대기 중","상담 중","상담 완료","통화 불가","계약 대기 중","계약 성사","계약 불발"};
@@ -111,6 +120,7 @@ while(rs.next()){
 	itemmap.put("name", item_name);
 	itemmap.put("phone", item_phone);
 	itemmap.put("address", item_address);
+	itemmap.put("building", item_building);
 	itemmap.put("area", item_area);
 	itemmap.put("due", item_due);
 	itemmap.put("budget", item_budget);
@@ -339,7 +349,8 @@ textarea{
     			<div class="info"><span>이름</span> <%out.println(hm.get("name"));%></div>
     			<div class="info phone"><span>전화번호</span> <%out.println(hm.get("phone"));%></div>
     			<div class="info"><span>주소</span> <%out.println(hm.get("address"));%></div>
-    			<div class="info"><span>평수</span> <%out.println(hm.get("area"));%></div>
+				<div class="info"><span>건물종류</span> <%out.println(hm.get("building"));%></div>
+				<div class="info"><span>평수</span> <%out.println(hm.get("area"));%></div>
     			<div class="info"><span>예정일</span> <%out.println(hm.get("due"));%></div>
     			<div class="info"><span>예산</span> <%out.println(hm.get("budget"));%></div>
     			<div class="info"><span>방문상담</span> <%if(hm.get("consulting").equals("1")) out.println("예"); else out.println("아니오");%></div>
