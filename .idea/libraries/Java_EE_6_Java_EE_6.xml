@@ -11,6 +11,8 @@
       <root url="jar://$PROJECT_DIR$/lib/javax.servlet.jsp.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/javax.servlet.jsp.jstl.jar!/" />
       <root url="file://$PROJECT_DIR$/web/WEB-INF" />
+      <root url="jar://$PROJECT_DIR$/lib/javaSDK-2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/json-simple-1.1.1.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

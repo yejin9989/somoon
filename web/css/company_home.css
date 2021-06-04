@@ -82,7 +82,8 @@ hr{
     line-height: 13pt;
     font-size: 11pt;
 }
-#request_btn, #edit_btn{
+#request_btn, #edit_btn, #edit_info, #company_remodeling{
+    cursor: pointer;
     background: #7d99fd;
     margin: 37px auto;
     color: white;
@@ -91,6 +92,12 @@ hr{
     line-height: 51px;
     border-radius: 10px;
     font-size: 11pt;
+}
+#edit_info {
+    margin-bottom: 23px !important;
+}
+#company_remodeling{
+    margin-top: 23px !important;
 }
 #edit_btn{
     border:none;
@@ -117,30 +124,33 @@ hr{
     cursor: pointer;
     color: white;
 }
-#edit_info{
-    text-decoration: underline;
-    cursor: pointer;
-}
-#company_remodeling{
-    text-decoration: underline;
-    cursor: pointer;
-}
-#edit_info:after {
-    content: " ";
-    background: url(/sources/edit.png);
-    width: 20px;
-    height: 18px;
-    background-size: 20px;
-    display: inline-block;
-}
-#company_remodeling:after {
-    content: " ";
-    background: url(/sources/edit.png);
-    width: 20px;
-    height: 18px;
-    background-size: 20px;
-    display: inline-block;
-}
+/*#edit_info, #company_remodeling {*/
+/*    */
+/*    background: #7d99fd;*/
+/*    margin: 37px auto;*/
+/*    color: white;*/
+/*    width: 190px;*/
+/*    height: 51px;*/
+/*    line-height: 51px;*/
+/*    border-radius: 10px;*/
+/*    font-size: 11pt;*/
+/*}*/
+/*#edit_info:after {*/
+/*    content: " ";*/
+/*    background: url(/sources/edit.png);*/
+/*    width: 20px;*/
+/*    height: 18px;*/
+/*    background-size: 20px;*/
+/*    display: inline-block;*/
+/*}*/
+/*#company_remodeling:after {*/
+/*    content: " ";*/
+/*    background: url(/sources/edit.png);*/
+/*    width: 20px;*/
+/*    height: 18px;*/
+/*    background-size: 20px;*/
+/*    display: inline-block;*/
+/*}*/
 textarea{
     width: 400px;
     height: 200px;
@@ -234,4 +244,20 @@ span{
     text-align: left;
     width: 316px;
     padding-left: 65px;
+}
+.sendMsg{
+    display: inline-block;
+    width: 80px;
+    height: 30px;
+    background: #7d99fd;
+    color: white;
+    border: 0;
+    border-radius: 3px;
+    margin: 3px;
+    line-height: 33px;
+    padding: 1px 0;
+    cursor: pointer;
+}
+.sendMsg:hover{
+    background: #98afff;
 }

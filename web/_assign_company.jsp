@@ -3,9 +3,10 @@
     pageEncoding="UTF-8"%>
 <%@ page language="java" import="java.text.*,java.sql.*,java.util.Calendar,java.util.*" %>
 <%@ page import="com.oreilly.servlet.MultipartRequest,com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
-<%@ page language="java" import="myPackage.DBUtil" %> 
-<%@ page language="java" import="myPackage.Link" %> 
-<%@ page language="java" import="myPackage.GetImage" %>
+<%@ page language="java" %>
+<%@ page language="java" %>
+<%@ page language="java" %>
+<%@ page import="myPackage.*" %>
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setCharacterEncoding("UTF-8"); %>
 <!DOCTYPE html>
@@ -24,7 +25,8 @@
 	String query = "";
 	String sql = "";
 	ResultSet rs = null;
-	
+	%>
+	<%
 	//처리에 에러정보가 있으면 롤백
 	int error = 0;
 	
@@ -96,7 +98,27 @@
 	
 	//확인
 	//out.println(pstmt);
-	
+
+	// send messages
+	String company_name = "";
+	String company_phone = "";
+	String msg_str = "";
+	MessageSend2 msg = new MessageSend2();
+
+	for(String com : company1) {
+		sql = "SELECT Name, Phone FROM COMPANY WHERE Id = '" + com +"'";
+		pstmt = conn.prepareStatement(sql);
+		rs = pstmt.executeQuery();
+		while(rs.next()) {
+			company_name = rs.getString("Name");
+			company_phone = rs.getString("Phone");
+		}
+		msg_str = "[소문난집]\n" + company_name + "님, 새로운 상담 신청이 있습니다. 상담 완료 및 상담 상태 변경 부탁드립니다.";
+		//	테스트
+//		msg.send("01085979198", msg_str, "lms");
+		// 업체에게 문자 보내기
+//		msg.send(company_phone, msg_str, "lms");
+	}
 	//DB객체 종료
 	//stmt.close();
 	pstmt.close();

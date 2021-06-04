@@ -180,11 +180,22 @@ $(".delete_ability").click(function(){
 	url += id;
 	location.href = url;
 })
-$("#as_provide").click(function(){
-	checking();
-})
+// $("#as_provide").click(function(){
+// 	checking();
+// })
+$("select").change(function() {
+	// alert("select clicked");
+	let val = -1;
+	$("select option:selected").each(function() {
+		// console.log($(this).index());
+		val = $(this).index();
+		// alert(val);
+	})
+	if(val == 0) $("#as_fee").css("display","none");
+	else $("#as_fee").css("display","block");
+}).trigger("change");
 $(document).ready(function(){
-	checking();
+	// checking();
 	$('#profile_img').css("background", "url(<%=company_img%>) 50% 0% / 198px");
 })
 

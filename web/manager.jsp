@@ -168,6 +168,7 @@ input[type="checkbox"]:checked + label span {
 				<div class="mybox" id="home">소문난집 홈으로</div>
 				<div class="mybox" id="license">사업자등록증</div>
 				<div class="mybox" id="certificate">자격증 확인</div>
+				<div class="mybox" id="consulting_status">업체별 상담 현황</div>
 			</form>
 	</div>
 		<!------------ 내용물  --------------->
@@ -197,6 +198,8 @@ conn.close();
 			location.href='license_check.jsp';
 		else if($(this).attr('id') == "certificate")
 			location.href='certificate_check.jsp';
+		else if($(this).attr('id') == "consulting_status")
+			location.href='consulting_status.jsp';
 	})
 </script>
 <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>

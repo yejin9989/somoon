@@ -100,10 +100,10 @@ if(s_id.equals("")){
 			<div class="as_provide<%=company_as_provide%>">A/S <%if(company_as_provide.equals("0")){%>미<%}%>제공</div>
 			<div id="company_address"><%=company_area%></div>
 		<% if(company_as_provide.equals("1")){ %>
-			<div id="company_address">A/S 기간  <%=company_as_warranty%><%if(company_as_warranty.equals("5")){%>년 이상<%}else%>년</div>
-			<div id="company_address">A/S 금액  <%if(!company_as_fee.equals("null")){%><%=company_as_fee%>만원<%}else%>미입력</div>
+			<div id="company_address">A/S 기간  <%=company_as_warranty%><%if(company_as_warranty.equals("5")){%>년 이상<%}else{%>년<%}%></div>
+			<div id="company_address">A/S 금액  <%if(!company_as_fee.equals("null")){%><%=company_as_fee%>만원<%}else{%>미입력<%}%></div>
 		<%}%>
-		<div id="company_address">경력 기간 <%if(!company_career.equals("null")){%><%=company_career%>년<%}else%>미입력</div>
+		<div id="company_address">경력 기간 <%if(!company_career.equals("null")){%><%=company_career%>년<%}else{%>미입력<%}%></div>
 		<div id="company_abilities">
 			<%
 			for(i=0;i<company_abilities.size();i++){
@@ -117,7 +117,7 @@ if(s_id.equals("")){
 		</div>
 		<hr>
 		<div id="introduction"><div><%=company_introduction%></div></div>
-		<div id="request_btn">견적상담받기</div>
+		<div id="request_btn" <%if(s_id.equals(company_id)){%>style="display: none !important";<%}%>>견적상담받기</div>
 		<%
 		if(s_id.equals(company_id)){
 			%>
@@ -142,6 +142,9 @@ conn.close();
 	})
 	$("#company_remodeling").click(function(){
 		location.href="company_remodeling.jsp";
+	})
+	$("#request_btn").click(function() {
+		// location.href="" 해야행
 	})
 $(document).ready(function(){
 	$('#profile_img').css("background", "url(<%=company_img%>) 50% 50% / 198px");
