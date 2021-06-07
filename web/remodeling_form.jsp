@@ -377,7 +377,7 @@ $('document').ready(function(){
 		
 		$('.form_mini').each(function(){
 			if($(this).css('display') =='block'){
-				num = $(this).attr('id').replaceAll('form', '');
+				num = $(this).attr('id').replace(/form/g, '');
 				num = parseInt(num);
 				num += 1;
 				elem = $(this);
@@ -404,7 +404,7 @@ $('document').ready(function(){
 		
 		$('.form_mini').each(function(){
 			if($(this).css('display') =='block'){
-				num = $(this).attr('id').replaceAll('form', '');
+				num = $(this).attr('id').replace(/form/g, '');
 				num = parseInt(num);
 				num -= 1;
 				elem = $(this);
