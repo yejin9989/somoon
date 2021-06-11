@@ -32,6 +32,7 @@ String company_as_fee = "";
 String company_as_provide = "";
 String company_career = "";
 String company_img = "";
+String company_cs_cnt = "";
 ArrayList<String> company_abilities = new ArrayList<String>();
 String company_introduction = "";
 
@@ -59,6 +60,15 @@ rs = pstmt.executeQuery();
 while(rs.next()){
 	company_abilities.add(rs.getString("A.Title"));
 }
+
+	query = "SELECT COUNT(*) cnt from ASSIGNED where Company_num = ? and State = 2;";
+	pstmt = conn.prepareStatement(query);
+	pstmt.setString(1, company_id);
+	rs = pstmt.executeQuery();
+
+	while(rs.next()) {
+		company_cs_cnt = rs.getString("cnt");
+	}
 %>
 
 <!DOCTYPE html>
@@ -97,7 +107,8 @@ if(s_id.equals("")){
 	<div id="container">
 		<div id="profile_img"></div>
 		<div id="company_name"><%=company_name%></div>
-			<div class="as_provide<%=company_as_provide%>">A/S <%if(company_as_provide.equals("0")){%>미<%}%>제공</div>
+		<div id="company_cs_cnt">🔥 최근 상담 건수 <%=company_cs_cnt%>건 🔥</div>
+<%--			<div class="as_provide<%=company_as_provide%>">A/S <%if(company_as_provide.equals("0")){%>미<%}%>제공</div>--%>
 			<div id="company_address"><%=company_area%></div>
 		<% if(company_as_provide.equals("1")){ %>
 			<div id="company_address">A/S 기간  <%=company_as_warranty%><%if(company_as_warranty.equals("5")){%>년 이상<%}else{%>년<%}%></div>

@@ -214,6 +214,13 @@ span{
     width: 300px;
     text-align: center;
 }
+#company_cs_cnt {
+    width: fit-content;
+    margin: 9px auto !important;
+    font-size: 14pt !important;
+    font-weight: bold !important;
+    color: #6d6d6d;
+}
 .submitBtn{
     display: inline-block;
     width: 150px;
