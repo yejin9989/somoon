@@ -35,7 +35,7 @@
 	String[] company1 = request.getParameterValues("company");
 	String apply_num = request.getParameter("apply_num");
 	String state = "0";
-	//처리상태 - 0상담전 1상담완료 2거래성사
+	//처리상태 - 0상담전 1상담완료 2거래성사 // 이거 아닌거가타
 	
 	//받을 때 숫자형태가 아닌데 숫자로 입력해야하는경우 변환해주기
 	//필드를 다 채웠는지의 여부를 확인해본다. 덜 채웠으면 다시 채우라하기
@@ -114,8 +114,7 @@
 			company_phone = rs.getString("Phone");
 		}
 		msg_str = "[소문난집]\n" + company_name + "님, 새로운 상담 신청이 있습니다. 상담 완료 및 상담 상태 변경 부탁드립니다.";
-		//	테스트
-//		msg.send("01085979198", msg_str, "lms");
+
 		// 업체에게 문자 보내기
 //		msg.send(company_phone, msg_str, "lms");
 	}

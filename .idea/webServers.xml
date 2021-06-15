@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="baff8b74-e24c-4a2e-86d7-c64212ef2ddf" name="somoonhouse">
+        <fileTransfer rootFolder="/somunhouse" accessType="SFTP" host="somoonhouse.com" port="22" sshConfigId="5c147667-a665-476a-a836-cab17e47e196" sshConfig="somunhouse@somoonhouse.com:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

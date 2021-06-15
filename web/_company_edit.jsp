@@ -37,7 +37,7 @@ String company_limit_fee = request.getParameter("company_limit_fee");
 if(company_limit_fee.equals("null")) company_limit_fee = null;
 String company_start_year = request.getParameter("company_start_year");
 if(company_start_year.equals("null")) company_start_year = null;
-%><script>alert(<%=company_as_warranty%>)</script><%
+%><%
 
 //A/S제공여부 boolean처리
 String company_as_provide = "";

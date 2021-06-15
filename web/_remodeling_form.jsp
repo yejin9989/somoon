@@ -137,19 +137,20 @@
 	
 	if(error == 0){
 		pstmt.executeUpdate();
+
+		MessageSend2 msg = new MessageSend2();
+		String msg_str = name + "님, 상담 신청이 완료되었습니다! 2일 이내(주말/공휴일 제외)로 친절한 소문난집 담당자가 연락드릴 예정이니, 조금만 기다려주세요^^";
+
+		// 고객에게 문자 보내기
+//		msg.send(phone, msg_str, "lms");
 		%>
+
 		<script>
 		alert('견적 신청 완료!\n2일 이내(주말 제외)로 친절한 소문난집 담당자가 연락드릴 예정이니, 조금만 기다려주세요 🙂');
 		//alert(<%=building_type%>+'building_type'+<%=div1%>+'div1');
 		history.go(-2);
 		</script>
 		<%
-		MessageSend2 msg = new MessageSend2();
-		String msg_str = name + "님, 상담 신청이 완료되었습니다! 2일 이내(주말/공휴일 제외)로 친절한 소문난집 담당자가 연락드릴 예정이니, 조금만 기다려주세요^^";
-		// 테스트
-//		msg.send("01085979198", msg_str, "lms");
-		// 고객에게 문자 보내기
-//		msg.send(phone, msg_str, "lms");
 	}
 	else{
 		%>

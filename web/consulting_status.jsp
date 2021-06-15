@@ -22,7 +22,7 @@
     String s_id = session.getAttribute("s_id")+"";// 현재 사용자 current user
     String name = session.getAttribute("name")+"";
 
-    query = "SELECT a.Company_num company_id, c.Name name, c.Phone phone, COUNT(*) cnt FROM ASSIGNED a, COMPANY c WHERE a.Company_num = c.Id AND a.State = 0 AND c.State = 1 GROUP BY a.Company_num;";
+    query = "SELECT a.Company_num company_id, c.Name name, c.Phone phone, COUNT(*) cnt FROM ASSIGNED a, COMPANY c, REMODELING_APPLY ra WHERE a.Company_num = c.Id AND a.Apply_num = ra.Number AND a.State = 0 AND c.State = 1 AND ra.Apply_date > '2021-06-09' GROUP BY a.Company_num;";
     pstmt = conn.prepareStatement(query);
     rs = pstmt.executeQuery();
 %>
