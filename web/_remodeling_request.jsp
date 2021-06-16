@@ -94,7 +94,7 @@
 	d = java.sql.Date.valueOf(todayformat);
 
 	//업데이트하기
-	sql = "INSERT INTO REMODELING_APPLY VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	sql = "INSERT INTO REMODELING_APPLY(Number, Item_num, Name, Phone, Address, Building_type, Area, Due, Budget, Consulting, Compare, Apply_date, State, Calling, Pw) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	pstmt = conn.prepareStatement(sql);
 	pstmt.setInt(1, num);
 	pstmt.setString(2, item_num);
