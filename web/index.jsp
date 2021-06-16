@@ -487,9 +487,7 @@
 			</div>
 		</div>
 	</div>
-	<footer>
-		<img src="https://somoonhouse.com/img/footer.png" style="width:100%">
-	</footer>
+	<jsp:include page="footer.jsp"/>
 </div>
 <%
 	if(pstmt != null) {
