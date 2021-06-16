@@ -137,7 +137,7 @@ state = request.getParameter("state");
     <!-- //법적고지 -->
     <div class="g_info_footer">
         <div class="g_center_area">
-            <a id="toggleme" class="g_fd_info _business_info _click(shopn.mobile.footer.businessInfoToggle()) _stopDefault N=a:fot.info">소문난집 사업자정보</a>
+            <a id="toggleme" class="g_fd_info _business_info _click(shopn.mobile.footer.businessInfoToggle()) _stopDefault N=a:fot.info">밀리무드(소문난집) 사업자정보</a>
             <!-- 사업자 기본정보 -->
             <div class="g_info_area _business_info_area">
                 <dl>
