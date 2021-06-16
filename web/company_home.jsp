@@ -89,6 +89,10 @@ if(s_id.equals("")){
 		history.back(-1);
 	</script><%
 }
+
+//기타 자격증 가져오기
+	LinkedList<String> cert = new LinkedList<String>();
+query = "";
 %>
 <link rel="SHORTCUT ICON" href="img/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="https://pm.pstatic.net/css/webfont_v170623.css"/>
