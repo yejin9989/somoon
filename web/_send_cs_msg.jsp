@@ -32,7 +32,7 @@
 //	테스트
 //	msg.send("01085979198", msg_str, "lms");
 //    실제 업체에 문자 보내기
-//    msg.send(phone, msg_str, "lms");
+    msg.send(phone, msg_str, "lms");
 %>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
