@@ -11,6 +11,7 @@
     response.setHeader("Pragma", "no-cache");
     response.setDateHeader("Expires", 31536000);
 
+    /*
     //네이버 로그인 시 필요
     String clientId = "G8MVoxXfGciyZW5dF4p1";//애플리케이션 클라이언트 아이디값";
     String redirectURI = URLEncoder.encode("http://somoonhouse.com/callback.jsp", "UTF-8");
@@ -22,13 +23,17 @@
     apiURL += "&state=" + state;
     session.setAttribute("state", state);
 
-    //CSRF 방지를 위한 상태 토큰 검증
+    //네이버 로그인 시 CSRF 방지를 위한 상태 토큰 검증
     //세션 또는 별도의 저장 공간에 저장된 상태 토큰과 콜백으로 전달받은 state 파라미터 값이 일치해야 함
     //콜백 응답에서 state 파라미터의 값을 가져옴
     state = request.getParameter("state");
+     */
 
     // 세션 가져오기 get session
     String s_id = session.getAttribute("s_id")+"";// 현재 사용자 current user
+
+    //파라미터 가져오기
+    String param = request.getParameter("param");
 
     //필요한 변수 선언
     int i, j;
