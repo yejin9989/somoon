@@ -115,6 +115,7 @@
 		}
 		msg_str = "[소문난집]\n" + company_name + "님, 새로운 상담 신청이 있습니다. 상담 완료 및 상담 상태 변경 부탁드립니다.";
 
+
 		// 업체에게 문자 보내기
 //		msg.send(company_phone, msg_str, "lms");
 	}
