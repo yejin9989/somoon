@@ -30,9 +30,9 @@
     MessageSend2 msg = new MessageSend2();
 	String msg_str = "[소문난집]\n"+name+"님, 현재 미상담 건수가 "+cnt+"건 있습니다. 상담 완료 및 상담 상태 변경 부탁드립니다.";
 
-	
+
 //    실제 업체에 문자 보내기
-    msg.send(phone, msg_str, "lms");
+//    msg.send(phone, msg_str, "lms");
 %>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
