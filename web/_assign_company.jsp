@@ -50,7 +50,7 @@
 	
 	//업데이트하기, company마다 하나씩
 	for(String company : company1){
-		sql = "INSERT INTO ASSIGNED VALUES(?, ?, ?, default, default)";
+		sql = "INSERT INTO ASSIGNED VALUES(?, ?, ?, default, default, default)";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, apply_num);
 		pstmt.setString(2, company);
