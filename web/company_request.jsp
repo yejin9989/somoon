@@ -217,7 +217,7 @@
 			margin-bottom: 5px;
 			color:gray;
 		}
-		#stt0, #stt1, #stt2, #stt3{
+		#stt0, #stt1, #stt2, #stt3, #stt4{
 			color: white;
 			font-size: 9pt;
 			border-radius: 5px;
@@ -235,6 +235,9 @@
 		}
 		#stt3{
 			background: #8e47ba;
+		}
+		#stt4{
+			background: #2e2e2e;
 		}
 		.company{
 			padding-top:20px;
@@ -331,14 +334,15 @@
 						<div class="info"><span>방문상담</span> <%if(hm.get("consulting").equals("1")) out.println("예"); else out.println("아니오");%></div>
 						<div class="info"><span>신청날짜</span> <%out.println(hm.get("applydate"));%></div>
 						<div class="info"><span>연락방식</span> <%if(hm.get("calling").equals("1")) out.println("업체의 전화를 기다리고 있습니다."); else out.println("고객님이 직접 전화하실 예정입니다.");%></div>
-						<div class="info"><span>처리상태</span> <div class="state"><%if(assignedmap.get(hm.get("number")).equals("0")){%><div id="stt0"><% out.println("상담 대기");%></div><%}%>
-							<%if(assignedmap.get(hm.get("number")).equals("1")){%><div id="stt0"><% out.println("상담 중");%></div><%}%>
-							<%if(assignedmap.get(hm.get("number")).equals("2")){%><div id="stt1"><% out.println("상담 완료");%></div><%}%>
-							<%if(assignedmap.get(hm.get("number")).equals("3")){%><div id="stt2"><% out.println("통화 불가");%></div><%}%>
-							<%if(assignedmap.get(hm.get("number")).equals("4")){%><div id="stt2"><% out.println("계약 대기중");%></div><%}%>
-							<%if(assignedmap.get(hm.get("number")).equals("5")){%><div id="stt3"><% out.println("계약 성사");%></div><%}%>
-							<%if(assignedmap.get(hm.get("number")).equals("6")){%><div id="stt4"><% out.println("계약 불발");%></div><%}%>
-							<%if(assignedmap.get(hm.get("number")).equals("7")){%><div id="stt4"><% out.println("상담 취소");%></div><%}%>
+						<div class="info"><span>처리상태</span> <div class="state">
+							<%if(assignedmap.get(hm.get("number")).equals("2")){%><div id="stt0"><% out.println("상담 대기");%></div><%}%>
+							<%if(assignedmap.get(hm.get("number")).equals("4")){%><div id="stt0"><% out.println("상담 중");%></div><%}%>
+<%--							<%if(assignedmap.get(hm.get("number")).equals("5")){%><div id="stt1"><% out.println("상담 완료");%></div><%}%>--%>
+							<%if(assignedmap.get(hm.get("number")).equals("8")){%><div id="stt2"><% out.println("통화 불가");%></div><%}%>
+							<%if(assignedmap.get(hm.get("number")).equals("5")){%><div id="stt1"><% out.println("계약 대기중");%></div><%}%>
+							<%if(assignedmap.get(hm.get("number")).equals("6")){%><div id="stt3"><% out.println("계약 성사");%></div><%}%>
+							<%if(assignedmap.get(hm.get("number")).equals("9")){%><div id="stt4"><% out.println("계약 불발");%></div><%}%>
+							<%if(assignedmap.get(hm.get("number")).equals("10")){%><div id="stt4"><% out.println("상담 취소");%></div><%}%>
 						</div>
 						</div>
 						<%// 처리상태 - 상담전, 상담중, 상담완료, 거래성사 %>
@@ -347,14 +351,13 @@
 								<input type="hidden" name="apply_num" value="<%out.print(hm.get("number"));%>">
 								<div class="selectbox">
 									<select name="state" id="select">
-										<option value="0" selected>상담 대기</option>
-										<option value="1">상담 중</option>
-										<option value="2">상담 완료</option>
-										<option value="3">통화불가</option>
-										<option value="4">계약 대기중</option>
-										<option value="5">계약 성사</option>
-										<option value="6">계약 불발</option>
-										<option value="7">상담 취소</option>
+										<option value="2" selected>상담 대기</option>
+										<option value="4">상담 중</option>
+										<option value="8">통화불가</option>
+										<option value="5">계약 진행중</option>
+										<option value="6">계약 성사</option>
+										<option value="9">계약 불발</option>
+										<option value="10">상담 취소</option>
 									</select>
 								</div>
 								<input type="hidden" name="apply_num" value="<%=hm.get("number")%>">
