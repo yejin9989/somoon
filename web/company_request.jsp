@@ -337,12 +337,12 @@
 						<div class="info"><span>처리상태</span> <div class="state">
 							<%if(assignedmap.get(hm.get("number")).equals("2")){%><div id="stt0"><% out.println("상담 대기");%></div><%}%>
 							<%if(assignedmap.get(hm.get("number")).equals("4")){%><div id="stt0"><% out.println("상담 중");%></div><%}%>
-<%--							<%if(assignedmap.get(hm.get("number")).equals("5")){%><div id="stt1"><% out.println("상담 완료");%></div><%}%>--%>
-							<%if(assignedmap.get(hm.get("number")).equals("8")){%><div id="stt2"><% out.println("통화 불가");%></div><%}%>
-							<%if(assignedmap.get(hm.get("number")).equals("5")){%><div id="stt1"><% out.println("계약 대기중");%></div><%}%>
-							<%if(assignedmap.get(hm.get("number")).equals("6")){%><div id="stt3"><% out.println("계약 성사");%></div><%}%>
-							<%if(assignedmap.get(hm.get("number")).equals("9")){%><div id="stt4"><% out.println("계약 불발");%></div><%}%>
-							<%if(assignedmap.get(hm.get("number")).equals("10")){%><div id="stt4"><% out.println("상담 취소");%></div><%}%>
+							<%if(assignedmap.get(hm.get("number")).equals("5")){%><div id="stt1"><% out.println("미팅 예정");%></div><%}%>
+							<%if(assignedmap.get(hm.get("number")).equals("9")){%><div id="stt2"><% out.println("통화 불가");%></div><%}%>
+							<%if(assignedmap.get(hm.get("number")).equals("6")){%><div id="stt1"><% out.println("계약 대기중");%></div><%}%>
+							<%if(assignedmap.get(hm.get("number")).equals("7")){%><div id="stt3"><% out.println("계약 성사");%></div><%}%>
+							<%if(assignedmap.get(hm.get("number")).equals("10")){%><div id="stt4"><% out.println("계약 불발");%></div><%}%>
+							<%if(assignedmap.get(hm.get("number")).equals("11")){%><div id="stt4"><% out.println("상담 취소");%></div><%}%>
 						</div>
 						</div>
 						<%// 처리상태 - 상담전, 상담중, 상담완료, 거래성사 %>
