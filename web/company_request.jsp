@@ -353,11 +353,11 @@
 									<select name="state" id="select">
 										<option value="2" selected>상담 대기</option>
 										<option value="4">상담 중</option>
-										<option value="8">통화불가</option>
-										<option value="5">계약 진행중</option>
-										<option value="6">계약 성사</option>
-										<option value="9">계약 불발</option>
-										<option value="10">상담 취소</option>
+										<option value="9">통화불가</option>
+										<option value="6">계약 진행중</option>
+										<option value="7">계약 성사</option>
+										<option value="10">계약 불발</option>
+										<option value="11">상담 취소</option>
 									</select>
 								</div>
 								<input type="hidden" name="apply_num" value="<%=hm.get("number")%>">

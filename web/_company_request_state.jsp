@@ -29,13 +29,16 @@ String name = session.getAttribute("name")+"";
 String apply_num = request.getParameter("apply_num");
 String company_num = s_id;
 String state = request.getParameter("state");
+String memo = request.getParameter("reason");
+if(state.equals("9")) memo = "";
 
 //해당 신청내역 상태 업데이트하기
-query = "Update ASSIGNED set State = ? where Apply_num = ? and Company_num = ?";
+query = "Update ASSIGNED set State = ?, Memo = ? where Apply_num = ? and Company_num = ?";
 pstmt = conn.prepareStatement(query);
 pstmt.setString(1, state);
-pstmt.setString(2, apply_num);
-pstmt.setString(3, company_num);
+pstmt.setString(2, memo);
+pstmt.setString(3, apply_num);
+pstmt.setString(4, company_num);
 pstmt.executeUpdate();
 %>
 
@@ -47,7 +50,7 @@ pstmt.executeUpdate();
 <%=pstmt %>
 <script>
 window.onload = function(){
-	location.href = "company_request.jsp";
+	location.href = "new_company_request.jsp";
 }
 </script>
 <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
