@@ -4,10 +4,11 @@ import java.sql.*;
 public class DBUtil {
 	
 	public static Connection getMySQLConnection() {
+
 		Connection conn = null;
-		
+
 		try {
-			String serverIP = "203.245.44.103";
+			String serverIP = "localhost"; //로컬에서 돌릴땐 203.245.44.103로 수정해서 클래스 만들고 적용
 			String dbname = "somunhouse";
 			String portNum = "3306";
 			String url = "jdbc:mysql://"+serverIP+":"+portNum+"/"+dbname+"?serverTimezone=Asia/Seoul";
@@ -21,6 +22,7 @@ public class DBUtil {
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
+
 		return conn;
 	}
 	public static void close(Connection conn) {
