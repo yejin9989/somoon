@@ -47,7 +47,7 @@
 	ArrayList<String> div2 = new ArrayList<String>();
 	String consulting = request.getParameter("consulting");
 	//String compare = request.getParameter("compare");
-	String call = request.getParameter("call");
+	String call = "1";
 	String password = "";
 	java.sql.Date d = null;
 	String state = "0"; //처리상태 - 0:신청완료 1:업체전달완료 2:상담완료 3:거래성사
