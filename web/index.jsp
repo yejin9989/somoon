@@ -141,7 +141,7 @@
 			<div class="center">
 				<%
 					//추천 사례 받아오기
-					query = "select * from RECOMMEND order by Number ASC";
+					query = "select * from RECOMMEND order by Number ASC limit 4";
 					pstmt = conn.prepareStatement(query);
 					rs = pstmt.executeQuery();
 					String recitem[][] = new String[100][18];
