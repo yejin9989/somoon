@@ -1,7 +1,7 @@
 <%@ page import="java.net.URLEncoder" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page language="java" import="java.text.*,java.sql.*,java.util.Calendar,java.util.*" %>
+		 pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.text.*,java.sql.*,java.util.Calendar,java.util.Date, java.util.*" %>
 <%@ page import="com.oreilly.servlet.MultipartRequest,com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
 <%@ page language="java" %>
 <%@ page language="java" %>
@@ -9,6 +9,9 @@
 <%@ page import="myPackage.*" %>
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setCharacterEncoding("UTF-8"); %>
+<%@ page language="java" %>
+<%@ page import="myPackage.*" %>
+<%@ page import="myPackage.MessageSend2" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +38,6 @@
 	String[] company1 = request.getParameterValues("company");
 	String apply_num = request.getParameter("apply_num");
 	String state = "0";
-	//처리상태 - 0상담전 1상담완료 2거래성사 // 이거 아닌거가타
 	
 	//받을 때 숫자형태가 아닌데 숫자로 입력해야하는경우 변환해주기
 	//필드를 다 채웠는지의 여부를 확인해본다. 덜 채웠으면 다시 채우라하기
@@ -70,36 +72,67 @@
 			<%
 		}
 	}
-	
-	
-	
-	//처리상태 업데이트하기
-		sql = "Update REMODELING_APPLY set State=1 where Number = ?";
-		pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, apply_num);
-		
-	//실행
-	if(error == 0){
-		pstmt.executeUpdate();
-		%>
-		<script>
+
+
+	/*처리상태
+		0. 미배분
+		1. 재배분필요 (시간마감, 일부수락)
+		2. 배분중
+		3. 전체수락
+		4. 고객 취소
+		5. 관리자삭제
+	 */
+				//처리상태 업데이트하기
+				sql = "Update REMODELING_APPLY set State=2 where Number = ?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, apply_num);
+
+				//실행
+				if(error == 0){
+					pstmt.executeUpdate();
+			%>
+	<script>
 		alert('등록을 완료했습니다.');
 		location.href = "remodeling_request.jsp";
-		</script>
-		<%
+	</script>
+	<%
 	}
 	else{
-		%>
-		<script>
+	%>
+	<script>
 		history.back();
-		</script>
-		<%
+	</script>
+	<%
+		}
+
+	//배분시간 업데이트하기
+		sql = "Update REMODELING_APPLY set Assigned_time = now() where Number = ?";
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, apply_num);
+
+
+		//실행
+		if(error == 0){
+			pstmt.executeUpdate();
+	%>
+	<script>
+		alert('등록을 완료했습니다.');
+		location.href = "remodeling_request.jsp";
+	</script>
+	<%
 	}
-	
+	else{
+	%>
+	<script>
+		history.back();
+	</script>
+	<%
+		}
+
 	//확인
 	//out.println(pstmt);
 
-	// send messages
+	// send messages 문자보내기
 	String company_name = "";
 	String company_phone = "";
 	String msg_str = "";
@@ -113,11 +146,11 @@
 			company_name = rs.getString("Name");
 			company_phone = rs.getString("Phone");
 		}
-		msg_str = "[소문난집]\n" + company_name + "님, 새로운 상담 신청이 있습니다. 상담 완료 및 상담 상태 변경 부탁드립니다.";
+		msg_str = "[소문난집]\n" + company_name + "님, 새로운 상담 신청이 있습니다.  3시간내로 확인 하지 않으면 신청이 사라지오니 얼른 확인해주세요 ";
 
 
 		// 업체에게 문자 보내기
-//		msg.send(company_phone, msg_str, "lms");
+		// msg.send(company_phone, msg_str, "lms");
 	}
 	//DB객체 종료
 	//stmt.close();
