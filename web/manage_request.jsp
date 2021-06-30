@@ -404,7 +404,17 @@
                         <%// 처리상태 - 0:신청완료 1:업체전달완료 %>
                         <!-- 처리상태가 0 신청완료일 시, 어느회사?
                               처리상태가 1 전달 완료일 시, 상태보여주기-->
-                        <% if(hm.get("state").equals("0")){%>
+                        <table class="company_status">
+                            <%LinkedList<HashMap<String, String>> statelist = totalstatemap.get(hm.get("number"));
+                                for(HashMap<String, String> statemap : statelist){%>
+                            <tr>
+                                <td><%out.print(statemap.get("name"));%></td>
+                                <td><b><%out.print(statemap.get("state"));%></b></td>
+                            </tr>
+                            <%}%>
+                        </table>
+
+                        <% if(hm.get("state").equals("0") || hm.get("state").equals("1")){%>
                         <div class="company">
                             <div class="toggle_area">
                                 <div id="toggle">▶</div>
@@ -424,18 +434,8 @@
                                 </div>
                             </form>
                         </div>
-                        <%}
-                        else{%>
-                        <table class="company_status">
-                            <%LinkedList<HashMap<String, String>> statelist = totalstatemap.get(hm.get("number"));
-                                for(HashMap<String, String> statemap : statelist){%>
-                            <tr>
-                                <td><%out.print(statemap.get("name"));%></td>
-                                <td><b><%out.print(statemap.get("state"));%></b></td>
-                            </tr>
-                            <%}%>
-                        </table>
                         <%}%>
+
                         <div class="manager_cancel" id="<%out.println(hm.get("number"));%>">
                             <span>X</span>관리자삭제
                         </div>
