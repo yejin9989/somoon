@@ -61,7 +61,7 @@ while(rs.next()){
 	company_abilities.add(rs.getString("A.Title"));
 }
 
-	query = "SELECT COUNT(*) cnt from ASSIGNED where Company_num = ? and State > 3 and State < 8;";
+	query = "SELECT COUNT(*) cnt from ASSIGNED where Company_num = ? and State > 3 and State < 9;";
 	pstmt = conn.prepareStatement(query);
 	pstmt.setString(1, company_id);
 	rs = pstmt.executeQuery();

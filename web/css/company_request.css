@@ -1,0 +1,311 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@font-face{
+    font-family:'Nanum Gothic',sans-serif;
+}
+*{
+    font-family:'Nanum Gothic',sans-serif;
+    font-size: 11pt;
+    color: #313131;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+}
+input[type="checkbox"] {
+    display:none;
+}
+input[type="checkbox"] + label span {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin: -2px 10px 0 0;
+    vertical-align: middle;
+    background: url(img/checkbox.svg) left top no-repeat;
+    cursor: pointer;
+    background-size: cover;
+}
+input[type="checkbox"]:checked + label span {
+    background:url(img/checkbox.svg)  -26px top no-repeat;
+    background-size: cover;
+}
+#container {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    box-shadow: 0px 0px 20px #f4f4f4;
+}
+#somun_navbar{
+    display: block;
+    float: left;
+    width: 100%;
+    text-align: center;
+    padding: 16px 0 6px;
+    /*line-height:30px;*/
+}
+#somun_logo{
+    /*border: 1px solid blue;*/
+    display: inline-block;
+    /*background: url("https://somoonhouse.com/img/somunhouselogo.png") no-repeat;*/
+    width: max-content;
+    float:left;
+    position: relative;
+    font-weight: bold;
+    color: #31b1f2;
+    font-size: 36px;
+    left: 4%;
+}
+#alert{
+    display: inline-block;
+    float:right;
+    right: 4%;
+    position: relative;
+}
+.nav-item {
+    align-items: center;
+    height: 52px;
+    display: inline-flex;
+}
+#divider{
+    width:100%;
+    height:20px;
+    border-top: 1px solid black;
+    border-radius: 5px;
+}
+#content{
+    margin: 60px auto;
+    max-width: 600px;
+}
+.item {
+    width: 43%;
+    display: inline-block;
+    margin: 1%;
+    border-radius: 5px;
+    padding: 2%;
+    background: #fbfbfb;
+    box-shadow: 0px 0px 6px #e2e2e2;
+    height: 1000px;
+    float:left;
+}
+.item .no{
+    color: #909090;
+    font-size: 10pt;
+}
+.item_wrapper{
+    padding:20px;
+}
+.item_wrapper div.info{
+    margin-bottom: 15px;
+    padding-bottom: 4px;
+    border-bottom: 3px dotted #e5e5e5;
+    width: 91%;
+}
+.phone :after{
+    content:"";
+}
+.item_wrapper span{
+    display: block;
+    font-size:9pt;
+    margin-bottom: 5px;
+    color:gray;
+}
+.submit_btn{
+    text-align:center;
+    padding:10px;
+
+}
+.submit_btn input{
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    height: 32px;
+    background: #eaeaea;
+}
+textarea{
+    width: 100%;
+    font-size: 9pt;
+    overflow: hidden;
+}
+.toggle_area{
+    position:relative;
+    cursor: pointer;
+}
+.assign_company{
+    display:none;
+}
+.assign_company div{
+    padding-top: 10px;
+}
+#toggle_title{
+    left: 13px;
+    position: relative;
+}
+#toggle{
+    display: inline-block;
+    padding: 0 4px 0 0;
+    font-size: 7pt;
+    color: gray;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+.company_status td, .company_status b{
+    font-size: 13px;
+}
+@media (max-width : 400px){
+    /*반응형*/
+    .item {
+        width: 93%;
+    }
+}
+
+
+.new_container, .ongoing_container, .done_container, .aborted_container {
+    min-height: 75%;
+    justify-content: center;
+    align-items: center;
+}
+.no_cases {
+    text-align: center;
+}
+.no_case_desc {
+    font-size: 14px !important;
+    font-weight: bold !important;
+}
+.aborted_card, .done_card {
+    margin: 20px auto;
+    min-height: 100px;
+    width: 90%;
+    border: 1px solid grey;
+    border-radius: 15px;
+    align-items: center;
+    overflow: hidden;
+}
+.aborted_card:hover, .done_card:hover{
+    cursor:pointer;
+}
+.aborted_card_left, .done_card_left {
+    padding: 30px;
+    float: left;
+    width: 90%;
+    height: 100px;
+}
+.aborted_card_right, .done_card_right {
+    float: right;
+    width: 10%;
+    background: #c8c8c8;
+    height: 100px;
+    display: flex;
+}
+.right-arrow {
+    font-size: large;
+    color: white;
+    margin: auto;
+}
+.aborted_name, .done_name {
+    font-weight: bold;
+}
+.aborted_date, .done_date {
+    color: white;
+    font-size: 9pt;
+    border-radius: 50px;
+    padding: 1px 5px;
+    width: fit-content;
+    background: #e5e5e5;
+    margin: 5px 0px;
+}
+.search_item1 {
+    width:90%;
+    height:40px;
+    border-radius:20px;
+    border: 1px solid #c8c8c8;
+    line-height:40px;
+    margin: 30px auto;
+    overflow: hidden;
+}
+.search_item1 input[type="text"]{
+    border: 0px;
+    position: relative;
+    padding:5px 0;
+    left: 15px;
+}
+.search_item1 input[type="submit"]{
+    float:right;
+    position: relative;
+    height:40px;
+    width: 60px;
+    border: none;
+}
+input[type=submit] {-webkit-appearance:none;}
+body {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    border:0px;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    align-items: center;
+    justify-content: center;
+    background-color:white;
+}
+
+.aborted_modal, .done_modal {
+    position: absolute;
+    width:450px;
+    height: 380px;
+    border-radius: 5%;
+    padding: 50px;
+    background: white;
+    box-shadow: -1px 5px 9px 4px #0000001f;
+    display: none;
+    z-index: 1;
+    overflow: scroll;
+}
+.done_modal {
+    height: 300px;
+}
+.close{
+    position:absolute;
+    top: 10px;
+    right:10px;
+    font-size: 15pt;
+}
+.close:hover{
+    cursor:pointer;
+}
+select{
+    width: 100%;
+    height: 39px;
+    padding: 7px;
+    border-radius: 10px;
+}
+.selectbox{
+    position:relative;
+}
+.selectbox:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    width: 0;
+    height: 0;
+    margin-top: -1px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #333;
+}
+.modal_info{
+    margin: 10px;
+}
+.modal_info_left {
+    display: inline-block;
+    width: 80px;
+    color: grey;
+}
+.reason {
+    display:none;
+    margin-top: 7px;
+    width: 100%;
+    height: 39px;
+    padding: 7px;
+    border-radius: 10px;
+    border: 1px solid;
+}
