@@ -95,7 +95,6 @@
 		item[i][6] = rs.getString("As_warranty");
 		item[i][7] = rs.getString("Career");
 		if(item[i][2].indexOf("남다른") == -1
-				&& item[i][2].indexOf("이노") == -1
 				&& item[i][2].indexOf("태웅") == -1
 				&& item[i][2].indexOf("그레이") == -1
 				&& item[i][2].indexOf("JYP") == -1

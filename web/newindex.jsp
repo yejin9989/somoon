@@ -501,7 +501,6 @@ else{*/
                         item[i][16] = rs.getString("Part");
                         item[i][17] = rs.getString("Hit");
                         if(item[i][4].indexOf("남다른") == -1
-                                && item[i][4].indexOf("이노") == -1
                                 && item[i][4].indexOf("태웅") == -1
                                 && item[i][4].indexOf("그레이") == -1
                                 && item[i][4].indexOf("JYP") == -1
