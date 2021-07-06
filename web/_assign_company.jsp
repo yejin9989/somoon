@@ -49,14 +49,34 @@
 	<%
 	error++;
 	}
+
+	//
 	
-	//업데이트하기, company마다 하나씩
+	//업데이트하기, company마다 하나씩, 해당 회사에 넘겨준 정보가 있으면 Update문 실행 아니면 Insert문 실행
 	for(String company : company1){
-		sql = "INSERT INTO ASSIGNED VALUES(?, ?, ?, default, default, default)";
-		pstmt = conn.prepareStatement(sql);
+		query = "select count(*) from ASSIGNED where Apply_num = ? and Company_num = ?";
+		pstmt = conn.prepareStatement(query);
 		pstmt.setString(1, apply_num);
 		pstmt.setString(2, company);
-		pstmt.setString(3, state);
+		rs = pstmt.executeQuery();
+		int assigned_count = 0;
+		while(rs.next()){
+			assigned_count = rs.getInt("count(*)");
+		}
+		if(assigned_count > 0){
+			sql = "UPDATE ASSIGNED set State = ? Where Apply_num = ? and Company_num = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, state);
+			pstmt.setString(2, apply_num);
+			pstmt.setString(3, company);
+		}
+		else{
+			sql = "INSERT INTO ASSIGNED VALUES(?, ?, ?, default, default, default)";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, apply_num);
+			pstmt.setString(2, company);
+			pstmt.setString(3, state);
+		}
 		//확인
 			//out.println(pstmt);
 		
