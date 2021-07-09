@@ -30,7 +30,7 @@
         //신청폼으로 부터 받은 데이터 불러오기, 필요한 정보 정의
         String req_id = request.getParameter("id");
 
-        sql = "delete from REMODELING_APPLY where Number = ?";
+        sql = "update REMODELING_APPLY set State = 5 where Number = ?";
         pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, req_id);
 
@@ -44,9 +44,11 @@
         //out.println(pstmt);
 
 
-        sql = "delete from ASSIGNED where Apply_num = ?";
+        sql = "update ASSIGNED set State = 10 where Apply_num = ?";
         pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, req_id);
+
+        sql = "update ASSIGNED set Memo = \"관리자가 해당 신청을 삭제 했습니다.\" where Apply_num = ?";
 
 
         if(error == 0){
