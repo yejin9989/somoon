@@ -23,6 +23,7 @@
     String s_id = session.getAttribute("s_id")+"";// 현재 사용자 current user
     String name = session.getAttribute("name")+"";
 
+
 //신청내용들 받아오기
     String state = request.getParameter("state")+"";
     /*
@@ -30,6 +31,7 @@
         query = "select * from REMODELING_APPLY where Number < 0";
     else
      */
+
     query = "select * from REMODELING_APPLY";
 
 //특정상태에 대한 결과를 받아오는 탭일 경우
@@ -100,7 +102,7 @@
             item_building = "정보없음";
         }
         //업체전달 완료일 경우
-        if(item_state.equals("1")){
+        if(!item_state.equals("0")){
             String status[] = {"신규(대기)", "신규(거절)", "진행중(상담예정)", "진행중(부재중)", "진행중(상담중)", "진행중(미팅예정)", "진행중(계약진행중)", "진행중(계약완료)", "완료(공사완료)", "중단(통화불가)", "중단(사유입력)", "상담취소"};
             String query2 = "select C.Name, A.State from COMPANY C, ASSIGNED A where A.Company_num = C.Id and Apply_num = ?";
 
@@ -113,9 +115,7 @@
                 statemap.put("state", status[Integer.parseInt(rs2.getString("State"))]);
                 statelist.add(statemap);
             }
-
         }
-
 
         itemmap.put("company", item_company);
         itemmap.put("title", item_title);
@@ -138,6 +138,24 @@
 
         totalstatemap.put(item_number.toString(), statelist);
         itemlist.add(itemmap);
+    }
+
+    //신청별로 거절한회사/수락한회사/준적없는회사 받아오기
+    HashMap<String, HashMap<String, String>> company_state = new HashMap<String, HashMap<String, String>>();
+    for (int i = 0; i < itemlist.size(); i++) {
+        HashMap<String, String> companymap = new HashMap<String, String>();
+        query = "select * from ASSIGNED where Apply_num = ?";
+        pstmt = conn.prepareStatement(query);
+        pstmt.setString(1, itemlist.get(i).get("number"));
+        rs = pstmt.executeQuery();
+        String company_num = "";
+        String status = "";
+        while(rs.next()){
+            company_num = rs.getString("Company_num");
+            status = rs.getString("State");
+            companymap.put(company_num, status);
+        }
+        company_state.put(itemlist.get(i).get("number"), companymap);
     }
 
 //회사 받아오기
@@ -169,176 +187,8 @@
     <link rel="stylesheet" type="text/css" href="https://pm.pstatic.net/css/webfont_v170623.css"/>
     <link rel="stylesheet" type="text/css" href="slick-1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="slick-1.8.1/slick/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/manage_request.css"/>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <style type="text/css">
-        @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
-        @font-face{
-            font-family:'Nanum Gothic',sans-serif;
-        }
-        *{
-            font-family:'Nanum Gothic',sans-serif;
-            font-size: 11pt;
-            color: #313131;
-            -webkit-appearance: none;
-            -webkit-border-radius: 0;
-        }
-        input[type="checkbox"] {
-            display:none;
-        }
-        input[type="checkbox"] + label span {
-            display: inline-block;
-            width: 24px;
-            height: 24px;
-            margin: -2px 10px 0 0;
-            vertical-align: middle;
-            background: url(https://somoonhouse.com/img/checkbox.svg) left top no-repeat;
-            cursor: pointer;
-            background-size: cover;
-        }
-        input[type="checkbox"]:checked + label span {
-            background:url(https://somoonhouse.com/img/checkbox.svg)  -26px top no-repeat;
-            background-size: cover;
-        }
-        #container {
-            width: 100%;
-            max-width: 700px;
-            margin: 0 auto;
-            box-shadow: 0px 0px 20px #f4f4f4;
-        }
-        #somun_navbar {
-            /*border-bottom: 1px solid #c8c8c8;*/
-            display: inline-block;
-            height: fit-content;
-            width: 100%;
-            padding: 39px 0 11px;
-        }
-        #divider{
-            width:100%;
-            height:20px;
-            border-top: 1px solid black;
-            border-radius: 5px;
-        }
-        #content{
-            margin: 60px auto;
-            max-width: 600px;
-        }
-        .item {
-            width: 43%;
-            display: inline-block;
-            margin: 1%;
-            border-radius: 5px;
-            padding: 2%;
-            background: #fbfbfb;
-            box-shadow: 0px 0px 6px #e2e2e2;
-            height: 1000px;
-            float:left;
-        }
-        .item .no{
-            color: #909090;
-            font-size: 10pt;
-        }
-        .item_wrapper{
-            padding:20px;
-        }
-        .item_wrapper div.info{
-            margin-bottom: 15px;
-            padding-bottom: 4px;
-            border-bottom: 3px dotted #e5e5e5;
-            width: 91%;
-        }
-        .phone :after{
-            content:"";
-        }
-        .item_wrapper span{
-            display: block;
-            font-size:9pt;
-            margin-bottom: 5px;
-            color:gray;
-        }
-        #stt0, #stt1, #stt2, #stt3{
-            color: white;
-            font-size: 9pt;
-            border-radius: 5px;
-            padding: 1px 4px;
-            width: fit-content
-        }
-        #stt0{
-            background: #476aba;
-        }
-        #stt1{
-            background: #ba4747;
-        }
-        #stt2{
-            background: #47ba47;
-        }
-        #stt3{
-            background: #8e47ba;
-        }
-        .submit_btn{
-            text-align:center;
-            padding:10px;
-
-        }
-        .submit_btn input{
-            width: 100%;
-            border: none;
-            border-radius: 5px;
-            height: 32px;
-            background: #eaeaea;
-        }
-        textarea{
-            width: 100%;
-            font-size: 9pt;
-            overflow: hidden;
-        }
-        .toggle_area{
-            position:relative;
-            cursor: pointer;
-        }
-        .assign_company{
-            display:none;
-        }
-        .assign_company div{
-            padding-top: 10px;
-        }
-        #toggle_title{
-            left: 13px;
-            position: relative;
-        }
-        #toggle{
-            display: inline-block;
-            padding: 0 4px 0 0;
-            font-size: 7pt;
-            color: gray;
-            position: absolute;
-            top: 50%;
-            transform: translate(0, -50%);
-        }
-        .company_status td, .company_status b{
-            font-size: 13px;
-        }
-        .manager_cancel{
-            width: 100%;
-            background: #b7b7b7;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            border-radius: 7px;
-            margin: 10px 0;
-        }
-        .manager_cancel span{
-            text-decoration: underline;
-            display: inline-block;
-            color: white;
-            padding: 0 3px 0 0px;
-        }
-        @media (max-width : 400px){
-            /*반응형*/
-            .item {
-                width: 93%;
-            }
-        }
-    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <title>소문난집</title>
@@ -353,13 +203,13 @@
         </div>
     </div>
     <div>
-        <a href="manage_request.jsp?state=0">미배분</a>
-        <a href="manage_request.jsp?state=1">재배분필요</a>
-        <a href="manage_request.jsp?state=2">배분중</a>
-        <a href="manage_request.jsp?state=3">전체수락</a>
-        <a href="manage_request.jsp?state=4">고객취소</a>
-        <a href="manage_request.jsp?state=5">관리자삭제</a>
-        <a href="manage_request.jsp?state=6">전체보기</a>
+        <a href="_refresh_request.jsp?state=0">미배분</a>
+        <a href="_refresh_request.jsp?state=1">재배분필요</a>
+        <a href="_refresh_request.jsp?state=2">배분중</a>
+        <a href="_refresh_request.jsp?state=3">전체수락</a>
+        <a href="_refresh_request.jsp?state=4">고객취소</a>
+        <a href="_refresh_request.jsp?state=5">관리자삭제</a>
+        <a href="_refresh_request.jsp?state=6">전체보기</a>
     </div>
     <a href="_refresh_request.jsp">새로고침</a>
     <div id="content">
@@ -423,10 +273,36 @@
                             <form action="_assign_company.jsp" class="assign_company" method="GET" target="_self">
                                 <input type="hidden" name="apply_num" value="<%out.print(hm.get("number"));%>">
                                 <%
+                                    //상태에 따라 회사 표시 스타일 변경 -> 이미 수락한 회사는 회색(선택불가), 거절 당한 회사는 빨간색(선택가능)?
                                     for(HashMap<String, String> hm2 : company){
-                                %>
-                                <div><input type="checkbox" name="company" value="<%out.print(hm2.get("id"));%>" id="<%out.println(hm.get("number"));%>company<%out.print(hm2.get("id"));%>"><label for="<%out.println(hm.get("number"));%>company<%out.print(hm2.get("id"));%>" ><span></span><%out.print(hm2.get("name"));%></label></div>
-                                <%
+                                        int find_state = 0;
+                                        for (int i = 0; i < company_state.get(hm.get("number")).size(); i++) { //상태가있나
+                                            if(company_state.get(hm.get("number")).containsKey(hm2.get("id"))){
+                                                //있
+                                                if(company_state.get(hm.get("number")).get(hm2.get("id")).equals("1")){ //거절(빨강)
+                                                    find_state = 1; //거절
+                                                }
+                                                else{ //수락(회색)
+                                                    find_state = 2; //수락
+                                                }
+                                                break;
+                                            }
+                                        }
+                                        if(find_state == 0) { //없(일반)
+                                            %>
+                                            <div><input type="checkbox" name="company" class="company_general" value="<%out.print(hm2.get("id"));%>" id="<%out.println(hm.get("number"));%>company<%out.print(hm2.get("id"));%>"><label for="<%out.println(hm.get("number"));%>company<%out.print(hm2.get("id"));%>" ><span></span><%out.print(hm2.get("name"));%></label></div>
+                                            <%
+                                        }
+                                        else if (find_state == 1) { //거절
+                                            %>
+                                            <div><input type="checkbox" name="company" class="company_refused" value="<%out.print(hm2.get("id"));%>" id="<%out.println(hm.get("number"));%>company<%out.print(hm2.get("id"));%>"><label for="<%out.println(hm.get("number"));%>company<%out.print(hm2.get("id"));%>" ><span></span><%out.print(hm2.get("name"));%></label></div>
+                                            <%
+                                        }
+                                        else {//수락
+                                            %>
+                                            <div><input type="checkbox" name="company" class="company_accepted" value="<%out.print(hm2.get("id"));%>" id="<%out.println(hm.get("number"));%>company<%out.print(hm2.get("id"));%>"><label for="<%out.println(hm.get("number"));%>company<%out.print(hm2.get("id"));%>" ><span></span><%out.print(hm2.get("name"));%></label></div>
+                                            <%
+                                        }
                                     }
                                 %>
                                 <div class="submit_btn">
@@ -436,9 +312,26 @@
                         </div>
                         <%}%>
 
-                        <div class="manager_cancel" id="<%out.println(hm.get("number"));%>">
+                        <%
+                            if(!state.equals("3") && !state.equals("4")){
+                                //전체 수락건이거나 고객 취소건이 아닌 이상 수락건으로 변경하는 버튼 달아주기
+                                %>
+                        <div class="manager_cancel half" id="cancel<%out.println(hm.get("number"));%>">
                             <span>X</span>관리자삭제
                         </div>
+                        <div class="manager_okay" id="okay<%out.println(hm.get("number"));%>">
+                            수락건으로
+                        </div>
+                        <%
+                            }
+                            else{
+                                %>
+                        <div class="manager_cancel full" id="cancel<%out.println(hm.get("number"));%>">
+                            <span>X</span>관리자삭제
+                        </div>
+                        <%
+                            }
+                        %>
                     </div>
                 </div>
                 <%}%>
@@ -545,8 +438,14 @@ conn.close();
         });
         $(".manager_cancel").click(function(){
             var req_id = $(this).attr("id");
+            req_id = req_id.replace("cancel", "");
             location.href = "_delete_request.jsp?id="+req_id;
-        })
+        });
+        $(".manager_okay").click(function(){
+            var req_id = $(this).attr("id");
+            req_id = req_id.replace("okay", "");
+            location.href = "_okay_request.jsp?id="+req_id;
+        });
         /*
         function toggle_company(){
             if($(".assign_company").css("display") == "none"){
