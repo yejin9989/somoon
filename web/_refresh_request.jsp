@@ -38,9 +38,9 @@
             not_valid_items.add(rs.getString("Number"));
         }
 
-        //3시간 지난 신청들의 배분 정보에서 상태(대기)가 아닐 시에 상태(거절)로 변경
+        //3시간 지난 신청들의 배분 정보에서 상태(대기)가 일 시에 상태(거절)로 변경
         for (String number : not_valid_items){
-            sql = "update ASSIGNED set State = 1 where State != 0 and Apply_num = " + number;
+            sql = "update ASSIGNED set State = 1 where State = 0 and Apply_num = " + number;
             pstmt = conn.prepareStatement(sql);
             pstmt.executeUpdate();
         }
@@ -53,19 +53,19 @@
             while(rs.next()){
                 int okay = rs.getInt("count(*)");
                 if(okay >= 4){
-                    sql = "update REMODELING set State = 3 where Number = " + number;
+                    sql = "update REMODELING_APPLY set State = 3 where Number = " + number;
                     pstmt = conn.prepareStatement(sql);
                     pstmt.executeUpdate();
                 }
                 else{
-                    sql = "update REMODELING set State = 1 where Number = " + number;
+                    sql = "update REMODELING_APPLY set State = 1 where Number = " + number;
                     pstmt = conn.prepareStatement(sql);
                     pstmt.executeUpdate();
 
-                    //만약 모든 회사에 배분 되었고 모든 행이 거절상태라면 배분 테이블에 해당 신청건에 대한 열들을 다 지움
+                    //만약 모든 회사에 배분 되었고 수락한 회사가 4개이하라면 배분 테이블에 해당 신청건에 대해 거절한 열들을 다 지움
                     ResultSet rs2;
 
-                    query = "select count(*) from ASSIGNED where State = 1 and Number = " + number;
+                    query = "select count(*) from ASSIGNED Where Apply_num = " + number;
                     pstmt = conn.prepareStatement(query);
                     rs2 = pstmt.executeQuery();
                     int assigned = 0;
@@ -80,9 +80,10 @@
                         company = rs2.getInt("count(*)");
                     }
 
-                    if(assigned >= company){
-                        //행 다 지우기
-                        sql = "delete from ASSIGNED where Number " + number;
+                    if(assigned >= company){ //원본
+                    //if(assigned >= 4){ // 테스트
+                        //거절인 행 다 지우기
+                        sql = "delete from ASSIGNED where State = 1 and Number " + number;
                         pstmt = conn.prepareStatement(sql);
                         pstmt.executeUpdate();
                     }
@@ -94,9 +95,14 @@
         //out.println(pstmt);
 
         //DB객체 종료
-        stmt.close();
+        //stmt.close();
         pstmt.close();
         conn.close();
+
+        String state = request.getParameter("state")+"";
+        out.print("manage_request.jsp?state="+state);
+        response.sendRedirect("manage_request.jsp?state="+state);
+
     %>
 </head>
 <body>
