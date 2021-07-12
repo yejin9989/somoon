@@ -204,8 +204,8 @@ for(i=1; i<=division1.size(); i++){
 				<input type="text" name="address" class="block">
 			</div>
 		</div>
-		<div class="form_mini" id="form8">
-		<!-- 상담방식(방문/영상/필요없음) -->
+		<!--div class="form_mini" id="form8">
+		< 상담방식(방문/영상/필요없음) >
 			<div class="form_title">원하는 상담방식을 골라주세요.</div>
 			<div class="form_content block">
 				<input type="radio" name="consulting" id="consulting_no"  class="block" value="0">
@@ -222,7 +222,7 @@ for(i=1; i<=division1.size(); i++){
     			</p>
     		</div>
 		</div>
-		<!--div class="form_mini" id="form9">
+		<div class="form_mini" id="form9">
 		< 연락방식(주세요/걸게요) >
 			<div class="form_title">원하는 연락방식을 골라주세요.</div>
 			<div class="form_content">    	
@@ -232,7 +232,7 @@ for(i=1; i<=division1.size(); i++){
     			<label for="callwill"  class="will">전화 걸게요</label>
     		</div>
 		</div-->
-		<div class="form_mini" id="form9">
+		<div class="form_mini" id="form8">
 		<!-- 이름, 연락처정보 + 개인정보동의 -->
 			<div class="form_title">상담을 위해 정보를 입력해주세요.</div>
 			<div class="form_content">
@@ -385,7 +385,7 @@ $('document').ready(function(){
 		})
 		if(num == 6)
 			partly();
-		else if(num == 9){
+		else if(num == 8){
 			$(this).parent().css('display', 'none');
 			$('#navigator3').css('display', 'block');
 		}
@@ -412,7 +412,7 @@ $('document').ready(function(){
 		})
 		if(num == 6)
 			partly();
-		else if(num == 8){
+		else if(num == 7){
 			$(this).parent().css('display', 'none');
 			$('#navigator2').css('display', 'block');
 		}

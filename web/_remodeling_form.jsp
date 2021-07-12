@@ -45,7 +45,7 @@
 	String budget = request.getParameter("budget");
 	String div1 = request.getParameter("division1");
 	ArrayList<String> div2 = new ArrayList<String>();
-	String consulting = request.getParameter("consulting");
+	//String consulting = request.getParameter("consulting");
 	//String compare = request.getParameter("compare");
 	String call = "1";
 	String password = "";
@@ -79,12 +79,11 @@
 			due == null || 
 			budget == null ||
 			div1 == null ||
-			consulting == null ||
 			call == null){
 		%>
 		<script>
 		alert('모든항목에 답변 해주세요.');
-		//alert("<%=name%><%=phone%><%=address%><%=building_type%><%=area%><%=due%><%=budget%><%=div1%><%=consulting%><%=call%>")
+		//alert("<%=name%><%=phone%><%=address%><%=building_type%><%=area%><%=due%><%=budget%><%=div1%><%=call%>")
 		</script>
 	<%	
 	error++;
@@ -118,7 +117,7 @@
 	d = java.sql.Date.valueOf(todayformat);
 
 	//업데이트하기
-	sql = "INSERT INTO REMODELING_APPLY (Number, Item_num, Name, Phone, Address, Building_type, Area, Due, Budget, Consulting, Apply_date, State, Calling, Pw, Assigned_time) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, password(?), default)";
+	sql = "INSERT INTO REMODELING_APPLY (Number, Item_num, Name, Phone, Address, Building_type, Area, Due, Budget, Apply_date, State, Calling, Pw, Assigned_time) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, password(?), default)";
 	pstmt = conn.prepareStatement(sql);
 	pstmt.setInt(1, num);
 	pstmt.setString(2, item_num);
@@ -129,11 +128,10 @@
 	pstmt.setString(7, area);
 	pstmt.setString(8, due);
 	pstmt.setString(9, budget);
-	pstmt.setString(10, consulting);
-	pstmt.setDate(11, d);
-	pstmt.setString(12, state);
-	pstmt.setString(13, call);
-	pstmt.setString(14, password);
+	pstmt.setDate(10, d);
+	pstmt.setString(11, state);
+	pstmt.setString(12, call);
+	pstmt.setString(13, password);
 	
 	if(error == 0){
 		pstmt.executeUpdate();
