@@ -126,7 +126,6 @@ input[type="checkbox"]:checked + label span {
 }
 .item .info{
     display: inline-block;
-    float: right;
 }
 .item_wrapper{
     padding:20px;
