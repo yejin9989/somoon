@@ -32,12 +32,72 @@ input[type="checkbox"]:checked + label span {
     margin: 0 auto;
     box-shadow: 0px 0px 20px #f4f4f4;
 }
-#somun_navbar {
-    /*border-bottom: 1px solid #c8c8c8;*/
-    display: inline-block;
-    height: fit-content;
+#somun_navbar{
+    display: block;
     width: 100%;
-    padding: 39px 0 11px;
+    height:30px;
+    text-align: center;
+    padding: 16px 0 6px;
+    /*line-height:30px;*/
+}
+#somun_navbar{
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 16px 0 6px;
+    /*line-height:30px;*/
+}
+#somun_logo{
+    /*border: 1px solid blue;*/
+    display: inline-block;
+    /*background: url("https://somoonhouse.com/img/somunhouselogo.png") no-repeat;*/
+    width: max-content;
+    float:left;
+    position: relative;
+    font-weight: bold;
+    color: #31b1f2;
+    font-size: 36px;
+    left: 4%;
+}
+#alert{
+    display: inline-block;
+    float:right;
+    right: 4%;
+    position: relative;
+}
+.nav-item {
+    align-items: center;
+    height: 52px;
+    display: inline-flex;
+}
+.tab {
+     width: 100%;
+     height: 47px;
+     display: block;
+     line-height: 47px;
+}
+.tab-item{
+    width: 13%;
+    display: inline-block;
+    text-align: center;
+    font-size: 11pt;
+    text-decoration: none;
+}
+.tab-item:hover{
+    border-bottom: 3px solid #8599ff;
+}
+.refresh{
+    display: block;
+    width: fit-content;
+    left: 50%;
+    position: relative;
+    padding: 10px 29px;
+    color: #f7f7f7;
+    background: #6cb7ff;
+    transform: translate(-50%,0%);
+    text-decoration: none;
+    border-radius: 7px;
+    margin: 13px 0;
 }
 #divider{
     width:100%;
@@ -46,7 +106,7 @@ input[type="checkbox"]:checked + label span {
     border-radius: 5px;
 }
 #content{
-    margin: 60px auto;
+    margin: 26px auto;
     max-width: 600px;
 }
 .item {
@@ -57,21 +117,22 @@ input[type="checkbox"]:checked + label span {
     padding: 2%;
     background: #fbfbfb;
     box-shadow: 0px 0px 6px #e2e2e2;
-    height: 1180px;
     float:left;
 }
 .item .no{
     color: #909090;
     font-size: 10pt;
+    display: inline-block;
+}
+.item .info{
+    display: inline-block;
+    float: right;
 }
 .item_wrapper{
     padding:20px;
 }
 .item_wrapper div.info{
-    margin-bottom: 15px;
-    padding-bottom: 4px;
-    border-bottom: 3px dotted #e5e5e5;
-    width: 91%;
+    margin-bottom: 12px;
 }
 .phone :after{
     content:"";
@@ -180,6 +241,15 @@ textarea{
 }
 .company_accepted+label{
     color:gray;
+}
+@media (max-width: 546px) {
+    .tab{
+        height: 94px;
+    }
+    .tab-item{
+        width:24%;
+        font-size: 9.5pt;
+    }
 }
 @media (max-width : 400px){
     /*반응형*/
