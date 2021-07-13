@@ -248,7 +248,7 @@
                             <input type="button" value="고객페이지 링크복사" onclick="myFunction('textarea<%out.print(hm.get("number"));%>')">
                         </div>
                         <%// 처리상태 - 0:신청완료 1:업체전달완료 %>
-                        <!-- 처리상태가 0 신청완료일 시, 어느회사?
+                        <!-- 처리상태가 0 신청완료일 시, 어느회사? hi
                               처리상태가 1 전달 완료일 시, 상태보여주기-->
                         <table class="company_status">
                             <%LinkedList<HashMap<String, String>> statelist = totalstatemap.get(hm.get("number"));
