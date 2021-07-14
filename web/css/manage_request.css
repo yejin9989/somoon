@@ -48,7 +48,7 @@ input[type="checkbox"]:checked + label span {
     /*line-height:30px;*/
 }
 #somun_logo{
-    /*border: 1px solid blue;*/
+    /*border: 1px solid blue;1*/
     display: inline-block;
     /*background: url("https://somoonhouse.com/img/somunhouselogo.png") no-repeat;*/
     width: max-content;
