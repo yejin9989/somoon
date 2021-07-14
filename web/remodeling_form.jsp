@@ -172,7 +172,7 @@ for(i=1; i<=division1.size(); i++){
 			</div>
 		</div>
 		<div class="form_mini" id="form6">
-		<!-- 시공 소분류 -->
+		<!-- 시공 소분류1 -->
 			<div class="form_title"></div>
 			<div class="form_content">
 			<%
