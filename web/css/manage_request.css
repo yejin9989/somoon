@@ -118,7 +118,6 @@ input[type="checkbox"]:checked + label span {
     background: #fbfbfb;
     box-shadow: 0px 0px 6px #e2e2e2;
     float:left;
-    height: 292px;
 }
 .item .no{
     color: #909090;
@@ -126,19 +125,9 @@ input[type="checkbox"]:checked + label span {
     display: inline-block;
 }
 .item .info{
-    display: block;
+    display: inline-block;
+    float: right;
 }
-.state{
-    display:inline-block;
-    float:right;
-}
-.copy_button{
-     border: none;
-     background: #6cb7ff;
-     color: white;
-     padding: 9px 14px;
-     border-radius: 6px;
- }
 .item_wrapper{
     padding:20px;
 }
