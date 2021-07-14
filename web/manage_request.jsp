@@ -222,15 +222,13 @@
                 %>
                 <div class="item">
                     <div class="no">no.<%out.println(hm.get("number"));%></div>
-                    <div class="info">
-                        <div class="state">
-                            <%if(hm.get("state").equals("0")){%><div id="stt0"><% out.println("미배분");%></div><%}%>
-                            <%if(hm.get("state").equals("1")){%><div id="stt1"><% out.println("재배분필요");%></div><%}%>
-                            <%if(hm.get("state").equals("2")){%><div id="stt2"><% out.println("배분중");%></div><%}%>
-                            <%if(hm.get("state").equals("3")){%><div id="stt3"><% out.println("전체수락");%></div><%}%>
-                            <%if(hm.get("state").equals("4")){%><div id="stt3"><% out.println("고객취소");%></div><%}%>
-                            <%if(hm.get("state").equals("4")){%><div id="stt3"><% out.println("관리자삭제");%></div><%}%>
-                        </div>
+                    <div class="state">
+                        <%if(hm.get("state").equals("0")){%><div id="stt0"><% out.println("미배분");%></div><%}%>
+                        <%if(hm.get("state").equals("1")){%><div id="stt1"><% out.println("재배분필요");%></div><%}%>
+                        <%if(hm.get("state").equals("2")){%><div id="stt2"><% out.println("배분중");%></div><%}%>
+                        <%if(hm.get("state").equals("3")){%><div id="stt3"><% out.println("전체수락");%></div><%}%>
+                        <%if(hm.get("state").equals("4")){%><div id="stt3"><% out.println("고객취소");%></div><%}%>
+                        <%if(hm.get("state").equals("4")){%><div id="stt3"><% out.println("관리자삭제");%></div><%}%>
                     </div>
                     <div class="item_wrapper">
                         <%
@@ -245,20 +243,11 @@
                         <div class="info"><span>신청날짜</span> <%out.println(hm.get("applydate"));%></div>
                         <div class="info">
                             <textarea id="textarea<%out.print(hm.get("number"));%>" style="display:none;">https://somoonhouse.com/customer_login.jsp?customer_num=<%out.print(hm.get("number"));%></textarea>
-                            <input type="button" value="고객페이지 링크복사" onclick="myFunction('textarea<%out.print(hm.get("number"));%>')">
+                            <input class="copy_button" type="button" value="고객페이지 링크복사" onclick="myFunction('textarea<%out.print(hm.get("number"));%>')">
                         </div>
                         <%// 처리상태 - 0:신청완료 1:업체전달완료 %>
                         <!-- 처리상태가 0 신청완료일 시, 어느회사? hi
                               처리상태가 1 전달 완료일 시, 상태보여주기-->
-                        <table class="company_status">
-                            <%LinkedList<HashMap<String, String>> statelist = totalstatemap.get(hm.get("number"));
-                                for(HashMap<String, String> statemap : statelist){%>
-                            <tr>
-                                <td><%out.print(statemap.get("name"));%></td>
-                                <td><b><%out.print(statemap.get("state"));%></b></td>
-                            </tr>
-                            <%}%>
-                        </table>
 
                         <% if(hm.get("state").equals("0") || hm.get("state").equals("1")){%>
                         <div class="company">
@@ -313,7 +302,7 @@
                                 //전체 수락건이거나 고객 취소건이 아닌 이상 수락건으로 변경하는 버튼 달아주기
                         %>
                         <div class="manager_cancel half" id="cancel<%out.println(hm.get("number"));%>">
-                            <span>X</span>관리자삭제
+                            관리자삭제
                         </div>
                         <div class="manager_okay" id="okay<%out.println(hm.get("number"));%>">
                             수락건으로
@@ -323,7 +312,7 @@
                         else{
                         %>
                         <div class="manager_cancel full" id="cancel<%out.println(hm.get("number"));%>">
-                            <span>X</span>관리자삭제
+                            관리자삭제
                         </div>
                         <%
                             }
@@ -369,7 +358,7 @@
                         <!-- 처리상태가 0 신청완료일 시, 어느회사?
                               처리상태가 1 전달 완료일 시, 상태보여주기-->
                         <table class="company_status">
-                            <%
+                            <%LinkedList<HashMap<String, String>> statelist = totalstatemap.get(hm.get("number"));
                                 for(HashMap<String, String> statemap : statelist){%>
                             <tr>
                                 <td><%out.print(statemap.get("name"));%></td>
@@ -490,13 +479,17 @@ conn.close();
             }
             */
         }
-        $(".toggle_area").click(function(){
+        $(".toggle_area").click(function(){ // 항목 클릭 하면 상세페이지 + 회사 넘기는 창 뜨도록
             if($(this).siblings("form").css("display") == "none"){
                 $(this).siblings("form").css("display", "block");
                 $(this).siblings("form").css("z-index", "10");
-                $(this).siblings("form").css("position", "relative");
+                $(this).siblings("form").css("position", "fixed");
                 $(this).siblings("form").css("background", "white");
                 $(this).siblings("form").css("box-shadow", "1px 3px 3px 0px #00000045");
+                $(this).siblings("form").css("top", "50%");
+                $(this).siblings("form").css("left", "50%");
+                $(this).siblings("form").css("transform", "translate(-50%, -50%)");
+                $(this).siblings("form").children().css("display", "inline-block");
             }
             else{
                 $(this).siblings("form").css("display", "none");
