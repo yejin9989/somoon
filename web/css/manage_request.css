@@ -114,23 +114,36 @@ input[type="checkbox"]:checked + label span {
     display: inline-block;
     margin: 1%;
     border-radius: 5px;
-    padding: 2%;
+    padding: 10px;
     background: #fbfbfb;
     box-shadow: 0px 0px 6px #e2e2e2;
     float:left;
-    height: 292px;
+    height: 210px;
+    transition: 0.2s;
 }
-.item .no{
+.item:hover{
+    cursor: pointer;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+.item .item_header{
+    display:flex;
+    position:relative;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+    height:20px;
+}
+.item .item_header .no{
+    display: inline-block;
     color: #909090;
     font-size: 10pt;
-    display: inline-block;
+}
+.item .item_header .state{
+    display:inline-block;
+    float:right;
 }
 .item .info{
     display: block;
-}
-.state{
-    display:inline-block;
-    float:right;
 }
 .copy_button{
      border: none;
@@ -140,10 +153,25 @@ input[type="checkbox"]:checked + label span {
      border-radius: 6px;
  }
 .item_wrapper{
-    padding:20px;
+    width: 100%;
+    height: 100%;
 }
-.item_wrapper div.info{
-    margin-bottom: 12px;
+.item .item_wrapper{
+    display:flex;
+    position: relative;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 200px;
+}
+.item .item_wrapper .info{
+    display:flex;
+    position: relative;
+    align-items: center;
+    width:100%;
+    height:25%;
+}
+.item .item_wrapper .info span{
+    width:25%;
 }
 .phone :after{
     content:"";
@@ -151,7 +179,6 @@ input[type="checkbox"]:checked + label span {
 .item_wrapper span{
     display: block;
     font-size:9pt;
-    margin-bottom: 5px;
     color:gray;
 }
 #stt0, #stt1, #stt2, #stt3{
@@ -252,6 +279,81 @@ textarea{
 }
 .company_accepted+label{
     color:gray;
+}
+
+.modal_item{
+    display:flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    left:0;
+    top:0;
+    width:100%;
+    height:100vh;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.modal_item .modal{
+    position: relative;
+    width: 60%;
+    height: 70%;
+    background-color: #FAFAFA;
+    overflow: scroll;
+    overflow-x:hidden;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+.modal_item .modal .item_wrapper{
+    display:flex;
+    position: relative;
+    width: 100%;
+    flex-direction: column;
+}
+.modal_item .modal .modal_text{
+    display:flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    background-color: #aaa;
+}
+.modal_item .modal .modal_text .info{
+    margin-top: 12px;
+}
+.modal_item .modal .modal_text .info span{
+    margin-bottom: 2px;
+}
+.modal_item .modal .modal_add{
+    width: 100%;
+    background-color: #ccc;
+}
+.modal_item .modal .result_info{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    width:100%;
+    background-color: #ddd;
+}
+.modal_item .modal .close_modal_btn{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    z-index: 2;
+}
+.modal_item .modal .close_modal_btn .close_modal{
+    width:100%;
+    height: 100%;
+    cursor: pointer;
+    background: none;
+    border:none;
+}
+.modal_item .modal .close_modal_btn .close_modal .close_modal_img{
+    width:100%;
+    height: 100%;
+    object-fit: cover;
 }
 @media (max-width: 546px) {
     .tab{
