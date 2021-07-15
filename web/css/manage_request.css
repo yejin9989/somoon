@@ -71,10 +71,10 @@ input[type="checkbox"]:checked + label span {
     display: inline-flex;
 }
 .tab {
-     width: 100%;
-     height: 47px;
-     display: block;
-     line-height: 47px;
+    width: 100%;
+    height: 47px;
+    display: block;
+    line-height: 47px;
 }
 .tab-item{
     width: 13%;
@@ -109,7 +109,7 @@ input[type="checkbox"]:checked + label span {
     margin: 26px auto;
     max-width: 600px;
 }
-.item {
+.item{
     width: 43%;
     display: inline-block;
     margin: 1%;
@@ -146,15 +146,11 @@ input[type="checkbox"]:checked + label span {
     display: block;
 }
 .copy_button{
-     border: none;
-     background: #6cb7ff;
-     color: white;
-     padding: 9px 14px;
-     border-radius: 6px;
- }
-.item_wrapper{
-    width: 100%;
-    height: 100%;
+    border: none;
+    background: #6cb7ff;
+    color: white;
+    padding: 9px 14px;
+    border-radius: 6px;
 }
 .item .item_wrapper{
     display:flex;
@@ -210,7 +206,9 @@ input[type="checkbox"]:checked + label span {
     border: none;
     border-radius: 5px;
     height: 32px;
-    background: #eaeaea;
+    color: #fff;
+    font-weight: 600;
+    background: #6cb7ff;
 }
 textarea{
     width: 100%;
@@ -220,12 +218,7 @@ textarea{
 .toggle_area{
     position:relative;
     cursor: pointer;
-}
-.assign_company{
-    display:none;
-}
-.assign_company div{
-    padding-top: 10px;
+    width:100%;
 }
 #toggle_title{
     left: 13px;
@@ -294,48 +287,104 @@ textarea{
     background-color: rgba(0, 0, 0, 0.4);
 }
 .modal_item .modal{
+    display:flex;
     position: relative;
-    width: 60%;
-    height: 70%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    height: 50%;
     background-color: #FAFAFA;
-    overflow: scroll;
+    overflow: auto;
     overflow-x:hidden;
     padding: 10px 20px;
     border-radius: 5px;
 }
-.modal_item .modal .item_wrapper{
+.modal_item .modal .modal_content{
+    margin: auto;
+    width:100%;
+    height:100%;
+}
+.modal_item .modal .modal_content .no{
+    display:flex;
+    position: relative;
+    align-items: center;
+    width:100%;
+    height:50px;
+}
+.modal_item .modal .modal_content .item_wrapper{
     display:flex;
     position: relative;
     width: 100%;
     flex-direction: column;
 }
-.modal_item .modal .modal_text{
+.modal_item .modal .modal_content .modal_text{
     display:flex;
     position: relative;
     width: 100%;
     height: 100%;
     flex-direction: column;
-    background-color: #aaa;
 }
-.modal_item .modal .modal_text .info{
+.modal_item .modal .modal_content .modal_text .info{
     margin-top: 12px;
 }
-.modal_item .modal .modal_text .info span{
+.modal_item .modal .modal_content .modal_text .info span{
     margin-bottom: 2px;
 }
-.modal_item .modal .modal_add{
+.modal_item .modal .modal_content .modal_add{
+    display:flex;
+    position:relative;
+    align-items: center;
     width: 100%;
-    background-color: #ccc;
+    min-height: 50px;
+    flex-wrap: wrap;
+    margin: 10px 0px;
 }
-.modal_item .modal .result_info{
+.modal_item .modal .modal_content .modal_add .form_container{
+    display:none;
+    position: relative;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    padding: 10px;
+    flex-direction: column;
+}
+.modal_item .modal .modal_content .modal_add .form_container .assign_company{
+    display:block;
+    z-index: 10;
+}
+.modal_item .modal .modal_content .modal_add .form_container .assign_company div{
+    margin-bottom: 12px;
+}
+.modal_item .modal .modal_content .modal_add .form_container .assign_company .submit_btn{
+    margin:0px;
+}
+.modal_item .modal .modal_content .modal_add .form_container .form_close_btn_container{
+    width:100%;
+    height: 35px;
+    padding: 10px;
+}
+.modal_item .modal .modal_content .modal_add .form_container .form_close_btn_container .form_close_btn{
+    width:80%;
+    height: 100%;
+    background-color: #eaeaea;
+    text-align: center;
+    border:none;
+    outline:none;
+    box-shadow: none;
+    font-size: 11pt;
+    font-weight: 600;
+    border-radius: 5px;
+}
+.modal_item .modal .modal_content .result_info{
     display: flex;
     position: relative;
     align-items: center;
     justify-content: space-between;
     width:100%;
-    background-color: #ddd;
 }
-.modal_item .modal .close_modal_btn{
+.modal_item .modal .modal_content .close_modal_btn{
     position: absolute;
     top: 10px;
     right: 10px;
@@ -343,14 +392,14 @@ textarea{
     height: 40px;
     z-index: 2;
 }
-.modal_item .modal .close_modal_btn .close_modal{
+.modal_item .modal .modal_content .close_modal_btn .close_modal{
     width:100%;
     height: 100%;
     cursor: pointer;
     background: none;
     border:none;
 }
-.modal_item .modal .close_modal_btn .close_modal .close_modal_img{
+.modal_item .modal .modal_content .close_modal_btn .close_modal .close_modal_img{
     width:100%;
     height: 100%;
     object-fit: cover;
