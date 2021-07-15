@@ -217,7 +217,7 @@
             <!------------ 내용물  --------------->
             <div>
                 <%
-                    //Arraylist- itemlist에 있는 개수만큼 반복하기
+                    //Arraylist- itemlist에 있는 개수만큼 반복하기1
                     for(HashMap<String, String> hm : itemlist){
                 %>
                 <div class="item">
