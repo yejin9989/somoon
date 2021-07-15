@@ -212,324 +212,316 @@
     <div id="content">
         <div id="sample"></div>
         <div style="width:100%;display:inline-block;border-radius:5px;">
-            <%
-            %>
-            <!------------ 내용물  --------------->
-            <div>
+            <div class="manage_container">
                 <%
                     //Arraylist- itemlist에 있는 개수만큼 반복하기1
                     for(HashMap<String, String> hm : itemlist){
                 %>
-                <div class="item">
-                    <div class="no">no.<%out.println(hm.get("number"));%></div>
-                    <div class="state">
-                        <%if(hm.get("state").equals("0")){%><div id="stt0"><% out.println("미배분");%></div><%}%>
-                        <%if(hm.get("state").equals("1")){%><div id="stt1"><% out.println("재배분필요");%></div><%}%>
-                        <%if(hm.get("state").equals("2")){%><div id="stt2"><% out.println("배분중");%></div><%}%>
-                        <%if(hm.get("state").equals("3")){%><div id="stt3"><% out.println("전체수락");%></div><%}%>
-                        <%if(hm.get("state").equals("4")){%><div id="stt3"><% out.println("고객취소");%></div><%}%>
-                        <%if(hm.get("state").equals("4")){%><div id="stt3"><% out.println("관리자삭제");%></div><%}%>
-                    </div>
-                    <div class="item_wrapper">
-                        <%
-                        if(hm.get("state").equals("2")){ //배분중일 시 다운타이머 설정
-                            %>
-                            <div id="timer<%=hm.get("number")%>"></div>
-                            <%
-                        }
-                        %>
-                        <div class="info"><%out.println(hm.get("name"));%> <%out.println(hm.get("building"));%><%out.println(hm.get("area"));%>평</div>
-                        <div class="info"><%out.println(hm.get("address"));%></div>
-                        <div class="info"><span>신청날짜</span> <%out.println(hm.get("applydate"));%></div>
-                        <div class="info">
-                            <textarea id="textarea<%out.print(hm.get("number"));%>" style="display:none;">https://somoonhouse.com/customer_login.jsp?customer_num=<%out.print(hm.get("number"));%></textarea>
-                            <input class="copy_button" type="button" value="고객페이지 링크복사" onclick="myFunction('textarea<%out.print(hm.get("number"));%>')">
-                        </div>
-                        <%// 처리상태 - 0:신청완료 1:업체전달완료 %>
-                        <!-- 처리상태가 0 신청완료일 시, 어느회사? hi
-                              처리상태가 1 전달 완료일 시, 상태보여주기-->
-
-                        <% if(hm.get("state").equals("0") || hm.get("state").equals("1")){%>
-                        <div class="company">
-                            <div class="toggle_area">
-                                <div id="toggle">▶</div>
-                                <div id="toggle_title">어느 회사로 넘길까요?</div>
-                            </div>
-                            <form action="_assign_company.jsp" class="assign_company" method="GET" target="_self">
-                                <input type="hidden" name="apply_num" value="<%out.print(hm.get("number"));%>">
-                                <%
-                                    //상태에 따라 회사 표시 스타일 변경 -> 이미 수락한 회사는 회색(선택불가), 거절 당한 회사는 빨간색(선택가능)?
-                                    for(HashMap<String, String> hm2 : company){
-                                        int find_state = 0;
-                                        for (int i = 0; i < company_state.get(hm.get("number")).size(); i++) { //상태가있나
-                                            if(company_state.get(hm.get("number")).containsKey(hm2.get("id"))){
-                                                //있
-                                                if(company_state.get(hm.get("number")).get(hm2.get("id")).equals("1")){ //거절(빨강)
-                                                    find_state = 1; //거절
-                                                }
-                                                else{ //수락(회색)
-                                                    find_state = 2; //수락
-                                                }
-                                                break;
-                                            }
-                                        }
-                                        if(find_state == 0) { //없(일반)
-                                %>
-                                <div><input type="checkbox" name="company" class="company_general" value="<%out.print(hm2.get("id"));%>" id="<%out.println(hm.get("number"));%>company<%out.print(hm2.get("id"));%>"><label for="<%out.println(hm.get("number"));%>company<%out.print(hm2.get("id"));%>" ><span></span><%out.print(hm2.get("name"));%></label></div>
-                                <%
-                                }
-                                else if (find_state == 1) { //거절
-                                %>
-                                <div><input type="checkbox" name="company" class="company_refused" value="<%out.print(hm2.get("id"));%>" id="<%out.println(hm.get("number"));%>company<%out.print(hm2.get("id"));%>"><label for="<%out.println(hm.get("number"));%>company<%out.print(hm2.get("id"));%>" ><span></span><%out.print(hm2.get("name"));%></label></div>
-                                <%
-                                }
-                                else {//수락
-                                %>
-                                <div><input type="checkbox" name="company" class="company_accepted" value="<%out.print(hm2.get("id"));%>" id="<%out.println(hm.get("number"));%>company<%out.print(hm2.get("id"));%>"><label for="<%out.println(hm.get("number"));%>company<%out.print(hm2.get("id"));%>" ><span></span><%out.print(hm2.get("name"));%></label></div>
-                                <%
-                                        }
-                                    }
-                                %>
-                                <div class="submit_btn">
-                                    <input type="submit" value="넘기기">
-                                </div>
-                            </form>
-                        </div>
-                        <%}%>
-
-                        <%
-                            if(!state.equals("3") && !state.equals("4")){
-                                //전체 수락건이거나 고객 취소건이 아닌 이상 수락건으로 변경하는 버튼 달아주기
-                        %>
-                        <div class="manager_cancel half" id="cancel<%out.println(hm.get("number"));%>">
-                            관리자삭제
-                        </div>
-                        <div class="manager_okay" id="okay<%out.println(hm.get("number"));%>">
-                            수락건으로
-                        </div>
-                        <%
-                        }
-                        else{
-                        %>
-                        <div class="manager_cancel full" id="cancel<%out.println(hm.get("number"));%>">
-                            관리자삭제
-                        </div>
-                        <%
-                            }
-                        %>
-                    </div>
-                </div>
-                <div class="item" style="display: none;">
-                    <div class="no">no.<%out.println(hm.get("number"));%></div>
-                    <div class="item_wrapper">
-                            <%
-                            if(hm.get("state").equals("2")){ //배분중일 시 다운타이머 설정
-                            %>
-                                <div id="timer<%=hm.get("number")%>"></div>
-                            <%
-                            }
-                            %>
-                        <div class="info"><span><%out.print(hm.get("company"));%></span><a href="<%out.println(hm.get("url"));%>"><%out.println(hm.get("title"));%></a></div>
-                        <div class="info"><span>이름</span> <%out.println(hm.get("name"));%></div>
-                        <div class="info phone"><span>전화번호</span> <%out.println(hm.get("phone"));%></div>
-                        <div class="info"><span>주소</span> <%out.println(hm.get("address"));%></div>
-                        <div class="info"><span>건물종류</span> <%out.println(hm.get("building"));%></div>
-                        <div class="info"><span>평수</span> <%out.println(hm.get("area"));%></div>
-                        <div class="info"><span>예정일</span> <%out.println(hm.get("due"));%></div>
-                        <div class="info"><span>예산</span> <%out.println(hm.get("budget"));%></div>
-                        <div class="info"><span>방문상담</span> <%if(hm.get("consulting").equals("1")) out.println("예"); else out.println("아니오");%></div>
-                        <div class="info"><span>비교견적</span> <%if(hm.get("compare").equals("1")) out.println("예"); else out.println("아니오");%></div>
-                        <div class="info"><span>신청날짜</span> <%out.println(hm.get("applydate"));%></div>
-                        <div class="info"><span>연락방식</span> <%if(hm.get("calling").equals("1")) out.println("업체의 전화를 기다리고 있습니다."); else out.println("고객님이 직접 전화하실 예정입니다.");%></div>
-                        <div class="info"><span>처리상태</span> <div class="state"><%if(hm.get("state").equals("0")){%><div id="stt0"><% out.println("미배분");%></div><%}%>
+                <div class="item" id='item<%out.println(hm.get("number"));%>' onclick="open_modal(this.id)">
+                    <div class="item_header">
+                        <div class="no">no.<%out.println(hm.get("number"));%></div>
+                        <div class="state">
+                            <%if(hm.get("state").equals("0")){%><div id="stt0"><% out.println("미배분");%></div><%}%>
                             <%if(hm.get("state").equals("1")){%><div id="stt1"><% out.println("재배분필요");%></div><%}%>
                             <%if(hm.get("state").equals("2")){%><div id="stt2"><% out.println("배분중");%></div><%}%>
                             <%if(hm.get("state").equals("3")){%><div id="stt3"><% out.println("전체수락");%></div><%}%>
                             <%if(hm.get("state").equals("4")){%><div id="stt3"><% out.println("고객취소");%></div><%}%>
                             <%if(hm.get("state").equals("4")){%><div id="stt3"><% out.println("관리자삭제");%></div><%}%>
                         </div>
+                    </div>
+                    <div class="item_wrapper">
+                        <div class="info"><%out.println(hm.get("name"));%> <%out.println(hm.get("building"));%><%out.println(hm.get("area"));%>평</div>
+                        <div class="info"><%out.println(hm.get("address"));%></div>
+                        <div class="info"><span>신청날짜</span> <%out.println(hm.get("applydate"));%></div>
+                        <div class="info">
+                            <% if(hm.get("state").equals("2")){ %>
+                            <div id="timer<%=hm.get("number")%>"></div>
+                            <% } %>
                         </div>
-                        <div class="info"><span>배분시간</span><div id="timer<%=hm.get("number")%>"></div><%=hm.get("assigned_time")%></div>
-                        <div class="info"><span>고객페이지</span>
-                            <textarea id="textarea<%out.print(hm.get("number"));%>">https://somoonhouse.com/customer_login.jsp?customer_num=<%out.print(hm.get("number"));%></textarea>
-                            <input type="button" value="링크복사" onclick="myFunction('textarea<%out.print(hm.get("number"));%>')">
+                    </div>
+                </div>
+                <div class="modal_item" id='modal_item<%out.println(hm.get("number"));%>' style="display: none;">
+                    <div class="modal">
+                        <div class="modal_content">
+                            <div class="no">no.<%out.println(hm.get("number"));%></div>
+                            <div class="item_wrapper">
+                                <div class="modal_text">
+                                    <div class="info"><span><%out.print(hm.get("company"));%></span><a href="<%out.println(hm.get("url"));%>"><%out.println(hm.get("title"));%></a></div>
+                                    <div class="info"><span>이름</span> <%out.println(hm.get("name"));%></div>
+                                    <div class="info phone"><span>전화번호</span> <%out.println(hm.get("phone"));%></div>
+                                    <div class="info"><span>주소</span> <%out.println(hm.get("address"));%></div>
+                                    <div class="info"><span>건물종류</span> <%out.println(hm.get("building"));%></div>
+                                    <div class="info"><span>평수</span> <%out.println(hm.get("area"));%></div>
+                                    <div class="info"><span>예정일</span> <%out.println(hm.get("due"));%></div>
+                                    <div class="info"><span>예산</span> <%out.println(hm.get("budget"));%></div>
+                                    <div class="info"><span>방문상담</span> <%if(hm.get("consulting").equals("1")) out.println("예"); else out.println("아니오");%></div>
+                                    <div class="info"><span>비교견적</span> <%if(hm.get("compare").equals("1")) out.println("예"); else out.println("아니오");%></div>
+                                    <div class="info"><span>신청날짜</span> <%out.println(hm.get("applydate"));%></div>
+                                    <div class="info"><span>연락방식</span> <%if(hm.get("calling").equals("1")) out.println("업체의 전화를 기다리고 있습니다."); else out.println("고객님이 직접 전화하실 예정입니다.");%></div>
+                                    <div class="info"><span>처리상태</span> <div class="state"><%if(hm.get("state").equals("0")){%><div id="stt0"><% out.println("미배분");%></div><%}%>
+                                        <%if(hm.get("state").equals("1")){%><div id="stt1"><% out.println("재배분필요");%></div><%}%>
+                                        <%if(hm.get("state").equals("2")){%><div id="stt2"><% out.println("배분중");%></div><%}%>
+                                        <%if(hm.get("state").equals("3")){%><div id="stt3"><% out.println("전체수락");%></div><%}%>
+                                        <%if(hm.get("state").equals("4")){%><div id="stt3"><% out.println("고객취소");%></div><%}%>
+                                        <%if(hm.get("state").equals("4")){%><div id="stt3"><% out.println("관리자삭제");%></div><%}%> </div>
+                                    </div>
+                                    <div class="info">
+                                        <%
+                                            if(hm.get("state").equals("2")){ //배분중일 시 다운타이머 설정
+                                        %>
+                                        <div id="timer<%=hm.get("number")%>"></div>
+                                        <%
+                                            }
+                                        %>
+                                    </div>
+                                    <div class="info">
+                                        <textarea id="textarea<%out.print(hm.get("number"));%>" style="display:none;">https://somoonhouse.com/customer_login.jsp?customer_num=<%out.print(hm.get("number"));%></textarea>
+                                        <input class="copy_button" type="button" value="고객페이지 링크복사" onclick="myFunction('textarea<%out.print(hm.get("number"));%>')">
+                                    </div>
+                                </div>
+                                <div class="modal_add">
+                                    <table class="company_status">
+                                        <%LinkedList<HashMap<String, String>> statelist = totalstatemap.get(hm.get("number"));
+                                            for(HashMap<String, String> statemap : statelist){%>
+                                        <tr>
+                                            <td><%out.print(statemap.get("name"));%></td>
+                                            <td><b><%out.print(statemap.get("state"));%></b></td>
+                                        </tr>
+                                        <%}%>
+                                    </table>
+                                    <% if(hm.get("state").equals("0") || hm.get("state").equals("1")){%>
+                                    <div class="toggle_area" id="toggle<%out.println(hm.get("number"));%>">
+                                        <div id="toggle">▶</div>
+                                        <div id="toggle_title">어느 회사로 넘길까요?</div>
+                                    </div>
+                                    <div class="form_container" id="company_form_container<%out.println(hm.get("number"));%>">
+                                        <form action="_assign_company.jsp" class="assign_company"
+                                              method="GET"
+                                              target="_self">
+                                            <input type="hidden" name="apply_num" value="<%out.print(hm.get("number"));%>">
+                                            <%
+                                                //상태에 따라 회사 표시 스타일 변경 -> 이미 수락한 회사는 회색(선택불가), 거절 당한 회사는 빨간색(선택가능)?
+                                                for(HashMap<String, String> hm2 : company){
+                                                    int find_state = 0;
+                                                    for (int i = 0; i < company_state.get(hm.get("number")).size(); i++) { //상태가있나
+                                                        if(company_state.get(hm.get("number")).containsKey(hm2.get("id"))){
+                                                            //있
+                                                            if(company_state.get(hm.get("number")).get(hm2.get("id")).equals("1")){ //거절(빨강)
+                                                                find_state = 1; //거절
+                                                            }
+                                                            else{ //수락(회색)
+                                                                find_state = 2; //수락
+                                                            }
+                                                            break;
+                                                        }
+                                                    }
+                                                    if(find_state == 0) { //없(일반)
+                                            %>
+                                            <div><input type="checkbox" name="company" class="company_general" value="<%out.print(hm2.get("id"));%>" id="<%out.println(hm.get("number"));%>company<%out.print(hm2.get("id"));%>"><label for="<%out.println(hm.get("number"));%>company<%out.print(hm2.get("id"));%>" ><span></span><%out.print(hm2.get("name"));%></label></div>
+                                            <%
+                                            }
+                                            else if (find_state == 1) { //거절
+                                            %>
+                                            <div><input type="checkbox" name="company" class="company_refused" value="<%out.print(hm2.get("id"));%>" id="<%out.println(hm.get("number"));%>company<%out.print(hm2.get("id"));%>"><label for="<%out.println(hm.get("number"));%>company<%out.print(hm2.get("id"));%>" ><span></span><%out.print(hm2.get("name"));%></label></div>
+                                            <%
+                                            }
+                                            else {//수락
+                                            %>
+                                            <div><input type="checkbox" name="company" class="company_accepted" value="<%out.print(hm2.get("id"));%>" id="<%out.println(hm.get("number"));%>company<%out.print(hm2.get("id"));%>"><label for="<%out.println(hm.get("number"));%>company<%out.print(hm2.get("id"));%>" ><span></span><%out.print(hm2.get("name"));%></label></div>
+                                            <%
+                                                    }
+                                                }
+                                            %>
+                                            <div class="submit_btn">
+                                                <input type="submit" value="넘기기">
+                                            </div>
+                                        </form>
+                                        <div class="form_close_btn_container">
+                                            <button class="form_close_btn" onclick="form_close()">넘기기 취소</button>
+                                        </div>
+                                    </div>
+                                    <%}%>
+                                </div>
+                            </div>
+                            <div class="result_info">
+                                <%
+                                    if(!state.equals("3") && !state.equals("4")){
+                                        //전체 수락건이거나 고객 취소건이 아닌 이상 수락건으로 변경하는 버튼 달아주기
+                                %>
+                                <div class="manager_cancel half" id="cancel<%out.println(hm.get("number"));%>">
+                                    <span>X</span>관리자삭제
+                                </div>
+                                <div class="manager_okay" id="okay<%out.println(hm.get("number"));%>">
+                                    수락건으로
+                                </div>
+                                <%
+                                }
+                                else{
+                                %>
+                                <div class="manager_cancel full" id="cancel<%out.println(hm.get("number"));%>">
+                                    <span>X</span>관리자삭제
+                                </div>
+                                <%
+                                    }
+                                %>
+                            </div>
+                            <div class="close_modal_btn">
+                                <button class="close_modal" onclick="close_modal()">
+                                    <img class="close_modal_img" src="https://somoonhouse.com/icon/x.png" />
+                                </button>
+                            </div>
                         </div>
-                        <%// 처리상태 - 0:신청완료 1:업체전달완료 %>
-                        <!-- 처리상태가 0 신청완료일 시, 어느회사?
-                              처리상태가 1 전달 완료일 시, 상태보여주기-->
-                        <table class="company_status">
-                            <%LinkedList<HashMap<String, String>> statelist = totalstatemap.get(hm.get("number"));
-                                for(HashMap<String, String> statemap : statelist){%>
-                            <tr>
-                                <td><%out.print(statemap.get("name"));%></td>
-                                <td><b><%out.print(statemap.get("state"));%></b></td>
-                            </tr>
-                            <%}%>
-                        </table>
-
-                        <%
-                            if(!state.equals("3") && !state.equals("4")){
-                                //전체 수락건이거나 고객 취소건이 아닌 이상 수락건으로 변경하는 버튼 달아주기
-                        %>
-                        <div class="manager_cancel half" id="cancel<%out.println(hm.get("number"));%>">
-                            <span>X</span>관리자삭제
-                        </div>
-                        <div class="manager_okay" id="okay<%out.println(hm.get("number"));%>">
-                            수락건으로
-                        </div>
-                        <%
-                        }
-                        else{
-                        %>
-                        <div class="manager_cancel full" id="cancel<%out.println(hm.get("number"));%>">
-                            <span>X</span>관리자삭제
-                        </div>
-                        <%
-                            }
-                        %>
                     </div>
                 </div>
                 <%}%>
             </div>
-            <!------------ 내용물  --------------->
-
-
-
-
-
-
-
-
         </div>
     </div>
-    <%
-        //DB개체 정리
+    <!------------ 내용물  --------------->
+
+
+
+
+
+
+
+
+</div>
+</div>
+<%
+    //DB개체 정리
 /*
 pstmt.close();
 rs.close();
 query="";
 conn.close();
 */
-    %>
-    <script>
-        function myFunction(a) {
-            var copyText = document.getElementById(a);
-            copyText.select();
-            copyText.setSelectionRange(0, 99999); /*For mobile devices*/
-            document.execCommand("copy");
-            alert("복사되었습니다");
-        }
-    </script>
-    <script>
-        const countDownTimer = function (id, date){
-            const _vvDate = new Date(date);
-            const _vDate = _vvDate.setHours(_vvDate.getHours()+3);
-            const _second = 1000;
-            const _minute = _second * 60;
-            const _hour = _minute * 60;
-            const _day = _hour * 24;
-            let timer;
+%>
+<script>
+    var remem_modal_id;
+    var form_id;
+    $(".toggle_area").click(function(){
+        var toggle_id = this.id.slice(6);
+        form_id = "company_form_container" + toggle_id;
+        var form_container = document.getElementById(form_id);
+        form_container.style.display = 'flex';
+    });
+    const form_close = () =>{
+        var form = document.getElementById(form_id);
+        form.style.display = 'none';
+    }
+    const open_modal = (prop) =>{
+        var id = prop.slice(4);
+        var modal_id = "modal_item" + id;
+        var this_modal = document.getElementById(modal_id);
+        this_modal.style.display = 'flex';
+        remem_modal_id = modal_id;
+    }
+    const close_modal = () => {
+        var modal = document.getElementById(remem_modal_id);
+        modal.style.display = 'none';
+    }
+    function myFunction(a) {
+        var copyText = document.getElementById(a);
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+        document.execCommand("copy");
+        alert("복사되었습니다");
+    }
+</script>
+<script>
+    const countDownTimer = function (id, date){
+        const _vvDate = new Date(date);
+        const _vDate = _vvDate.setHours(_vvDate.getHours()+3);
+        const _second = 1000;
+        const _minute = _second * 60;
+        const _hour = _minute * 60;
+        const _day = _hour * 24;
+        let timer;
 
-            function showRemaining(){
-                const now = new Date();
-                const distDt = _vDate - now;
+        function showRemaining(){
+            const now = new Date();
+            const distDt = _vDate - now;
 
-                if(distDt < 0){
-                    clearInterval(timer);
-                    document.getElementById(id).textContent = "배분시간종료";
-                    return;
-                }
-
-                const days = Math.floor(distDt / _day);
-                const hours = Math.floor((distDt % _day) / _hour);
-                const minutes = Math.floor((distDt % _hour) / _minute);
-                const seconds = Math.floor((distDt % _minute) / _second);
-
-                document.getElementById(id).textContent = days + '일 ';
-                document.getElementById(id).textContent += hours + '시간 ';
-                document.getElementById(id).textContent += minutes + '분 ';
-                document.getElementById(id).textContent += seconds + '초 ';
-
+            if(distDt < 0){
+                clearInterval(timer);
+                document.getElementById(id).textContent = "배분시간종료";
+                return;
             }
 
-            timer = setInterval(() => showRemaining(), 1000); // 나 동노간다 - 이현로 -
+            const days = Math.floor(distDt / _day);
+            const hours = Math.floor((distDt % _day) / _hour);
+            const minutes = Math.floor((distDt % _hour) / _minute);
+            const seconds = Math.floor((distDt % _minute) / _second);
+
+            document.getElementById(id).textContent = days + '일 ';
+            document.getElementById(id).textContent += hours + '시간 ';
+            document.getElementById(id).textContent += minutes + '분 ';
+            document.getElementById(id).textContent += seconds + '초 ';
 
         }
 
+        timer = setInterval(() => showRemaining(), 1000); // 나 동노간다 - 이현로 -
 
-        <%
-        for(HashMap<String, String> hm : itemlist){
-            %>
-            var str = "<%=hm.get("assigned_time")%>";
-            var date = str.split("-"); //{2021}, {06}, {23 17:32:09.0}
-            var time = (date[2].substring(date[2].indexOf(" ")+1, date[2].length)).split(":");
-            date[2] = date[2].substring(0, date[2].indexOf(" "));
-            alert("date : " + date + " time : " + time);
-            countDownTimer("timer"+"<%=hm.get("number")%>", date[1]+"/"+date[2]+"/"+date[0]+" "+time[0]+":"+time[1]);
-            //countDownTimer("timer"+"<%=hm.get("number")%>", '06/29/2021 00:00 AM');
-            <%
-        }
+    }
+
+
+    <%
+    for(HashMap<String, String> hm : itemlist){
         %>
-    </script>
-    <script>
-        window.onload = function(){
-            /*
-            if("<%=s_id%>" != "100" || "<%=s_id%>" == null){
+    var str = "<%=hm.get("assigned_time")%>";
+    var date = str.split("-"); //{2021}, {06}, {23 17:32:09.0}
+    var time = (date[2].substring(date[2].indexOf(" ")+1, date[2].length)).split(":");
+    date[2] = date[2].substring(0, date[2].indexOf(" "));
+    countDownTimer("timer"+"<%=hm.get("number")%>", date[1]+"/"+date[2]+"/"+date[0]+" "+time[0]+":"+time[1]);
+    //countDownTimer("timer"+"<%=hm.get("number")%>", '06/29/2021 00:00 AM');
+    <%
+}
+%>
+</script>
+<script>
+    window.onload = function(){
+        /*
+        if("<%=s_id%>" != "100" || "<%=s_id%>" == null){
                 history.back();
             }
             */
+    }
+    $(".manager_cancel").click(function(){
+        var req_id = $(this).attr("id");
+        req_id = req_id.replace("cancel", "");
+        location.href = "_delete_request.jsp?id="+req_id;
+    });
+    $(".manager_okay").click(function(){
+        var req_id = $(this).attr("id");
+        req_id = req_id.replace("okay", "");
+        location.href = "_okay_request.jsp?id="+req_id;
+    });
+    /*
+    function toggle_company(){
+        if($(".assign_company").css("display") == "none"){
+            $(".assign_company").css("display", "block");
+            $(".assign_company").css("z-index", "10");
+            $(".assign_company").css("position", "relative");
+            $(".assign_company").css("background", "white");
+            $(".assign_company").css("box-shadow", "1px 3px 3px 0px #00000045");
         }
-        $(".toggle_area").click(function(){ // 항목 클릭 하면 상세페이지 + 회사 넘기는 창 뜨도록
-            if($(this).siblings("form").css("display") == "none"){
-                $(this).siblings("form").css("display", "block");
-                $(this).siblings("form").css("z-index", "10");
-                $(this).siblings("form").css("position", "fixed");
-                $(this).siblings("form").css("background", "white");
-                $(this).siblings("form").css("box-shadow", "1px 3px 3px 0px #00000045");
-                $(this).siblings("form").css("top", "50%");
-                $(this).siblings("form").css("left", "50%");
-                $(this).siblings("form").css("transform", "translate(-50%, -50%)");
-                $(this).siblings("form").children().css("display", "inline-block");
-            }
-            else{
-                $(this).siblings("form").css("display", "none");
-            }
-        });
-        $(".manager_cancel").click(function(){
-            var req_id = $(this).attr("id");
-            req_id = req_id.replace("cancel", "");
-            location.href = "_delete_request.jsp?id="+req_id;
-        });
-        $(".manager_okay").click(function(){
-            var req_id = $(this).attr("id");
-            req_id = req_id.replace("okay", "");
-            location.href = "_okay_request.jsp?id="+req_id;
-        });
-        /*
-        function toggle_company(){
-            if($(".assign_company").css("display") == "none"){
-                $(".assign_company").css("display", "block");
-                $(".assign_company").css("z-index", "10");
-                $(".assign_company").css("position", "relative");
-                $(".assign_company").css("background", "white");
-                $(".assign_company").css("box-shadow", "1px 3px 3px 0px #00000045");
-            }
-            else{
-                $(".assign_company").css("display", "none");
-            }
+        else{
+            $(".assign_company").css("display", "none");
         }
-        $(".toggle_area").click(function(){
-            toggle_company();
-        })
-         */
-    </script>
-    <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
-    <script type="text/javascript">
-        if(!wcs_add) var wcs_add = {};
-        wcs_add["wa"] = "3602e31fd32c7e";
-        wcs_do();
-    </script>
-    <script type="text/javascript" src="slick-1.8.1/slick/slick.min.js"></script>
+    }
+    $(".toggle_area").click(function(){
+        toggle_company();
+    })
+     */
+</script>
+<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+<script type="text/javascript">
+    if(!wcs_add) var wcs_add = {};
+    wcs_add["wa"] = "3602e31fd32c7e";
+    wcs_do();
+</script>
+<script type="text/javascript" src="slick-1.8.1/slick/slick.min.js"></script>
 </div>
 </div>
 </body>
