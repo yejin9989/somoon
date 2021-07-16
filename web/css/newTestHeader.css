@@ -1,0 +1,119 @@
+@import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css?display=swap);
+@font-face{
+    font-family:'Nanum Gothic',sans-serif;
+}
+*{
+    font-family:'Nanum Gothic',sans-serif;
+    padding:0px;
+    margin:0px;
+    box-sizing: border-box;
+}
+.body_container{
+    display: flex;
+    position:relative;
+    flex-direction: column;
+    width:100%;
+    height:100%;
+}
+.body_container .body_header{
+    width:100%;
+    height: 100%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+.body_container .body_header .upper_header{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    width:100%;
+    height: 60px;
+    background-color: rgba(74, 121, 244, 0.9);
+}
+.body_container .body_header .upper_header .left_header{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 100%;
+}
+.body_container .body_header .upper_header .left_header span{
+    color:#fff;
+    font-size: 25px;
+    font-weight: 800;
+    word-spacing: -8px;
+    white-space: nowrap;
+}
+.body_container .body_header .upper_header .right_header{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    width: 150px;
+    height:100%;
+    padding: 10px;
+}
+.body_container .body_header .upper_header .right_header .img_container{
+    width: 30px;
+    height: 30px;
+}
+.body_container .body_header .upper_header .right_header .img_container img{
+    width:100%;
+    height: 100%;
+    object-fit: fill;
+    filter:invert(1);
+}
+.body_container .body_header .lower_header{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    height:60px;
+}
+.body_container .body_header .lower_header a{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    text-decoration: none;
+}
+.body_container .body_header .lower_header .menu{
+    display:flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    transition: 0.1s;
+}
+.body_container .body_header .lower_header .menu:hover{
+    cursor: pointer;
+    background: rgba(74, 121, 244, 0.3);
+}
+.body_container .body_header .lower_header .menu:hover {
+
+}
+.body_container .body_header .lower_header .menu .menu_text{
+    display:flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    heigth:100%;
+}
+.body_container .body_header .lower_header .menu .menu_text span{
+    font-size:17px;
+    font-weight: 500;
+    white-space: nowrap;
+    color: #000
+}
+.body_container .body_header .lower_header .menu .menu_underbar{
+    position: absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height: 4px;
+    background-color: #4A79F4;
+}

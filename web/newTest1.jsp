@@ -36,7 +36,7 @@
 <head>
     <link rel="SHORTCUT ICON" href="https://somoonhouse.com/img/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/newindex.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/newTest1.css"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <title>소문난집</title>
@@ -44,15 +44,33 @@
 <body>
 <%=mylog%>
 <%
-    if(pstmt != null) {
-        pstmt.close();
-        rs.close();
-        query = "";
-        conn.close();
-    }
 %>
-
-
+<div class="body_container">
+    <jsp:include page="/newTestHeader.jsp" flush="false" />
+    <div class="body_main">
+        <div class="main_header">
+            <div class="left_container">
+                <div class="left_box">
+                    <div class="img_container">
+                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/magnifying.png?raw=true" />
+                    </div>
+                    <div class="text_container">
+                        <input class="text_input" type="text" placeholder="전화, 고객명, 주소" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main_body">
+            <div class="img_container">
+                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/search2.png?raw=true" />
+            </div>
+            <div class="text_container">
+                <span>완료된 공사가 없습니다.</span>
+            </div>
+        </div>
+    </div>
+    <jsp:include page="/newTestFooter.jsp" flush="false" />
+</div>
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
