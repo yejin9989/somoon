@@ -41,7 +41,6 @@
     query += " order by State asc, Number desc";
     pstmt = conn.prepareStatement(query);
     rs = pstmt.executeQuery();
-    out.print(query);
     LinkedList<HashMap<String, String>> itemlist = new LinkedList<HashMap<String, String>>();
     HashMap<String, LinkedList<HashMap<String, String>>> totalstatemap = new HashMap<String, LinkedList<HashMap<String, String>>>();
     while(rs.next()){
@@ -232,6 +231,7 @@
                     <div class="item_wrapper">
                         <div class="info"><%out.println(hm.get("name"));%> <%out.println(hm.get("building"));%><%out.println(hm.get("area"));%>평</div>
                         <div class="info"><%out.println(hm.get("address"));%></div>
+                        <div class="info"><span>전화번호</span> <%out.println(hm.get("phone"));%></div>
                         <div class="info"><span>신청날짜</span> <%out.println(hm.get("applydate"));%></div>
                         <div class="info">
                             <% if(hm.get("state").equals("2")){ %>
