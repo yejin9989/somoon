@@ -53,13 +53,19 @@
                 <span>소문난집</span>
             </div>
             <div class="right_header">
-                <div class="img_container">
-                    <img class="graph"
-                         src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/graph2.png?raw=true" />
-                </div>
+                <a href="newTestPartnerNew.jsp" target="_self">
+                    <div class="img_container">
+                        <img class="cart"
+                             src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cart2.png?raw=true" />
+                    </div>
+                </a>
+                <a href="newTestPartnerOld.jsp" target="_self">
+                    <div class="img_container">
+                        <img class="graph" src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/graph2.png?raw=true" />
+                    </div>
+                </a>
                 <div class="img_container" id="menu_slide" onclick="slide()">
-                    <img class="menu"
-                         src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/menu3.png?raw=true" />
+                    <img class="menu" src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/menu3.png?raw=true" />
                 </div>
             </div>
         </div>
