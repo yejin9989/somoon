@@ -36,7 +36,7 @@
 <head>
     <link rel="SHORTCUT ICON" href="https://somoonhouse.com/img/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/newindex.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/newTestFooter.css"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <title>소문난집</title>
@@ -44,16 +44,33 @@
 <body>
 <%=mylog%>
 <%
-    if(pstmt != null) {
-        pstmt.close();
-        rs.close();
-        query = "";
-        conn.close();
-    }
+
 %>
+<div class="body_container">
+    <div class="body_footer">
+        <div class="text_container">
+            <div class="text">
+                <span class="value">밀리무드 ( 소문난집 )</span>
+            </div>
+            <div class="text">
+                <span class="key">대표</span><span class="value">길영민</span>
+            </div>
+            <div class="text">
+                <span class="key">주소</span><span class="value">대구광역시 북구 대현동 199-8번지</span>
+            </div>
+            <div class="text">
+                <span class="key">전화</span><span class="value">010-6427-2777 ( 대표전화 / 고객센터 )</span>
+            </div>
+            <div class="text">
+                <span class="key">문의</span><span class="value">somoonhouse@naver.com</span>
+            </div>
+        </div>
+        <div class="bar"></div>
+        <div class="text_container">
 
-
-
+        </div>
+    </div>
+</div>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
