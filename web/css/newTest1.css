@@ -77,11 +77,13 @@
     color: #111;
     outline:none;
     border:none;
+    background-color: #FAFAFA;
 }
 .body_container .body_main .main_header .left_container .left_box .text_container .text_input::placeholder{
     font-size: 14px;
     font-weight: 550;
     color: #999;
+    background-color: #FAFAFA;
 }
 .body_container .body_main .main_body{
     display:flex;

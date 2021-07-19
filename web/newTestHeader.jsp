@@ -54,20 +54,17 @@
             </div>
             <div class="right_header">
                 <div class="img_container">
-                    <img class="bell" src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/bell2.png?raw=true" />
-                </div>
-                <div class="img_container">
                     <img class="graph"
                          src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/graph2.png?raw=true" />
                 </div>
-                <div class="img_container">
+                <div class="img_container" id="menu_slide" onclick="slide()">
                     <img class="menu"
                          src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/menu3.png?raw=true" />
                 </div>
             </div>
         </div>
         <div class="lower_header">
-            <a href="#" target="_self">
+            <a href="newTest0.jsp" target="_self">
                 <div class="menu" id="new_customer">
                     <div class="menu_text"><span>신규</span></div>
                     <div class="menu_underbar"></div>
@@ -93,14 +90,30 @@
             </a>
         </div>
     </div>
+    <div id="navigation_container">
+        <div id="navigation">
+            <div>공지사항</div>
+            <div>고객센터</div>
+            <div>공식홈페이지</div>
+            <div></div>
+        </div>
+    </div>
 </div>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
 <script>
-    //새 스크립트 작성
-    //window.close();
+    function slide(){
+        var nav = document.getElementById("navigation_container");
+        var nav_bar = document.getElementById("navigation");
+        if(nav.style.display == "none"){
+            nav.style.display = "grid";
+        }
+        else{
+            nav.style.display = "none";
+        }
+    }
 </script>
 </body>
 </html>
