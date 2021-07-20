@@ -49,7 +49,44 @@
     <jsp:include page="/newTestHeader.jsp" flush="false" />
     <div class="body_main">
         <div class="main_header">
-            소문난집 파트너스 이용중인 고객
+            <span>제이와이피엔터님</span>
+        </div>
+        <div class="main_container">
+            <div class="sub_text"><span>이용중인 상품</span></div>
+            <div class="goods_container">
+                <div class="text_area">
+                    <span class="upper_text">주거 프라임</span>
+                </div>
+                <div class="text_area">
+                    <span class="mid_text">기간 <span class="mid_date_text">2021.06.01 ~ 2021.06.30</span></span>
+                </div>
+                <div class="text_area">
+                    <span class="lower_text">배분 10건</span>
+                </div>
+            </div>
+            <div class="sub_text"><span>이용 끝난 상품</span></div>
+            <div class="goods_container">
+                <div class="text_area">
+                    <span class="upper_text">주거 프라임</span>
+                </div>
+                <div class="text_area">
+                    <span class="mid_text">기간 <span class="mid_date_text">2021.06.01 ~ 2021.06.30</span></span>
+                </div>
+                <div class="text_area">
+                    <span class="lower_text">배분 10건</span>
+                </div>
+            </div>
+            <div class="goods_container">
+                <div class="text_area">
+                    <span class="upper_text">주거 프라임</span>
+                </div>
+                <div class="text_area">
+                    <span class="mid_text">기간 <span class="mid_date_text">2021.06.01 ~ 2021.06.30</span></span>
+                </div>
+                <div class="text_area">
+                    <span class="lower_text">배분 10건</span>
+                </div>
+            </div>
         </div>
     </div>
     <jsp:include page="/newTestFooter.jsp" flush="false" />

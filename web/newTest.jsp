@@ -84,10 +84,13 @@
                             <span class="sec_sec">정진성 아파트 32평</span>
                         </div>
                         <div class="text"><span class="thr">대구 남구 어쩌구</span></div>
-                        <div class="text"><span class="for">2차 상담 방법을 입력해주세요</span></div>
+                        <div class="text">
+                            <input class="for" type="text" placeholder="2차 상담 방법을 입력해주세요" />
+                            <button class="for_btn" onclick="save()">저장</button>
+                        </div>
                     </div>
                     <div class="under_container">
-                        <div class="side_container">
+                        <div class="side_container" onclick="calling()">
                             <div class="img_container">
                                 <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/call.png?raw=true" />
                             </div>
@@ -95,7 +98,7 @@
                                 <span>전화</span>
                             </div>
                         </div>
-                        <div class="side_container">
+                        <div class="side_container" onclick="massage()">
                             <div class="img_container">
                                 <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/talk.png?raw=true" />
                             </div>
@@ -103,7 +106,7 @@
                                 <span>문자</span>
                             </div>
                         </div>
-                        <div class="side_container">
+                        <div class="side_container" onclick="recall()">
                             <div class="img_container">
                                 <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/check.png?raw=true" />
                             </div>
@@ -128,10 +131,13 @@
                             <span class="sec_sec">정진성 아파트 32평</span>
                         </div>
                         <div class="text"><span class="thr">대구 남구 어쩌구</span></div>
-                        <div class="text"><span class="for">2차 상담 방법을 입력해주세요</span></div>
+                        <div class="text">
+                            <input class="for" type="text" placeholder="2차 상담 방법을 입력해주세요" />
+                            <button class="for_btn" onclick="save()">저장</button>
+                        </div>
                     </div>
                     <div class="under_container">
-                        <div class="side_container">
+                        <div class="side_container" onclick="calling()">
                             <div class="img_container">
                                 <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/call.png?raw=true" />
                             </div>
@@ -139,7 +145,7 @@
                                 <span>전화</span>
                             </div>
                         </div>
-                        <div class="side_container">
+                        <div class="side_container" onclick="massage()">
                             <div class="img_container">
                                 <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/talk.png?raw=true" />
                             </div>
@@ -147,7 +153,7 @@
                                 <span>문자</span>
                             </div>
                         </div>
-                        <div class="side_container">
+                        <div class="side_container" onclick="recall()">
                             <div class="img_container">
                                 <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/check.png?raw=true" />
                             </div>
@@ -172,10 +178,13 @@
                             <span class="sec_sec">정진성 아파트 32평</span>
                         </div>
                         <div class="text"><span class="thr">대구 남구 어쩌구</span></div>
-                        <div class="text"><span class="for">2차 상담 방법을 입력해주세요</span></div>
+                        <div class="text">
+                            <input class="for" type="text" placeholder="2차 상담 방법을 입력해주세요" />
+                            <button class="for_btn" onclick="save()">저장</button>
+                        </div>
                     </div>
                     <div class="under_container">
-                        <div class="side_container">
+                        <div class="side_container" onclick="calling()">
                             <div class="img_container">
                                 <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/call.png?raw=true" />
                             </div>
@@ -183,7 +192,7 @@
                                 <span>전화</span>
                             </div>
                         </div>
-                        <div class="side_container">
+                        <div class="side_container" onclick="massage()">
                             <div class="img_container">
                                 <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/talk.png?raw=true" />
                             </div>
@@ -191,7 +200,7 @@
                                 <span>문자</span>
                             </div>
                         </div>
-                        <div class="side_container">
+                        <div class="side_container" onclick="recall()">
                             <div class="img_container">
                                 <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/check.png?raw=true" />
                             </div>
@@ -211,8 +220,18 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
 <script>
-    //새 스크립트 작성
-    //window.close();
+    const save = () => {
+        alert("상담 방법 저장");
+    }
+    const calling = () => {
+        alert("전화 걸기");
+    }
+    const massage = () => {
+        alert("문자 보내기");
+    }
+    const recall = () => {
+        alert("전화 다시 걸기");
+    }
 </script>
 </body>
 </html>

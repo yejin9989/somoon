@@ -19,6 +19,7 @@
     width:100%;
     height: 100%;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 2;
 }
 .body_container .body_header .upper_header{
     display: flex;
@@ -28,7 +29,6 @@
     width:100%;
     height: 60px;
     background-color: #5C86F5;
-    z-index: 10;
 }
 .body_container .body_header .upper_header .left_header{
     display: flex;
@@ -132,10 +132,165 @@
     overflow: hidden;
 }
 #navigation_container #navigation{
+    display: flex;
     position: absolute;
+    align-items: center;
+    flex-direction: column;
     top: 0;
     right: 0px;
     width: 300px;
     height: 100vh;
     background-color: #eee;
+    padding-top: 80px;
+}
+#navigation_container #navigation .user_container{
+    display:flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+#navigation_container #navigation .user_container .user_img_container{
+    width: 200px;
+    height: 200px;
+}
+#navigation_container #navigation .user_container .user_img_container img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+#navigation_container #navigation .user_container .user_name{
+    text-align: center;
+    width: 200px;
+}
+#navigation_container #navigation .user_container .user_name span{
+    color:#000;
+    font-size: 22px;
+    font-weight: 700;
+}
+#navigation_container #navigation hr{
+    width: 80%;
+    height: 2px;
+    margin: 40px 0px;
+    background-color: #c4c4c4;
+    border:none;
+    border-radius: 2px;
+}
+#navigation_container #navigation .item_container{
+    display:flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width:100%;
+}
+#navigation_container #navigation .item_container .item_text{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    white-space: nowrap;
+}
+#navigation_container #navigation .item_container .item_text span{
+    font-size: 16px;
+    color:#000;
+    font-weight: 600;
+}
+#navigation_container #navigation .item_container .item_box{
+    display:flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+#navigation_container #navigation .item_container .item_box .item_text{
+    display:flex;
+    position: relative;
+    align-items: center;
+    width: auto;
+    height: 100%;
+}
+#navigation_container #navigation .item_container .item_box .item_text .num{
+    font-size: 100px;
+    font-weight: 700;
+    color: #000;
+    letter-spacing: -10px;
+    margin-right: 15px;
+}
+#navigation_container #navigation .item_container .item_box .item_text .sub{
+    font-size: 70px;
+    margin-right: 15px;
+}
+#navigation_container #navigation .item_container .item_box a{
+    cursor: pointer;
+}
+#navigation_container #navigation .item_container .item_box .item_img{
+    width: 70px;
+    height: 70px;
+}
+#navigation_container #navigation .item_container .item_box .item_img img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+#navigation_container #navigation .menu_container{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 30px;
+}
+#navigation_container #navigation .menu_container .menu_upper{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    height: 50%;
+}
+#navigation_container #navigation .menu_container .menu_upper .upper_img{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+#navigation_container #navigation .menu_container .menu_upper .upper_img img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+#navigation_container #navigation .menu_container .menu_upper span{
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+}
+#navigation_container #navigation .menu_container .menu_lower{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 50%;
+}
+#navigation_container #navigation .menu_container .menu_lower span{
+    font-size: 20px;
+    font-weight: 600;
+    color: gray;
+}
+#navigation_container .cancel_container{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+#navigation_container .cancel_container img{
+    width:100%;
+    height: 100%;
+    object-fit: fill;
 }

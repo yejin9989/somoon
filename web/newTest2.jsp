@@ -60,7 +60,15 @@
                 </div>
             </div>
         </div>
-        <div class="main_body">
+        <div class="main_body_none">
+            <div class="img_container">
+                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/search2.png?raw=true" />
+            </div>
+            <div class="text_container">
+                <span>중단된 공사가 없습니다.</span>
+            </div>
+        </div>
+        <div class="main_body_yes">
             <div class="main_container">
                 <div class="main_box">
                     <div class="left_box">
