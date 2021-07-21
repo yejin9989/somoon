@@ -61,10 +61,21 @@
                             <span class="sec_fir">주거</span>
                             <span class="sec_sec">아파트 32평</span>
                         </div>
-                        <div class="text"><span class="thr">대구 남구 어쩌구</span></div>
+                        <div class="text">
+                            <span class="sec_fir">주소</span>
+                            <span class="thr">대구 남구 어쩌구</span>
+                        </div>
+                        <div class="text">
+                            <span class="sec_fir">예정일</span>
+                            <span class="thr">1개월 이내</span>
+                        </div>
+                        <div class="text">
+                            <span class="sec_fir">예산</span>
+                            <span class="thr">8천만원 이하</span>
+                        </div>
                         <div class="text">
                             <span class="sec_fir">신청한 디자인</span>
-                            <a href="#"><span class="for">통합 신청 버튼으로 신청한 사례</span></a>
+                            <a href="#"><span class="for">없음</span></a>
                         </div>
                     </div>
                     <div class="under_container">
@@ -104,7 +115,18 @@
                             <span class="sec_fir">주거</span>
                             <span class="sec_sec">아파트 40평</span>
                         </div>
-                        <div class="text"><span class="thr">대구 남구 어쩌구</span></div>
+                        <div class="text">
+                            <span class="sec_fir">주소</span>
+                            <span class="thr">대구 남구 어쩌구</span>
+                        </div>
+                        <div class="text">
+                            <span class="sec_fir">예정일</span>
+                            <span class="thr">1개월 이내</span>
+                        </div>
+                        <div class="text">
+                            <span class="sec_fir">예산</span>
+                            <span class="thr">8천만원 이하</span>
+                        </div>
                         <div class="text">
                             <span class="sec_fir">신청한 디자인</span>
                             <a href="https://blog.naver.com/gudwls1498/220218687283"><span class="for">월성동 e편한세상월배 34평</span></a>

@@ -174,6 +174,9 @@
     height: 25%;
     padding: 10px 15px;
 }
+.body_container .body_main .main_container .box_container .main_box .text_container .text a{
+    text-decoration: none;
+}
 .body_container .body_main .main_container .box_container .main_box .text_container .text span{
     font-size: 14px;
 }
@@ -194,6 +197,11 @@
     font-weight: 800;
 }
 .body_container .body_main .main_container .box_container .main_box .text_container .text .for{
+    color: rgba(74, 121, 244, 0.8);
+    font-size: 15px;
+    font-weight: 600;
+}
+.body_container .body_main .main_container .box_container .main_box .text_container .text .fiv{
     width: 100%;
     height: 30px;
     border:none;
@@ -204,12 +212,12 @@
     outline-width: 0.5px;
     padding: 0px 5px;
 }
-.body_container .body_main .main_container .box_container .main_box .text_container .text .for::placeholder{
+.body_container .body_main .main_container .box_container .main_box .text_container .text .fiv::placeholder{
     color: rgba(74, 121, 244, 0.8);
     font-size: 15px;
     font-weight: 600;
 }
-.body_container .body_main .main_container .box_container .main_box .text_container .text .for_btn{
+.body_container .body_main .main_container .box_container .main_box .text_container .text .fiv_btn{
     width: 150px;
     height: 30px;
     margin-left: 30px;
@@ -223,7 +231,7 @@
     font-size: 18px;
     background: none;
 }
-.body_container .body_main .main_container .box_container .main_box .text_container .text .for_btn:hover{
+.body_container .body_main .main_container .box_container .main_box .text_container .text .fiv_btn:hover{
     cursor: pointer;
     background-color: #cad3f8;
 }

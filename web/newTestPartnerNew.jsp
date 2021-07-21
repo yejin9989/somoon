@@ -71,12 +71,17 @@
                     <div class="goods_mid_box">
                         <span>34,500원</span>
                     </div>
-                    <div class="goods_right_box">
+                    <div class="goods_right_box" onclick="open_modal()">
                         <span>신청하기</span>
                     </div>
                 </div>
-                <div class="goods_container">
-                    <div class="goods_left_box">
+            </div>
+        </div>
+        <div class="modal_container" id="modal_container">
+            <div class="modal_box_before" id="modal_box_before">
+                <div class="item_container">
+                    <span class="item_span">선택한 상품</span>
+                    <div class="select_item">
                         <div class="text_area">
                             <span class="upper_text">주거 프라임</span>
                         </div>
@@ -84,53 +89,34 @@
                             <span class="mid_text">기간 <span class="mid_date_text">2021.06.01 ~ 2021.06.30</span></span>
                         </div>
                         <div class="text_area">
-                            <span class="lower_text">배분 10건</span>
+                            <span class="lower_text">배분 5건</span>
                         </div>
                     </div>
-                    <div class="goods_mid_box">
-                        <span>67,500원</span>
-                    </div>
-                    <div class="goods_right_box">
-                        <span>신청하기</span>
+                    <span class="item_span">결제 방법 선택</span>
+                    <div class="choice_item">
+                        <input type="radio" checked/> <span class="item_span">계좌이체</span>
                     </div>
                 </div>
-                <div class="goods_container">
-                    <div class="goods_left_box">
-                        <div class="text_area">
-                            <span class="upper_text">주거 프라임</span>
-                        </div>
-                        <div class="text_area">
-                            <span class="mid_text">기간 <span class="mid_date_text">2021.06.01 ~ 2021.06.30</span></span>
-                        </div>
-                        <div class="text_area">
-                            <span class="lower_text">배분 15건</span>
-                        </div>
-                    </div>
-                    <div class="goods_mid_box">
-                        <span>99,500원</span>
-                    </div>
-                    <div class="goods_right_box">
-                        <span>신청하기</span>
-                    </div>
+                <div class="btn_container">
+                    <button onclick="modal_next()"><span>신 청 하 기</span></button>
                 </div>
-                <div class="goods_container">
-                    <div class="goods_left_box">
-                        <div class="text_area">
-                            <span class="upper_text">주거 프라임</span>
-                        </div>
-                        <div class="text_area">
-                            <span class="mid_text">기간 <span class="mid_date_text">2021.06.01 ~ 2021.06.30</span></span>
-                        </div>
-                        <div class="text_area">
-                            <span class="lower_text">배분 20건</span>
-                        </div>
-                    </div>
-                    <div class="goods_mid_box">
-                        <span>129,500원</span>
-                    </div>
-                    <div class="goods_right_box">
-                        <span>신청하기</span>
-                    </div>
+                <div class="modal_cancel" onclick="close_modal()">
+                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancel.png?raw=true" />
+                </div>
+            </div>
+            <div class="modal_box_after" id="modal_box_after">
+                <div class="item_container">
+                    <span class="item_span">입금 받을 계좌</span>
+                    <span class="item_span fir">대구은행 1234-1234-12344</span>
+                    <span class="item_span sec">입금자 명의를 회사명으로 입금 해주세요.</span>
+                    <span class="item_span sec">ex) 홍길동인테리어</span>
+                    <span class="item_span thr">입금자 명의 관련 문의 : 010-1234-1234</span>
+                </div>
+                <div class="btn_container">
+                    <button onclick="modal_previous()"><span>신 청 취 소</span></button>
+                </div>
+                <div class="modal_cancel" onclick="close_modal()">
+                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancel.png?raw=true" />
                 </div>
             </div>
         </div>
@@ -143,8 +129,26 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
 <script>
-    //새 스크립트 작성
-    //window.close();
+    const open_modal = () => {
+        var modal = document.getElementById("modal_container");
+        modal.style.display = "flex"
+    }
+    const close_modal = () => {
+        var modal = document.getElementById("modal_container");
+        modal.style.display = "none"
+    }
+    const modal_next = () => {
+        var before_modal = document.getElementById("modal_box_before");
+        var after_modal = document.getElementById("modal_box_after");
+        before_modal.style.display = "none";
+        after_modal.style.display = "block";
+    }
+    const modal_previous = () => {
+        var before_modal = document.getElementById("modal_box_before");
+        var after_modal = document.getElementById("modal_box_after");
+        after_modal.style.display = "none";
+        before_modal.style.display = "block";
+    }
 </script>
 </body>
 </html>

@@ -146,10 +146,196 @@
     background-color: #4A79F4;
     border-radius: 0px 8px 8px 0px;
 }
+.body_container .body_main .main_container .partner_container .goods_container .goods_right_box:hover{
+    cursor: pointer;
+}
 .body_container .body_main .main_container .partner_container .goods_container .goods_right_box span{
     color:#fff;
     font-size: 18px;
     font-weight: 700;
     writing-mode: vertical-rl;
     text-orientation: upright;
+}
+.body_container .body_main .modal_container{
+    display: none;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.body_container .body_main .modal_container .modal_box_before{
+    display: block;
+    width: 350px;
+    height: 400px;
+    background-color: #fafafa;
+    border: solid;
+    border-width: 1px;
+    border-color: #ddd;
+    filter: invert(0);
+    padding: 25px 30px 30px 30px;
+}
+.body_container .body_main .modal_container .modal_box_before .item_container{
+    width: 100%;
+    height: calc(100% - 60px);
+}
+.body_container .body_main .modal_container .modal_box_before .item_container .item_span{
+    font-weight: 600;
+    font-size: 16px;
+}
+.body_container .body_main .modal_container .modal_box_before .item_container .select_item{
+    display:flex;
+    position: relative;
+    flex-wrap: wrap;
+    max-width: 250px;
+    width: 250px;
+    height: 100px;
+    background-color: #f7f7f7;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    margin: 15px 0px 25px 0px;
+    padding: 10px 0px;
+}
+.body_container .body_main .modal_container .modal_box_before .item_container .select_item .text_area{
+    display: flex;
+    position: relative;
+    align-items: center;
+    padding-left: 10px;
+    width: 100%;
+    height: calc(100% / 3);
+    overflow: hidden;
+}
+.body_container .body_main .modal_container .modal_box_before .item_container .select_item .text_area .upper_text{
+    font-size: 15px;
+    font-weight: 600;
+    color:#000;
+}
+.body_container .body_main .modal_container .modal_box_before .item_container .select_item .text_area .mid_text{
+    font-size: 15px;
+    color: gray;
+}
+.body_container .body_main .modal_container .modal_box_before .item_container .select_item .text_area .mid_date_text{
+    font-size: 16px;
+    color: gray;
+}
+.body_container .body_main .modal_container .modal_box_before .item_container .select_item .text_area .lower_text{
+    font-size: 15px;
+    font-weight: 600;
+    color: #4A79F4;
+}
+.body_container .body_main .modal_container .modal_box_before .item_container .choice_item{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 55px;
+    background-color: #f7f7f7;
+    box-shadow: 1px 4px 4px 0 rgba(0, 0, 0, 0.25);
+    margin: 20px 0px;
+}
+.body_container .body_main .modal_container .modal_box_before .item_container .choice_item input{
+    margin-right: 8px;
+}
+.body_container .body_main .modal_container .modal_box_before .btn_container{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 60px;
+}
+.body_container .body_main .modal_container .modal_box_before .btn_container button{
+    width: 200px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: #4A79F4;
+    outline: none;
+    border: none;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+.body_container .body_main .modal_container .modal_box_before .btn_container button span{
+    color: #fafafa;
+    font-size: 20px;
+    font-weight: 600;
+}
+.body_container .body_main .modal_container .modal_box_before .modal_cancel{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 24px;
+    height: 24px;
+}
+.body_container .body_main .modal_container .modal_box_before .modal_cancel img{
+    width:100%;
+    height:100%;
+    object-fit: fill;
+}
+.body_container .body_main .modal_container .modal_box_after{
+    display:none;
+    width: 350px;
+    height: 400px;
+    background-color: #fafafa;
+    border: solid;
+    border-width: 1px;
+    border-color: #ddd;
+    filter: invert(0);
+    padding: 25px 30px 30px 30px;
+}
+.body_container .body_main .modal_container .modal_box_after .modal_cancel{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 24px;
+    height: 24px;
+}
+.body_container .body_main .modal_container .modal_box_after .modal_cancel img{
+    width:100%;
+    height:100%;
+    object-fit: fill;
+}
+.body_container .body_main .modal_container .modal_box_after .item_container{
+    width: 100%;
+    height: calc(100% - 60px);
+}
+.body_container .body_main .modal_container .modal_box_after .item_container .item_span{
+    display: block;
+    font-size: 16px;
+    font-weight: 550;
+    margin-bottom: 4px;
+}
+.body_container .body_main .modal_container .modal_box_after .item_container .fir{
+    margin-bottom: 80px;
+}
+.body_container .body_main .modal_container .modal_box_after .item_container .sec{
+    color: #d02316;
+}
+.body_container .body_main .modal_container .modal_box_after .item_container .thr{
+    margin-top: 30px;
+}
+.body_container .body_main .modal_container .modal_box_after .btn_container{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 60px;
+}
+.body_container .body_main .modal_container .modal_box_after .btn_container button{
+    width: 130px;
+    height: 40px;
+    border-radius: 30px;
+    background-color: #808080;
+    outline: none;
+    border: none;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+.body_container .body_main .modal_container .modal_box_after .btn_container button span{
+    color: #fafafa;
+    font-size: 18px;
+    font-weight: 600;
 }
