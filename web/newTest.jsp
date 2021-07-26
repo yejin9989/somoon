@@ -125,16 +125,70 @@
                                 <span>문자</span>
                             </div>
                         </div>
-                        <div class="side_container" onclick="recall()">
+                        <div class="side_container" onclick="open_modal()">
                             <div class="img_container">
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/check.png?raw=true" />
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/check3.png?raw=true" />
                             </div>
                             <div class="text_container">
-                                <span>재통화</span>
+                                <span>완료</span>
+                            </div>
+                        </div>
+                        <div class="side_container" onclick="open_modal_non_fin()">
+                            <div class="img_container">
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancel2.png?raw=true" />
+                            </div>
+                            <div class="text_container">
+                                <span>중단</span>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="modal_container_fin" id="modal_container_fin">
+                <form method="post">
+                    <div class="modal_box">
+                        <div class="item_container">
+                            <span class="item_span">계약 일시</span>
+                            <div class="select_date">
+                                <input type="date" />
+                            </div>
+                            <span class="item_span">계약금</span>
+                            <div class="input_pay">
+                                <input type="text" placeholder="계약금 입력해주세요" />
+                            </div>
+                            <span class="item_span">계약서 업로드</span>
+                            <input class="file" type="file" />
+                        </div>
+                        <div class="btn_container">
+                            <button type="submit"><span>완 료</span></button>
+                        </div>
+                        <div class="modal_cancel" onclick="close_modal()">
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancel.png?raw=true" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal_container_non_fin" id="modal_container_non_fin">
+                <form method="post">
+                    <div class="modal_box">
+                        <div class="item_container">
+                            <span class="item_span">중단 단계</span>
+                            <div class="select_date">
+                                <input type="date" />
+                            </div>
+                            <span class="item_span">중단 사유</span>
+                            <div class="input_pay">
+                                <input type="text" placeholder="계약금 입력해주세요" />
+                            </div>
+                        </div>
+                        <div class="btn_container">
+                            <button type="submit"><span>중 단</span></button>
+                        </div>
+                        <div class="modal_cancel" onclick="close_modal_non_fin()">
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancel.png?raw=true" />
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -156,6 +210,22 @@
     }
     const recall = () => {
         alert("전화 다시 걸기");
+    }
+    const open_modal = () => {
+        var modal = document.getElementById("modal_container_fin");
+        modal.style.display = "flex"
+    }
+    const close_modal = () => {
+        var modal = document.getElementById("modal_container_fin");
+        modal.style.display = "none"
+    }
+    const open_modal_non_fin = () => {
+        var modal = document.getElementById("modal_container_non_fin");
+        modal.style.display = "flex"
+    }
+    const close_modal_non_fin = () => {
+        var modal = document.getElementById("modal_container_non_fin");
+        modal.style.display = "none"
     }
 </script>
 </body>

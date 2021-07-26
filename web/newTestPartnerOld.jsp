@@ -97,8 +97,6 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
 <script>
-    //새 스크립트 작성
-    //window.close();
 </script>
 </body>
 </html>
