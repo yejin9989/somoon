@@ -150,14 +150,14 @@
                         <div class="item_container">
                             <span class="item_span">계약 일시</span>
                             <div class="select_date">
-                                <input type="date" />
+                                <input type="date" required/>
                             </div>
                             <span class="item_span">계약금</span>
                             <div class="input_pay">
-                                <input type="text" placeholder="계약금 입력해주세요" />
+                                <input type="text" placeholder="계약금을 입력해주세요" required/>
                             </div>
                             <span class="item_span">계약서 업로드</span>
-                            <input class="file" type="file" />
+                            <input class="file" type="file" required/>
                         </div>
                         <div class="btn_container">
                             <button type="submit"><span>완 료</span></button>
@@ -173,12 +173,31 @@
                     <div class="modal_box">
                         <div class="item_container">
                             <span class="item_span">중단 단계</span>
-                            <div class="select_date">
-                                <input type="date" />
+                            <div class="stop_step">
+                                <div class="input_box">
+                                    <input type="radio" name="step" value="1" required/>
+                                    <span>전화 통화 전 마무리</span>
+                                </div>
+                                <div class="input_box">
+                                    <input type="radio" name="step" value="2" />
+                                    <span>전화 통화 후 마무리</span>
+                                </div>
+                                <div class="input_box">
+                                    <input type="radio" name="step" value="3" />
+                                    <span>방문 상담 후 마무리</span>
+                                </div>
+                                <div class="input_box">
+                                    <input type="radio" name="step" value="4" />
+                                    <span>견적 산출 후 마무리</span>
+                                </div>
+                                <div class="input_box">
+                                    <input type="radio" name="step" value="5" />
+                                    <span>계약 전 마무리</span>
+                                </div>
                             </div>
                             <span class="item_span">중단 사유</span>
-                            <div class="input_pay">
-                                <input type="text" placeholder="계약금 입력해주세요" />
+                            <div class="stop_why">
+                                <input type="text" placeholder="중단 사유를 입력해주세요" required/>
                             </div>
                         </div>
                         <div class="btn_container">
@@ -207,9 +226,6 @@
     }
     const massage = () => {
         alert("문자 보내기");
-    }
-    const recall = () => {
-        alert("전화 다시 걸기");
     }
     const open_modal = () => {
         var modal = document.getElementById("modal_container_fin");

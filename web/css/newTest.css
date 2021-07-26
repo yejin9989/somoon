@@ -349,6 +349,15 @@
     box-shadow: 1px 4px 4px 0 rgba(0, 0, 0, 0.25);
     margin: 10px 0px 20px 0px;
 }
+.body_container .body_main .modal_container_fin .modal_box .item_container .input_pay input{
+    width:100%;
+    height: 100%;
+    background: none;
+    outline:none;
+    border:none;
+    padding: 10px;
+    font-size: 16px;
+}
 .body_container .body_main .modal_container_fin .modal_box .item_container .file{
     margin: 10px 0px 20px 0px;
 }
@@ -424,29 +433,30 @@
     font-weight: 600;
     font-size: 16px;
 }
-.body_container .body_main .modal_container_non_fin .modal_box .item_container .select_date{
+.body_container .body_main .modal_container_non_fin .modal_box .item_container .stop_step{
     display:flex;
     position: relative;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     flex-wrap: wrap;
+    flex-direction: column;
     max-width: 250px;
     width: 250px;
-    height: 55px;
+    height: 120px;
     background-color: #f7f7f7;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-    margin: 15px 0px 25px 0px;
+    margin: 10px 0px 20px 0px;
     padding: 5px 0px;
 }
-.body_container .body_main .modal_container_non_fin .modal_box .item_container .select_date input{
-    width:50%;
-    height:50%;
+.body_container .body_main .modal_container_non_fin .modal_box .item_container .stop_step .input_box{
+    padding: 0px 10px;
+}
+.body_container .body_main .modal_container_non_fin .modal_box .item_container .stop_step input{
     outline:none;
     border:none;
     background: none;
+    margin-right: 10px;
 }
-
-.body_container .body_main .modal_container_non_fin .modal_box .item_container .input_pay{
+.body_container .body_main .modal_container_non_fin .modal_box .item_container .stop_why{
     display: flex;
     position: relative;
     justify-content: center;
@@ -457,7 +467,14 @@
     box-shadow: 1px 4px 4px 0 rgba(0, 0, 0, 0.25);
     margin: 20px 0px;
 }
-.body_container .body_main .modal_container_non_fin .modal_box .item_container .input_pay input{
+.body_container .body_main .modal_container_non_fin .modal_box .item_container .stop_why input{
+    width:100%;
+    height: 100%;
+    background: none;
+    outline:none;
+    border:none;
+    padding: 10px;
+    font-size: 16px;
 }
 .body_container .body_main .modal_container_non_fin .modal_box .btn_container{
     display: flex;
