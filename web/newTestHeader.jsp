@@ -53,13 +53,19 @@
                 <span>소문난집</span>
             </div>
             <div class="right_header">
-                <div class="img_container">
-                    <img class="graph"
-                         src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/graph2.png?raw=true" />
-                </div>
+                <a href="newTestPartnerNew.jsp" target="_self">
+                    <div class="img_container">
+                        <img class="cart"
+                             src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cart2.png?raw=true" />
+                    </div>
+                </a>
+                <a href="newTestPartnerOld.jsp" target="_self">
+                    <div class="img_container">
+                        <img class="graph" src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/graph2.png?raw=true" />
+                    </div>
+                </a>
                 <div class="img_container" id="menu_slide" onclick="slide()">
-                    <img class="menu"
-                         src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/menu3.png?raw=true" />
+                    <img class="menu" src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/menu3.png?raw=true" />
                 </div>
             </div>
         </div>
@@ -92,10 +98,57 @@
     </div>
     <div id="navigation_container">
         <div id="navigation">
-            <div>공지사항</div>
-            <div>고객센터</div>
-            <div>공식홈페이지</div>
-            <div></div>
+            <div class="user_container">
+                <div class="user_img_container">
+                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/person.png?raw=true" />
+                </div>
+                <div class="user_name">
+                    <span>제이와이피엔터</span>
+                </div>
+            </div>
+            <hr/>
+            <div class="item_container" id="after_login">
+                <div class="item_text">
+                    <span>현재 이용중인 상품</span>
+                </div>
+                <div class="item_box">
+                    <div class="item_text"><span class="num">1</span></div>
+                    <div class="item_text"><span class="sub">건</span></div>
+                    <a href="newTestPartnerOld.jsp" target="_self">
+                        <div class="item_img">
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/rightDirection2.png?raw=true" />
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="item_container" id="before_login">
+                <div class="item_text">
+                    <span>로그인 하셔야 이용 가능합니다.</span>
+                </div>
+                <div class="item_box">
+                    <div class="item_text"><span class="sub">로그인</span></div>
+                    <a href="newTestLogin.jsp" target="_self">
+                        <div class="item_img">
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/rightDirection2.png?raw=true" />
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="menu_container">
+                <div class="menu_upper">
+                    <div class="upper_img">
+                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/call.png?raw=true" />
+                    </div>
+                    <span>소문난집 전화문의</span>
+                </div>
+                <div class="menu_lower">
+                    <span>010-6427-2777</span>
+                </div>
+            </div>
+        </div>
+        <div class="cancel_container" onclick="slide()">
+            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancel.png?raw=true" />
         </div>
     </div>
 </div>
@@ -104,9 +157,8 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
 <script>
-    function slide(){
+    const slide = () =>{
         var nav = document.getElementById("navigation_container");
-        var nav_bar = document.getElementById("navigation");
         if(nav.style.display == "none"){
             nav.style.display = "grid";
         }

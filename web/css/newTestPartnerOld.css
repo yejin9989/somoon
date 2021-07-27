@@ -1,0 +1,115 @@
+@import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css?display=swap);
+@font-face{
+    font-family:'Nanum Gothic',sans-serif;
+}
+*{
+    font-family:'Nanum Gothic',sans-serif;
+    padding:0px;
+    margin:0px;
+    box-sizing: border-box;
+}
+.body_container{
+    display: flex;
+    position:relative;
+    flex-direction: column;
+    width:100%;
+    height:100%;
+}
+.body_container .body_main{
+    display:flex;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width:100%;
+    min-height: calc(100vh - 250px);
+    height: 100%;
+}
+.body_container .body_main .main_header{
+    display:flex;
+    position: relative;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    padding-left: 10%;
+    background-color: #fafafa;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+.body_container .body_main .main_header span{
+    font-size: 18px;
+    font-weight: 600;
+    color:#000;
+    margin: 5px 20px;
+    white-space: nowrap;
+}
+.body_container .body_main .main_container{
+    display:flex;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+    width:100%;
+    min-height: calc(100vh - 310px);
+    height: 100%;
+    background-color: #f5f5f5;
+    padding: 5px 20px;
+}
+.body_container .body_main .main_container .sub_text{
+    display:flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 40px;
+    margin-top: 20px;
+    white-space: nowrap;
+}
+.body_container .body_main .main_container .sub_text span{
+    font-size: 16px;
+    font-weight: 500;
+    color:#000;
+}
+.body_container .body_main .main_container .goods_container{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 10px;
+    width: 80%;
+    height: 100px;
+    margin-bottom: 20px;
+    background-color: #fafafa;
+    border-radius: 8px;
+    border:solid;
+    border-width: 1px;
+    border-color: #ddd;
+}
+.body_container .body_main .main_container .goods_container .text_area{
+    display: flex;
+    position: relative;
+    align-items: center;
+    padding-left: 10px;
+    width: 100%;
+    height: calc(100% / 3);
+    overflow: hidden;
+}
+.body_container .body_main .main_container .goods_container .text_area .upper_text{
+    font-size: 15px;
+    font-weight: 600;
+    color:#000;
+}
+.body_container .body_main .main_container .goods_container .text_area .mid_text{
+    font-size: 15px;
+    color: gray;
+}
+.body_container .body_main .main_container .goods_container .text_area .mid_date_text{
+    font-size: 16px;
+    color: gray;
+}
+.body_container .body_main .main_container .goods_container .text_area .lower_text{
+    font-size: 15px;
+    font-weight: 600;
+    color: #4A79F4;
+}

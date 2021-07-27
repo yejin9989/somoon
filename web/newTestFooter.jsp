@@ -61,13 +61,24 @@
             <div class="text">
                 <span class="key">전화</span><span class="value">010-6427-2777 ( 대표전화 / 고객센터 )</span>
             </div>
-            <div class="text">
-                <span class="key">문의</span><span class="value">somoonhouse@naver.com</span>
-            </div>
         </div>
         <div class="bar"></div>
         <div class="text_container">
-
+            <div class="text">
+                <span class="key">문의</span><span class="value">somoonhouse@naver.com</span>
+            </div>
+            <div class="text">
+                <span class="key">사업자등록번호</span><span class="value">476-30-00276</span>
+            </div>
+            <div class="text">
+                <span class="key">통신판매업신고번호</span><span class="value">제2017-대구북구-0141호</span>
+            </div>
+            <div class="text">
+                <span class="key">instagram</span>
+                <div class="value_img">
+                    <a href="https://www.instagram.com/somoonhouse/" target="_self"><img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/instagram.png?raw=true" /></a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

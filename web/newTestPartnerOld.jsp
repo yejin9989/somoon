@@ -36,7 +36,7 @@
 <head>
     <link rel="SHORTCUT ICON" href="https://somoonhouse.com/img/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/newTest1.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/newTestPartnerOld.css"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <title>소문난집</title>
@@ -49,45 +49,42 @@
     <jsp:include page="/newTestHeader.jsp" flush="false" />
     <div class="body_main">
         <div class="main_header">
-            <div class="left_container">
-                <div class="left_box">
-                    <div class="img_container">
-                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/magnifying.png?raw=true" />
-                    </div>
-                    <div class="text_container">
-                        <input class="text_input" type="text" placeholder="전화, 고객명, 주소" />
-                    </div>
+            <span>제이와이피엔터님</span>
+        </div>
+        <div class="main_container">
+            <div class="sub_text"><span>이용중인 상품</span></div>
+            <div class="goods_container">
+                <div class="text_area">
+                    <span class="upper_text">주거 프라임</span>
+                </div>
+                <div class="text_area">
+                    <span class="mid_text">기간 <span class="mid_date_text">2021.06.01 ~ 2021.06.30</span></span>
+                </div>
+                <div class="text_area">
+                    <span class="lower_text">배분 10건</span>
                 </div>
             </div>
-        </div>
-        <div class="main_body_none">
-            <div class="img_container">
-                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/search2.png?raw=true" />
+            <div class="sub_text"><span>이용 끝난 상품</span></div>
+            <div class="goods_container">
+                <div class="text_area">
+                    <span class="upper_text">주거 프라임</span>
+                </div>
+                <div class="text_area">
+                    <span class="mid_text">기간 <span class="mid_date_text">2021.06.01 ~ 2021.06.30</span></span>
+                </div>
+                <div class="text_area">
+                    <span class="lower_text">배분 10건</span>
+                </div>
             </div>
-            <div class="text_container">
-                <span>완료된 공사가 없습니다.</span>
-            </div>
-        </div>
-        <div class="main_body_yes">
-            <div class="main_container">
-                <div class="main_box">
-                    <div class="left_box">
-                        <div class="upper_container">
-                            <div class="text_container">
-                                <span>홍길동 | <span class="sub_text">대구 달성군 다사읍 죽곡리 15</span></span>
-                            </div>
-                        </div>
-                        <div class="under_container">
-                            <div class="under_box">
-                                <span>계약 성사 : 2021.05.18</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right_box">
-                        <div class="img_container">
-                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/rightDirection.png?raw=true" />
-                        </div>
-                    </div>
+            <div class="goods_container">
+                <div class="text_area">
+                    <span class="upper_text">주거 프라임</span>
+                </div>
+                <div class="text_area">
+                    <span class="mid_text">기간 <span class="mid_date_text">2021.06.01 ~ 2021.06.30</span></span>
+                </div>
+                <div class="text_area">
+                    <span class="lower_text">배분 10건</span>
                 </div>
             </div>
         </div>
@@ -100,8 +97,6 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
 <script>
-    //새 스크립트 작성
-    //window.close();
 </script>
 </body>
 </html>

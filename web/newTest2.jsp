@@ -60,49 +60,15 @@
                 </div>
             </div>
         </div>
-        <div class="main_body">
-            <div class="main_container">
-                <div class="main_box">
-                    <div class="left_box">
-                        <div class="upper_container">
-                            <div class="text_container">
-                                <span>홍길동 | <span class="sub_text">대구 달성군 다사읍 죽곡리 15</span></span>
-                            </div>
-                        </div>
-                        <div class="under_container">
-                            <div class="under_box">
-                                <span>계약 미성사 : 2021.05.18</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right_box">
-                        <div class="img_container">
-                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/underDirection.png?raw=true" />
-                        </div>
-                    </div>
-                </div>
+        <div class="main_body_none">
+            <div class="img_container">
+                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/search2.png?raw=true" />
             </div>
-            <div class="main_container">
-                <div class="main_box">
-                    <div class="left_box">
-                        <div class="upper_container">
-                            <div class="text_container">
-                                <span>홍길동 | <span class="sub_text">대구 달성군 다사읍 죽곡리 15</span></span>
-                            </div>
-                        </div>
-                        <div class="under_container">
-                            <div class="under_box">
-                                <span>계약 미성사 : 2021.05.18</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right_box">
-                        <div class="img_container">
-                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/underDirection.png?raw=true" />
-                        </div>
-                    </div>
-                </div>
+            <div class="text_container">
+                <span>중단된 공사가 없습니다.</span>
             </div>
+        </div>
+        <div class="main_body_yes">
             <div class="main_container">
                 <div class="main_box">
                     <div class="left_box">
