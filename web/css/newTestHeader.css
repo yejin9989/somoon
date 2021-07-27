@@ -185,6 +185,9 @@
     flex-direction: column;
     width:100%;
 }
+#navigation_container #navigation #after_login{
+    display:none;
+}
 #navigation_container #navigation .item_container .item_text{
     width: 100%;
     height: 30px;

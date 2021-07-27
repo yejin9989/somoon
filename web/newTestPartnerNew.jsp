@@ -92,6 +92,7 @@
                             <span class="lower_text">배분 5건</span>
                         </div>
                     </div>
+                    <span class="item_span">가격 : 34,500원</span>
                     <span class="item_span">결제 방법 선택</span>
                     <div class="choice_item">
                         <input type="radio" checked/> <span class="item_span">계좌이체</span>

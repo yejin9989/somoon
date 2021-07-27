@@ -107,7 +107,7 @@
                 </div>
             </div>
             <hr/>
-            <div class="item_container">
+            <div class="item_container" id="after_login">
                 <div class="item_text">
                     <span>현재 이용중인 상품</span>
                 </div>
@@ -121,6 +121,20 @@
                     </a>
                 </div>
             </div>
+            <div class="item_container" id="before_login">
+                <div class="item_text">
+                    <span>로그인 하셔야 이용 가능합니다.</span>
+                </div>
+                <div class="item_box">
+                    <div class="item_text"><span class="sub">로그인</span></div>
+                    <a href="newTestLogin.jsp" target="_self">
+                        <div class="item_img">
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/rightDirection2.png?raw=true" />
+                        </div>
+                    </a>
+                </div>
+            </div>
+
             <div class="menu_container">
                 <div class="menu_upper">
                     <div class="upper_img">
