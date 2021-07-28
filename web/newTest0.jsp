@@ -58,23 +58,15 @@
                     <div class="text_container">
                         <div class="text"><span class="fir">주거 프라임</span></div>
                         <div class="text">
-                            <span class="sec_fir">주거</span>
                             <span class="sec_sec">아파트 32평</span>
                         </div>
                         <div class="text">
-                            <span class="sec_fir">주소</span>
                             <span class="thr">대구 남구 어쩌구</span>
                         </div>
                         <div class="text">
-                            <span class="sec_fir">예정일</span>
-                            <span class="thr">1개월 이내</span>
+                            <span class="thr">1개월 이내 / 8천만원 이하</span>
                         </div>
                         <div class="text">
-                            <span class="sec_fir">예산</span>
-                            <span class="thr">8천만원 이하</span>
-                        </div>
-                        <div class="text">
-                            <span class="sec_fir">신청한 디자인</span>
                             <a href="#"><span class="for">없음</span></a>
                         </div>
                     </div>
@@ -97,6 +89,9 @@
                                 <div class="text_container">
                                     <span>거절</span>
                                 </div>
+                                <div class="text_container_wait">
+                                    <span>남은 시간(2시간 40분)</span>
+                                </div>
                             </div>
                         </a>
                     </div>
@@ -112,23 +107,15 @@
                     <div class="text_container">
                         <div class="text"><span class="fir">주거 프라임</span></div>
                         <div class="text">
-                            <span class="sec_fir">주거</span>
                             <span class="sec_sec">아파트 40평</span>
                         </div>
                         <div class="text">
-                            <span class="sec_fir">주소</span>
                             <span class="thr">대구 남구 어쩌구</span>
                         </div>
                         <div class="text">
-                            <span class="sec_fir">예정일</span>
-                            <span class="thr">1개월 이내</span>
+                            <span class="thr">1개월 이내 / 8천만원 이하</span>
                         </div>
                         <div class="text">
-                            <span class="sec_fir">예산</span>
-                            <span class="thr">8천만원 이하</span>
-                        </div>
-                        <div class="text">
-                            <span class="sec_fir">신청한 디자인</span>
                             <a href="https://blog.naver.com/gudwls1498/220218687283"><span class="for">월성동 e편한세상월배 34평</span></a>
                         </div>
                     </div>
@@ -147,6 +134,9 @@
                             </div>
                             <div class="text_container">
                                 <span>거절</span>
+                            </div>
+                            <div class="text_container_wait">
+                                <span>남은 시간(2시간 40분)</span>
                             </div>
                         </div>
                     </div>

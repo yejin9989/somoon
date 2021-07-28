@@ -342,3 +342,33 @@
     font-size: 18px;
     font-weight: 600;
 }
+@media (max-width: 450px) {
+    .body_container
+    .body_main
+    .main_container
+    .partner_container
+    .goods_container
+    .goods_left_box
+    .text_area
+    .mid_date_text {
+        font-size: 14px;
+        color: gray;
+    }
+    .body_container
+    .body_main
+    .main_container
+    .partner_container
+    .goods_container
+    .goods_mid_box {
+        max-width: 150px;
+    }
+    .body_container
+    .body_main
+    .main_container
+    .partner_container
+    .goods_container
+    .goods_mid_box
+    span {
+        font-size: 20px;
+    }
+}

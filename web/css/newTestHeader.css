@@ -185,6 +185,10 @@
     flex-direction: column;
     width:100%;
 }
+#navigation_container #navigation .item_container a{
+    cursor: pointer;
+    text-decoration: none;
+}
 #navigation_container #navigation #after_login{
     display:none;
 }
@@ -224,9 +228,6 @@
 #navigation_container #navigation .item_container .item_box .item_text .sub{
     font-size: 70px;
     margin-right: 15px;
-}
-#navigation_container #navigation .item_container .item_box a{
-    cursor: pointer;
 }
 #navigation_container #navigation .item_container .item_box .item_img{
     width: 70px;
@@ -284,6 +285,43 @@
     font-weight: 600;
     color: gray;
 }
+#navigation_container #navigation .board_href{
+    cursor: pointer;
+    text-decoration: none;
+}
+#navigation_container #navigation .board_container{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 30px;
+}
+#navigation_container #navigation .board_container .menu_upper{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+#navigation_container #navigation .board_container .menu_upper .upper_img{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+#navigation_container #navigation .board_container .menu_upper .upper_img img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+#navigation_container #navigation .board_container .menu_upper span{
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+}
 #navigation_container .cancel_container{
     position: absolute;
     top: 10px;
@@ -296,4 +334,18 @@
     width:100%;
     height: 100%;
     object-fit: fill;
+}
+@media (max-width: 450px) and (max-height: 700px){
+    #navigation_container #navigation{
+        padding-top: 40px !important;
+    }
+    #navigation_container #navigation hr{
+        margin: 10px 0px !important;
+    }
+    #navigation_container #navigation .menu_container{
+        padding: 10px !important;
+    }
+    #navigation_container #navigation .board_container{
+        padding: 10px !important;
+    }
 }

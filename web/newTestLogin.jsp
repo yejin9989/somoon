@@ -152,14 +152,10 @@ input[type="submit"]{
 <body>
 <jsp:include page="/newTestHeader.jsp" flush="false" />
 <div id="container">
-
 	<div id="content">
 		<div id="content-div">
-			<!------------ 내용물  --------------->
-
 			<div>
 				<form action="_company_login.jsp" method="POST">
-				<!-- 로그인 구역 -->
 					<div id="company_name"><%=company_name%></div>
 					<div id="password_area">
 						<div id="password_label">비밀번호</div>
@@ -169,8 +165,6 @@ input[type="submit"]{
 					</div>
 				</form>
 			</div>
-
-			<!------------ 내용물  --------------->
 		</div>
 	</div>
 <%

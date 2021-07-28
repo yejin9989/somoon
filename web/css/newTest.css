@@ -511,3 +511,18 @@
     height:100%;
     object-fit: fill;
 }
+@media (max-width: 450px) {
+    .body_container .body_main .main_body_yes .main_container {
+        width: 90%;
+    }
+    .body_container .body_main .main_container .box_container .main_box .text_container .text .sec_fir{
+        font-size: 14px;
+        white-space: nowrap;
+    }
+    .body_container .body_main .main_container .box_container .main_box .text_container .text .fiv::placeholder{
+        font-size: 14px;
+    }
+    .body_container .body_main .main_container .box_container .main_box .under_container .side_container .text_container span{
+        font-size: 14px;
+    }
+}
