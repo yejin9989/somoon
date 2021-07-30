@@ -104,7 +104,7 @@
                             <a href="https://blog.naver.com/gudwls1498/220218687283"><span class="for">월성동 e편한세상월배 34평</span></a>
                         </div>
                         <div class="text">
-                            <input class="fiv" type="text" placeholder="2차 상담 방법을 입력해주세요" />
+                            <input class="fiv" type="text" placeholder="2차 상담 방법 입력" />
                             <button class="fiv_btn" onclick="save()">저장</button>
                         </div>
                     </div>

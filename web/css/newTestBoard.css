@@ -1,0 +1,127 @@
+@import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css?display=swap);
+@font-face{
+    font-family:'Nanum Gothic',sans-serif;
+}
+*{
+    font-family:'Nanum Gothic',sans-serif;
+    padding:0px;
+    margin:0px;
+    box-sizing: border-box;
+}
+.body_container{
+    display: flex;
+    position:relative;
+    flex-direction: column;
+    width:100%;
+    height:100%;
+}
+.body_container .body_main{
+    display:flex;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width:100%;
+    min-height: calc(100vh - 250px);
+    height: 100%;
+    background-color: #fafafa;
+}
+.body_container .body_main .board_title{
+    display:flex;
+    align-items: center;
+    width:100%;
+    height: 100px;
+    padding-left: 20px;
+}
+.body_container .body_main .board_title span{
+    font-size: 25px;
+    font-weight: 600;
+    color: #000;
+}
+.body_container .body_main .board_body{
+    display:flex;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+    width:100%;
+    min-height: calc(100vh - 250px - 200px);
+    height: 100%;
+}
+.body_container .body_main .board_body a{
+    width:100%;
+    height:100%;
+    text-decoration: none;
+    color:#000;
+    padding: 0px 20px;
+}
+.body_container .body_main .board_body .board_header{
+    border: solid;
+    border-width: 1px 0px;
+    border-color: grey;
+    padding: 0px 20px;
+}
+.body_container .body_main .board_body a:hover{
+    background-color: #eee;
+}
+.body_container .body_main .board_body .board_header,
+.body_container .body_main .board_body .board_content{
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    width:100%;
+    height: 40px;
+}
+.body_container .body_main .board_body .board_content .title{
+    padding-left: 20px;
+    text-align: left !important;
+    overflow: hidden;
+}
+.body_container .body_main .board_body .num,
+.body_container .body_main .board_body .like{
+    width: 50px;
+}
+.body_container .body_main .board_body .title{
+    width: calc(100% - 210px);
+}
+.body_container .body_main .board_body .date{
+    width: 110px;
+}
+.body_container .body_main .board_body .sub{
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.body_container .body_main .board_footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    height: 100px;
+}
+.body_container .body_main .board_footer a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    height:100%;
+    text-decoration: none;
+    border-radius: 30px;
+}
+.body_container .body_main .board_footer button{
+    width: 200px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: #4A79F4;
+    outline: none;
+    border: none;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+.body_container .body_main .board_footer button span{
+    color: #fafafa;
+    font-size: 20px;
+    font-weight: 600;
+}

@@ -125,16 +125,15 @@
                 <div class="item_text">
                     <span>로그인 하셔야 이용 가능합니다.</span>
                 </div>
-                <div class="item_box">
-                    <div class="item_text"><span class="sub">로그인</span></div>
-                    <a href="newTestLogin.jsp" target="_self">
+                <a href="newTestLogin.jsp" target="_self">
+                    <div class="item_box">
+                        <div class="item_text"><span class="sub">로그인</span></div>
                         <div class="item_img">
                             <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/rightDirection2.png?raw=true" />
                         </div>
-                    </a>
-                </div>
+                    </div>
+                </a>
             </div>
-
             <div class="menu_container">
                 <div class="menu_upper">
                     <div class="upper_img">
@@ -146,6 +145,16 @@
                     <span>010-6427-2777</span>
                 </div>
             </div>
+            <a class="board_href" href="newTestBoard.jsp" target="_self">
+                <div class="board_container">
+                    <div class="menu_upper">
+                        <div class="upper_img">
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/write.png?raw=true" />
+                        </div>
+                        <span>익명 게시판</span>
+                    </div>
+                </div>
+            </a>
         </div>
         <div class="cancel_container" onclick="slide()">
             <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancel.png?raw=true" />
