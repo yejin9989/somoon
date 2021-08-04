@@ -3,15 +3,17 @@
          pageEncoding="UTF-8"%>
 <%@ page language="java" import="java.text.*,java.sql.*,java.util.*,java.security.*,java.math.BigInteger" %>
 <%@ page language="java" import="myPackage.*" %>
+<%@ page import="javax.swing.*" %>
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setContentType("text/html; charset=utf-8"); %>
 <%
     //필요한 변수 선언
-    int i, j;
     String mylog = "";
 
     //파라미터 가져오기
     //String param = request.getParameter("param");
+    //String s_id = session.getAttribute("s_id")+"";
+    String s_id = "35";
 
     //DB 관련 객체 선언
     Connection conn = DBUtil.getMySQLConnection();
@@ -20,16 +22,114 @@
     String query = "";
     String sql = "";
 
-    //DB 가져오기 예시
-    /*query = "select * from KEYWORD";
+    //변수설정
+    String[] buildingType = {"아파트", "빌라", "주택", "원룸"};
+    class Dates{
+        String date;
+        HashMap<String, HashMap<String, String>> applies;
+        HashMap<String, HashMap<String, String>> details;
+
+        void setDate(String date){
+            this.date = date;
+        }
+        void setApplies(HashMap applies){
+            this.applies = applies;
+        }
+        void setDetails(HashMap details){
+            this.details = details;
+        }
+
+        String getDate(){
+            return this.date;
+        }
+        HashMap getApplies(){
+            return this.applies;
+        }
+        HashMap getDetails(){
+            return this.details;
+        }
+    }
+
+    //DB 가져오기
+    query = "SELECT distinct Apply_date FROM ASSIGNED A, REMODELING_APPLY R";
+    query += " WHERE A.Company_num = " + s_id;
+    query += " And R.Number = A.Apply_num";
+    query += " And A.State >= 2 And A.State < 8"; // 탭에따라 이 쿼리 바꾸어주기
     pstmt = conn.prepareStatement(query);
     rs = pstmt.executeQuery();
-    HashMap<String, String> keyword = new HashMap<String, String>();
+
+    LinkedList<Dates> datelist = new LinkedList<Dates>();
+
     while(rs.next()) {
-        keyword.put(rs.getString("Id"), rs.getString("Name"));
+
+        Dates date = new Dates();
+        date.setDate(rs.getString("Apply_date"));
+
+        HashMap<String, HashMap<String, String>> applies = new HashMap<String, HashMap<String, String>>();
+        HashMap<String, HashMap<String, String>> details = new HashMap<String, HashMap<String, String>>();
+
+
+        query = "SELECT * FROM ASSIGNED A, REMODELING_APPLY R";
+        query += " WHERE A.Company_num = " + s_id;
+        query += " And R.Number = A.Apply_num";
+        query += " And A.State >= 2 And A.State < 8";
+        query += " And Date(Apply_date) = '" + rs.getString("Apply_date") + "'";
+        pstmt = conn.prepareStatement(query);
+        ResultSet rs2 = pstmt.executeQuery();
+
+        while (rs2.next()) {
+            HashMap<String, String> temp = new HashMap<String, String>();
+            if(rs2.getString("Item_num").equals("0")){
+                temp.put("Title", "통합 신청 버튼으로 신청했습니다.");
+                temp.put("URL", "#");
+            }
+            else{
+                query = "select * from REMODELING where Number = " + rs2.getString("Item_num");
+                pstmt = conn.prepareStatement(query);
+                ResultSet rs3 = pstmt.executeQuery();
+                while(rs3.next()){
+                    temp.put("Title", rs3.getString("Title"));
+                    temp.put("URL", rs3.getString("URL"));
+                }
+            }
+            temp.put("Number", rs2.getString("R.Number"));
+            temp.put("Item_num", rs2.getString("R.Item_num"));
+            temp.put("Name", rs2.getString("R.Name"));
+            temp.put("Phone", rs2.getString("R.Phone"));
+            temp.put("Address", rs2.getString("R.Address"));
+            temp.put("Building_type", buildingType[Integer.parseInt(rs2.getString("R.Building_type"))]);
+            temp.put("Area", rs2.getString("R.Area"));
+            temp.put("Due", rs2.getString("R.Due"));
+            temp.put("Budget", rs2.getString("R.Budget"));
+            temp.put("Consulting", rs2.getString("R.Consulting"));
+            temp.put("Apply_date", rs2.getString("R.Apply_date"));
+            temp.put("State", rs2.getString("R.State"));
+            temp.put("Calling", rs2.getString("R.Calling"));
+            temp.put("Pw", rs2.getString("R.Pw"));
+            temp.put("Assigned_time", rs2.getString("R.Assigned_time"));
+            temp.put("State", rs2.getString("A.State"));
+            temp.put("Assigned_id", rs2.getString("A.Assigned_id"));
+            temp.put("Memo", rs2.getString("A.Memo"));
+            temp.put("Modify_date", rs2.getString("A.Modify_date"));
+            applies.put(temp.get("Number"), temp);
+
+            //details 값 넣기
+            PreparedStatement pstmt2 = null;
+            query = "select * from REMODELING_APPLY ra, REMODELING_APPLY_DIV2 rad, RMDL_DIV1 rd, RMDL_DIV2 rd2 where ra.Number = ? and ra.Number = rad.Apply_num And rad.Div2_num = rd2.Id and rd2.Parent_id = rd.Id";
+            pstmt2 = conn.prepareStatement(query);
+            pstmt2.setString(1, temp.get("Number"));
+            ResultSet rs3 = pstmt2.executeQuery();
+            HashMap<String, String> hm = new HashMap<String, String>();
+            while (rs3.next()) {
+                hm.put(rs3.getString("rd.Name"), rs3.getString("rd2.Name"));
+            }
+            details.put(temp.get("Number"), hm);
+        }
+        date.setApplies(applies);
+        date.setDetails(details);
+
+        datelist.add(date);
     }
-    pstmt.close();
-     */
 %>
 <!DOCTYPE html>
 <html>
@@ -72,36 +172,41 @@
             </div>
         </div>
         <div class="main_container">
+            <%for (int i = 0; i < datelist.size(); i++) {%>
             <div class="date_container">
-                <span>2021.06.02</span>
+                <span><%=datelist.get(i).getDate()%></span> <!--span>2021.06.02</span-->
             </div>
+            <%
+                for(String key : datelist.get(i).applies.keySet()){
+                    HashMap apply = datelist.get(i).applies.get(key);
+            %>
             <div class="box_container">
                 <div class="main_box">
                     <div class="text_container">
                         <div class="text"><span class="fir">주거 프라임</span></div>
                         <div class="text">
                             <span class="sec_fir">성함</span>
-                            <span class="sec_sec">정진성</span>
+                            <span class="sec_sec"><%=apply.get("Name")%></span><!--span class="sec_sec">정진성</span-->
                         </div>
                         <div class="text">
                             <span class="sec_fir">주거</span>
-                            <span class="sec_sec">아파트 32평</span>
+                            <span class="sec_sec"><%=apply.get("Building_type")%> <%=apply.get("Area")%>평</span><!--span class="sec_sec">아파트 32평</span-->
                         </div>
                         <div class="text">
                             <span class="sec_fir">주소</span>
-                            <span class="thr">대구 남구 어쩌구</span>
+                            <span class="thr"><%=apply.get("Address")%></span><!--span class="thr">대구 남구 어쩌구</span-->
                         </div>
                         <div class="text">
                             <span class="sec_fir">예정일</span>
-                            <span class="thr">1개월 이내</span>
+                            <span class="thr"><%=apply.get("Due")%></span><!--span class="thr">1개월 이내</span-->
                         </div>
                         <div class="text">
                             <span class="sec_fir">예산</span>
-                            <span class="thr">8천만원 이하</span>
+                            <span class="thr"><%=apply.get("Budget")%></span><!--span class="thr">8천만원 이하</span-->
                         </div>
                         <div class="text">
                             <span class="sec_fir">신청한 디자인</span>
-                            <a href="https://blog.naver.com/gudwls1498/220218687283"><span class="for">월성동 e편한세상월배 34평</span></a>
+                            <a href="<%=apply.get("URL")%>>"><span class="for"><%=apply.get("Title")%></span></a>
                         </div>
                         <div class="text">
                             <input class="fiv" type="text" placeholder="2차 상담 방법 입력" />
@@ -209,6 +314,10 @@
                     </div>
                 </form>
             </div>
+            <%
+                }
+            }
+            %>
         </div>
     </div>
     <jsp:include page="/newTestFooter.jsp" flush="false" />
