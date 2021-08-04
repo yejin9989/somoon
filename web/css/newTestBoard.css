@@ -55,9 +55,6 @@
     padding: 0px 20px;
 }
 .body_container .body_main .board_body .board_header{
-    border: solid;
-    border-width: 1px 0px;
-    border-color: grey;
     padding: 0px 20px;
 }
 .body_container .body_main .board_body a:hover{

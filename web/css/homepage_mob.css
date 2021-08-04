@@ -1,0 +1,10 @@
+@import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css?display=swap);
+@font-face{
+    font-family:'Nanum Gothic',sans-serif;
+}
+*{
+    font-family:'Nanum Gothic',sans-serif;
+    padding:0px;
+    margin:0px;
+    box-sizing: border-box;
+}
