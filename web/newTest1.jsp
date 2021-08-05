@@ -141,7 +141,6 @@
     <title>소문난집</title>
 </head>
 <body>
-<%=mylog%>
 <%
 %>
 <div class="body_container">
