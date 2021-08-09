@@ -53,7 +53,7 @@
     query = "SELECT distinct Apply_date FROM ASSIGNED A, REMODELING_APPLY R";
     query += " WHERE A.Company_num = " + s_id;
     query += " And R.Number = A.Apply_num";
-    query += " And A.State < 2"; // 탭에따라 이 쿼리 바꾸어주기
+    query += " And A.State = 0"; // 탭에따라 이 쿼리 바꾸어주기
     pstmt = conn.prepareStatement(query);
     rs = pstmt.executeQuery();
 
@@ -71,7 +71,7 @@
         query = "SELECT * FROM ASSIGNED A, REMODELING_APPLY R";
         query += " WHERE A.Company_num = " + s_id;
         query += " And R.Number = A.Apply_num";
-        query += " And A.State < 2";
+        query += " And A.State = 0";
         query += " And Date(Apply_date) = '" + rs.getString("Apply_date") + "'";
         pstmt = conn.prepareStatement(query);
         ResultSet rs2 = pstmt.executeQuery();
@@ -173,7 +173,7 @@
                         </div>
                     </div>
                     <div class="under_container">
-                        <a href="newTestPartnerNew.jsp" target="_self">
+                        <a href="#" target="_self" class="accept" id="<%=apply.get("Number")%>">
                             <div class="side_container">
                                 <div class="img_container">
                                     <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/distri.png?raw=true" />
@@ -183,7 +183,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="newTestPartnerNew.jsp" target="_self">
+                        <a href="#" target="_self" class="accept" id="<%=apply.get("Number")%>">
                             <div class="side_container">
                                 <div class="img_container">
                                     <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancle.png?raw=true" />
@@ -217,6 +217,14 @@
     const cancle = () =>{
         alert("거절했습니다.")
     }
+    $('.accept').click(function(){
+        const id = $(this).attr("id");
+        location.href = "_newTest_company_accept.jsp?companyNum="+"<%=s_id%>"+"&applyNum="+id;
+    })
+    $('.refuse').click(function(){
+        const id = $(this).attr("id");
+        location.href = "_newTest_company_refuse.jsp?companyNum="+"<%=s_id%>"+"&applyNum="+id;
+    })
 </script>
 </body>
 </html>
