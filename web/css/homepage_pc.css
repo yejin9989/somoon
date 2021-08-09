@@ -25,7 +25,7 @@ body{
 .body_container_PC .underline{
     width:100%;
     height:1px;
-    background-color: #ddd;
+    background-color: #f1f1f5;
 }
 .body_container_PC .header{
     display:flex;
@@ -33,12 +33,20 @@ body{
     width: 1024px;
     height:60px;
     margin-left: 1px;
+    z-index: 2;
 }
 .body_container_PC .header .header_left{
     display: flex;
     align-items: center;
     justify-content: center;
     width: 200px;
+    height:100%;
+}
+.body_container_PC .header .header_left a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
     height:100%;
 }
 .body_container_PC .header .header_left img{
@@ -58,12 +66,43 @@ body{
     height: 100%;
     text-decoration: none;
     cursor: pointer;
+    filter:invert(0);
+}
+.body_container_PC .header .header_right #area_header{
+    display:flex;
+    align-items: center;
+    height: 100%;
+    cursor: default;
+    filter:invert(0);
+}
+.body_container_PC .header .header_right #area_div{
+    display:none;
+    align-items: center;
+    justify-content: space-around;
+    top:60px;
+    left:0;
+    position: absolute;
+    width: 480px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 0 0 5px 5px;
+    border: solid;
+    border-width: 1px;
+    border-color: #eee;
+}
+.body_container_PC .header .header_right #area_div a{
+    text-decoration: none;
+}
+.body_container_PC .header .header_right #area_div span{
+    margin: 0;
+    font-size: 14px;
+    color:#000;
 }
 .body_container_PC .header .header_right .sidebar{
     width:2px;
     height: 25px;
     border-radius: 2px;
-    background-color: #aaa;
+    background-color: #f1f1f5;
 }
 .body_container_PC .header .header_right span{
     margin: 0 25px;
@@ -170,24 +209,42 @@ body{
     height: calc(100% - 80px);
     flex-wrap: nowrap;
     overflow: hidden;
+    padding-left: 10px;
 }
-.body_container_PC .area_part .lower .area{
+.body_container_PC .area_part .lower .slider{
+    display: flex;
+    gap: 0 20px;
+}
+.body_container_PC .area_part .lower .slider::-webkit-scrollbar{
+    display: none;
+}
+.body_container_PC .area_part .lower .slider .area{
     display: flex;
     align-items: center;
     flex-direction: column;
     width: 150px;
     height: 100%;
+    -webkit-touch-callout: none;
+    user-select: none;
 }
-.body_container_PC .area_part .lower .area div{
+.body_container_PC .area_part .lower .slider .area div{
     width:120px;
     height:120px;
     border-radius: 120px;
     background-color: grey;
 }
-.body_container_PC .area_part .lower .area span{
+.body_container_PC .area_part .lower .slider .area span{
     font-size: 14px;
     font-weight: 530;
     margin-top: 10px;
+}
+.body_container_PC .area_part .lower .blur{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 160px;
+    background: -webkit-linear-gradient(left, transparent 0%, transparent 20%, white);
 }
 .body_container_PC .best_inter{
     display: flex;
@@ -215,6 +272,15 @@ body{
     height: 100%;
     justify-content: center;
     align-items: center;
+}
+.body_container_PC .best_inter .upper div a{
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color:#000;
+    cursor: pointer;
 }
 .body_container_PC .best_inter .upper img{
     width: 20px;
@@ -330,10 +396,28 @@ body{
     height: 50px;
 }
 .body_container_PC .review .lower .boxes .reviewBox .top .star{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
     width: 200px;
     height: 100%;
-    background-color: grey;
     margin-right: 10px;
+}
+.body_container_PC .review .lower .boxes .reviewBox .top .star .block{
+    position: absolute;
+    top:0;
+    right:0;
+    width: 0;
+    height: 100%;
+    background-color: #fff;
+    z-index: 2;
+}
+.body_container_PC .review .lower .boxes .reviewBox .top .star img{
+    width:40px;
+    height:40px;
+    object-fit: fill;
+    filter: invert(1);
 }
 .body_container_PC .review .lower .boxes .reviewBox .top span{
     font-size: 20px;
@@ -419,20 +503,27 @@ body{
     width:100%;
     height: 130px;
 }
+.body_container_PC .review .lower .btn_container div img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+.body_container_PC .review .lower .btn_container .left img{
+    transform: rotate(180deg);
+}
 .body_container_PC .review .lower .btn_container .left{
     width: 40px;
     height: 40px;
-    background-color: grey;
     margin-right: 30px;
 }
 .body_container_PC .review .lower .btn_container .right{
     width: 40px;
     height: 40px;
-    background-color: grey;
 }
 .body_container_PC .style{
     width: 100%;
     height: 600px;
+    margin-bottom: 20px;
 }
 .body_container_PC .style .upper{
     display: flex;
@@ -470,6 +561,15 @@ body{
     height: 20px;
     object-fit: fill;
 }
+.body_container_PC .style .upper .right a{
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color:#000;
+    cursor: pointer;
+}
 .body_container_PC .style .lower{
     display: flex;
     position: relative;
@@ -487,10 +587,10 @@ body{
     width: 300px;
     height: 100%;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 15px;
 }
 .body_container_PC .style .lower .style_container:hover{
-    box-shadow: 0 0 5px 2px rgba(100, 100, 100, 0.2);
+    box-shadow: 0 0 2px 1px rgba(100, 100, 100, 0.2);
 }
 .body_container_PC .style .lower .style_container .box{
     width: 250px;
@@ -541,8 +641,12 @@ body{
 .body_container_PC .style .lower .style_container .text .thr .thr_img{
     width: 23px;
     height: 23px;
-    background-color: grey;
-    margin: 0 8px;
+    margin: 0 6px;
+}
+.body_container_PC .style .lower .style_container .text .thr .thr_img img{
+    width:100%;
+    height: 100%;
+    object-fit: fill;
 }
 .body_container_PC .style .lower .style_container .text .for{
     color:#000;
@@ -550,14 +654,20 @@ body{
     font-weight: 550;
 }
 .body_container_PC .free{
+    width: 100%;
+    height: 150px;
+    background-color: #348DEE;
+    margin: 80px 0 0 0;
+}
+.body_container_PC .free a{
     display: flex;
     position: relative;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 150px;
-    background-color: #348DEE;
-    margin: 80px 0 0 0;
+    height: 100%;
+    cursor: pointer;
+    text-decoration: none;
 }
 .body_container_PC .free .free_text{
     display: flex;
@@ -581,17 +691,25 @@ body{
 }
 .body_container_PC .free .free_text .text_lower .lower_text{
     font-size: 18px;
-    margin-right: 10px;
+    margin-right: 5px;
 }
 .body_container_PC .free .free_text .text_lower .lower_img{
     width: 30px;
     height: 30px;
-    background-color: grey;
+}
+.body_container_PC .free .free_text .text_lower .lower_img img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
 }
 .body_container_PC .free .free_img{
-    width: 120px;
-    height: 120px;
-    background-color: grey;
+    width: 150px;
+    height: 150px;
+}
+.body_container_PC .free .free_img img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
 }
 .body_container_PC .insta{
     display: flex;
@@ -610,10 +728,15 @@ body{
     flex-direction: row;
 }
 .body_container_PC .insta .title .icon{
-    width: 50px;
-    height: 50px;
-    background-color: grey;
-    margin-right: 15px;
+    width: 70px;
+    height: 70px;
+    margin-right: 5px;
+}
+.body_container_PC .insta .title .icon img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    filter: invert(1);
 }
 .body_container_PC .insta .title span{
     font-size: 20px;
@@ -638,8 +761,12 @@ body{
 .body_container_PC .insta .follow .follow_img{
     width: 50px;
     height: 50px;
-    background-color: grey;
-    margin-right: 25px;
+    margin-right: 10px;
+}
+.body_container_PC .insta .follow .follow_img img{
+    width:100%;
+    height: 100%;
+    object-fit: fill;
 }
 .body_container_PC .insta .follow span{
     font-size: 26px;
@@ -647,11 +774,15 @@ body{
     color:#000;
 }
 .body_container_PC .insta .imgs{
+    width:600px;
+    height: 300px;
+}
+.body_container_PC .insta .imgs a{
     display: flex;
     position: relative;
     flex-wrap: wrap;
-    width:600px;
-    height: 300px;
+    width: 100%;
+    height: 100%;
 }
 .body_container_PC .insta .imgs .a{
     width: 150px;
@@ -663,8 +794,19 @@ body{
     height: 150px;
     background-color: #464646;
 }
+.body_container_PC .findA{
+    width: 100%;
+    height: 100%;
+}
 .body_container_PC .find{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 150px;
     background-color: #374262;
+}
+.body_container_PC .find img{
+    height: 150px;
+    object-fit: cover;
 }

@@ -71,14 +71,27 @@
     <div class="body_container_PC">
         <div class="header">
             <div class="header_left">
-                <img src="https://somoonhouse.com/otherimg/index/somunlogo.jpg" />
+                <a href="https://somoonhouse.com/" target="_self">
+                    <img src="https://somoonhouse.com/otherimg/index/somunlogo.jpg" />
+                </a>
             </div>
             <div class="header_right">
-                <a>
+                <div id="area_header">
                     <span>지역별 인테리어</span>
-                </a>
+                    <div id="area_div">
+                        <a href="https://somoonhouse.com/newindex.jsp?Daegu=141"><span>중구</span></a>
+                        <a href="https://somoonhouse.com/newindex.jsp?Daegu=142"><span>동구</span></a>
+                        <a href="https://somoonhouse.com/newindex.jsp?Daegu=143"><span>서구</span></a>
+                        <a href="https://somoonhouse.com/newindex.jsp?Daegu=144"><span>남구</span></a>
+                        <a href="https://somoonhouse.com/newindex.jsp?Daegu=145"><span>북구</span></a>
+                        <a href="https://somoonhouse.com/newindex.jsp?Daegu=146"><span>수성구</span></a>
+                        <a href="https://somoonhouse.com/newindex.jsp?Daegu=147"><span>달서구</span></a>
+                        <a href="https://somoonhouse.com/newindex.jsp?Daegu=148"><span>달성군</span></a>
+                        <a href="https://somoonhouse.com/newindex.jsp?Daegu=15"><span>경북</span></a>
+                    </div>
+                </div>
                 <div class="sidebar"></div>
-                <a>
+                <a href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                     <span>인기 인테리어</span>
                 </a>
                 <div class="sidebar"></div>
@@ -121,47 +134,54 @@
             <div class="area_part">
                 <div class="upper">
                     <span>공간별 인테리어가 궁금하다면?</span>
-                    <div>
-                        <span>더보기</span>
-                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow.png?raw=true" />
-                    </div>
                 </div>
-                <div class="lower">
-                    <div class="area">
-                        <div>
-                            <img />
+                <div class="lower" id="slider_container">
+                    <div class="slider" id="area_slider">
+                        <div class="area">
+                            <div>
+                                <img />
+                            </div>
+                            <span>거실</span>
                         </div>
-                        <span>주방</span>
+                        <div class="area">
+                            <div>
+                                <img />
+                            </div>
+                            <span>주방</span>
+                        </div>
+                        <div class="area">
+                            <div>
+                                <img />
+                            </div>
+                            <span>침실</span>
+                        </div>
+                        <div class="area">
+                            <div>
+                                <img />
+                            </div>
+                            <span>화장실</span>
+                        </div>
+                        <div class="area">
+                            <div>
+                                <img />
+                            </div>
+                            <span>현관</span>
+                        </div>
+                        <div class="area">
+                            <div>
+                                <img />
+                            </div>
+                            <span>복도</span>
+                        </div>
+                        <div class="area">
+                            <div>
+                                <img />
+                            </div>
+                            <span>베란다</span>
+                        </div>
+                        <div class="area"></div>
                     </div>
-                    <div class="area">
-                        <div>
-                            <img />
-                        </div>
-                        <span>주방</span>
-                    </div>
-                    <div class="area">
-                        <div>
-                            <img />
-                        </div>
-                        <span>주방</span>
-                    </div>
-                    <div class="area">
-                        <div>
-                            <img />
-                        </div>
-                        <span>주방</span>
-                    </div>
-                    <div class="area">
-                        <div>
-                            <img />
-                        </div>
-                        <span>주방</span>
-                    </div>
-                    <div class="area">
-                        <div>
-                            <img />
-                        </div>
-                        <span>주방</span>
+                    <div class="blur">
                     </div>
                 </div>
             </div>
@@ -169,8 +189,10 @@
                 <div class="upper">
                     <span>BEST 인테리어</span>
                     <div>
-                        <span>더보기</span>
-                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow.png?raw=true" />
+                        <a href="https://somoonhouse.com/newindex.jsp?theme_id=1">
+                            <span>더보기</span>
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow.png?raw=true" />
+                        </a>
                     </div>
                 </div>
                 <div class="lower">
@@ -224,8 +246,15 @@
                     <div class="boxes">
                         <div class="reviewBox sub">
                             <div class="top">
-                                <div class="star"></div>
-                                <span>4.8</span>
+                                <div class="star">
+                                    <div class="block"></div>
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                </div>
+                                <span class="grade">4.5</span>
                             </div>
                             <div class="text">
 <pre>
@@ -234,6 +263,7 @@
 번창하세요~~
 소문난집 화이팅~~
 오늘 점심은 혜화문식당입니다
+    오늘 점심은 혜화문식당입니다
 </pre>
                             </div>
                             <div class="bot">
@@ -246,8 +276,15 @@
                         </div>
                         <div class="reviewBox main">
                             <div class="top">
-                                <div class="star"></div>
-                                <span>4.8</span>
+                                <div class="star">
+                                    <div class="block"></div>
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                </div>
+                                <span class="grade">4.8</span>
                             </div>
                             <div class="text">
 <pre>
@@ -268,8 +305,15 @@
                         </div>
                         <div class="reviewBox sub">
                             <div class="top">
-                                <div class="star"></div>
-                                <span>4.8</span>
+                                <div class="star">
+                                    <div class="block"></div>
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                </div>
+                                <span class="grade">4.2</span>
                             </div>
                             <div class="text">
 <pre>
@@ -290,8 +334,15 @@
                         </div>
                         <div class="reviewBox sub">
                             <div class="top">
-                                <div class="star"></div>
-                                <span>4.8</span>
+                                <div class="star">
+                                    <div class="block"></div>
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                </div>
+                                <span class="grade">4.9</span>
                             </div>
                             <div class="text">
 <pre>
@@ -312,8 +363,15 @@
                         </div>
                         <div class="reviewBox sub">
                             <div class="top">
-                                <div class="star"></div>
-                                <span>4.8</span>
+                                <div class="star">
+                                    <div class="block"></div>
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                </div>
+                                <span class="grade">4.5</span>
                             </div>
                             <div class="text">
 <pre>
@@ -334,8 +392,15 @@
                         </div>
                         <div class="reviewBox sub">
                             <div class="top">
-                                <div class="star"></div>
-                                <span>4.8</span>
+                                <div class="star">
+                                    <div class="block"></div>
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                </div>
+                                <span class="grade">4.8</span>
                             </div>
                             <div class="text">
 <pre>
@@ -356,8 +421,73 @@
                         </div>
                         <div class="reviewBox sub">
                             <div class="top">
-                                <div class="star"></div>
-                                <span>4.8</span>
+                                <div class="star">
+                                    <div class="block"></div>
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                </div>
+                                <span class="grade">4.5</span>
+                            </div>
+                            <div class="text">
+<pre>
+좋은 업체 소개해주셔서 감사합니다~~
+미팅했던 두 곳은 진정성 있게 봐주셨습니다
+번창하세요~~
+소문난집 화이팅~~
+오늘 점심은 혜화문식당입니다
+</pre>
+                            </div>
+                            <div class="bot">
+                                <span class="address">대구 북구 대현동 <span>&nbsp 김** 님</span></span>
+                                <div class="under">
+                                    <div class="comBox">견적업체</div>
+                                    <span>굿하우스 / 바르다인테리어디자인 / 아이비디자인</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reviewBox sub">
+                            <div class="top">
+                                <div class="star">
+                                    <div class="block"></div>
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                </div>
+                                <span class="grade">4.9</span>
+                            </div>
+                            <div class="text">
+<pre>
+좋은 업체 소개해주셔서 감사합니다~~
+미팅했던 두 곳은 진정성 있게 봐주셨습니다
+번창하세요~~
+소문난집 화이팅~~
+오늘 점심은 혜화문식당입니다
+</pre>
+                            </div>
+                            <div class="bot">
+                                <span class="address">대구 북구 대현동 <span>&nbsp 김** 님</span></span>
+                                <div class="under">
+                                    <div class="comBox">견적업체</div>
+                                    <span>굿하우스 / 바르다인테리어디자인 / 아이비디자인</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reviewBox sub">
+                            <div class="top">
+                                <div class="star">
+                                    <div class="block"></div>
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                </div>
+                                <span class="grade">5.0</span>
                             </div>
                             <div class="text">
 <pre>
@@ -378,8 +508,12 @@
                         </div>
                     </div>
                     <div class="btn_container">
-                        <div class="left" onclick="goLeft()"></div>
-                        <div class="right" onclick="goRight()"></div>
+                        <div class="left" onclick="goLeft()">
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow.png?raw=true" />
+                        </div>
+                        <div class="right" onclick="goRight()">
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow.png?raw=true" />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -390,8 +524,10 @@
                         <span class="sub">공사 항목부터 시공까지 자세히 알아보세요</span>
                     </div>
                     <div class="right">
-                        <span>더보기</span>
-                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow.png?raw=true" />
+                        <a href="https://somoonhouse.com/newindex.jsp?theme_id=1">
+                            <span>더보기</span>
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow.png?raw=true" />
+                        </a>
                     </div>
                 </div>
                 <div class="lower">
@@ -410,9 +546,13 @@
                             </div>
                             <span class="txt sec">서변동 서변월드메르디앙</span>
                             <div class="txt thr">
-                                <div class="thr_img"></div>
+                                <div class="thr_img">
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star.png?raw=true" />
+                                </div>
                                 <span>4.8</span>
-                                <div class="thr_img"></div>
+                                <div class="thr_img">
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart2.png?raw=true" />
+                                </div>
                                 <span>177</span>
                             </div>
                             <span class="txt for">#북유럽 #모던 #화이트인테리어</span>
@@ -433,9 +573,13 @@
                             </div>
                             <span class="txt sec">서변동 서변월드메르디앙</span>
                             <div class="txt thr">
-                                <div class="thr_img"></div>
+                                <div class="thr_img">
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star.png?raw=true" />
+                                </div>
                                 <span>4.8</span>
-                                <div class="thr_img"></div>
+                                <div class="thr_img">
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart2.png?raw=true" />
+                                </div>
                                 <span>177</span>
                             </div>
                             <span class="txt for">#북유럽 #모던 #화이트인테리어</span>
@@ -456,9 +600,13 @@
                             </div>
                             <span class="txt sec">서변동 서변월드메르디앙</span>
                             <div class="txt thr">
-                                <div class="thr_img"></div>
+                                <div class="thr_img">
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star.png?raw=true" />
+                                </div>
                                 <span>4.8</span>
-                                <div class="thr_img"></div>
+                                <div class="thr_img">
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart2.png?raw=true" />
+                                </div>
                                 <span>177</span>
                             </div>
                             <span class="txt for">#북유럽 #모던 #화이트인테리어</span>
@@ -468,39 +616,55 @@
             </div>
         </div>
         <div class="free">
+            <a href="https://somoonhouse.com/remodeling_form.jsp?item_num=0">
                 <div class="free_text">
                     <span>우리 집 리모델링 비용은 ?</span>
                     <div class="text_lower">
                         <span class="lower_text">무료 견적 받으러 가기</span>
-                        <div class="lower_img"></div>
+                        <div class="lower_img">
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow2.png?raw=true" />
+                        </div>
                     </div>
                 </div>
-                <div class="free_img"></div>
-            </div>
+                <div class="free_img">
+                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/chat.png?raw=true" />
+                </div>
+            </a>
+        </div>
         <div class="container">
             <div class="insta">
                 <div class="title">
-                    <div class="icon"></div>
+                    <div class="icon">
+                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/instagram.png?raw=true" />
+                    </div>
                     <span>somoonhouse_official</span>
                 </div>
                 <span class="sub">소문난집 인스타그램에서 다양한 이벤트와 소식을 확인하세요.</span>
                 <div class="follow">
-                    <div class="follow_img"></div>
-                    <span>1.1K</span>
+                    <div class="follow_img">
+                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart.png?raw=true" />
+                    </div>
+                    <span>1.2K</span>
                 </div>
                 <div class="imgs">
-                    <div class="a"></div>
-                    <div class="b"></div>
-                    <div class="a"></div>
-                    <div class="b"></div>
-                    <div class="b"></div>
-                    <div class="a"></div>
-                    <div class="b"></div>
-                    <div class="a"></div>
+                    <a href="https://www.instagram.com/somoonhouse/">
+                        <div class="a"></div>
+                        <div class="b"></div>
+                        <div class="a"></div>
+                        <div class="b"></div>
+                        <div class="b"></div>
+                        <div class="a"></div>
+                        <div class="b"></div>
+                        <div class="a"></div>
+                    </a>
                 </div>
             </div>
         </div>
-        <div class="find"></div>
+        <a class="findA" href="https://somoonhouse.com/banner1.jsp?id=3">
+            <div class="find">
+                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/with.png?raw=true" />
+            </div>
+        </a>
     </div>
     <jsp:include page="/newTestFooter.jsp" flush="false" />
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -514,6 +678,70 @@
     gtag('config', 'G-PC15JG6KGN');
 </script>
 <script>
+    var block = document.getElementsByClassName("block");
+    var grade = document.getElementsByClassName("grade");
+    for(var i = 0; i < grade.length; i++){
+        var gdiffNum = (5 - grade[i].textContent[0]) * 40;
+        switch(10 - grade[i].textContent[2] * 1){
+            case 10: break;
+            case 1: gdiffNum -= 32;
+                break;
+            case 2: gdiffNum -= 31;
+                break;
+            case 3: gdiffNum -= 27;
+                break;
+            case 4: gdiffNum -= 24;
+                break;
+            case 5: gdiffNum -= 20;
+                break;
+            case 6: gdiffNum -= 17;
+                break;
+            case 7: gdiffNum -= 15;
+                break;
+            case 8: gdiffNum -= 13;
+                break;
+            case 9: gdiffNum -= 11;
+                break;
+        }
+        block[i].style.width = gdiffNum + "px";
+    }
+    var area_header = document.getElementById("area_header");
+    var area_div = document.getElementById("area_div");
+    area_header.onmouseenter = () => {
+        area_div.style.display = "flex";
+    }
+    area_header.onmouseleave = () => {
+        area_div.style.display = "none";
+    }
+    var sliderContainer = document.getElementById("slider_container");
+    var slider = document.getElementById("area_slider");
+    var slideNum = document.getElementsByClassName("area").length;
+    var canMove = 0;
+    var startXPos, sliderPos = 0;
+    var moving, nowPos;
+    sliderContainer.onmousedown = (event) => {
+        canMove = 1;
+        startXPos = event.pageX;
+    }
+    sliderContainer.onmouseup = (event) => {
+        canMove = 0;
+        sliderPos += event.pageX - startXPos;
+    }
+    sliderContainer.onmousemove = (event) => {
+        if(canMove){
+            moving = event.pageX - startXPos;
+            if((sliderPos + moving <= 0) && (sliderPos + moving >= (slideNum - 6) * -170)){
+                nowPos = sliderPos + moving;
+                slider.style.transform = "translateX(" + nowPos + "px)";
+            }
+        }
+    }
+    sliderContainer.onmouseleave = (event) => {
+        if(canMove){
+            canMove = 0;
+            sliderPos += event.pageX - startXPos;
+        }
+    }
     var boxes = document.getElementsByClassName("reviewBox");
     var mainBoxNum;
     var pos = -478;

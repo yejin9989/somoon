@@ -68,8 +68,431 @@
     <title>소문난집</title>
 </head>
 <body>
-
-
+<div class="body_container_Mob">
+    <div class="header">
+        <div class="header_upper">
+            <div class="menu"></div>
+            <div class="logo">
+                <img src="https://somoonhouse.com/otherimg/index/somunlogo.jpg" />
+            </div>
+            <div class="mag"></div>
+        </div>
+        <div class="underline"></div>
+        <div class="header_lower">
+            <a>
+                <span>지역별 인테리어</span>
+            </a>
+            <a>
+                <span>인기 인테리어</span>
+            </a>
+            <a>
+                <span>시공 후기</span>
+            </a>
+            <a>
+                <span>파트너스</span>
+            </a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="banner">
+            <div class="img_container">
+                <div class="bannerBox">
+                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat1.jpg?raw=true" />
+                </div>
+                <div class="bannerBox">
+                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat2.jpg?raw=true" />
+                </div>
+                <div class="bannerBox">
+                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat3.jpg?raw=true" />
+                </div>
+                <div class="bannerBox">
+                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat4.jpg?raw=true" />
+                </div>
+            </div>
+        </div>
+        <div class="area_part">
+            <div class="upper">
+                <span>공간별 인테리어가 궁금하다면?</span>
+            </div>
+            <div class="lower" id="slider_container">
+                <div class="slider" id="area_slider">
+                    <div class="area">
+                        <div>
+                            <img />
+                        </div>
+                        <span>주방</span>
+                    </div>
+                    <div class="area">
+                        <div>
+                            <img />
+                        </div>
+                        <span>주방</span>
+                    </div>
+                    <div class="area">
+                        <div>
+                            <img />
+                        </div>
+                        <span>주방</span>
+                    </div>
+                    <div class="area">
+                        <div>
+                            <img />
+                        </div>
+                        <span>주방</span>
+                    </div>
+                    <div class="area">
+                        <div>
+                            <img />
+                        </div>
+                        <span>주방</span>
+                    </div>
+                    <div class="area">
+                        <div>
+                            <img />
+                        </div>
+                        <span>주방</span>
+                    </div>
+                    <div class="area">
+                        <div>
+                            <img />
+                        </div>
+                        <span>나방</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="best_inter">
+            <div class="upper">
+                <span>BEST 인테리어</span>
+                <div>
+                    <span class="more">더보기</span>
+                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow.png?raw=true" />
+                </div>
+            </div>
+            <div class="lower">
+                <div class="slider">
+                    <div class="best_container">
+                        <div class="box">
+                            <div class="box_upper">
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" />
+                            </div>
+                            <div class="box_lower">
+                                <span class="title">대구 수성구 수성동 수성보성타운</span>
+                                <span class="sub">아파트 | 49평형 | 거실 + 주방 | 남다른디자인</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="best_container">
+                        <div class="box">
+                            <div class="box_upper">
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog2.jpg?raw=true" />
+                            </div>
+                            <div class="box_lower">
+                                <span class="title">대구 수성구 수성동 수성보성타운</span>
+                                <span class="sub">아파트 | 49평형 | 거실 + 주방 | 남다른디자인</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="best_container">
+                        <div class="box">
+                            <div class="box_upper"></div>
+                            <div class="box_lower">
+                                <span class="title">대구 수성구 수성동 수성보성타운</span>
+                                <span class="sub">아파트 | 49평형 | 거실 + 주방 | 남다른디자인</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="best_container">
+                        <div class="box">
+                            <div class="box_upper"></div>
+                            <div class="box_lower">
+                                <span class="title">대구 수성구 수성동 수성보성타운</span>
+                                <span class="sub">아파트 | 49평형 | 거실 + 주방 | 남다른디자인</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="review">
+            <div class="upper">
+                <span>소문난집 이용후기</span>
+            </div>
+            <div class="lower">
+                <div class="slider">
+                    <div class="reviewBox">
+                        <div class="top">
+                            <div class="star"></div>
+                            <span>4.8</span>
+                        </div>
+                        <div class="text">
+                            <pre>
+                            좋은 업체 소개해주셔서 감사합니다
+                            오늘 점심은 혜화문식당입니다
+                            </pre>
+                        </div>
+                        <div class="bot">
+                            <span class="address">대구 북구 대현동 <span>&nbsp 김** 님</span></span>
+                            <div class="under">
+                                <div class="comBox">견적업체</div>
+                                <span>굿하우스 / 바르다인테리어디자인 / 아이비디자인</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reviewBox">
+                        <div class="top">
+                            <div class="star"></div>
+                            <span>4.8</span>
+                        </div>
+                        <div class="text">
+<pre>
+좋은 업체 소개해주셔서 감사합니다~~
+미팅했던 두 곳은 진정성 있게 봐주셨습니다
+번창하세요~~
+소문난집 화이팅~~
+오늘 점심은 혜화문식당입니다
+</pre>
+                        </div>
+                        <div class="bot">
+                            <span class="address">대구 북구 대현동 <span>&nbsp 김** 님</span></span>
+                            <div class="under">
+                                <div class="comBox">견적업체</div>
+                                <span>굿하우스 / 바르다인테리어디자인 / 아이비디자인</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reviewBox">
+                        <div class="top">
+                            <div class="star"></div>
+                            <span>4.8</span>
+                        </div>
+                        <div class="text">
+<pre>
+좋은 업체 소개해주셔서 감사합니다~~
+미팅했던 두 곳은 진정성 있게 봐주셨습니다
+번창하세요~~
+소문난집 화이팅~~
+오늘 점심은 혜화문식당입니다
+</pre>
+                        </div>
+                        <div class="bot">
+                            <span class="address">대구 북구 대현동 <span>&nbsp 김** 님</span></span>
+                            <div class="under">
+                                <div class="comBox">견적업체</div>
+                                <span>굿하우스 / 바르다인테리어디자인 / 아이비디자인</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reviewBox">
+                        <div class="top">
+                            <div class="star"></div>
+                            <span>4.8</span>
+                        </div>
+                        <div class="text">
+<pre>
+좋은 업체 소개해주셔서 감사합니다~~
+미팅했던 두 곳은 진정성 있게 봐주셨습니다
+번창하세요~~
+소문난집 화이팅~~
+오늘 점심은 혜화문식당입니다
+</pre>
+                        </div>
+                        <div class="bot">
+                            <span class="address">대구 북구 대현동 <span>&nbsp 김** 님</span></span>
+                            <div class="under">
+                                <div class="comBox">견적업체</div>
+                                <span>굿하우스 / 바르다인테리어디자인 / 아이비디자인</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reviewBox">
+                        <div class="top">
+                            <div class="star"></div>
+                            <span>4.8</span>
+                        </div>
+                        <div class="text">
+<pre>
+좋은 업체 소개해주셔서 감사합니다~~
+미팅했던 두 곳은 진정성 있게 봐주셨습니다
+번창하세요~~
+소문난집 화이팅~~
+오늘 점심은 혜화문식당입니다
+</pre>
+                        </div>
+                        <div class="bot">
+                            <span class="address">대구 북구 대현동 <span>&nbsp 김** 님</span></span>
+                            <div class="under">
+                                <div class="comBox">견적업체</div>
+                                <span>굿하우스 / 바르다인테리어디자인 / 아이비디자인</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="style">
+            <div class="upper">
+                <div class="left">
+                    <span>내가 원하는 스타일, 어떤 업체에 맡길까?</span>
+                    <span class="sub">공사 항목부터 시공까지 자세히 알아보세요</span>
+                </div>
+                <div class="right">
+                    <span>더보기</span>
+                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow.png?raw=true" />
+                </div>
+            </div>
+            <div class="lower">
+                <div class="slider">
+                    <div class="style_container">
+                        <div class="box">
+                        </div>
+                        <div class="text">
+                            <div class="txt fir">
+                                <span class="fir_title">아이비디자인</span>
+                                <div class="fir_box">
+                                    <span class="fir_sub">A/S 1년</span>
+                                </div>
+                                <div class="fir_box">
+                                    <span class="fir_sub">응답우수</span>
+                                </div>
+                            </div>
+                            <span class="txt sec">서변동 서변월드메르디앙</span>
+                            <div class="txt thr">
+                                <div class="thr_img"></div>
+                                <span>4.8</span>
+                                <div class="thr_img"></div>
+                                <span>177</span>
+                            </div>
+                            <span class="txt for">#북유럽 #모던 #화이트인테리어</span>
+                        </div>
+                    </div>
+                    <div class="style_container">
+                        <div class="box">
+                        </div>
+                        <div class="text">
+                            <div class="txt fir">
+                                <span class="fir_title">아이비디자인</span>
+                                <div class="fir_box">
+                                    <span class="fir_sub">A/S 1년</span>
+                                </div>
+                                <div class="fir_box">
+                                    <span class="fir_sub">응답우수</span>
+                                </div>
+                            </div>
+                            <span class="txt sec">서변동 서변월드메르디앙</span>
+                            <div class="txt thr">
+                                <div class="thr_img"></div>
+                                <span>4.8</span>
+                                <div class="thr_img"></div>
+                                <span>177</span>
+                            </div>
+                            <span class="txt for">#북유럽 #모던 #화이트인테리어</span>
+                        </div>
+                    </div>
+                    <div class="style_container">
+                    <div class="box">
+                    </div>
+                    <div class="text">
+                        <div class="txt fir">
+                            <span class="fir_title">아이비디자인</span>
+                            <div class="fir_box">
+                                <span class="fir_sub">A/S 1년</span>
+                            </div>
+                            <div class="fir_box">
+                                <span class="fir_sub">응답우수</span>
+                            </div>
+                        </div>
+                        <span class="txt sec">서변동 서변월드메르디앙</span>
+                        <div class="txt thr">
+                            <div class="thr_img"></div>
+                            <span>4.8</span>
+                            <div class="thr_img"></div>
+                            <span>177</span>
+                        </div>
+                        <span class="txt for">#북유럽 #모던 #화이트인테리어</span>
+                    </div>
+                </div>
+                    <div class="style_container">
+                        <div class="box">
+                        </div>
+                        <div class="text">
+                            <div class="txt fir">
+                                <span class="fir_title">아이비디자인</span>
+                                <div class="fir_box">
+                                    <span class="fir_sub">A/S 1년</span>
+                                </div>
+                                <div class="fir_box">
+                                    <span class="fir_sub">응답우수</span>
+                                </div>
+                            </div>
+                            <span class="txt sec">서변동 서변월드메르디앙</span>
+                            <div class="txt thr">
+                                <div class="thr_img"></div>
+                                <span>4.8</span>
+                                <div class="thr_img"></div>
+                                <span>177</span>
+                            </div>
+                            <span class="txt for">#북유럽 #모던 #화이트인테리어</span>
+                        </div>
+                    </div>
+                    <div class="style_container">
+                        <div class="box">
+                        </div>
+                        <div class="text">
+                            <div class="txt fir">
+                                <span class="fir_title">아이비디자인</span>
+                                <div class="fir_box">
+                                    <span class="fir_sub">A/S 1년</span>
+                                </div>
+                                <div class="fir_box">
+                                    <span class="fir_sub">응답우수</span>
+                                </div>
+                            </div>
+                            <span class="txt sec">서변동 서변월드메르디앙</span>
+                            <div class="txt thr">
+                                <div class="thr_img"></div>
+                                <span>4.8</span>
+                                <div class="thr_img"></div>
+                                <span>177</span>
+                            </div>
+                            <span class="txt for">#북유럽 #모던 #화이트인테리어</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="free">
+            <div class="free_text">
+                <span>우리 집 리모델링 비용은 ?</span>
+                <div class="text_lower">
+                    <span class="lower_text">무료 견적 받으러 가기</span>
+                    <div class="lower_img"></div>
+                </div>
+            </div>
+            <div class="free_img"></div>
+        </div>
+        <div class="insta">
+            <div class="title">
+                <div class="icon"></div>
+                <span>somoonhouse_official</span>
+            </div>
+            <span class="sub">소문난집 인스타그램에서<br/>
+                다양한 이벤트와 소식을 확인하세요.</span>
+            <div class="follow">
+                <div class="follow_img"></div>
+                <span>1.1K</span>
+            </div>
+            <div class="imgs">
+                <div class="a"></div>
+                <div class="b"></div>
+                <div class="b"></div>
+                <div class="a"></div>
+            </div>
+        </div>
+        <div class="find"></div>
+    </div>
+</div>
+<jsp:include page="/newTestFooter.jsp" flush="false" />
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -81,7 +504,18 @@
     gtag('config', 'G-PC15JG6KGN');
 </script>
 <script>
-//새 스크립트 작성
+var banner = document.getElementsByClassName("bannerBox");
+var bannerPos = 0;
+const bannerAutoSlide = () => {
+    if(bannerPos === -100 * (banner.length - 1)){
+        bannerPos = 100;
+    }
+    bannerPos -= 100;
+    for(var i = 0; i < banner.length; i++){
+        banner[i].style.transform = "translateX(" + bannerPos + "%)";
+    }
+}
+let bannerSlideTime = setInterval(bannerAutoSlide, 3000);
 </script>
 </body>
 </html>
