@@ -232,6 +232,12 @@ body{
     height:120px;
     border-radius: 120px;
     background-color: grey;
+    overflow: hidden;
+}
+.body_container_PC .area_part .lower .slider .area div img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
 }
 .body_container_PC .area_part .lower .slider .area span{
     font-size: 14px;
@@ -597,6 +603,12 @@ body{
     height: 75%;
     border-radius: 15px;
     background-color: grey;
+    overflow: hidden;
+}
+.body_container_PC .style .lower .style_container .box img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
 }
 .body_container_PC .style .lower .style_container .text{
     display: flex;

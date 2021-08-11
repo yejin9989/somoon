@@ -210,6 +210,284 @@
                 </form>
             </div>
         </div>
+        <div class="main_container">
+            <div class="date_container">
+                <span>2021.06.02</span>
+            </div>
+            <div class="box_container">
+                <div class="main_box">
+                    <div class="text_container">
+                        <div class="text"><span class="fir">주거 프라임</span></div>
+                        <div class="text">
+                            <span class="sec_fir">성함</span>
+                            <span class="sec_sec">정진성</span>
+                        </div>
+                        <div class="text">
+                            <span class="sec_fir">주거</span>
+                            <span class="sec_sec">아파트 32평</span>
+                        </div>
+                        <div class="text">
+                            <span class="sec_fir">주소</span>
+                            <span class="thr">대구 남구 어쩌구</span>
+                        </div>
+                        <div class="text">
+                            <span class="sec_fir">예정일</span>
+                            <span class="thr">1개월 이내</span>
+                        </div>
+                        <div class="text">
+                            <span class="sec_fir">예산</span>
+                            <span class="thr">8천만원 이하</span>
+                        </div>
+                        <div class="text">
+                            <span class="sec_fir">신청한 디자인</span>
+                            <a href="https://blog.naver.com/gudwls1498/220218687283"><span class="for">월성동 e편한세상월배 34평</span></a>
+                        </div>
+                        <div class="text">
+                            <input class="fiv" type="text" placeholder="2차 상담 방법 입력" />
+                            <button class="fiv_btn" onclick="save()">저장</button>
+                        </div>
+                    </div>
+                    <div class="under_container">
+                        <div class="side_container" onclick="calling()">
+                            <div class="img_container">
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/call.png?raw=true" />
+                            </div>
+                            <div class="text_container">
+                                <span>전화</span>
+                            </div>
+                        </div>
+                        <div class="side_container" onclick="massage()">
+                            <div class="img_container">
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/talk.png?raw=true" />
+                            </div>
+                            <div class="text_container">
+                                <span>문자</span>
+                            </div>
+                        </div>
+                        <div class="side_container" onclick="open_modal()">
+                            <div class="img_container">
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/check3.png?raw=true" />
+                            </div>
+                            <div class="text_container">
+                                <span>완료</span>
+                            </div>
+                        </div>
+                        <div class="side_container" onclick="open_modal_non_fin()">
+                            <div class="img_container">
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancel2.png?raw=true" />
+                            </div>
+                            <div class="text_container">
+                                <span>중단</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal_container_fin" id="modal_container_fin">
+                <form method="post">
+                    <div class="modal_box">
+                        <div class="item_container">
+                            <span class="item_span">계약 일시</span>
+                            <div class="select_date">
+                                <input type="date" required/>
+                            </div>
+                            <span class="item_span">계약금</span>
+                            <div class="input_pay">
+                                <input type="text" placeholder="계약금을 입력해주세요" required/>
+                            </div>
+                            <span class="item_span">계약서 업로드</span>
+                            <input class="file" type="file" required/>
+                        </div>
+                        <div class="btn_container">
+                            <button type="submit"><span>완 료</span></button>
+                        </div>
+                        <div class="modal_cancel" onclick="close_modal()">
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancel.png?raw=true" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal_container_non_fin" id="modal_container_non_fin">
+                <form method="post">
+                    <div class="modal_box">
+                        <div class="item_container">
+                            <span class="item_span">중단 단계</span>
+                            <div class="stop_step">
+                                <div class="input_box">
+                                    <input type="radio" name="step" value="1" required/>
+                                    <span>전화 통화 전 마무리</span>
+                                </div>
+                                <div class="input_box">
+                                    <input type="radio" name="step" value="2" />
+                                    <span>전화 통화 후 마무리</span>
+                                </div>
+                                <div class="input_box">
+                                    <input type="radio" name="step" value="3" />
+                                    <span>방문 상담 후 마무리</span>
+                                </div>
+                                <div class="input_box">
+                                    <input type="radio" name="step" value="4" />
+                                    <span>견적 산출 후 마무리</span>
+                                </div>
+                                <div class="input_box">
+                                    <input type="radio" name="step" value="5" />
+                                    <span>계약 전 마무리</span>
+                                </div>
+                            </div>
+                            <span class="item_span">중단 사유</span>
+                            <div class="stop_why">
+                                <input type="text" placeholder="중단 사유를 입력해주세요" required/>
+                            </div>
+                        </div>
+                        <div class="btn_container">
+                            <button type="submit"><span>중 단</span></button>
+                        </div>
+                        <div class="modal_cancel" onclick="close_modal_non_fin()">
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancel.png?raw=true" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="main_container">
+            <div class="date_container">
+                <span>2021.06.02</span>
+            </div>
+            <div class="box_container">
+                <div class="main_box">
+                    <div class="text_container">
+                        <div class="text"><span class="fir">주거 프라임</span></div>
+                        <div class="text">
+                            <span class="sec_fir">성함</span>
+                            <span class="sec_sec">정진성</span>
+                        </div>
+                        <div class="text">
+                            <span class="sec_fir">주거</span>
+                            <span class="sec_sec">아파트 32평</span>
+                        </div>
+                        <div class="text">
+                            <span class="sec_fir">주소</span>
+                            <span class="thr">대구 남구 어쩌구</span>
+                        </div>
+                        <div class="text">
+                            <span class="sec_fir">예정일</span>
+                            <span class="thr">1개월 이내</span>
+                        </div>
+                        <div class="text">
+                            <span class="sec_fir">예산</span>
+                            <span class="thr">8천만원 이하</span>
+                        </div>
+                        <div class="text">
+                            <span class="sec_fir">신청한 디자인</span>
+                            <a href="https://blog.naver.com/gudwls1498/220218687283"><span class="for">월성동 e편한세상월배 34평</span></a>
+                        </div>
+                        <div class="text">
+                            <input class="fiv" type="text" placeholder="2차 상담 방법 입력" />
+                            <button class="fiv_btn" onclick="save()">저장</button>
+                        </div>
+                    </div>
+                    <div class="under_container">
+                        <div class="side_container" onclick="calling()">
+                            <div class="img_container">
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/call.png?raw=true" />
+                            </div>
+                            <div class="text_container">
+                                <span>전화</span>
+                            </div>
+                        </div>
+                        <div class="side_container" onclick="massage()">
+                            <div class="img_container">
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/talk.png?raw=true" />
+                            </div>
+                            <div class="text_container">
+                                <span>문자</span>
+                            </div>
+                        </div>
+                        <div class="side_container" onclick="open_modal()">
+                            <div class="img_container">
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/check3.png?raw=true" />
+                            </div>
+                            <div class="text_container">
+                                <span>완료</span>
+                            </div>
+                        </div>
+                        <div class="side_container" onclick="open_modal_non_fin()">
+                            <div class="img_container">
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancel2.png?raw=true" />
+                            </div>
+                            <div class="text_container">
+                                <span>중단</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal_container_fin" id="modal_container_fin">
+                <form method="post">
+                    <div class="modal_box">
+                        <div class="item_container">
+                            <span class="item_span">계약 일시</span>
+                            <div class="select_date">
+                                <input type="date" required/>
+                            </div>
+                            <span class="item_span">계약금</span>
+                            <div class="input_pay">
+                                <input type="text" placeholder="계약금을 입력해주세요" required/>
+                            </div>
+                            <span class="item_span">계약서 업로드</span>
+                            <input class="file" type="file" required/>
+                        </div>
+                        <div class="btn_container">
+                            <button type="submit"><span>완 료</span></button>
+                        </div>
+                        <div class="modal_cancel" onclick="close_modal()">
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancel.png?raw=true" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal_container_non_fin" id="modal_container_non_fin">
+                <form method="post">
+                    <div class="modal_box">
+                        <div class="item_container">
+                            <span class="item_span">중단 단계</span>
+                            <div class="stop_step">
+                                <div class="input_box">
+                                    <input type="radio" name="step" value="1" required/>
+                                    <span>전화 통화 전 마무리</span>
+                                </div>
+                                <div class="input_box">
+                                    <input type="radio" name="step" value="2" />
+                                    <span>전화 통화 후 마무리</span>
+                                </div>
+                                <div class="input_box">
+                                    <input type="radio" name="step" value="3" />
+                                    <span>방문 상담 후 마무리</span>
+                                </div>
+                                <div class="input_box">
+                                    <input type="radio" name="step" value="4" />
+                                    <span>견적 산출 후 마무리</span>
+                                </div>
+                                <div class="input_box">
+                                    <input type="radio" name="step" value="5" />
+                                    <span>계약 전 마무리</span>
+                                </div>
+                            </div>
+                            <span class="item_span">중단 사유</span>
+                            <div class="stop_why">
+                                <input type="text" placeholder="중단 사유를 입력해주세요" required/>
+                            </div>
+                        </div>
+                        <div class="btn_container">
+                            <button type="submit"><span>중 단</span></button>
+                        </div>
+                        <div class="modal_cancel" onclick="close_modal_non_fin()">
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancel.png?raw=true" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
     <jsp:include page="/newTestFooter.jsp" flush="false" />
 </div>

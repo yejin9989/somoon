@@ -139,13 +139,13 @@
                     <div class="slider" id="area_slider">
                         <div class="area">
                             <div>
-                                <img />
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
                             </div>
                             <span>거실</span>
                         </div>
                         <div class="area">
                             <div>
-                                <img />
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog3.jpg?raw=true" />
                             </div>
                             <span>주방</span>
                         </div>
@@ -220,7 +220,8 @@
                     </div>
                     <div class="best_container">
                         <div class="box">
-                            <div class="box_upper"></div>
+                            <div class="box_upper">
+                            </div>
                             <div class="box_lower">
                                 <span class="title">대구 수성구 수성동 수성보성타운</span>
                                 <span class="sub">아파트 | 49평형 | 거실 + 주방 | 남다른디자인</span>
@@ -229,7 +230,8 @@
                     </div>
                     <div class="best_container">
                         <div class="box">
-                            <div class="box_upper"></div>
+                            <div class="box_upper">
+                            </div>
                             <div class="box_lower">
                                 <span class="title">대구 수성구 수성동 수성보성타운</span>
                                 <span class="sub">아파트 | 49평형 | 거실 + 주방 | 남다른디자인</span>
@@ -533,6 +535,7 @@
                 <div class="lower">
                     <div class="style_container">
                         <div class="box">
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog5.jpg?raw=true" />
                         </div>
                         <div class="text">
                             <div class="txt fir">
@@ -560,6 +563,7 @@
                     </div>
                     <div class="style_container">
                         <div class="box">
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog6.jpg?raw=true" />
                         </div>
                         <div class="text">
                             <div class="txt fir">
