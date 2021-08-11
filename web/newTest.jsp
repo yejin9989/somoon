@@ -24,6 +24,7 @@
 
     //변수설정
     String[] buildingType = {"아파트", "빌라", "주택", "원룸"};
+    String[] assignedState = {"상담 대기", "부재중", "상담중", "미팅 예정", "계약진행중", "계약완료"};
     class Dates{
         String date;
         HashMap<String, HashMap<String, String>> applies;
@@ -90,6 +91,9 @@
                 while(rs3.next()){
                     temp.put("Title", rs3.getString("Title"));
                     temp.put("URL", rs3.getString("URL"));
+                    if(!rs3.getString("URL").equals("#")){
+                        temp.put("URL", "_hit.jsp?num="+rs2.getString("R.Item_num"));
+                    }
                 }
             }
             temp.put("Number", rs2.getString("R.Number"));
@@ -206,11 +210,18 @@
                         </div>
                         <div class="text">
                             <span class="sec_fir">신청한 디자인</span>
-                            <a href="<%=apply.get("URL")%>>"><span class="for"><%=apply.get("Title")%></span></a>
+                            <a href="<%=apply.get("URL")%>"><span class="for"><%=apply.get("Title")%></span></a>
                         </div>
                         <div class="text">
-                            <input class="fiv" type="text" placeholder="2차 상담 방법 입력" />
-                            <button class="fiv_btn" onclick="save()">저장</button>
+                            <select class="fiv" type="text" name="state<%=apply.get("Number")%>" placeholder="2차 상담 방법 입력" />
+                            <%for (int j = 0; j < assignedState.length; j++) {
+                                String selected = "";
+                                if(j+2 == Integer.parseInt(String.valueOf(apply.get("State"))))
+                                    selected = "selected";%>
+                                <option value="<%=j+2%>" <%=selected%>><%=assignedState[j]%></option>
+                            <%}%>
+                            </select>
+                            <button class="fiv_btn" onclick="save(this)" id="stt<%=apply.get("Number")%>">저장</button>
                         </div>
                     </div>
                     <div class="under_container">
@@ -230,7 +241,7 @@
                                 <span>문자</span>
                             </div>
                         </div>
-                        <div class="side_container" onclick="open_modal()">
+                        <div class="side_container" id="com<%=apply.get("Number")%>" onclick="open_modal(this)">
                             <div class="img_container">
                                 <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/check3.png?raw=true" />
                             </div>
@@ -327,8 +338,11 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
 <script>
-    const save = () => {
-        alert("상담 방법 저장");
+    const save = (obj) => {
+        //alert("상담 방법 저장");
+        var id = obj.getAttribute("id").substring(3,);
+        var state = $('select[name=state'+id+']').val();
+        location.href = '_newTest_company_change_state.jsp?companyNum='+'<%=s_id%>'+'&state='+state+'&applyNum='+id;
     }
     const calling = () => {
         alert("전화 걸기");
@@ -336,9 +350,13 @@
     const massage = () => {
         alert("문자 보내기");
     }
-    const open_modal = () => {
+    const open_modal = (obj) => {
+        /*
         var modal = document.getElementById("modal_container_fin");
         modal.style.display = "flex"
+        */
+        var id = obj.getAttribute("id").substring(3,);
+        location.href = "_newTest_company_change_state.jsp?companyNum="+"<%=s_id%>"+"&state=8&applyNum="+id;
     }
     const close_modal = () => {
         var modal = document.getElementById("modal_container_fin");
