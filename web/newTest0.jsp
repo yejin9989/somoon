@@ -181,6 +181,9 @@
                                 <div class="text_container distri">
                                     <span>수락</span>
                                 </div>
+                                <div class="text_container_wait">
+                                    <span>남은 시간(<div style="display:inline-block" id="timer<%=apply.get("Number")%>"></div>)</span>
+                                </div>
                             </div>
                         </a>
                         <a href="#" target="_self" class="accept" id="<%=apply.get("Number")%>">
@@ -190,9 +193,6 @@
                                 </div>
                                 <div class="text_container">
                                     <span>거절</span>
-                                </div>
-                                <div class="text_container_wait">
-                                    <span>남은 시간(2시간 40분)</span>
                                 </div>
                             </div>
                         </a>
@@ -219,12 +219,70 @@
     }
     $('.accept').click(function(){
         const id = $(this).attr("id");
-        location.href = "_newTest_company_accept.jsp?companyNum="+"<%=s_id%>"+"&applyNum="+id;
+        if( $('#timer'+id).text() == "시간종료"){
+            alert("제한시간 내에 수락하지 않아 해당 신청건은 받으실 수 없습니다.");
+        }
+        else {
+            location.href = "_newTest_company_accept.jsp?companyNum=" + "<%=s_id%>" + "&applyNum=" + id;
+        }
     })
     $('.refuse').click(function(){
         const id = $(this).attr("id");
         location.href = "_newTest_company_refuse.jsp?companyNum="+"<%=s_id%>"+"&applyNum="+id;
     })
+</script>
+<script>
+    const countDownTimer = function (id, date){
+        const _vvDate = new Date(date);
+        const _vDate = _vvDate.setHours(_vvDate.getHours()+3);
+        const _second = 1000;
+        const _minute = _second * 60;
+        const _hour = _minute * 60;
+        const _day = _hour * 24;
+        let timer;
+
+        function showRemaining(){
+            const now = new Date();
+            const distDt = _vDate - now;
+
+            if(distDt < 0){
+                clearInterval(timer);
+                document.getElementById(id).textContent = "시간종료";
+                return;
+            }
+
+            const days = Math.floor(distDt / _day);
+            const hours = Math.floor((distDt % _day) / _hour);
+            const minutes = Math.floor((distDt % _hour) / _minute);
+            const seconds = Math.floor((distDt % _minute) / _second);
+
+            //document.getElementById(id).textContent = days + '일 ';
+            document.getElementById(id).textContent = hours + '시간 ';
+            document.getElementById(id).textContent += minutes + '분 ';
+            document.getElementById(id).textContent += seconds + '초 ';
+
+        }
+
+        timer = setInterval(() => showRemaining(), 1000); // 나 동노간다 - 이현로 -
+
+    }
+
+
+    <%
+    for(int i = 0; i < datelist.size(); i++) {
+        for(String key : datelist.get(i).applies.keySet()){
+            HashMap apply = datelist.get(i).applies.get(key);
+        %>
+    var str = "<%=apply.get("Assigned_time")%>";
+    var date = str.split("-"); //{2021}, {06}, {23 17:32:09.0}
+    var time = (date[2].substring(date[2].indexOf(" ")+1, date[2].length)).split(":");
+    date[2] = date[2].substring(0, date[2].indexOf(" "));
+    countDownTimer("timer"+"<%=apply.get("Number")%>", date[1]+"/"+date[2]+"/"+date[0]+" "+time[0]+":"+time[1]);
+    //countDownTimer("timer"+"<%=apply.get("Number")%>", '06/29/2021 00:00 AM');
+    <%
+        }
+}
+%>
 </script>
 </body>
 </html>

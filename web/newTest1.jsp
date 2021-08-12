@@ -146,6 +146,7 @@
 <div class="body_container">
     <jsp:include page="/newTestHeader.jsp" flush="false" />
     <div class="body_main">
+        <!--
         <div class="main_header">
             <div class="left_container">
                 <div class="left_box">
@@ -158,6 +159,7 @@
                 </div>
             </div>
         </div>
+        -->
         <div class="main_body_none">
             <div class="img_container">
                 <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/search2.png?raw=true" />

@@ -230,7 +230,7 @@
                                 <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/call.png?raw=true" />
                             </div>
                             <div class="text_container">
-                                <span>전화</span>
+                                <span><a href="tel:<%=apply.get("Phone")%>">전화</a></span>
                             </div>
                         </div>
                         <div class="side_container" onclick="massage()">
@@ -238,7 +238,7 @@
                                 <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/talk.png?raw=true" />
                             </div>
                             <div class="text_container">
-                                <span>문자</span>
+                                <span><a href="tel:<%=apply.get("Phone")%>">문자</a></span>
                             </div>
                         </div>
                         <div class="side_container" id="com<%=apply.get("Number")%>" onclick="open_modal(this)">

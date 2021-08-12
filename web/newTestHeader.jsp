@@ -70,25 +70,25 @@
             </div>
         </div>
         <div class="lower_header">
-            <a href="newTest0.jsp" target="_self">
+            <a href="_refresh_request_company.jsp?state=0" target="_self">
                 <div class="menu" id="new_customer">
                     <div class="menu_text"><span>신규</span></div>
                     <div class="menu_underbar"></div>
                 </div>
             </a>
-            <a href="newTest.jsp" target="_self">
+            <a href="_refresh_request_company.jsp" target="_self">
                 <div class="menu" id="ing_customer">
                     <div class="menu_text"><span>진행 중</span></div>
                     <div class="menu_underbar"></div>
                 </div>
             </a>
-            <a href="newTest1.jsp" target="_self">
+            <a href="_refresh_request_company.jsp?state=1" target="_self">
                 <div class="menu" id="fin_customer">
                     <div class="menu_text"><span>완료</span></div>
                     <div class="menu_underbar"></div>
                 </div>
             </a>
-            <a href="newTest2.jsp" target="_self">
+            <a href="_refresh_request_company.jsp?state=2" target="_self">
                 <div class="menu" id="stop_customer">
                     <div class="menu_text"><span>중단</span></div>
                     <div class="menu_underbar"></div>
