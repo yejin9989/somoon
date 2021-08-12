@@ -168,11 +168,11 @@
 <script>
     const slide = () =>{
         var nav = document.getElementById("navigation_container");
-        if(nav.style.display == "none"){
-            nav.style.display = "grid";
+        if(nav.style.display == "grid"){
+            nav.style.display = "none";
         }
         else{
-            nav.style.display = "none";
+            nav.style.display = "grid";
         }
     }
 </script>
