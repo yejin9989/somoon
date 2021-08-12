@@ -249,7 +249,7 @@
                                 <span>완료</span>
                             </div>
                         </div>
-                        <div class="side_container" onclick="open_modal_non_fin()">
+                        <div class="side_container" id="fin<%=apply.get("Number")%>" onclick="open_modal_non_fin(this)">
                             <div class="img_container">
                                 <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancel2.png?raw=true" />
                             </div>
@@ -362,9 +362,13 @@
         var modal = document.getElementById("modal_container_fin");
         modal.style.display = "none"
     }
-    const open_modal_non_fin = () => {
+    const open_modal_non_fin = (obj) => {
+        /*
         var modal = document.getElementById("modal_container_non_fin");
         modal.style.display = "flex"
+         */
+        var id = obj.getAttribute("id").substring(3,);
+        location.href = "_newTest_company_change_state.jsp?companyNum="+"<%=s_id%>"+"&state=9&applyNum="+id;
     }
     const close_modal_non_fin = () => {
         var modal = document.getElementById("modal_container_non_fin");
