@@ -185,7 +185,7 @@ conn.close();
 <script>
 	$('.mybox').click(function(){
 		if($(this).attr('id') == "check")
-			location.href='remodeling_request.jsp';
+			location.href='manage_request.jsp';
 		else if($(this).attr('id') == "upload")
 			location.href='item_upload.jsp';
 		else if($(this).attr('id') == "home")
