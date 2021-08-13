@@ -100,7 +100,7 @@ body{
     font-weight: 550;
 }
 .body_container_Mob .header .header_lower #area_div{
-    display:flex;
+    display:none;
     align-items: center;
     justify-content: space-around;
     top:100px;
@@ -227,13 +227,14 @@ body{
     font-weight: 530;
     margin-right: 8px;
 }
-.body_container_Mob .best_inter .upper div{
+.body_container_Mob .best_inter .upper a{
     display: flex;
     height: 100%;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
 }
-.body_container_Mob .best_inter .upper div .more{
+.body_container_Mob .best_inter .upper a .more{
     font-size: 14px;
 }
 .body_container_Mob .best_inter .upper img{
@@ -360,10 +361,28 @@ body{
     height: 50px;
 }
 .body_container_Mob .review .lower .slider .reviewBox .top .star{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
     width: 200px;
     height: 100%;
-    background-color: grey;
     margin-right: 10px;
+}
+.body_container_Mob .review .lower .slider .reviewBox .top .star .block{
+    position: absolute;
+    top:0;
+    right:0;
+    width: 0;
+    height: 100%;
+    background-color: #fff;
+    z-index: 2;
+}
+.body_container_Mob .review .lower .slider .reviewBox .top .star img{
+    width:40px;
+    height:40px;
+    object-fit: fill;
+    filter: invert(1);
 }
 .body_container_Mob .review .lower .slider .reviewBox .top span{
     font-size: 20px;
@@ -452,11 +471,13 @@ body{
     font-weight: 530;
     color:#777;
 }
-.body_container_Mob .style .upper div{
+.body_container_Mob .style .upper .left,
+.body_container_Mob .style .upper .right {
     display: flex;
     height: 100%;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
 }
 .body_container_Mob .style .upper .left{
     flex-direction: column;
@@ -554,8 +575,12 @@ body{
 .body_container_Mob .style .lower .slider .style_container .text .thr .thr_img{
     width: 23px;
     height: 23px;
-    background-color: grey;
     margin: 0 8px;
+}
+.body_container_Mob .style .lower .slider .style_container .text .thr .thr_img img{
+    width:100%;
+    height: 100%;
+    object-fit: cover;
 }
 .body_container_Mob .style .lower .slider .style_container .text .for{
     color:#000;
@@ -571,6 +596,16 @@ body{
     height: 150px;
     background-color: #348DEE;
     margin: 80px 0 0 0;
+}
+.body_container_Mob .free a{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    text-decoration: none;
 }
 .body_container_Mob .free .free_text{
     display: flex;
@@ -598,12 +633,20 @@ body{
 .body_container_Mob .free .free_text .text_lower .lower_img{
     width: 30px;
     height: 30px;
-    background-color: grey;
+}
+.body_container_Mob .free .free_text .text_lower .lower_img img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
 }
 .body_container_Mob .free .free_img{
     width: 100px;
     height: 100px;
-    background-color: grey;
+}
+.body_container_Mob .free .free_img img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
 }
 .body_container_Mob .insta{
     display: flex;
@@ -624,8 +667,13 @@ body{
 .body_container_Mob .insta .title .icon{
     width: 50px;
     height: 50px;
-    background-color: grey;
     margin-right: 15px;
+}
+.body_container_Mob .insta .title .icon img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    filter: invert(1);
 }
 .body_container_Mob .insta .title span{
     font-size: 20px;
@@ -653,8 +701,12 @@ body{
 .body_container_Mob .insta .follow .follow_img{
     width: 50px;
     height: 50px;
-    background-color: grey;
     margin-right: 25px;
+}
+.body_container_Mob .insta .follow .follow_img img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
 }
 .body_container_Mob .insta .follow span{
     font-size: 26px;
@@ -668,6 +720,13 @@ body{
     width:300px;
     height: 300px;
 }
+.body_container_Mob .insta .imgs a{
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+}
 .body_container_Mob .insta .imgs .a{
     width: 150px;
     height: 150px;
@@ -678,10 +737,52 @@ body{
     height: 150px;
     background-color: #464646;
 }
-.body_container_Mob .find{
+.body_container_Mob .findA{
     width: 100%;
-    height: 150px;
+    height: 100%;
+}
+.body_container_Mob .find{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     background-color: #374262;
+}
+.body_container_Mob .find img{
+    width:100%;
+    object-fit: cover;
+}
+.menu_slide_container{
+    display: none;
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.menu_slide{
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100vh;
+    background-color: #348DEE;
+    transition: 0.4s;
+    z-index: 6;
+    filter: invert(0);
+}
+.menu_slide .close_btn{
+    display:flex;
+    position: absolute;
+    flex-direction: column;
+    top:10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: grey;
 }
 @media (min-width: 600px) {
     .body_container_Mob .banner .img_container .bannerBox img{
