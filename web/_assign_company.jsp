@@ -113,7 +113,7 @@
 			%>
 	<script>
 		alert('등록을 완료했습니다.');
-		location.href = "remodeling_request.jsp";
+		location.href = "manage_request.jsp";
 	</script>
 	<%
 	}
@@ -137,7 +137,7 @@
 	%>
 	<script>
 		alert('등록을 완료했습니다.');
-		location.href = "remodeling_request.jsp";
+		location.href = "manage_request.jsp";
 	</script>
 	<%
 	}
