@@ -179,21 +179,83 @@
         <div class="main_body_yes">
             <div class="main_container">
                 <div class="main_box">
-                    <div class="left_box">
-                        <div class="upper_container">
-                            <div class="text_container">
-                                <span><%=apply.get("Name")%> | <span class="sub_text"><%=apply.get("Address")%></span></span>
+                    <div class="up">
+                        <div class="left_box">
+                            <div class="upper_container">
+                                <div class="text_container">
+                                    <span><%=apply.get("Name")%> | <span class="sub_text"><%=apply.get("Address")%></span></span>
+                                </div>
+                            </div>
+                            <div class="under_container">
+                                <div class="under_box">
+                                    <span>계약 성사 : 2021.05.18</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="under_container">
-                            <div class="under_box">
-                                <span>계약 성사 : 2021.05.18</span>
+                        <div class="right_box" id="btn<%=apply.get("Number")%>" onclick="fin_btn(this)">
+                            <div class="img_container">
+                                <img id="arrow<%=apply.get("Number")%>"
+                                        src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/rightDirection.png?raw=true" />
                             </div>
                         </div>
                     </div>
-                    <div class="right_box">
-                        <div class="img_container">
-                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/rightDirection.png?raw=true" />
+                    <div class="slide_container" id="fin_slide<%=apply.get("Number")%>">
+                        <div class="left">
+                            <div class="text"><span class="fir">주거 프라임</span></div>
+                            <div class="text">
+                                <span class="sec_fir">성함</span>
+                                <span class="sec_sec"><%=apply.get("Name")%></span><!--span class="sec_sec">정진성</span-->
+                            </div>
+                            <div class="text">
+                                <span class="sec_fir">주거</span>
+                                <span class="sec_sec"><%=apply.get("Building_type")%> <%=apply.get("Area")%>평</span><!--span class="sec_sec">아파트 32평</span-->
+                            </div>
+                            <div class="text">
+                                <span class="sec_fir">주소</span>
+                                <span class="thr"><%=apply.get("Address")%></span><!--span class="thr">대구 남구 어쩌구</span-->
+                            </div>
+                            <div class="text">
+                                <span class="sec_fir">예정일</span>
+                                <span class="thr"><%=apply.get("Due")%></span><!--span class="thr">1개월 이내</span-->
+                            </div>
+                            <div class="text">
+                                <span class="sec_fir">예산</span>
+                                <span class="thr"><%=apply.get("Budget")%></span><!--span class="thr">8천만원 이하</span-->
+                            </div>
+                            <div class="text">
+                                <span class="sec_fir">신청한 디자인</span>
+                                <a href="<%=apply.get("URL")%>"><span class="for"><%=apply.get("Title")%></span></a>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="text">
+                                <span class="sec_fir">창호 / 샷시</span>
+                                <span class="sec_sec"><%=apply.get("Name")%></span><!--span class="sec_sec">정진성</span-->
+                            </div>
+                            <div class="text">
+                                <span class="sec_fir">발코니 확장</span>
+                                <span class="sec_sec"><%=apply.get("Name")%></span><!--span class="sec_sec">정진성</span-->
+                            </div>
+                            <div class="text">
+                                <span class="sec_fir">도배</span>
+                                <span class="sec_sec"><%=apply.get("Name")%></span><!--span class="sec_sec">정진성</span-->
+                            </div>
+                            <div class="text">
+                                <span class="sec_fir">바닥재</span>
+                                <span class="sec_sec"><%=apply.get("Name")%></span><!--span class="sec_sec">정진성</span-->
+                            </div>
+                            <div class="text">
+                                <span class="sec_fir">주방</span>
+                                <span class="sec_sec"><%=apply.get("Name")%></span><!--span class="sec_sec">정진성</span-->
+                            </div>
+                            <div class="text">
+                                <span class="sec_fir">욕실</span>
+                                <span class="sec_sec"><%=apply.get("Name")%></span><!--span class="sec_sec">정진성</span-->
+                            </div>
+                            <div class="text">
+                                <span class="sec_fir">도어 / 문틀</span>
+                                <span class="sec_sec"><%=apply.get("Name")%></span><!--span class="sec_sec">정진성</span-->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -212,8 +274,23 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
 <script>
-    //새 스크립트 작성
-    //window.close();
+    const fin_btn = (obj) => {
+        var boxNum = obj.id.slice(3);
+        var slide = document.getElementById("fin_slide" + boxNum);
+        var img = document.getElementById("arrow" + boxNum);
+        if(img.style.transform === "rotate(270deg)"){
+            img.style.transform = "rotate(90deg)";
+        }
+        else{
+            img.style.transform = "rotate(270deg)";
+        }
+        if(slide.style.display === "flex"){
+            slide.style.display = "none";
+        }
+        else{
+            slide.style.display = "flex";
+        }
+    }
     $('document').ready(function(){
         if('<%=datelist.size()%>' == '0'){
             $('.main_body_none').css('display', 'flex');

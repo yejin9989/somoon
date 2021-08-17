@@ -240,8 +240,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal_item" id='modal_item<%out.println(hm.get("number"));%>' style="display: none;">
-                    <div class="modal">
+                <div class="modal_item" id='modal_item<%out.println(hm.get("number"));%>' style="display: none;"
+                    onclick="close_modal_out()">
+                    <div class="modal" onclick="close_modal_in()">
                         <div class="modal_content">
                             <div class="no">no.<%out.println(hm.get("number"));%></div>
                             <div class="item_wrapper">
@@ -427,6 +428,17 @@ conn.close();
         copyText.setSelectionRange(0, 99999); /*For mobile devices*/
         document.execCommand("copy");
         alert("복사되었습니다");
+    }
+    var close_check = true;
+    const close_modal_out = () => {
+        if(close_check){
+            var modal = document.getElementById(remem_modal_id);
+            modal.style.display = 'none';
+        }
+        close_check = true;
+    }
+    const close_modal_in = () => {
+        close_check = false;
     }
 </script>
 <script>
