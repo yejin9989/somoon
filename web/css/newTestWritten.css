@@ -1,0 +1,77 @@
+@import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css?display=swap);
+@font-face{
+    font-family:'Nanum Gothic',sans-serif;
+}
+*{
+    font-family:'Nanum Gothic',sans-serif;
+    padding:0px;
+    margin:0px;
+    box-sizing: border-box;
+}
+.body_container{
+    display: flex;
+    position:relative;
+    flex-direction: column;
+    width:100%;
+    height:100%;
+}
+.body_container .body_main{
+    display:flex;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width:100%;
+    min-height: calc(100vh - 250px);
+    height: 100%;
+    background-color: #fafafa;
+}
+.body_container .body_main .board_title{
+    display:flex;
+    align-items: center;
+    width:100%;
+    height: 100px;
+    padding-left: 20px;
+}
+.body_container .body_main .board_title span{
+    font-size: 25px;
+    font-weight: 600;
+    color: #000;
+}
+.body_container .body_main .title_sub{
+    width: 100%;
+    height: 40px;
+    padding-left: 20px;
+}
+.body_container .body_main .title_sub span{
+    font-size: 16px;
+    color: grey;
+}
+.body_container .body_main .board_body{
+    width:100%;
+    min-height: 300px;
+    height: 100%;
+    padding: 20px;
+}
+.body_container .body_main .like_body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    height: 100px;
+}
+.body_container .body_main .like_body button{
+    width: 200px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: #4A79F4;
+    outline: none;
+    border: none;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+.body_container .body_main .like_body button span{
+    color: #fafafa;
+    font-size: 20px;
+    font-weight: 600;
+}

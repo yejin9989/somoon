@@ -36,7 +36,7 @@
 <head>
     <link rel="SHORTCUT ICON" href="https://somoonhouse.com/img/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/newindex.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/newTestWritten.css"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <title>소문난집</title>
@@ -44,15 +44,25 @@
 <body>
 <%=mylog%>
 <%
-    if(pstmt != null) {
-        pstmt.close();
-        rs.close();
-        query = "";
-        conn.close();
-    }
 %>
-
-
+<div class="body_container">
+    <jsp:include page="/newTestHeader.jsp" flush="false" />
+    <div class="body_main">
+        <div class="board_title">
+            <span>반갑습니다.</span>
+        </div>
+        <div class="title_sub">
+            <span>No3 2021-12-17 0</span>
+        </div>
+        <div class="board_body">
+            반갑습니다.
+        </div>
+        <div class="like_body">
+            <button><span>공 감</span></button>
+        </div>
+    </div>
+    <jsp:include page="/newTestFooter.jsp" flush="false" />
+</div>
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
