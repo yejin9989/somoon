@@ -137,48 +137,48 @@
                 </div>
                 <div class="lower" id="slider_container">
                     <div class="slider" id="area_slider">
-                        <div class="area">
+                        <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1" >
                             <div>
                                 <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
                             </div>
                             <span>거실</span>
-                        </div>
-                        <div class="area">
+                        </a>
+                        <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                             <div>
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog3.jpg?raw=true" />
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
                             </div>
                             <span>주방</span>
-                        </div>
-                        <div class="area">
+                        </a>
+                        <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                             <div>
-                                <img />
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
                             </div>
                             <span>침실</span>
-                        </div>
-                        <div class="area">
+                        </a>
+                        <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                             <div>
-                                <img />
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
                             </div>
                             <span>화장실</span>
-                        </div>
-                        <div class="area">
+                        </a>
+                        <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                             <div>
-                                <img />
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
                             </div>
                             <span>현관</span>
-                        </div>
-                        <div class="area">
+                        </a>
+                        <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                             <div>
-                                <img />
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
                             </div>
                             <span>복도</span>
-                        </div>
-                        <div class="area">
+                        </a>
+                        <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                             <div>
-                                <img />
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
                             </div>
                             <span>베란다</span>
-                        </div>
+                        </a>
                         <div class="area"></div>
                     </div>
                     <div class="blur">
@@ -719,7 +719,8 @@
     }
     var sliderContainer = document.getElementById("slider_container");
     var slider = document.getElementById("area_slider");
-    var slideNum = document.getElementsByClassName("area").length;
+    var areas = document.getElementsByClassName("area");
+    var slideNum = areas.length;
     var canMove = 0;
     var startXPos, sliderPos = 0;
     var moving, nowPos;
@@ -746,6 +747,10 @@
             sliderPos += event.pageX - startXPos;
         }
     }
+    for(var i = 0; i < slideNum; i++){
+        areas[i].style.pointerEvents = "none";
+    }
+
     var boxes = document.getElementsByClassName("reviewBox");
     var mainBoxNum;
     var pos = -478;

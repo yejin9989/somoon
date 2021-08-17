@@ -135,48 +135,48 @@
             </div>
             <div class="lower" id="slider_container">
                 <div class="slider" id="area_slider">
-                    <div class="area">
+                    <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
+                        <div>
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
+                        </div>
+                        <span>거실</span>
+                    </a>
+                    <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                         <div>
                             <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
                         </div>
                         <span>주방</span>
-                    </div>
-                    <div class="area">
+                    </a>
+                    <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                         <div>
-                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog3.jpg?raw=true" />
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
                         </div>
-                        <span>주방</span>
-                    </div>
-                    <div class="area">
+                        <span>침실</span>
+                    </a>
+                    <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                         <div>
-                            <img />
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
                         </div>
-                        <span>주방</span>
-                    </div>
-                    <div class="area">
+                        <span>화장실</span>
+                    </a>
+                    <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                         <div>
-                            <img />
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
                         </div>
-                        <span>주방</span>
-                    </div>
-                    <div class="area">
+                        <span>현관</span>
+                    </a>
+                    <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                         <div>
-                            <img />
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
                         </div>
-                        <span>주방</span>
-                    </div>
-                    <div class="area">
+                        <span>복도</span>
+                    </a>
+                    <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                         <div>
-                            <img />
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
                         </div>
-                        <span>주방</span>
-                    </div>
-                    <div class="area">
-                        <div>
-                            <img />
-                        </div>
-                        <span>나방</span>
-                    </div>
+                        <span>베란다</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -539,6 +539,37 @@
     gtag('config', 'G-PC15JG6KGN');
 </script>
 <script>
+    var sliderContainer = document.getElementById("slider_container");
+    var slider = document.getElementById("area_slider");
+    var slideNum = document.getElementsByClassName("area").length;
+    var canMove = 0;
+    var startXPos, sliderPos = 0;
+    var moving, nowPos;
+    sliderContainer.ontouchstart = (event) => {
+        canMove = 1;
+        startXPos = event.touches[0].pageX;
+    }
+    sliderContainer.ontouchend = (event) => {
+        canMove = 0;
+        sliderPos += event.changedTouches[0].pageX - startXPos;
+    }
+    sliderContainer.ontouchmove = (event) => {
+        if(canMove){
+            moving = event.changedTouches[0].pageX - startXPos;
+            if((sliderPos + moving <= 0) && (sliderPos + moving >= (slideNum - 2) * -170)){
+                nowPos = sliderPos + moving;
+                slider.style.transform = "translateX(" + nowPos + "px)";
+            }
+        }
+    }
+    /*
+    sliderContainer.onmouseleave = (event) => {
+        if(canMove){
+            canMove = 0;
+            sliderPos += event.pageX - startXPos;
+        }
+    }
+    */
     const open_slide = () => {
         var back = document.getElementById("menu_slide_container");
         if(back.style.display === "flex"){

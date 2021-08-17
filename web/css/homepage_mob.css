@@ -170,20 +170,12 @@ body{
     height: calc(100% - 60px);
     flex-wrap: nowrap;
     overflow: hidden;
-    -webkit-overflow-scrolling: auto;
 }
 .body_container_Mob .area_part .lower .slider{
     display: flex;
-    width: 100%;
-    overflow: auto;
-    scroll-snap-type: x mandatory;
-}
-.body_container_Mob .area_part .lower .slider{
-    z-index:0;
-    -webkit-overflow-scrolling: auto;
 }
 .body_container_Mob .area_part .lower .slider::-webkit-scrollbar{
-    display: none;
+    display:none;
 }
 .body_container_Mob .area_part .lower .slider .area{
     display: flex;
@@ -191,10 +183,11 @@ body{
     flex-direction: column;
     width: 150px;
     height: 100%;
-    scroll-snap-align: center;
-    margin: 0 10px;
+    -webkit-touch-callout: none;
+    user-select: none;
     z-index:0;
-    -webkit-overflow-scrolling: auto;
+    text-decoration: none;
+    color:#000;
 }
 .body_container_Mob .area_part .lower .slider .area div{
     width:120px;
