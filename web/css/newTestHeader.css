@@ -46,7 +46,8 @@
     white-space: nowrap;
 }
 .body_container .body_header .upper_header .right_header{
-    display: flex;
+    /*display: flex;*/
+    display: none;
     position: relative;
     align-items: center;
     justify-content: space-between;
@@ -117,7 +118,7 @@
     background-color: #4A79F4;
 }
 .body_container .body_header .lower_header #new_customer .menu_underbar{
-    visibility: visible;
+    visibility: none;
 }
 #navigation_container{
     position: fixed;

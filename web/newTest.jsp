@@ -12,8 +12,8 @@
 
     //파라미터 가져오기
     //String param = request.getParameter("param");
-    //String s_id = session.getAttribute("s_id")+"";
-    String s_id = "35";
+    String s_id = session.getAttribute("s_id")+"";
+    //String s_id = "35";
 
     //DB 관련 객체 선언
     Connection conn = DBUtil.getMySQLConnection();
@@ -101,7 +101,10 @@
             temp.put("Name", rs2.getString("R.Name"));
             temp.put("Phone", rs2.getString("R.Phone"));
             temp.put("Address", rs2.getString("R.Address"));
-            temp.put("Building_type", buildingType[Integer.parseInt(rs2.getString("R.Building_type"))]);
+            if(rs2.getString("R.Building_type")!=null && !rs2.getString("R.Building_type").equals("null"))
+                temp.put("Building_type", buildingType[Integer.parseInt(rs2.getString("R.Building_type"))]);
+            else
+                temp.put("Building_type", "정보없음");
             temp.put("Area", rs2.getString("R.Area"));
             temp.put("Due", rs2.getString("R.Due"));
             temp.put("Budget", rs2.getString("R.Budget"));
@@ -264,7 +267,7 @@
                                 <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/call.png?raw=true" />
                             </div>
                             <div class="text_container">
-                                <span>전화</span>
+                                <span><a href="tel:<%=apply.get("Phone")%>">전화</a></span>
                             </div>
                         </div>
                         <div class="side_container" onclick="massage()">
@@ -272,7 +275,7 @@
                                 <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/talk.png?raw=true" />
                             </div>
                             <div class="text_container">
-                                <span>문자</span>
+                                <span><a href="tel:<%=apply.get("Phone")%>">문자</a></span>
                             </div>
                         </div>
                         <div class="side_container" id="com<%=apply.get("Number")%>" onclick="open_modal(this)">
@@ -418,6 +421,8 @@
         modalNum = obj.id.slice(4);
         var modal = document.getElementById("modal_container_non_fin" + modalNum);
         modal.style.display = "flex"
+        var id = obj.getAttribute("id").substring(3,);
+        location.href = "_newTest_company_change_state.jsp?companyNum="+"<%=s_id%>"+"&state=9&applyNum="+id;
     }
     const close_modal_non_fin = () => {
         var modal = document.getElementById("modal_container_non_fin" + modalNum);

@@ -327,6 +327,10 @@
     color: #555;
     white-space: nowrap;
 }
+.body_container .body_main .main_container .box_container .main_box .under_container .side_container .text_container span a {
+    text-decoration: none;
+    color: #000;
+}
 .body_container .body_main .modal_container_fin{
     display: none;
     position: absolute;

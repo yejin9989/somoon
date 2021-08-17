@@ -11,8 +11,8 @@
 
     //파라미터 가져오기
     //String param = request.getParameter("param");
-    //String s_id = session.getAttribute("s_id")+"";
-    String s_id = "35";
+    String s_id = session.getAttribute("s_id")+"";
+    //String s_id = "35";
 
     //DB 관련 객체 선언
     Connection conn = DBUtil.getMySQLConnection();
@@ -96,7 +96,10 @@
             temp.put("Name", rs2.getString("R.Name"));
             temp.put("Phone", rs2.getString("R.Phone"));
             temp.put("Address", rs2.getString("R.Address"));
-            temp.put("Building_type", buildingType[Integer.parseInt(rs2.getString("R.Building_type"))]);
+            if(rs2.getString("R.Building_type")!=null && !rs2.getString("R.Building_type").equals("null"))
+                temp.put("Building_type", buildingType[Integer.parseInt(rs2.getString("R.Building_type"))]);
+            else
+                temp.put("Building_type", "정보없음");
             temp.put("Area", rs2.getString("R.Area"));
             temp.put("Due", rs2.getString("R.Due"));
             temp.put("Budget", rs2.getString("R.Budget"));
@@ -147,6 +150,7 @@
 <div class="body_container">
     <jsp:include page="/newTestHeader.jsp" flush="false" />
     <div class="body_main">
+        <!--
         <div class="main_header">
             <div class="left_container">
                 <div class="left_box">
@@ -159,6 +163,7 @@
                 </div>
             </div>
         </div>
+        -->
         <div class="main_body_none">
             <div class="img_container">
                 <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/search2.png?raw=true" />
