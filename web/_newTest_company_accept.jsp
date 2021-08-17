@@ -43,7 +43,6 @@
     <title>소문난집</title>
 </head>
 <body>
-<%=pstmt%>
 <%
 
     if(pstmt != null) {
@@ -60,7 +59,7 @@
 <script>
     //새 스크립트 작성
     //window.close();
-
+    location.href = document.referrer;
 </script>
 </body>
 </html>
