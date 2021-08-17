@@ -496,13 +496,37 @@
 <jsp:include page="/newTestFooter.jsp" flush="false" />
 <div class="menu_slide_container" id="menu_slide_container" onclick="close_slide()"></div>
 <div class="menu_slide" id="menu_slide">
-    <div class="close_btn" onclick="close_slide()"></div>
-    <span>대구 경북 인테리어<br>전문가를 만나보세요.</span>
-    <div>견적 상담</div>
-    <hr/>
-    <div></div>
-    <span>고객센터</span>
-
+    <div class="close_btn" onclick="close_slide()">
+        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/X.png?raw=true" />
+    </div>
+    <span class="head">대구 경북 인테리어<br>전문가를 만나보세요.</span>
+    <a class="cons" href="https://somoonhouse.com/remodeling_form.jsp?item_num=0">견적 상담</a>
+    <a class="cons b" href="https://somoonhouse.com/banner1.jsp?id=3">시공전문가 입점문의</a>
+    <a class="insta_cont" href="https://www.instagram.com/somoonhouse/">
+        <div class="img_cont">
+            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/insta.png?raw=true" />
+        </div>
+        <div class="text_cont">
+            <span>소문난집 인스타그램</span>
+            <div class="under">
+                <span>바로가기</span>
+                <div class="arrow">
+                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow2.png?raw=true" />
+                </div>
+            </div>
+        </div>
+    </a>
+    <div class="menu_container">
+        <div class="menu_upper">
+            <div class="upper_img">
+                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/call.png?raw=true" />
+            </div>
+            <span>소문난집 전화문의</span>
+        </div>
+        <div class="menu_lower">
+            <span>010-6427-2777</span>
+        </div>
+    </div>
 </div>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -524,8 +548,8 @@
             back.style.display = "flex";
         }
         var menu_slide = document.getElementById("menu_slide");
-        if(menu_slide.style.transform !== "translateX(250px)"){
-            menu_slide.style.transform = "translateX(250px)";
+        if(menu_slide.style.transform !== "translateX(270px)"){
+            menu_slide.style.transform = "translateX(270px)";
         }
     }
     const close_slide = () => {
@@ -537,7 +561,7 @@
             back.style.display = "flex";
         }
         var menu_slide = document.getElementById("menu_slide");
-        if(menu_slide.style.transform === "translateX(250px)"){
+        if(menu_slide.style.transform === "translateX(270px)"){
             menu_slide.style.transform = "translateX(0)";
         }
     }
