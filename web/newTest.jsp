@@ -250,7 +250,7 @@
                         </div>
                         <div class="text">
                             <span class="sec_fir">진행 단계</span>
-                            <select class="fiv" type="text" name="state<%=apply.get("Number")%>" placeholder="2차 상담 방법 입력" />
+                            <select class="fiv" name="state<%=apply.get("Number")%>"  />
                             <%for (int j = 0; j < assignedState.length; j++) {
                                 String selected = "";
                                 if(j+2 == Integer.parseInt(String.valueOf(apply.get("State"))))
