@@ -173,16 +173,15 @@
                             </div>
                             <span>복도</span>
                         </a>
-                        <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
+                        <!--a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                             <div>
                                 <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
                             </div>
                             <span>베란다</span>
                         </a>
-                        <div class="area"></div>
+                        <div class="area"></div -->
                     </div>
-                    <div class="blur">
-                    </div>
+                    <!-- div class="blur"></div -->
                 </div>
             </div>
             <div class="best_inter">
@@ -196,7 +195,7 @@
                     </div>
                 </div>
                 <div class="lower">
-                    <div class="best_container">
+                    <a href="https://github.com" class="best_container">
                         <div class="box">
                             <div class="box_upper">
                                 <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" />
@@ -206,8 +205,8 @@
                                 <span class="sub">아파트 | 49평형 | 거실 + 주방 | 남다른디자인</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="best_container">
+                    </a>
+                    <a href="https://github.com" class="best_container">
                         <div class="box">
                             <div class="box_upper">
                                 <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog2.jpg?raw=true" />
@@ -217,8 +216,8 @@
                                 <span class="sub">아파트 | 49평형 | 거실 + 주방 | 남다른디자인</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="best_container">
+                    </a>
+                    <a href="https://github.com" class="best_container">
                         <div class="box">
                             <div class="box_upper">
                             </div>
@@ -227,8 +226,8 @@
                                 <span class="sub">아파트 | 49평형 | 거실 + 주방 | 남다른디자인</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="best_container">
+                    </a>
+                    <a href="https://github.com" class="best_container">
                         <div class="box">
                             <div class="box_upper">
                             </div>
@@ -237,7 +236,7 @@
                                 <span class="sub">아파트 | 49평형 | 거실 + 주방 | 남다른디자인</span>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
             <div class="review">
@@ -533,7 +532,7 @@
                     </div>
                 </div>
                 <div class="lower">
-                    <div class="style_container">
+                    <a class="style_container" href="https://github.com/">
                         <div class="box">
                             <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog5.jpg?raw=true" />
                         </div>
@@ -560,8 +559,8 @@
                             </div>
                             <span class="txt for">#북유럽 #모던 #화이트인테리어</span>
                         </div>
-                    </div>
-                    <div class="style_container">
+                    </a>
+                    <a class="style_container" href="https://github.com/">
                         <div class="box">
                             <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog6.jpg?raw=true" />
                         </div>
@@ -588,8 +587,8 @@
                             </div>
                             <span class="txt for">#북유럽 #모던 #화이트인테리어</span>
                         </div>
-                    </div>
-                    <div class="style_container">
+                    </a>
+                    <a class="style_container" href="https://github.com/">
                         <div class="box">
                         </div>
                         <div class="text">
@@ -615,7 +614,7 @@
                             </div>
                             <span class="txt for">#북유럽 #모던 #화이트인테리어</span>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -682,6 +681,9 @@
     gtag('config', 'G-PC15JG6KGN');
 </script>
 <script>
+    const abs = (a) => {
+        return a >= 0 ? a : -1 * a;
+    }
     var block = document.getElementsByClassName("block");
     var grade = document.getElementsByClassName("grade");
     for(var i = 0; i < grade.length; i++){
@@ -717,6 +719,7 @@
     area_header.onmouseleave = () => {
         area_div.style.display = "none";
     }
+    /*
     var sliderContainer = document.getElementById("slider_container");
     var slider = document.getElementById("area_slider");
     var areas = document.getElementsByClassName("area");
@@ -750,6 +753,7 @@
     for(var i = 0; i < slideNum; i++){
         areas[i].style.pointerEvents = "none";
     }
+     */
 
     var boxes = document.getElementsByClassName("reviewBox");
     var mainBoxNum;
@@ -842,6 +846,10 @@
         }
     }
     let bannerSlideTime = setInterval(bannerAutoSlide, 3000);
+    if (window.navigator.userAgent.match(/MSIE|Internet Explorer|Trident/i)) {
+        alert("Edge 또는 Chrome을 사용해주시기 바랍니다.");
+        window.location = "microsoft-edge:" + window.location.href;
+    }
 </script>
 </body>
 </html>

@@ -1,27 +1,33 @@
-@import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css?display=swap);
 @font-face{
     font-family:'Nanum Gothic',sans-serif;
 }
 *{
     font-family:'Nanum Gothic',sans-serif;
-    padding:0px;
-    margin:0px;
+    padding:0;
+    margin:0;
     box-sizing: border-box;
 }
-.body_container{
+.block{
+    width: 100%;
+    height: 120px;
+}
+.body_container_header{
     display: flex;
-    position:relative;
+    position: fixed;
+    top:0;
+    left:0;
     flex-direction: column;
     width:100%;
     height:100%;
+    z-index: 10;
 }
-.body_container .body_header{
+.body_container_header .body_header{
     width:100%;
     height: 100%;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     z-index: 2;
 }
-.body_container .body_header .upper_header{
+.body_container_header .body_header .upper_header{
     display: flex;
     position: relative;
     align-items: center;
@@ -30,7 +36,7 @@
     height: 60px;
     background-color: #5C86F5;
 }
-.body_container .body_header .upper_header .left_header{
+.body_container_header .body_header .upper_header .left_header{
     display: flex;
     position: relative;
     align-items: center;
@@ -38,14 +44,14 @@
     width: 200px;
     height: 100%;
 }
-.body_container .body_header .upper_header .left_header span{
+.body_container_header .body_header .upper_header .left_header span{
     color:#fff;
     font-size: 25px;
     font-weight: 800;
     word-spacing: -8px;
     white-space: nowrap;
 }
-.body_container .body_header .upper_header .right_header{
+.body_container_header .body_header .upper_header .right_header{
     /*display: flex;*/
     display: none;
     position: relative;
@@ -55,33 +61,34 @@
     height:100%;
     padding: 10px;
 }
-.body_container .body_header .upper_header .right_header .img_container{
+.body_container_header .body_header .upper_header .right_header .img_container{
     width: 30px;
     height: 30px;
     cursor: pointer;
 }
-.body_container .body_header .upper_header .right_header .img_container img{
+.body_container_header .body_header .upper_header .right_header .img_container img{
     width:100%;
     height: 100%;
     object-fit: fill;
     filter:invert(1);
 }
-.body_container .body_header .lower_header{
+.body_container_header .body_header .lower_header{
     display: flex;
     position: relative;
     align-items: center;
     justify-content: center;
     width:100%;
     height:60px;
+    background-color: #fff;
 }
-.body_container .body_header .lower_header a{
+.body_container_header .body_header .lower_header a{
     width: 25%;
     height: 100%;
     display: flex;
     position: relative;
     text-decoration: none;
 }
-.body_container .body_header .lower_header .menu{
+.body_container_header .body_header .lower_header .menu{
     display:flex;
     position: relative;
     justify-content: center;
@@ -90,11 +97,11 @@
     height: 100%;
     transition: 0.1s;
 }
-.body_container .body_header .lower_header .menu:hover{
+.body_container_header .body_header .lower_header .menu:hover{
     cursor: pointer;
     background: rgba(74, 121, 244, 0.3);
 }
-.body_container .body_header .lower_header .menu .menu_text{
+.body_container_header .body_header .lower_header .menu .menu_text{
     display:flex;
     position: relative;
     justify-content: center;
@@ -102,13 +109,13 @@
     width:100%;
     height:100%;
 }
-.body_container .body_header .lower_header .menu .menu_text span{
+.body_container_header .body_header .lower_header .menu .menu_text span{
     font-size:17px;
     font-weight: 500;
     white-space: nowrap;
     color: #000
 }
-.body_container .body_header .lower_header .menu .menu_underbar{
+.body_container_header .body_header .lower_header .menu .menu_underbar{
     visibility: hidden;
     position: absolute;
     bottom:0;
@@ -117,8 +124,8 @@
     height: 4px;
     background-color: #4A79F4;
 }
-.body_container .body_header .lower_header #new_customer .menu_underbar{
-    visibility: none;
+.body_container_header .body_header .lower_header #new_customer .menu_underbar{
+    visibility: hidden;
 }
 #navigation_container{
     position: fixed;
@@ -138,7 +145,7 @@
     align-items: center;
     flex-direction: column;
     top: 0;
-    right: 0px;
+    right: 0;
     width: 300px;
     height: 100vh;
     background-color: #eee;
@@ -173,7 +180,7 @@
 #navigation_container #navigation hr{
     width: 80%;
     height: 2px;
-    margin: 40px 0px;
+    margin: 40px 0;
     background-color: #c4c4c4;
     border:none;
     border-radius: 2px;
@@ -341,7 +348,7 @@
         padding-top: 40px !important;
     }
     #navigation_container #navigation hr{
-        margin: 10px 0px !important;
+        margin: 10px 0 !important;
     }
     #navigation_container #navigation .menu_container{
         padding: 10px !important;
