@@ -280,7 +280,7 @@
 <script>
     //새 스크립트 작성
     //window.close();
-    const stop_btn = (obj) => {
+    function stop_btn(obj){
         var boxNum = obj.id.slice(3);
         var slide = document.getElementById("stop_slide" + boxNum);
         var img = document.getElementById("arrow" + boxNum);

@@ -251,7 +251,7 @@
                         </div>
                         <div class="text">
                             <span class="sec_fir">진행 단계</span>
-                            <select class="fiv" type="text" name="state<%=apply.get("Number")%>" placeholder="2차 상담 방법 입력" />
+                            <select class="fiv" name="state<%=apply.get("Number")%>"  />
                             <%for (int j = 0; j < assignedState.length; j++) {
                                 String selected = "";
                                 if(j+2 == Integer.parseInt(String.valueOf(apply.get("State"))))
@@ -376,7 +376,7 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
 <script>
-    const slide_detail = (obj) => {
+    function slide_detail(obj){
         var boxNum = obj.id.slice(9);
         var box = document.getElementById("slide" + boxNum);
         var btn = document.getElementById("slide_btn" + boxNum);
@@ -395,37 +395,37 @@
             btn.style.transform = "rotate(180deg)";
         }
     }
-    const save = (obj) => {
+    function save(obj){
         alert("진행단계가 저장됐습니다.");
-        var id = obj.getAttribute("id").substring(3,);
+        var id = obj.getAttribute("id").substring(3);
         var state = $('select[name=state'+id+']').val();
         location.href = '_newTest_company_change_state.jsp?companyNum='+'<%=s_id%>'+'&state='+state+'&applyNum='+id;
     }
-    const calling = () => {
+    function calling(){
         alert("전화 걸기");
     }
-    const massage = () => {
+    function massage(){
         alert("문자 보내기");
     }
     var modalNum;
-    const open_modal = (obj) => {
+    function open_modal(obj){
         modalNum = obj.id.slice(3);
         var modal = document.getElementById("modal_container_fin" + modalNum);
         modal.style.display = "flex"
         location.href = "_newTest_company_change_state.jsp?companyNum="+"<%=s_id%>"+"&state=8&applyNum="+id;
     }
-    const close_modal = () => {
+    function close_modal(){
         var modal = document.getElementById("modal_container_fin" + modalNum);
         modal.style.display = "none"
     }
-    const open_modal_non_fin = (obj) => {
+    function open_modal_non_fin(obj){
         modalNum = obj.id.slice(4);
         var modal = document.getElementById("modal_container_non_fin" + modalNum);
         modal.style.display = "flex"
-        var id = obj.getAttribute("id").substring(3,);
+        var id = obj.getAttribute("id").substring(3);
         location.href = "_newTest_company_change_state.jsp?companyNum="+"<%=s_id%>"+"&state=9&applyNum="+id;
     }
-    const close_modal_non_fin = () => {
+    function close_modal_non_fin(){
         var modal = document.getElementById("modal_container_non_fin" + modalNum);
         modal.style.display = "none"
     }

@@ -107,7 +107,7 @@
             <a>
                 <span>시공 후기</span>
             </a>
-            <a>
+            <a href="https://somoonhouse.com/banner1.jsp?id=3">
                 <span>파트너스</span>
             </a>
         </div>
@@ -135,48 +135,48 @@
             </div>
             <div class="lower" id="slider_container">
                 <div class="slider" id="area_slider">
-                    <div class="area">
+                    <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
+                        <div>
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
+                        </div>
+                        <span>거실</span>
+                    </a>
+                    <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                         <div>
                             <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
                         </div>
                         <span>주방</span>
-                    </div>
-                    <div class="area">
+                    </a>
+                    <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                         <div>
-                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog3.jpg?raw=true" />
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
                         </div>
-                        <span>주방</span>
-                    </div>
-                    <div class="area">
+                        <span>침실</span>
+                    </a>
+                    <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                         <div>
-                            <img />
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
                         </div>
-                        <span>주방</span>
-                    </div>
-                    <div class="area">
+                        <span>화장실</span>
+                    </a>
+                    <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                         <div>
-                            <img />
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
                         </div>
-                        <span>주방</span>
-                    </div>
-                    <div class="area">
+                        <span>현관</span>
+                    </a>
+                    <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                         <div>
-                            <img />
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
                         </div>
-                        <span>주방</span>
-                    </div>
-                    <div class="area">
+                        <span>복도</span>
+                    </a>
+                    <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                         <div>
-                            <img />
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
                         </div>
-                        <span>주방</span>
-                    </div>
-                    <div class="area">
-                        <div>
-                            <img />
-                        </div>
-                        <span>나방</span>
-                    </div>
+                        <span>베란다</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -190,7 +190,7 @@
             </div>
             <div class="lower">
                 <div class="slider">
-                    <div class="best_container">
+                    <a href="https://github.com" class="best_container">
                         <div class="box">
                             <div class="box_upper">
                                 <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" />
@@ -200,8 +200,8 @@
                                 <span class="sub">아파트 | 49평형 | 거실 + 주방 | 남다른디자인</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="best_container">
+                    </a>
+                    <a href="https://github.com" class="best_container">
                         <div class="box">
                             <div class="box_upper">
                                 <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog2.jpg?raw=true" />
@@ -211,8 +211,8 @@
                                 <span class="sub">아파트 | 49평형 | 거실 + 주방 | 남다른디자인</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="best_container">
+                    </a>
+                    <a href="https://github.com" class="best_container">
                         <div class="box">
                             <div class="box_upper"></div>
                             <div class="box_lower">
@@ -220,8 +220,8 @@
                                 <span class="sub">아파트 | 49평형 | 거실 + 주방 | 남다른디자인</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="best_container">
+                    </a>
+                    <a href="https://github.com" class="best_container">
                         <div class="box">
                             <div class="box_upper"></div>
                             <div class="box_lower">
@@ -229,7 +229,7 @@
                                 <span class="sub">아파트 | 49평형 | 거실 + 주방 | 남다른디자인</span>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -359,7 +359,7 @@
             </div>
             <div class="lower">
                 <div class="slider">
-                    <div class="style_container">
+                    <a href="https://github.com" class="style_container">
                         <div class="box">
                             <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog5.jpg?raw=true" />
                         </div>
@@ -386,8 +386,8 @@
                             </div>
                             <span class="txt for">#북유럽 #모던 #화이트인테리어</span>
                         </div>
-                    </div>
-                    <div class="style_container">
+                    </a>
+                    <a href="https://github.com" class="style_container">
                         <div class="box">
                             <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog5.jpg?raw=true" />
                         </div>
@@ -414,8 +414,8 @@
                             </div>
                             <span class="txt for">#북유럽 #모던 #화이트인테리어</span>
                         </div>
-                    </div>
-                    <div class="style_container">
+                    </a>
+                    <a href="https://github.com" class="style_container">
                         <div class="box">
                             <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog5.jpg?raw=true" />
                         </div>
@@ -442,7 +442,7 @@
                             </div>
                             <span class="txt for">#북유럽 #모던 #화이트인테리어</span>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -463,17 +463,17 @@
             </a>
         </div>
         <div class="insta">
-            <div class="title">
+            <a class="title" href="https://www.instagram.com/somoonhouse/">
                 <div class="icon">
-                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/instagram.png?raw=true" />
+                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/insta.png?raw=true" />
                 </div>
                 <span>somoonhouse_official</span>
-            </div>
+            </a>
             <span class="sub">소문난집 인스타그램에서<br/>
                 다양한 이벤트와 소식을 확인하세요.</span>
             <div class="follow">
                 <div class="follow_img">
-                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart.png?raw=true" />
+                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart4.png?raw=true" />
                 </div>
                 <span>1.2K</span>
             </div>

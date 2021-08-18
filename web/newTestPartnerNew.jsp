@@ -130,21 +130,21 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
 <script>
-    const open_modal = () => {
+    function open_modal(){
         var modal = document.getElementById("modal_container");
         modal.style.display = "flex"
     }
-    const close_modal = () => {
+    function close_modal(){
         var modal = document.getElementById("modal_container");
         modal.style.display = "none"
     }
-    const modal_next = () => {
+    function modal_next(){
         var before_modal = document.getElementById("modal_box_before");
         var after_modal = document.getElementById("modal_box_after");
         before_modal.style.display = "none";
         after_modal.style.display = "block";
     }
-    const modal_previous = () => {
+    function modal_previous(){
         var before_modal = document.getElementById("modal_box_before");
         var after_modal = document.getElementById("modal_box_after");
         after_modal.style.display = "none";

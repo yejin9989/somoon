@@ -214,10 +214,10 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
 <script>
-    const acept = () =>{
+    function acept(){
         alert("수락했습니다.")
     }
-    const cancle = () =>{
+    function cancle(){
         alert("거절했습니다.")
     }
     $('.accept').click(function(){
@@ -266,7 +266,9 @@
 
         }
 
-        timer = setInterval(() => showRemaining(), 1000); // 나 동노간다 - 이현로 -
+        timer = setInterval(function(){
+            showRemaining()
+        }, 1000);
 
     }
 

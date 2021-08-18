@@ -226,6 +226,8 @@ body{
     height: 100%;
     -webkit-touch-callout: none;
     user-select: none;
+    text-decoration: none;
+    color:#000;
 }
 .body_container_PC .area_part .lower .slider .area div{
     width:120px;
@@ -238,11 +240,13 @@ body{
     width: 100%;
     height: 100%;
     object-fit: fill;
+    pointer-events: none;
 }
 .body_container_PC .area_part .lower .slider .area span{
     font-size: 14px;
     font-weight: 530;
     margin-top: 10px;
+    pointer-events: none;
 }
 .body_container_PC .area_part .lower .blur{
     position: absolute;
@@ -305,6 +309,8 @@ body{
     width:50%;
     height:50%;
     padding: 30px 14px 0 14px;
+    text-decoration: none;
+    color:#000;
 }
 .body_container_PC .best_inter .best_container .box{
     display: flex;
@@ -594,6 +600,8 @@ body{
     height: 100%;
     padding: 10px;
     border-radius: 15px;
+    text-decoration: none;
+    color:#000;
 }
 .body_container_PC .style .lower .style_container:hover{
     box-shadow: 0 0 2px 1px rgba(100, 100, 100, 0.2);

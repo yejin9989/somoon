@@ -274,7 +274,7 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
 <script>
-    const fin_btn = (obj) => {
+    function fin_btn(obj){
         var boxNum = obj.id.slice(3);
         var slide = document.getElementById("fin_slide" + boxNum);
         var img = document.getElementById("arrow" + boxNum);
