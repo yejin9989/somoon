@@ -24,7 +24,6 @@
 
     //변수설정
     String[] buildingType = {"아파트", "빌라", "주택", "원룸"};
-//    String[] assignedState = {"상담 대기", "부재중", "상담중", "미팅 예정", "계약진행중", "계약완료"};
     String[] assignedState = {"상담 대기", "부재중", "상담중", "미팅 예정", "계약진행중"};
     class Dates{
         String date;
