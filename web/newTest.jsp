@@ -192,34 +192,15 @@
                 <div class="main_box">
                     <div class="text_container">
                         <div class="slide_container" id="slide<%=apply.get("Number")%>">
+                            <%
+                                HashMap<String, String> hm = datelist.get(i).details.get(apply.get("Number"));
+                                for(String name : hm.keySet()){
+                            %>
                             <div class="text">
-                                <span class="sec_fir">창호 / 샷시</span>
-                                <span class="sec_sec"><%=apply.get("Name")%></span><!--span class="sec_sec">정진성</span-->
+                                <span class="sec_fir"><%=name%>></span>
+                                <span class="sec_sec"><%=hm.get(name)%></span><!--span class="sec_sec">정진성</span-->
                             </div>
-                            <div class="text">
-                                <span class="sec_fir">발코니 확장</span>
-                                <span class="sec_sec"><%=apply.get("Name")%></span><!--span class="sec_sec">정진성</span-->
-                            </div>
-                            <div class="text">
-                                <span class="sec_fir">도배</span>
-                                <span class="sec_sec"><%=apply.get("Name")%></span><!--span class="sec_sec">정진성</span-->
-                            </div>
-                            <div class="text">
-                                <span class="sec_fir">바닥재</span>
-                                <span class="sec_sec"><%=apply.get("Name")%></span><!--span class="sec_sec">정진성</span-->
-                            </div>
-                            <div class="text">
-                                <span class="sec_fir">주방</span>
-                                <span class="sec_sec"><%=apply.get("Name")%></span><!--span class="sec_sec">정진성</span-->
-                            </div>
-                            <div class="text">
-                                <span class="sec_fir">욕실</span>
-                                <span class="sec_sec"><%=apply.get("Name")%></span><!--span class="sec_sec">정진성</span-->
-                            </div>
-                            <div class="text">
-                                <span class="sec_fir">도어 / 문틀</span>
-                                <span class="sec_sec"><%=apply.get("Name")%></span><!--span class="sec_sec">정진성</span-->
-                            </div>
+                            <%}%>
                         </div>
                         <div class="slide_btn" id="slide_btn<%=apply.get("Number")%>" onclick="slide_detail(this)">
                             <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow.png?raw=true" />
