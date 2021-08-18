@@ -46,7 +46,8 @@
 <%
 
 %>
-<div class="body_container">
+<div class="block"></div>
+<div class="body_container_header">
     <div class="body_header">
         <div class="upper_header">
             <div class="left_header">
@@ -166,14 +167,18 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
 <script>
-    const slide = () =>{
+    function slide(){
         var nav = document.getElementById("navigation_container");
-        if(nav.style.display == "none"){
-            nav.style.display = "grid";
-        }
-        else{
+        if(nav.style.display === "grid"){
             nav.style.display = "none";
         }
+        else{
+            nav.style.display = "grid";
+        }
+    }
+    if (window.navigator.userAgent.match(/MSIE|Internet Explorer|Trident/i)) {
+        alert("Edge 또는 Chrome을 사용해주시기 바랍니다.");
+        window.location = "microsoft-edge:" + window.location.href;
     }
 </script>
 </body>

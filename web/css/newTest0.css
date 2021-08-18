@@ -29,6 +29,9 @@
 .body_container .body_main .main_container{
     display:flex;
     position: relative;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     width: 80%;
     height:100%;
     flex-wrap: wrap;
@@ -48,6 +51,7 @@
     color: #666666;
 }
 .body_container .body_main .main_container .box_container{
+    max-width: 800px;
     width:100%;
     height:100%;
     padding: 20px;
@@ -174,7 +178,7 @@
     color: #555;
     white-space: nowrap;
 }
-@media (max-width: 450px) {
+@media (max-width: 470px) {
     .body_container .body_main .main_body_yes .main_container {
         width: 90%;
     }
@@ -189,5 +193,11 @@
     .sec_fir {
         font-size: 14px;
         white-space: nowrap;
+    }
+    .body_container .body_main .main_container{
+        width: 100%;
+    }
+    .body_container .body_main .main_container .box_container{
+        padding: 5px;
     }
 }
