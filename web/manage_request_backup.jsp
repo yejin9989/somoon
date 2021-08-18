@@ -24,37 +24,6 @@
     String name = session.getAttribute("name")+"";
 
 
-    //변수설정
-    String[] buildingType = {"아파트", "빌라", "주택", "원룸"};
-    String[] assignedState = {"상담 대기", "부재중", "상담중", "미팅 예정", "계약진행중"};
-    class Dates{
-        String date;
-        HashMap<String, HashMap<String, String>> applies;
-        HashMap<String, HashMap<String, String>> details;
-
-        void setDate(String date){
-            this.date = date;
-        }
-        void setApplies(HashMap applies){
-            this.applies = applies;
-        }
-        void setDetails(HashMap details){
-            this.details = details;
-        }
-
-        String getDate(){
-            return this.date;
-        }
-        HashMap getApplies(){
-            return this.applies;
-        }
-        HashMap getDetails(){
-            return this.details;
-        }
-    }
-
-
-
 //신청내용들 받아오기
     String state = request.getParameter("state")+"";
     /*
@@ -74,22 +43,8 @@
     rs = pstmt.executeQuery();
     LinkedList<HashMap<String, String>> itemlist = new LinkedList<HashMap<String, String>>();
     HashMap<String, LinkedList<HashMap<String, String>>> totalstatemap = new HashMap<String, LinkedList<HashMap<String, String>>>();
-
-
-    LinkedList<Dates> datelist = new LinkedList<Dates>();
-
-
-
     while(rs.next()){
         HashMap<String, String> itemmap = new HashMap<String, String>();
-
-
-        Dates date = new Dates();
-        date.setDate(rs.getString("Apply_date"));
-
-        HashMap<String, HashMap<String, String>> applies = new HashMap<String, HashMap<String, String>>();
-        HashMap<String, HashMap<String, String>> details = new HashMap<String, HashMap<String, String>>();
-
 
         String item_number = rs.getString("Number")+"";
         String item_itemnum = rs.getString("Item_num")+"";
@@ -182,27 +137,6 @@
 
         totalstatemap.put(item_number.toString(), statelist);
         itemlist.add(itemmap);
-
-
-        applies.put(item_number, itemmap);
-
-        //details 값 넣기
-        PreparedStatement pstmt2 = null;
-        query = "select * from REMODELING_APPLY ra, REMODELING_APPLY_DIV2 rad, RMDL_DIV1 rd, RMDL_DIV2 rd2 where ra.Number = ? and ra.Number = rad.Apply_num And rad.Div2_num = rd2.Id and rd2.Parent_id = rd.Id";
-        pstmt2 = conn.prepareStatement(query);
-        pstmt2.setString(1, item_number);
-        ResultSet rs3 = pstmt2.executeQuery();
-        HashMap<String, String> dhm = new HashMap<String, String>();
-        while (rs3.next()) {
-            dhm.put(rs3.getString("rd.Name"), rs3.getString("rd2.Name"));
-        }
-        details.put(item_number, dhm);
-
-        date.setApplies(applies);
-        date.setDetails(details);
-
-        datelist.add(date);
-
     }
 
     //신청별로 거절한회사/수락한회사/준적없는회사 받아오기
@@ -280,11 +214,7 @@
             <div class="manage_container">
                 <%
                     //Arraylist- itemlist에 있는 개수만큼 반복하기1
-//                    for(HashMap<String, String> hm : itemlist){
-                    for (int idx = 0; idx < datelist.size(); idx++) {
-                        for(String key : datelist.get(idx).applies.keySet()){
-                            HashMap hm = datelist.get(idx).applies.get(key);
-                            HashMap detail = datelist.get(idx).details.get(key);
+                    for(HashMap<String, String> hm : itemlist){
                 %>
                 <div class="item" id='item<%out.println(hm.get("number"));%>' onclick="open_modal(this.id)">
                     <div class="item_header">
@@ -310,8 +240,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal_item" id='modal_item<%out.println(hm.get("number"));%>' style="display: none;">
-                    <div class="modal">
+                <div class="modal_item" id='modal_item<%out.println(hm.get("number"));%>' style="display: none;"
+                    onclick="close_modal_out()">
+                    <div class="modal" onclick="close_modal_in()">
                         <div class="modal_content">
                             <div class="no">no.<%out.println(hm.get("number"));%></div>
                             <div class="item_wrapper">
@@ -323,14 +254,6 @@
                                     <div class="info"><span>건물종류</span> <%out.println(hm.get("building"));%></div>
                                     <div class="info"><span>평수</span> <%out.println(hm.get("area"));%></div>
                                     <div class="info"><span>예정일</span> <%out.println(hm.get("due"));%></div>
-                                    <div class="info"><span>상세시공</span>
-                                        <% for(int d = 0; d < detail.size(); d++){
-                                            out.println(detail.get(d));
-                                        }%>
-                                        <% for(HashMap<String, String> dt : detail){
-
-                                        }%>
-                                        <%=detail%></div>
                                     <div class="info"><span>예산</span> <%out.println(hm.get("budget"));%></div>
                                     <div class="info"><span>방문상담</span> <%if(hm.get("consulting").equals("1")) out.println("예"); else out.println("아니오");%></div>
                                     <div class="info"><span>비교견적</span> <%if(hm.get("compare").equals("1")) out.println("예"); else out.println("아니오");%></div>
@@ -451,7 +374,7 @@
                         </div>
                     </div>
                 </div>
-                <%}}%>
+                <%}%>
             </div>
         </div>
     </div>
@@ -505,6 +428,17 @@ conn.close();
         copyText.setSelectionRange(0, 99999); /*For mobile devices*/
         document.execCommand("copy");
         alert("복사되었습니다");
+    }
+    var close_check = true;
+    const close_modal_out = () => {
+        if(close_check){
+            var modal = document.getElementById(remem_modal_id);
+            modal.style.display = 'none';
+        }
+        close_check = true;
+    }
+    const close_modal_in = () => {
+        close_check = false;
     }
 </script>
 <script>
