@@ -233,34 +233,6 @@
                             </div>
                         </div>
                         <div class="right">
-<%--                            <div class="text">--%>
-<%--                                <span class="sec_fir">창호 / 샷시</span>--%>
-<%--                                <span class="sec_sec"><%=apply.get("Name")%></span><!--span class="sec_sec">정진성</span-->--%>
-<%--                            </div>--%>
-<%--                            <div class="text">--%>
-<%--                                <span class="sec_fir">발코니 확장</span>--%>
-<%--                                <span class="sec_sec"><%=apply.get("Name")%></span><!--span class="sec_sec">정진성</span-->--%>
-<%--                            </div>--%>
-<%--                            <div class="text">--%>
-<%--                                <span class="sec_fir">도배</span>--%>
-<%--                                <span class="sec_sec"><%=apply.get("Name")%></span><!--span class="sec_sec">정진성</span-->--%>
-<%--                            </div>--%>
-<%--                            <div class="text">--%>
-<%--                                <span class="sec_fir">바닥재</span>--%>
-<%--                                <span class="sec_sec"><%=apply.get("Name")%></span><!--span class="sec_sec">정진성</span-->--%>
-<%--                            </div>--%>
-<%--                            <div class="text">--%>
-<%--                                <span class="sec_fir">주방</span>--%>
-<%--                                <span class="sec_sec"><%=apply.get("Name")%></span><!--span class="sec_sec">정진성</span-->--%>
-<%--                            </div>--%>
-<%--                            <div class="text">--%>
-<%--                                <span class="sec_fir">욕실</span>--%>
-<%--                                <span class="sec_sec"><%=apply.get("Name")%></span><!--span class="sec_sec">정진성</span-->--%>
-<%--                            </div>--%>
-<%--                            <div class="text">--%>
-<%--                                <span class="sec_fir">도어 / 문틀</span>--%>
-<%--                                <span class="sec_sec"><%=apply.get("Name")%></span><!--span class="sec_sec">정진성</span-->--%>
-<%--                            </div>--%>
                                 <%
                                     HashMap<String, String> hm = datelist.get(i).details.get(apply.get("Number"));
                                     for(String name : hm.keySet()){
