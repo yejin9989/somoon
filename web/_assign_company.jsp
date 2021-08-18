@@ -153,24 +153,26 @@
 	//out.println(pstmt);
 
 	// send messages 문자보내기
+	String company_id = "";
 	String company_name = "";
 	String company_phone = "";
 	String msg_str = "";
 	MessageSend2 msg = new MessageSend2();
 
 	for(String com : company1) {
-		sql = "SELECT Name, Phone FROM COMPANY WHERE Id = '" + com +"'";
+		sql = "SELECT Name, Phone, Id FROM COMPANY WHERE Id = '" + com +"'";
 		pstmt = conn.prepareStatement(sql);
 		rs = pstmt.executeQuery();
 		while(rs.next()) {
+			company_id = rs.getString("Id");
 			company_name = rs.getString("Name");
 			company_phone = rs.getString("Phone");
 		}
-		msg_str = "[소문난집]\n" + company_name + "님, 새로운 상담 신청이 있습니다.  3시간내로 확인 하지 않으면 신청이 사라지오니 얼른 확인해주세요 ";
+		msg_str = "[소문난집]\n" + company_name + "님, 신규 상담 신청건이 있습니다. 3시간 내로 수락하지 않으면 사라지오니, 빠른 시일 내로 확인 부탁드립니다.\n\nhttps://somoonhouse.com/company_login.jsp?company_num="+company_id;
 
 
 		// 업체에게 문자 보내기
-		// msg.send(company_phone, msg_str, "lms");
+		 msg.send(company_phone, msg_str, "lms");
 	}
 	//DB객체 종료
 	//stmt.close();
