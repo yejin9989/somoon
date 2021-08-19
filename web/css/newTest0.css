@@ -56,6 +56,14 @@
     font-weight: 600;
     color: #999;
 }
+.body_container .body_main .main_body_yes{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
 .body_container .body_main .main_body_yes .main_container{
     display:flex;
     position: relative;
