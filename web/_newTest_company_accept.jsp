@@ -12,6 +12,10 @@
 
     //파라미터 가져오기
     //String param = request.getParameter("param");
+    String apply_num = request.getParameter("applyNum") + "";
+    String company_num = request.getParameter("companyNum") + "";
+    //String apply_num = "1";
+    //String company_num = "2";
 
     //DB 관련 객체 선언
     Connection conn = DBUtil.getMySQLConnection();
@@ -20,16 +24,13 @@
     String query = "";
     String sql = "";
 
-    //DB 가져오기 예시
-    /*query = "select * from KEYWORD";
+    //DB update
+    query = "UPDATE ASSIGNED SET State = 2 WHERE Apply_num = ? AND Company_num = ?";
     pstmt = conn.prepareStatement(query);
-    rs = pstmt.executeQuery();
-    HashMap<String, String> keyword = new HashMap<String, String>();
-    while(rs.next()) {
-        keyword.put(rs.getString("Id"), rs.getString("Name"));
-    }
-    pstmt.close();
-     */
+    pstmt.setInt(1, Integer.parseInt(apply_num));
+    pstmt.setInt(2, Integer.parseInt(company_num));
+    pstmt.executeUpdate();
+    //pstmt.close();
 %>
 <!DOCTYPE html>
 <html>
@@ -42,18 +43,15 @@
     <title>소문난집</title>
 </head>
 <body>
-<%=mylog%>
 <%
+
     if(pstmt != null) {
         pstmt.close();
-        rs.close();
+        //rs.close();
         query = "";
         conn.close();
     }
 %>
-
-
-
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -61,6 +59,7 @@
 <script>
     //새 스크립트 작성
     //window.close();
+    location.href = document.referrer;
 </script>
 </body>
 </html>

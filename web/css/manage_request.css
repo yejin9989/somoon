@@ -71,19 +71,24 @@ input[type="checkbox"]:checked + label span {
     display: inline-flex;
 }
 .tab {
-     width: 100%;
-     height: 47px;
-     display: block;
-     line-height: 47px;
+    width: 100%;
+    height: 47px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    line-height: 47px;
+    flex-wrap: wrap;
 }
-.tab-item{
-    width: 13%;
-    display: inline-block;
+.tab .tab-item{
+    width: calc(100% / 7);
+    height: 100%;
     text-align: center;
     font-size: 11pt;
     text-decoration: none;
+    white-space: nowrap;
 }
-.tab-item:hover{
+.tab .tab-item:hover{
     border-bottom: 3px solid #8599ff;
 }
 .refresh{
@@ -109,29 +114,65 @@ input[type="checkbox"]:checked + label span {
     margin: 26px auto;
     max-width: 600px;
 }
-.item {
+.item{
     width: 43%;
     display: inline-block;
     margin: 1%;
     border-radius: 5px;
-    padding: 2%;
+    padding: 10px;
     background: #fbfbfb;
     box-shadow: 0px 0px 6px #e2e2e2;
     float:left;
+    height: 210px;
+    transition: 0.2s;
 }
-.item .no{
+.item:hover{
+    cursor: pointer;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+.item .item_header{
+    display:flex;
+    position:relative;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+    height:20px;
+}
+.item .item_header .no{
+    display: inline-block;
     color: #909090;
     font-size: 10pt;
-    display: inline-block;
+}
+.item .item_header .state{
+    display:inline-block;
+    float:right;
 }
 .item .info{
-    display: inline-block;
+    display: block;
 }
-.item_wrapper{
-    padding:20px;
+.copy_button{
+    border: none;
+    background: #6cb7ff;
+    color: white;
+    padding: 9px 14px;
+    border-radius: 6px;
 }
-.item_wrapper div.info{
-    margin-bottom: 12px;
+.item .item_wrapper{
+    display:flex;
+    position: relative;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 200px;
+}
+.item .item_wrapper .info{
+    display:flex;
+    position: relative;
+    align-items: center;
+    width:100%;
+    height:20%;
+}
+.item .item_wrapper .info span{
+    width:25%;
 }
 .phone :after{
     content:"";
@@ -139,7 +180,6 @@ input[type="checkbox"]:checked + label span {
 .item_wrapper span{
     display: block;
     font-size:9pt;
-    margin-bottom: 5px;
     color:gray;
 }
 #stt0, #stt1, #stt2, #stt3{
@@ -171,7 +211,9 @@ input[type="checkbox"]:checked + label span {
     border: none;
     border-radius: 5px;
     height: 32px;
-    background: #eaeaea;
+    color: #fff;
+    font-weight: 600;
+    background: #6cb7ff;
 }
 textarea{
     width: 100%;
@@ -181,12 +223,7 @@ textarea{
 .toggle_area{
     position:relative;
     cursor: pointer;
-}
-.assign_company{
-    display:none;
-}
-.assign_company div{
-    padding-top: 10px;
+    width:100%;
 }
 #toggle_title{
     left: 13px;
@@ -241,13 +278,144 @@ textarea{
 .company_accepted+label{
     color:gray;
 }
+
+.modal_item{
+    display:flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    left:0;
+    top:0;
+    width:100%;
+    height:100vh;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.modal_item .modal{
+    display:flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    height: 50%;
+    background-color: #FAFAFA;
+    overflow: auto;
+    overflow-x:hidden;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+.modal_item .modal .modal_content{
+    margin: auto;
+    width:100%;
+    height:100%;
+}
+.modal_item .modal .modal_content .no{
+    display:flex;
+    position: relative;
+    align-items: center;
+    width:100%;
+    height:50px;
+}
+.modal_item .modal .modal_content .item_wrapper{
+    display:flex;
+    position: relative;
+    width: 100%;
+    flex-direction: column;
+}
+.modal_item .modal .modal_content .modal_text{
+    display:flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+}
+.modal_item .modal .modal_content .modal_text .info{
+    margin-top: 12px;
+}
+.modal_item .modal .modal_content .modal_text .info span{
+    margin-bottom: 2px;
+}
+.modal_item .modal .modal_content .modal_add{
+    display:flex;
+    position:relative;
+    align-items: center;
+    width: 100%;
+    min-height: 50px;
+    flex-wrap: wrap;
+    margin: 10px 0px;
+}
+.modal_item .modal .modal_content .modal_add .form_container{
+    display:none;
+    position: relative;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    padding: 10px;
+    flex-direction: column;
+}
+.modal_item .modal .modal_content .modal_add .form_container .assign_company{
+    display:block;
+    z-index: 10;
+}
+.modal_item .modal .modal_content .modal_add .form_container .assign_company div{
+    margin-bottom: 12px;
+}
+.modal_item .modal .modal_content .modal_add .form_container .assign_company .submit_btn{
+    margin:0px;
+}
+.modal_item .modal .modal_content .modal_add .form_container .form_close_btn_container{
+    width:100%;
+    height: 35px;
+    padding: 10px;
+}
+.modal_item .modal .modal_content .modal_add .form_container .form_close_btn_container .form_close_btn{
+    width:80%;
+    height: 100%;
+    background-color: #eaeaea;
+    text-align: center;
+    border:none;
+    outline:none;
+    box-shadow: none;
+    font-size: 11pt;
+    font-weight: 600;
+    border-radius: 5px;
+}
+.modal_item .modal .modal_content .result_info{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    width:100%;
+}
+.modal_item .modal .modal_content .close_modal_btn{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    z-index: 2;
+}
+.modal_item .modal .modal_content .close_modal_btn .close_modal{
+    width:100%;
+    height: 100%;
+    cursor: pointer;
+    background: none;
+    border:none;
+}
+.modal_item .modal .modal_content .close_modal_btn .close_modal .close_modal_img{
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+}
 @media (max-width: 546px) {
     .tab{
         height: 94px;
     }
-    .tab-item{
-        width:24%;
-        font-size: 9.5pt;
+    .tab .tab-item{
+        width: calc( 100% / 4 );
+        height: 50%;
     }
 }
 @media (max-width : 400px){

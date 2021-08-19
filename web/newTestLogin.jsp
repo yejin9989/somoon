@@ -75,12 +75,6 @@ color: #313131;
 	box-sizing: border-box;
 }
 body{
-	display:flex;
-	position: relative;
-	align-items: center;
-	justify-content: center;
-	width:100%;
-	height:100vh;
 }
 input[type="checkbox"] {
     display:none;
@@ -103,17 +97,11 @@ input[type="checkbox"]:checked + label span {
 	display:flex;
 	align-items: center;
 	justify-content: center;
+	flex-direction: column;
     width: 100%;
-    max-width: 700px;
-    margin: 0 auto;
-    box-shadow: 0px 0px 20px #f4f4f4;
-}
-#somun_navbar {
-    /*border-bottom: 1px solid #c8c8c8;*/
-    display: none;
-    height: fit-content;
-    width: 100%;
-    padding: 39px 0 11px;
+	min-height: calc(100vh - 250px);
+	height: 100%;
+	background-color: #f5f5f5;
 }
 #content{
     max-width: 600px;
@@ -122,6 +110,7 @@ input[type="checkbox"]:checked + label span {
     padding: 58px 30px;
     box-shadow: 0px 0px 9px 5px #00000014;
     border-radius: 7px;
+	background-color: #fafafa;
 }
 #content-div{
 	width: 100%;
@@ -147,11 +136,13 @@ input[name="password"]{
     background: #f2f2f2;
 }
 input[type="submit"]{
+	width: 40px;
     height: 30px;
     border: 0;
     border-radius: 6px;
-    background: #858585;
+    background: #5C86F5;
     color: white;
+	font-weight: 600;
 }
 </style>
 <meta charset="UTF-8">
@@ -159,22 +150,12 @@ input[type="submit"]{
 <title>소문난집</title>
 </head>
 <body>
+<jsp:include page="/newTestHeader.jsp" flush="false" />
 <div id="container">
-	<div id="somun_navbar">
-		<div id="somun_menu"></div>
-		<div style="float:left;width:100%;height:max-content;margin-bottom:10px;text-align:center;">
-		<div id="somun_logo"><a href="index.jsp"><img style="width:128px;"src="img/somunlogo.png"></a></div>
-		<div style="margin:auto;width:max-content;color: #31b1f2;font-size:10pt;">대구 1등 리모델링 플랫폼</div>
-		</div>
-	</div>
-	<div></div>
 	<div id="content">
 		<div id="content-div">
-			<!------------ 내용물  --------------->
-
 			<div>
 				<form action="_company_login.jsp" method="POST">
-				<!-- 로그인 구역 -->
 					<div id="company_name"><%=company_name%></div>
 					<div id="password_area">
 						<div id="password_label">비밀번호</div>
@@ -184,8 +165,6 @@ input[type="submit"]{
 					</div>
 				</form>
 			</div>
-
-			<!------------ 내용물  --------------->
 		</div>
 	</div>
 <%
@@ -210,12 +189,9 @@ window.onload = function() {
 if(!wcs_add) var wcs_add = {};
 wcs_add["wa"] = "3602e31fd32c7e";
 wcs_do();
-if (window.navigator.userAgent.match(/MSIE|Internet Explorer|Trident/i)) {
-	alert("Edge 또는 Chrome을 사용해주시기 바랍니다.");
-	window.location = "microsoft-edge:" + window.location.href;
-}
 </script>
 <script type="text/javascript" src="slick-1.8.1/slick/slick.min.js"></script>
 </div>
+<jsp:include page="/newTestFooter.jsp" flush="false" />
 </body>
 </html>
