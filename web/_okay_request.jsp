@@ -43,8 +43,7 @@
         //확인
         //out.println(pstmt);
 
-
-        sql = "delete from ASSIGNED where Apply_num = ?";
+        sql = "update ASSIGNED set State = 1 where Apply_num = ? And State = 0";
         pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, req_id);
 
