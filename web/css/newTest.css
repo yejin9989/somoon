@@ -357,7 +357,9 @@
     height:100%;
 }
 .body_container .body_main .modal_container_fin .modal_box{
-    display: block;
+    display: flex;
+    position: relative;
+    flex-direction: column;
     width: 350px;
     height: 400px;
     background-color: #fff;
@@ -473,7 +475,9 @@
     height:100%;
 }
 .body_container .body_main .modal_container_non_fin .modal_box{
-    display: block;
+    display: flex;
+    position: relative;
+    flex-direction: column;
     width: 350px;
     height: 400px;
     background-color: #fff;
@@ -507,6 +511,7 @@
     padding: 5px 0;
 }
 .body_container .body_main .modal_container_non_fin .modal_box .item_container .stop_step .input_box{
+    width: 100%;
     padding: 0 10px;
 }
 .body_container .body_main .modal_container_non_fin .modal_box .item_container .stop_step input{
@@ -524,7 +529,7 @@
     height: 55px;
     background-color: #f7f7f7;
     box-shadow: 1px 4px 4px 0 rgba(0, 0, 0, 0.25);
-    margin: 20px 0;
+    margin: 5px 0 20px 0;
 }
 .body_container .body_main .modal_container_non_fin .modal_box .item_container .stop_why input{
     width:100%;
@@ -591,5 +596,13 @@
     }
     .body_container .body_main .main_container .box_container{
         padding: 5px;
+    }
+    .body_container .body_main .modal_container_non_fin .modal_box .item_container .item_span{
+        font-weight: 520;
+        font-size: 13px;
+    }
+    .body_container .body_main .modal_container_non_fin .modal_box .item_container .stop_step{
+        height: 140px;
+        margin: 5px 0 5px 0;
     }
 }
