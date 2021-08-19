@@ -251,6 +251,31 @@
                                 <button class="fiv_btn" onclick="save(this)" id="stt<%=apply.get("Number")%>">저장</button>
                             </div>
                         </div>
+<<<<<<< HEAD
+                    </div>
+                    <div class="modal_container_fin" id="modal_container_fin<%=apply.get("Number")%>">
+                        <form method="post">
+                            <div class="modal_box">
+                                <div class="item_container">
+                                    <span class="item_span">계약 일시</span>
+                                    <div class="select_date">
+                                        <input type="date" required/>
+                                    </div>
+                                    <span class="item_span">계약금</span>
+                                    <div class="input_pay">
+                                        <input type="text" placeholder="계약금을 입력해주세요" required/>
+                                    </div>
+                                    <span class="item_span">계약서 업로드</span>
+                                    <input class="file" type="file" required/>
+                                </div>
+                                <div class="btn_container">
+                                    <button type="submit"><span>완 료</span></button>
+                                </div>
+                                <div class="modal_cancel" onclick="close_modal()">
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancel.png?raw=true" />
+                                </div>
+                            </div>
+=======
                         <div class="under_container">
                             <div class="side_container" onclick="calling()">
                                 <div class="img_container">
@@ -308,6 +333,7 @@
                                     <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancel.png?raw=true" />
                                 </div>
                             </div>
+>>>>>>> 458b55713838ae2d224276e6a9e518fa6c0f479d
                         </form>
                     </div>
                     <div class="modal_container_non_fin" id="modal_container_non_fin<%=apply.get("Number")%>">
