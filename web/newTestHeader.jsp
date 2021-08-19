@@ -11,7 +11,7 @@
     String mylog = "";
 
     //파라미터 가져오기
-    //String param = request.getParameter("param");
+    String tab = request.getParameter("tab") + "";
 
     //DB 관련 객체 선언
     Connection conn = DBUtil.getMySQLConnection();
@@ -74,25 +74,25 @@
             <a href="_refresh_request_company.jsp?state=0" target="_self">
                 <div class="menu" id="new_customer">
                     <div class="menu_text"><span>신규</span></div>
-                    <div class="menu_underbar"></div>
+                    <div class="menu_underbar" id="New"></div>
                 </div>
             </a>
             <a href="_refresh_request_company.jsp" target="_self">
                 <div class="menu" id="ing_customer">
                     <div class="menu_text"><span>진행 중</span></div>
-                    <div class="menu_underbar"></div>
+                    <div class="menu_underbar" id="InProgress"></div>
                 </div>
             </a>
             <a href="_refresh_request_company.jsp?state=1" target="_self">
                 <div class="menu" id="fin_customer">
                     <div class="menu_text"><span>완료</span></div>
-                    <div class="menu_underbar"></div>
+                    <div class="menu_underbar" id="Done"></div>
                 </div>
             </a>
             <a href="_refresh_request_company.jsp?state=2" target="_self">
                 <div class="menu" id="stop_customer">
                     <div class="menu_text"><span>중단</span></div>
-                    <div class="menu_underbar"></div>
+                    <div class="menu_underbar" id="Stopped"></div>
                 </div>
             </a>
         </div>
@@ -143,7 +143,7 @@
                     <span>소문난집 전화문의</span>
                 </div>
                 <div class="menu_lower">
-                    <span>010-6427-2777</span>
+                    <span>053-290-5959</span>
                 </div>
             </div>
             <a class="board_href" href="newTestBoard.jsp" target="_self">
@@ -180,6 +180,10 @@
         alert("Edge 또는 Chrome을 사용해주시기 바랍니다.");
         window.location = "microsoft-edge:" + window.location.href;
     }
+</script>
+<script>
+    //탭 별 표시기능
+    $('#<%=tab%>').css('visibility', 'visible');
 </script>
 </body>
 </html>
