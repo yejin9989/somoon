@@ -122,7 +122,37 @@
     height: 100%;
     object-fit: fill;
 }
-.body_container .body_main .main_container{
+.body_container .body_main .main_body_none{
+    display:none;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: #f5f5f5;
+}
+.body_container .body_main .main_body_none .img_container{
+    width: 300px;
+    height: 300px;
+}
+.body_container .body_main .main_body_none .img_container img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    filter: invert(0.5);
+}
+.body_container .body_main .main_body_none .text_container{
+    text-align: center;
+    width: 100%;
+    height: 50px;
+}
+.body_container .body_main .main_body_none .text_container span{
+    font-size: 22px;
+    font-weight: 600;
+    color: #999;
+}
+.body_container .body_main .main_body_yes .main_container{
     display:flex;
     position: relative;
     justify-content: center;
@@ -133,7 +163,7 @@
     flex-wrap: wrap;
     margin: 15px 0;
 }
-.body_container .body_main .main_container .date_container{
+.body_container .body_main .main_body_yes .main_container .date_container{
     display:flex;
     position: relative;
     justify-content: center;
@@ -141,19 +171,19 @@
     width: 100%;
     height: 50px;
 }
-.body_container .body_main .main_container .date_container span{
+.body_container .body_main .main_body_yes .main_container .date_container span{
     font-size: 16px;
     font-weight: 520;
     color: #666666;
 }
-.body_container .body_main .main_container .box_container{
+.body_container .body_main .main_body_yes .main_container .box_container{
     max-width: 800px;
     width:100%;
     height:100%;
     padding: 20px;
     filter: invert(0);
 }
-.body_container .body_main .main_container .box_container .main_box{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box{
     display:flex;
     position: relative;
     flex-direction: column;
@@ -167,7 +197,7 @@
     overflow: hidden;
     border-bottom: none;
 }
-.body_container .body_main .main_container .box_container .main_box .slide_container{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .slide_container{
     display: flex;
     position: absolute;
     flex-direction: column;
@@ -180,7 +210,7 @@
     transition: 0.5s;
     background-color: white;
 }
-.body_container .body_main .main_container .box_container .main_box .slide_container .text{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .slide_container .text{
     display: flex;
     position: relative;
     align-items: center;
@@ -188,10 +218,10 @@
     height: 100%;
     padding: 10px 15px;
 }
-.body_container .body_main .main_container .box_container .main_box .slide_container .text .sec_fir{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .slide_container .text .sec_fir{
     min-width: 80px;
 }
-.body_container .body_main .main_container .box_container .main_box .text_container{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .text_container{
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -200,7 +230,7 @@
     background-color: #fff;
     filter: invert(0);
 }
-.body_container .body_main .main_container .box_container .main_box .slide_btn{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .slide_btn{
     display: flex;
     position: absolute;
     justify-content: center;
@@ -211,14 +241,14 @@
     height: 40px;
     z-index: 3;
 }
-.body_container .body_main .main_container .box_container .main_box .slide_btn img{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .slide_btn img{
     width: 100%;
     height: 100%;
     object-fit: cover;
     transform: rotate(180deg);
     filter: invert(0.5);
 }
-.body_container .body_main .main_container .box_container .main_box .text_container .text{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .text_container .text{
     display: flex;
     position: relative;
     align-items: center;
@@ -226,35 +256,35 @@
     height: 50px;
     padding: 10px 15px;
 }
-.body_container .body_main .main_container .box_container .main_box .text_container .text a{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .text_container .text a{
     text-decoration: none;
 }
-.body_container .body_main .main_container .box_container .main_box .text_container .text span{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .text_container .text span{
     font-size: 14px;
 }
-.body_container .body_main .main_container .box_container .main_box .text_container .text .fir,
-.body_container .body_main .main_container .box_container .main_box .text_container .text .thr{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .text_container .text .fir,
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .text_container .text .thr{
     color:#555;
     font-weight: 600;
 }
-.body_container .body_main .main_container .box_container .main_box .text_container .text .sec_fir{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .text_container .text .sec_fir{
     color: #253880;
     font-size: 16px;
     font-weight: 800;
     margin-right: 10px;
     white-space: nowrap;
 }
-.body_container .body_main .main_container .box_container .main_box .text_container .text .sec_sec{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .text_container .text .sec_sec{
     color: #000;
     font-size: 15px;
     font-weight: 800;
 }
-.body_container .body_main .main_container .box_container .main_box .text_container .text .for{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .text_container .text .for{
     color: rgba(74, 121, 244, 0.8);
     font-size: 15px;
     font-weight: 600;
 }
-.body_container .body_main .main_container .box_container .main_box .text_container .text .fiv{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .text_container .text .fiv{
     width: 100%;
     max-width: 450px;
     height: 30px;
@@ -271,7 +301,7 @@
     background: url('https://github.com/Yoonlang/web-programming/blob/master/html/assets/underDirection.png?raw=true') no-repeat 95% 50%;
     background-size: 15px 15px;
 }
-.body_container .body_main .main_container .box_container .main_box .text_container .text .fiv_btn{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .text_container .text .fiv_btn{
     width: 150px;
     height: 30px;
     margin-left: 30px;
@@ -285,11 +315,11 @@
     font-size: 18px;
     background: none;
 }
-.body_container .body_main .main_container .box_container .main_box .text_container .text .fiv_btn:hover{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .text_container .text .fiv_btn:hover{
     cursor: pointer;
     background-color: #cad3f8;
 }
-.body_container .body_main .main_container .box_container .main_box .under_container {
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .under_container {
     display:flex;
     position: relative;
     justify-content: center;
@@ -298,7 +328,7 @@
     height: 60px;
     background-color: #fff;
 }
-.body_container .body_main .main_container .box_container .main_box .under_container .side_container{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .under_container .side_container{
     display:flex;
     position: relative;
     justify-content: center;
@@ -311,16 +341,16 @@
     border-right: none;
     cursor: pointer;
 }
-.body_container .body_main .main_container .box_container .main_box .under_container .side_container .img_container{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .under_container .side_container .img_container{
     width: 30px;
     height: 30px;
 }
-.body_container .body_main .main_container .box_container .main_box .under_container .side_container .img_container img{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .under_container .side_container .img_container img{
     width:100%;
     height: 100%;
     object-fit: fill;
 }
-.body_container .body_main .main_container .box_container .main_box .under_container .side_container .text_container{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .under_container .side_container .text_container{
     display: flex;
     position: relative;
     align-items: center;
@@ -328,17 +358,17 @@
     width:50px;
     height: 30px;
 }
-.body_container .body_main .main_container .box_container .main_box .under_container .side_container .text_container span{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .under_container .side_container .text_container span{
     font-size: 16px;
     font-weight: 500;
     color: #555;
     white-space: nowrap;
 }
-.body_container .body_main .main_container .box_container .main_box .under_container .side_container .text_container span a {
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .under_container .side_container .text_container span a {
     text-decoration: none;
     color: #000;
 }
-.body_container .body_main .modal_container_fin{
+.body_container .body_main .main_body_yes .modal_container_fin{
     display: none;
     position: absolute;
     align-items: center;
@@ -348,7 +378,7 @@
     width:100%;
     height:100%;
 }
-.body_container .body_main .modal_container_fin form{
+.body_container .body_main .main_body_yes .modal_container_fin form{
     display:flex;
     position: relative;
     align-items: center;
@@ -356,7 +386,7 @@
     width:100%;
     height:100%;
 }
-.body_container .body_main .modal_container_fin .modal_box{
+.body_container .body_main .main_body_yes .modal_container_fin .modal_box{
     display: block;
     width: 350px;
     height: 400px;
@@ -367,15 +397,15 @@
     filter: invert(0);
     padding: 25px 30px 30px 30px;
 }
-.body_container .body_main .modal_container_fin .modal_box .item_container{
+.body_container .body_main .main_body_yes .modal_container_fin .modal_box .item_container{
     width: 100%;
     height: calc(100% - 60px);
 }
-.body_container .body_main .modal_container_fin .modal_box .item_container .item_span{
+.body_container .body_main .main_body_yes .modal_container_fin .modal_box .item_container .item_span{
     font-weight: 600;
     font-size: 16px;
 }
-.body_container .body_main .modal_container_fin .modal_box .item_container .select_date{
+.body_container .body_main .main_body_yes .modal_container_fin .modal_box .item_container .select_date{
     display:flex;
     position: relative;
     align-items: center;
@@ -389,14 +419,14 @@
     margin: 10px 0 20px 0;
     padding: 5px 0;
 }
-.body_container .body_main .modal_container_fin .modal_box .item_container .select_date input{
+.body_container .body_main .main_body_yes .modal_container_fin .modal_box .item_container .select_date input{
     width:50%;
     height:50%;
     outline:none;
     border:none;
     background: none;
 }
-.body_container .body_main .modal_container_fin .modal_box .item_container .input_pay{
+.body_container .body_main .main_body_yes .modal_container_fin .modal_box .item_container .input_pay{
     display: flex;
     position: relative;
     justify-content: center;
@@ -407,7 +437,7 @@
     box-shadow: 1px 4px 4px 0 rgba(0, 0, 0, 0.25);
     margin: 10px 0 20px 0;
 }
-.body_container .body_main .modal_container_fin .modal_box .item_container .input_pay input{
+.body_container .body_main .main_body_yes .modal_container_fin .modal_box .item_container .input_pay input{
     width:100%;
     height: 100%;
     background: none;
@@ -416,10 +446,10 @@
     padding: 10px;
     font-size: 16px;
 }
-.body_container .body_main .modal_container_fin .modal_box .item_container .file{
+.body_container .body_main .main_body_yes .modal_container_fin .modal_box .item_container .file{
     margin: 10px 0 20px 0;
 }
-.body_container .body_main .modal_container_fin .modal_box .btn_container{
+.body_container .body_main .main_body_yes .modal_container_fin .modal_box .btn_container{
     display: flex;
     position: relative;
     align-items: center;
@@ -427,7 +457,7 @@
     width: 100%;
     height: 60px;
 }
-.body_container .body_main .modal_container_fin .modal_box .btn_container button{
+.body_container .body_main .main_body_yes .modal_container_fin .modal_box .btn_container button{
     width: 200px;
     height: 50px;
     border-radius: 30px;
@@ -437,24 +467,24 @@
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
     cursor: pointer;
 }
-.body_container .body_main .modal_container_fin .modal_box .btn_container button span{
+.body_container .body_main .main_body_yes .modal_container_fin .modal_box .btn_container button span{
     color: #fff;
     font-size: 20px;
     font-weight: 600;
 }
-.body_container .body_main .modal_container_fin .modal_box .modal_cancel{
+.body_container .body_main .main_body_yes .modal_container_fin .modal_box .modal_cancel{
     position: absolute;
     top: 15px;
     right: 15px;
     width: 24px;
     height: 24px;
 }
-.body_container .body_main .modal_container_fin .modal_box .modal_cancel img{
+.body_container .body_main .main_body_yes .modal_container_fin .modal_box .modal_cancel img{
     width:100%;
     height:100%;
     object-fit: fill;
 }
-.body_container .body_main .modal_container_non_fin{
+.body_container .body_main .main_body_yes .modal_container_non_fin{
     display: none;
     position: absolute;
     align-items: center;
@@ -464,7 +494,7 @@
     width:100%;
     height:100%;
 }
-.body_container .body_main .modal_container_non_fin form{
+.body_container .body_main .main_body_yes .modal_container_non_fin form{
     display:flex;
     position: relative;
     align-items: center;
@@ -472,7 +502,7 @@
     width:100%;
     height:100%;
 }
-.body_container .body_main .modal_container_non_fin .modal_box{
+.body_container .body_main .main_body_yes .modal_container_non_fin .modal_box{
     display: block;
     width: 350px;
     height: 400px;
@@ -484,15 +514,15 @@
     padding: 25px 30px 30px 30px;
     z-index: 10;
 }
-.body_container .body_main .modal_container_non_fin .modal_box .item_container{
+.body_container .body_main .main_body_yes .modal_container_non_fin .modal_box .item_container{
     width: 100%;
     height: calc(100% - 60px);
 }
-.body_container .body_main .modal_container_non_fin .modal_box .item_container .item_span{
+.body_container .body_main .main_body_yes .modal_container_non_fin .modal_box .item_container .item_span{
     font-weight: 600;
     font-size: 16px;
 }
-.body_container .body_main .modal_container_non_fin .modal_box .item_container .stop_step{
+.body_container .body_main .main_body_yes .modal_container_non_fin .modal_box .item_container .stop_step{
     display:flex;
     position: relative;
     justify-content: space-around;
@@ -506,16 +536,16 @@
     margin: 10px 0 20px 0;
     padding: 5px 0;
 }
-.body_container .body_main .modal_container_non_fin .modal_box .item_container .stop_step .input_box{
+.body_container .body_main .main_body_yes .modal_container_non_fin .modal_box .item_container .stop_step .input_box{
     padding: 0 10px;
 }
-.body_container .body_main .modal_container_non_fin .modal_box .item_container .stop_step input{
+.body_container .body_main .main_body_yes .modal_container_non_fin .modal_box .item_container .stop_step input{
     outline:none;
     border:none;
     background: none;
     margin-right: 10px;
 }
-.body_container .body_main .modal_container_non_fin .modal_box .item_container .stop_why{
+.body_container .body_main .main_body_yes .modal_container_non_fin .modal_box .item_container .stop_why{
     display: flex;
     position: relative;
     justify-content: center;
@@ -526,7 +556,7 @@
     box-shadow: 1px 4px 4px 0 rgba(0, 0, 0, 0.25);
     margin: 20px 0;
 }
-.body_container .body_main .modal_container_non_fin .modal_box .item_container .stop_why input{
+.body_container .body_main .main_body_yes .modal_container_non_fin .modal_box .item_container .stop_why input{
     width:100%;
     height: 100%;
     background: none;
@@ -535,7 +565,7 @@
     padding: 10px;
     font-size: 16px;
 }
-.body_container .body_main .modal_container_non_fin .modal_box .btn_container{
+.body_container .body_main .main_body_yes .modal_container_non_fin .modal_box .btn_container{
     display: flex;
     position: relative;
     align-items: center;
@@ -543,7 +573,7 @@
     width: 100%;
     height: 60px;
 }
-.body_container .body_main .modal_container_non_fin .modal_box .btn_container button{
+.body_container .body_main .main_body_yes .modal_container_non_fin .modal_box .btn_container button{
     width: 200px;
     height: 50px;
     border-radius: 30px;
@@ -553,19 +583,19 @@
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
     cursor: pointer;
 }
-.body_container .body_main .modal_container_non_fin .modal_box .btn_container button span{
+.body_container .body_main .main_body_yes .modal_container_non_fin .modal_box .btn_container button span{
     color: #fff;
     font-size: 20px;
     font-weight: 600;
 }
-.body_container .body_main .modal_container_non_fin .modal_box .modal_cancel{
+.body_container .body_main .main_body_yes .modal_container_non_fin .modal_box .modal_cancel{
     position: absolute;
     top: 15px;
     right: 15px;
     width: 24px;
     height: 24px;
 }
-.body_container .body_main .modal_container_non_fin .modal_box .modal_cancel img{
+.body_container .body_main .main_body_yes .modal_container_non_fin .modal_box .modal_cancel img{
     width:100%;
     height:100%;
     object-fit: fill;
@@ -574,22 +604,22 @@
     .body_container .body_main .main_body_yes .main_container {
         width: 90%;
     }
-    .body_container .body_main .main_container .box_container .main_box .text_container .text .sec_fir{
+    .body_container .body_main .main_body_yes .main_container .box_container .main_box .text_container .text .sec_fir{
         font-size: 14px;
         white-space: nowrap;
     }
-    .body_container .body_main .main_container .box_container .main_box .under_container .side_container .text_container span{
+    .body_container .body_main .main_body_yes .main_container .box_container .main_box .under_container .side_container .text_container span{
         font-size: 14px;
     }
-    .body_container .body_main .main_container .box_container .main_box .slide_container .text{
+    .body_container .body_main .main_body_yes .main_container .box_container .main_box .slide_container .text{
         align-items: normal;
         flex-direction: column;
         padding: 5px 10px;
     }
-    .body_container .body_main .main_container{
+    .body_container .body_main .main_body_yes .main_container{
         width: 100%;
     }
-    .body_container .body_main .main_container .box_container{
+    .body_container .body_main .main_body_yes .main_container .box_container{
         padding: 5px;
     }
 }
