@@ -143,7 +143,7 @@
                     <span>소문난집 전화문의</span>
                 </div>
                 <div class="menu_lower">
-                    <span>010-6427-2777</span>
+                    <span>053-290-5959</span>
                 </div>
             </div>
             <a class="board_href" href="newTestBoard.jsp" target="_self">
