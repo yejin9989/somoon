@@ -154,7 +154,7 @@
 
 %>
 <div class="body_container">
-    <jsp:include page="/newTestHeader.jsp" flush="false" />
+    <jsp:include page="/newTestHeader.jsp?tab=InProgress" flush="false" />
     <div class="body_main">
         <div class="main_header">
             <div class="left_container">
