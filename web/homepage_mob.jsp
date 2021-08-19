@@ -104,12 +104,12 @@
             <a href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                 <span>인기 인테리어</span>
             </a>
-            <a>
+            <!-- a>
                 <span>시공 후기</span>
             </a>
             <a href="https://somoonhouse.com/banner1.jsp?id=3">
                 <span>파트너스</span>
-            </a>
+            </a -->
         </div>
     </div>
     <div class="container">
@@ -131,7 +131,7 @@
         </div>
         <div class="area_part">
             <div class="upper">
-                <span>공간별 인테리어가 궁금하다면?</span>
+                <span>인테리어 스타일이 궁금하다면?</span>
             </div>
             <div class="lower" id="slider_container">
                 <div class="slider" id="area_slider">
@@ -139,13 +139,13 @@
                         <div>
                             <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
                         </div>
-                        <span>거실</span>
+                        <span>모던</span>
                     </a>
                     <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                         <div>
                             <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
                         </div>
-                        <span>주방</span>
+                        <span>화이트</span>
                     </a>
                     <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                         <div>
@@ -349,8 +349,8 @@
         <div class="style">
             <div class="upper">
                 <div class="left">
-                    <span>내가 원하는 스타일, 어떤 업체에 맡길까?</span>
-                    <span class="sub">공사 항목부터 시공까지 자세히 알아보세요</span>
+                    <span>공사 금액부터 시공까지 자세히 알아보세요</span>
+                    <!-- span class="sub">공사 항목부터 시공까지 자세히 알아보세요</span -->
                 </div>
                 <a class="right" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                     <span>더보기</span>
@@ -384,7 +384,12 @@
                                 </div>
                                 <span>177</span>
                             </div>
-                            <span class="txt for">#북유럽 #모던 #화이트인테리어</span>
+                            <div class="txt fiv">
+                                <span>33평</span>
+                                <div class="sidebar"></div>
+                                <span>600만원</span>
+                            </div>
+                            <!-- span class="txt for">#북유럽 #모던 #화이트인테리어</span -->
                         </div>
                     </a>
                     <a href="https://github.com" class="style_container">
@@ -412,7 +417,12 @@
                                 </div>
                                 <span>177</span>
                             </div>
-                            <span class="txt for">#북유럽 #모던 #화이트인테리어</span>
+                            <div class="txt fiv">
+                                <span>33평</span>
+                                <div class="sidebar"></div>
+                                <span>600만원</span>
+                            </div>
+                            <!-- span class="txt for">#북유럽 #모던 #화이트인테리어</span -->
                         </div>
                     </a>
                     <a href="https://github.com" class="style_container">
@@ -440,7 +450,12 @@
                                 </div>
                                 <span>177</span>
                             </div>
-                            <span class="txt for">#북유럽 #모던 #화이트인테리어</span>
+                            <div class="txt fiv">
+                                <span>33평</span>
+                                <div class="sidebar"></div>
+                                <span>600만원</span>
+                            </div>
+                            <!-- span class="txt for">#북유럽 #모던 #화이트인테리어</span -->
                         </div>
                     </a>
                 </div>

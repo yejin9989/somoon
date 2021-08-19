@@ -673,6 +673,22 @@ body{
     font-size: 14px;
     font-weight: 550;
 }
+.body_container_PC .style .lower .style_container .text .fiv{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+.body_container_PC .style .lower .style_container .text .fiv span{
+    font-size: 18px;
+    font-weight: 700;
+    color:#000;
+}
+.body_container_PC .style .lower .style_container .text .fiv .sidebar{
+    width:2px;
+    height: 18px;
+    border-radius: 2px;
+    background-color: #e1e1e5;
+}
 .body_container_PC .free{
     width: 100%;
     height: 150px;
@@ -756,7 +772,6 @@ body{
     width: 100%;
     height: 100%;
     object-fit: fill;
-    filter: invert(1);
 }
 .body_container_PC .insta .title span{
     font-size: 20px;

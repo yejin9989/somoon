@@ -587,6 +587,23 @@ body{
     font-size: 14px;
     font-weight: 500;
 }
+
+.body_container_Mob .style .lower .style_container .text .fiv{
+    display: flex;
+    width: 100%;
+}
+.body_container_Mob .style .lower .style_container .text .fiv span{
+    font-size: 18px;
+    font-weight: 700;
+    color:#000;
+}
+.body_container_Mob .style .lower .style_container .text .fiv .sidebar{
+    width:2px;
+    height: 18px;
+    border-radius: 2px;
+    background-color: #e1e1e5;
+    margin: 0 15px;
+}
 .body_container_Mob .free{
     display: flex;
     position: relative;
