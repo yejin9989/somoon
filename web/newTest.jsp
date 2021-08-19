@@ -178,101 +178,136 @@
                 </div>
             </div>
         </div>
-        <div class="main_container">
-            <%for (int i = 0; i < datelist.size(); i++) {%>
-            <div class="date_container">
-                <span><%=datelist.get(i).getDate()%></span> <!--span>2021.06.02</span-->
+        <div class="main_body_none">
+            <div class="img_container">
+                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/search2.png?raw=true" />
             </div>
-            <%
-                for(String key : datelist.get(i).applies.keySet()){
-                    HashMap apply = datelist.get(i).applies.get(key);
-            %>
-            <div class="box_container">
-                <div class="main_box">
-                    <div class="text_container">
-                        <div class="slide_container" id="slide<%=apply.get("Number")%>">
-                            <%
-                                HashMap<String, String> hm = datelist.get(i).details.get(apply.get("Number"));
-                                for(String name : hm.keySet()){
-                            %>
+            <div class="text_container">
+                <span>진행중인 공사가 없습니다.</span>
+            </div>
+        </div>
+        <div class="main_body_yes">
+            <div class="main_container">
+                <%for (int i = 0; i < datelist.size(); i++) {%>
+                <div class="date_container">
+                    <span><%=datelist.get(i).getDate()%></span> <!--span>2021.06.02</span-->
+                </div>
+                <%
+                    for(String key : datelist.get(i).applies.keySet()){
+                        HashMap apply = datelist.get(i).applies.get(key);
+                %>
+                <div class="box_container">
+                    <div class="main_box">
+                        <div class="text_container">
+                            <div class="slide_container" id="slide<%=apply.get("Number")%>">
+                                <%
+                                    HashMap<String, String> hm = datelist.get(i).details.get(apply.get("Number"));
+                                    for(String name : hm.keySet()){
+                                %>
+                                <div class="text">
+                                    <span class="sec_fir"><%=name%>></span>
+                                    <span class="sec_sec"><%=hm.get(name)%></span><!--span class="sec_sec">정진성</span-->
+                                </div>
+                                <%}%>
+                            </div>
+                            <div class="slide_btn" id="slide_btn<%=apply.get("Number")%>" onclick="slide_detail(this)">
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow.png?raw=true" />
+                            </div>
+                            <div class="text"><span class="fir">주거 프라임</span></div>
                             <div class="text">
-                                <span class="sec_fir"><%=name%>></span>
-                                <span class="sec_sec"><%=hm.get(name)%></span><!--span class="sec_sec">정진성</span-->
+                                <span class="sec_fir">성함</span>
+                                <span class="sec_sec"><%=apply.get("Name")%></span><!--span class="sec_sec">정진성</span-->
                             </div>
-                            <%}%>
+                            <div class="text">
+                                <span class="sec_fir">주거</span>
+                                <span class="sec_sec"><%=apply.get("Building_type")%> <%=apply.get("Area")%>평</span><!--span class="sec_sec">아파트 32평</span-->
+                            </div>
+                            <div class="text">
+                                <span class="sec_fir">주소</span>
+                                <span class="thr"><%=apply.get("Address")%></span><!--span class="thr">대구 남구 어쩌구</span-->
+                            </div>
+                            <div class="text">
+                                <span class="sec_fir">예정일</span>
+                                <span class="thr"><%=apply.get("Due")%></span><!--span class="thr">1개월 이내</span-->
+                            </div>
+                            <div class="text">
+                                <span class="sec_fir">예산</span>
+                                <span class="thr"><%=apply.get("Budget")%></span><!--span class="thr">8천만원 이하</span-->
+                            </div>
+                            <div class="text">
+                                <span class="sec_fir">신청한 디자인</span>
+                                <a href="<%=apply.get("URL")%>"><span class="for"><%=apply.get("Title")%></span></a>
+                            </div>
+                            <div class="text">
+                                <span class="sec_fir">진행 단계</span>
+                                <select class="fiv" name="state<%=apply.get("Number")%>"  />
+                                <%for (int j = 0; j < assignedState.length; j++) {
+                                    String selected = "";
+                                    if(j+2 == Integer.parseInt(String.valueOf(apply.get("State"))))
+                                        selected = "selected";%>
+                                    <option value="<%=j+2%>" <%=selected%>><%=assignedState[j]%></option>
+                                <%}%>
+                                </select>
+                                <button class="fiv_btn" onclick="save(this)" id="stt<%=apply.get("Number")%>">저장</button>
+                            </div>
                         </div>
-                        <div class="slide_btn" id="slide_btn<%=apply.get("Number")%>" onclick="slide_detail(this)">
-                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow.png?raw=true" />
-                        </div>
-                        <div class="text"><span class="fir">주거 프라임</span></div>
-                        <div class="text">
-                            <span class="sec_fir">성함</span>
-                            <span class="sec_sec"><%=apply.get("Name")%></span><!--span class="sec_sec">정진성</span-->
-                        </div>
-                        <div class="text">
-                            <span class="sec_fir">주거</span>
-                            <span class="sec_sec"><%=apply.get("Building_type")%> <%=apply.get("Area")%>평</span><!--span class="sec_sec">아파트 32평</span-->
-                        </div>
-                        <div class="text">
-                            <span class="sec_fir">주소</span>
-                            <span class="thr"><%=apply.get("Address")%></span><!--span class="thr">대구 남구 어쩌구</span-->
-                        </div>
-                        <div class="text">
-                            <span class="sec_fir">예정일</span>
-                            <span class="thr"><%=apply.get("Due")%></span><!--span class="thr">1개월 이내</span-->
-                        </div>
-                        <div class="text">
-                            <span class="sec_fir">예산</span>
-                            <span class="thr"><%=apply.get("Budget")%></span><!--span class="thr">8천만원 이하</span-->
-                        </div>
-                        <div class="text">
-                            <span class="sec_fir">신청한 디자인</span>
-                            <a href="<%=apply.get("URL")%>"><span class="for"><%=apply.get("Title")%></span></a>
-                        </div>
-                        <div class="text">
-                            <span class="sec_fir">진행 단계</span>
-                            <select class="fiv" name="state<%=apply.get("Number")%>"  />
-                            <%for (int j = 0; j < assignedState.length; j++) {
-                                String selected = "";
-                                if(j+2 == Integer.parseInt(String.valueOf(apply.get("State"))))
-                                    selected = "selected";%>
-                                <option value="<%=j+2%>" <%=selected%>><%=assignedState[j]%></option>
-                            <%}%>
-                            </select>
-                            <button class="fiv_btn" onclick="save(this)" id="stt<%=apply.get("Number")%>">저장</button>
-                        </div>
+<<<<<<< HEAD
                     </div>
-                    <div class="under_container">
-                        <div class="side_container" onclick="calling()">
-                            <div class="img_container">
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/call.png?raw=true" />
+                    <div class="modal_container_fin" id="modal_container_fin<%=apply.get("Number")%>">
+                        <form method="post">
+                            <div class="modal_box">
+                                <div class="item_container">
+                                    <span class="item_span">계약 일시</span>
+                                    <div class="select_date">
+                                        <input type="date" required/>
+                                    </div>
+                                    <span class="item_span">계약금</span>
+                                    <div class="input_pay">
+                                        <input type="text" placeholder="계약금을 입력해주세요" required/>
+                                    </div>
+                                    <span class="item_span">계약서 업로드</span>
+                                    <input class="file" type="file" required/>
+                                </div>
+                                <div class="btn_container">
+                                    <button type="submit"><span>완 료</span></button>
+                                </div>
+                                <div class="modal_cancel" onclick="close_modal()">
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancel.png?raw=true" />
+                                </div>
                             </div>
-                            <div class="text_container">
-                                <span><a href="tel:<%=apply.get("Phone")%>">전화</a></span>
+=======
+                        <div class="under_container">
+                            <div class="side_container" onclick="calling()">
+                                <div class="img_container">
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/call.png?raw=true" />
+                                </div>
+                                <div class="text_container">
+                                    <span><a href="tel:<%=apply.get("Phone")%>">전화</a></span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="side_container" onclick="massage()">
-                            <div class="img_container">
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/talk.png?raw=true" />
+                            <div class="side_container" onclick="massage()">
+                                <div class="img_container">
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/talk.png?raw=true" />
+                                </div>
+                                <div class="text_container">
+                                    <span><a href="tel:<%=apply.get("Phone")%>">문자</a></span>
+                                </div>
                             </div>
-                            <div class="text_container">
-                                <span><a href="tel:<%=apply.get("Phone")%>">문자</a></span>
+                            <div class="side_container" id="com<%=apply.get("Number")%>" onclick="open_modal(this)">
+                                <div class="img_container">
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/check3.png?raw=true" />
+                                </div>
+                                <div class="text_container">
+                                    <span>완료</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="side_container" id="com<%=apply.get("Number")%>" onclick="open_modal(this)">
-                            <div class="img_container">
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/check3.png?raw=true" />
-                            </div>
-                            <div class="text_container">
-                                <span>완료</span>
-                            </div>
-                        </div>
-                        <div class="side_container" id="stop<%=apply.get("Number")%>" onclick="open_modal_non_fin(this)">
-                            <div class="img_container">
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancel2.png?raw=true" />
-                            </div>
-                            <div class="text_container">
-                                <span>중단</span>
+                            <div class="side_container" id="stop<%=apply.get("Number")%>" onclick="open_modal_non_fin(this)">
+                                <div class="img_container">
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancel2.png?raw=true" />
+                                </div>
+                                <div class="text_container">
+                                    <span>중단</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -298,6 +333,7 @@
                                     <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancel.png?raw=true" />
                                 </div>
                             </div>
+>>>>>>> 458b55713838ae2d224276e6a9e518fa6c0f479d
                         </form>
                     </div>
                     <div class="modal_container_non_fin" id="modal_container_non_fin<%=apply.get("Number")%>">
@@ -342,11 +378,11 @@
                         </form>
                     </div>
                 </div>
-            </div>
-            <%
+                <%
+                    }
                 }
-            }
-            %>
+                %>
+            </div>
         </div>
     </div>
     <jsp:include page="/newTestFooter.jsp" flush="false" />
@@ -409,6 +445,16 @@
         var modal = document.getElementById("modal_container_non_fin" + modalNum);
         modal.style.display = "none"
     }
+    $('document').ready(function(){
+        if('<%=datelist.size()%>' == '0'){
+            $('.main_body_none').css('display', 'flex');
+            $('.main_body_yes').css('display','none');
+        }
+        else{
+            $('.main_body_none').css('display', 'none');
+            $('.main_body_yes').css('display','flex');
+        }
+    })
 </script>
 </body>
 </html>
