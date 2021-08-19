@@ -26,7 +26,37 @@
     height: 100%;
     background-color: #f5f5f5;
 }
-.body_container .body_main .main_container{
+.body_container .body_main .main_body_none{
+    display:none;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: #f5f5f5;
+}
+.body_container .body_main .main_body_none .img_container{
+    width: 300px;
+    height: 300px;
+}
+.body_container .body_main .main_body_none .img_container img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    filter: invert(0.5);
+}
+.body_container .body_main .main_body_none .text_container{
+    text-align: center;
+    width: 100%;
+    height: 50px;
+}
+.body_container .body_main .main_body_none .text_container span{
+    font-size: 22px;
+    font-weight: 600;
+    color: #999;
+}
+.body_container .body_main .main_body_yes .main_container{
     display:flex;
     position: relative;
     justify-content: center;
@@ -37,7 +67,7 @@
     flex-wrap: wrap;
     margin-bottom: 15px;
 }
-.body_container .body_main .main_container .date_container{
+.body_container .body_main .main_body_yes .main_container .date_container{
     display:flex;
     position: relative;
     justify-content: center;
@@ -45,18 +75,18 @@
     width: 100%;
     height: 40px;
 }
-.body_container .body_main .main_container .date_container span{
+.body_container .body_main .main_body_yes .main_container .date_container span{
     font-size: 16px;
     font-weight: 520;
     color: #666666;
 }
-.body_container .body_main .main_container .box_container{
+.body_container .body_main .main_body_yes .main_container .box_container{
     max-width: 800px;
     width:100%;
     height:100%;
     padding: 20px;
 }
-.body_container .body_main .main_container .box_container .main_box{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box{
     display:flex;
     position: relative;
     flex-direction: column;
@@ -70,12 +100,12 @@
     overflow: hidden;
     border-bottom: none;
 }
-.body_container .body_main .main_container .box_container .main_box .text_container{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .text_container{
     width: 100%;
     height: 100%;
     background-color: #fcfcfc;
 }
-.body_container .body_main .main_container .box_container .main_box .text_container .text{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .text_container .text{
     display: flex;
     position: relative;
     align-items: center;
@@ -83,34 +113,34 @@
     height: calc(100% / 6);
     padding: 10px 15px;
 }
-.body_container .body_main .main_container .box_container .main_box .text_container .text a{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .text_container .text a{
     text-decoration: none;
 }
-.body_container .body_main .main_container .box_container .main_box .text_container .text span{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .text_container .text span{
     font-size: 14px;
 }
-.body_container .body_main .main_container .box_container .main_box .text_container .text .fir,
-.body_container .body_main .main_container .box_container .main_box .text_container .text .thr{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .text_container .text .fir,
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .text_container .text .thr{
     color:#555;
     font-weight: 600;
 }
-.body_container .body_main .main_container .box_container .main_box .text_container .text .for{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .text_container .text .for{
     color: rgba(74, 121, 244, 0.8);
     font-size: 15px;
     font-weight: 600;
 }
-.body_container .body_main .main_container .box_container .main_box .text_container .text .sec_fir{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .text_container .text .sec_fir{
     color: #253880;
     font-size: 16px;
     font-weight: 800;
     margin-right: 10px;
 }
-.body_container .body_main .main_container .box_container .main_box .text_container .text .sec_sec{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .text_container .text .sec_sec{
     color: #000;
     font-size: 15px;
     font-weight: 800;
 }
-.body_container .body_main .main_container .box_container .main_box .under_container {
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .under_container {
     display:flex;
     position: relative;
     justify-content: center;
@@ -119,14 +149,14 @@
     height: 60px;
     background-color: #fcfcfc;
 }
-.body_container .body_main .main_container .box_container .main_box .under_container a{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .under_container a{
     width: 100%;
     height: 100%;
     border: none;
     outline: none;
     text-decoration: none;
 }
-.body_container .body_main .main_container .box_container .main_box .under_container .side_container{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .under_container .side_container{
     display:flex;
     position: relative;
     justify-content: center;
@@ -140,17 +170,17 @@
     border-right: none;
     cursor: pointer;
 }
-.body_container .body_main .main_container .box_container .main_box .under_container .side_container .img_container{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .under_container .side_container .img_container{
     width: 30px;
     height: 30px;
 }
-.body_container .body_main .main_container .box_container .main_box .under_container .side_container .img_container img{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .under_container .side_container .img_container img{
     width:100%;
     height: 100%;
     object-fit: fill;
     filter: invert(0.2);
 }
-.body_container .body_main .main_container .box_container .main_box .under_container .side_container .text_container{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .under_container .side_container .text_container{
     display: flex;
     position: relative;
     align-items: center;
@@ -158,13 +188,13 @@
     width:50px;
     height: 50%;
 }
-.body_container .body_main .main_container .box_container .main_box .under_container .side_container .text_container span{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .under_container .side_container .text_container span{
     font-size: 16px;
     font-weight: 500;
     color: #555;
     white-space: nowrap;
 }
-.body_container .body_main .main_container .box_container .main_box .under_container .side_container .text_container_wait{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .under_container .side_container .text_container_wait{
     display: flex;
     position: relative;
     align-items: center;
@@ -172,7 +202,7 @@
     width: 100%;
     height: 50%;
 }
-.body_container .body_main .main_container .box_container .main_box .under_container .side_container .text_container_wait span{
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .under_container .side_container .text_container_wait span{
     font-size: 16px;
     font-weight: 500;
     color: #555;
@@ -194,10 +224,10 @@
         font-size: 14px;
         white-space: nowrap;
     }
-    .body_container .body_main .main_container{
+    .body_container .body_main .main_body_yes .main_container{
         width: 100%;
     }
-    .body_container .body_main .main_container .box_container{
+    .body_container .body_main .main_body_yes .main_container .box_container{
         padding: 5px;
     }
 }
