@@ -147,64 +147,74 @@
 <div class="body_container">
     <jsp:include page="/newTestHeader.jsp" flush="false" />
     <div class="body_main">
-        <div class="main_container">
-            <%
-                for (int i = 0; i < datelist.size(); i++) {
-            %>
-            <div class="date_container">
-                <span><%=datelist.get(i).getDate()%></span><!--span>2021.06.02</span-->
+        <div class="main_body_none">
+            <div class="img_container">
+                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/search2.png?raw=true" />
             </div>
-            <%
-                for(String key : datelist.get(i).applies.keySet()){
-                    HashMap apply = datelist.get(i).applies.get(key);
-            %>
-            <div class="box_container">
-                <div class="main_box">
-                    <div class="text_container">
-                        <div class="text"><span class="fir">주거 프라임</span></div>
-                        <div class="text">
-                            <span class="sec_sec"><%=apply.get("Building_type")%> <%=apply.get("Area")%>평</span><!--span class="sec_sec">아파트 32평</span-->
-                        </div>
-                        <div class="text">
-                            <span class="thr"><%=apply.get("Address")%></span><!--span class="thr">대구 남구 어쩌구</span-->
-                        </div>
-                        <div class="text">
-                            <span class="thr"><%=apply.get("Due")%> / <%=apply.get("Budget")%></span><!--span class="thr">1개월 이내 / 8천만원 이하</span-->
-                        </div>
-                        <div class="text">
-                            <a href="<%=apply.get("URL")%>>"><span class="for"><%=apply.get("Title")%></span></a><!--a href="#"><span class="for">없음</span></a-->
-                        </div>
-                    </div>
-                    <div class="under_container">
-                        <a href="#" target="_self" class="accept" id="<%=apply.get("Number")%>">
-                            <div class="side_container">
-                                <div class="img_container">
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/distri.png?raw=true" />
-                                </div>
-                                <div class="text_container distri">
-                                    <span>수락</span>
-                                </div>
-                                <div class="text_container_wait">
-                                    <span>남은 시간(<div style="display:inline-block" id="timer<%=apply.get("Number")%>"></div>)</span>
-                                </div>
+            <div class="text_container">
+                <span>신규 신청건이 없습니다.</span>
+            </div>
+        </div>
+        <div class="main_body_yes">
+            <div class="main_container">
+                <%
+                    for (int i = 0; i < datelist.size(); i++) {
+                %>
+                <div class="date_container">
+                    <span><%=datelist.get(i).getDate()%></span><!--span>2021.06.02</span-->
+                </div>
+                <%
+                    for(String key : datelist.get(i).applies.keySet()){
+                        HashMap apply = datelist.get(i).applies.get(key);
+                %>
+                <div class="box_container">
+                    <div class="main_box">
+                        <div class="text_container">
+                            <div class="text"><span class="fir">주거 프라임</span></div>
+                            <div class="text">
+                                <span class="sec_sec"><%=apply.get("Building_type")%> <%=apply.get("Area")%>평</span><!--span class="sec_sec">아파트 32평</span-->
                             </div>
-                        </a>
-                        <a href="#" target="_self" class="accept" id="<%=apply.get("Number")%>">
-                            <div class="side_container">
-                                <div class="img_container">
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancle.png?raw=true" />
-                                </div>
-                                <div class="text_container">
-                                    <span>거절</span>
-                                </div>
+                            <div class="text">
+                                <span class="thr"><%=apply.get("Address")%></span><!--span class="thr">대구 남구 어쩌구</span-->
                             </div>
-                        </a>
+                            <div class="text">
+                                <span class="thr"><%=apply.get("Due")%> / <%=apply.get("Budget")%></span><!--span class="thr">1개월 이내 / 8천만원 이하</span-->
+                            </div>
+                            <div class="text">
+                                <a href="<%=apply.get("URL")%>>"><span class="for"><%=apply.get("Title")%></span></a><!--a href="#"><span class="for">없음</span></a-->
+                            </div>
+                        </div>
+                        <div class="under_container">
+                            <a href="#" target="_self" class="accept" id="<%=apply.get("Number")%>">
+                                <div class="side_container">
+                                    <div class="img_container">
+                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/distri.png?raw=true" />
+                                    </div>
+                                    <div class="text_container distri">
+                                        <span>수락</span>
+                                    </div>
+                                    <div class="text_container_wait">
+                                        <span>남은 시간(<div style="display:inline-block" id="timer<%=apply.get("Number")%>"></div>)</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" target="_self" class="accept" id="<%=apply.get("Number")%>">
+                                <div class="side_container">
+                                    <div class="img_container">
+                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancle.png?raw=true" />
+                                    </div>
+                                    <div class="text_container">
+                                        <span>거절</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
+                <%}
+                }
+                %>
             </div>
-            <%}
-            }
-            %>
         </div>
     </div>
     <jsp:include page="/newTestFooter.jsp" flush="false" />
@@ -288,6 +298,16 @@
         }
 }
 %>
+    $('document').ready(function(){
+        if('<%=datelist.size()%>' == '0'){
+            $('.main_body_none').css('display', 'flex');
+            $('.main_body_yes').css('display','none');
+        }
+        else{
+            $('.main_body_none').css('display', 'none');
+            $('.main_body_yes').css('display','flex');
+        }
+    })
 </script>
 </body>
 </html>
