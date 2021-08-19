@@ -435,9 +435,11 @@
         modal.style.display = "none"
     }
     function open_modal_non_fin(obj){
+        /*
         modalNum = obj.id.slice(4);
         var modal = document.getElementById("modal_container_non_fin" + modalNum);
         modal.style.display = "flex"
+         */
         var id = obj.getAttribute("id").substring(4);
         location.href = "_newTest_company_change_state.jsp?companyNum="+"<%=s_id%>"+"&state=9&applyNum="+id;
     }
