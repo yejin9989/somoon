@@ -152,6 +152,14 @@
     font-weight: 600;
     color: #999;
 }
+.body_container .body_main .main_body_yes{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
 .body_container .body_main .main_body_yes .main_container{
     display:flex;
     position: relative;
@@ -386,15 +394,10 @@
     width:100%;
     height:100%;
 }
-<<<<<<< HEAD
-.body_container .body_main .modal_container_fin .modal_box{
+.body_container .body_main .main_body_yes .modal_container_fin .modal_box{
     display: flex;
     position: relative;
     flex-direction: column;
-=======
-.body_container .body_main .main_body_yes .modal_container_fin .modal_box{
-    display: block;
->>>>>>> 458b55713838ae2d224276e6a9e518fa6c0f479d
     width: 350px;
     height: 400px;
     background-color: #fff;
@@ -509,15 +512,10 @@
     width:100%;
     height:100%;
 }
-<<<<<<< HEAD
-.body_container .body_main .modal_container_non_fin .modal_box{
+.body_container .body_main .main_body_yes .modal_container_non_fin .modal_box{
     display: flex;
     position: relative;
     flex-direction: column;
-=======
-.body_container .body_main .main_body_yes .modal_container_non_fin .modal_box{
-    display: block;
->>>>>>> 458b55713838ae2d224276e6a9e518fa6c0f479d
     width: 350px;
     height: 400px;
     background-color: #fff;
@@ -550,12 +548,8 @@
     margin: 10px 0 20px 0;
     padding: 5px 0;
 }
-<<<<<<< HEAD
-.body_container .body_main .modal_container_non_fin .modal_box .item_container .stop_step .input_box{
-    width: 100%;
-=======
 .body_container .body_main .main_body_yes .modal_container_non_fin .modal_box .item_container .stop_step .input_box{
->>>>>>> 458b55713838ae2d224276e6a9e518fa6c0f479d
+    width: 100%;
     padding: 0 10px;
 }
 .body_container .body_main .main_body_yes .modal_container_non_fin .modal_box .item_container .stop_step input{
