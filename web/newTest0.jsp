@@ -156,13 +156,13 @@
             </div>
         </div>
         <div class="main_body_yes">
-            <div class="main_container">
+            <div-- class="main_container">
                 <%
                     for (int i = 0; i < datelist.size(); i++) {
                 %>
-                <div class="date_container">
-                    <span><%=datelist.get(i).getDate()%></span><!--span>2021.06.02</span-->
-                </div>
+                <!--div class="date_container">
+                    <span><%=datelist.get(i).getDate()%></span>
+                </div-->
                 <%
                     for(String key : datelist.get(i).applies.keySet()){
                         HashMap apply = datelist.get(i).applies.get(key);
