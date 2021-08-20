@@ -147,7 +147,7 @@
         }
         //업체전달 완료일 경우
         if(!item_state.equals("0")){
-            String status[] = {"신규(대기)", "신규(거절)", "진행중(상담예정)", "진행중(부재중)", "진행중(상담중)", "진행중(미팅예정)", "진행중(계약진행중)", "진행중(계약완료)", "완료(공사완료)", "중단(통화불가)", "중단(사유입력)", "상담취소"};
+            String status[] = {"신규(대기)", "신규(거절)", "진행중(상담예정)", "진행중(부재중)", "진행중(상담중)", "진행중(미팅예정)", "진행중(계약진행중)", "(계약완료)x", "완료(계약완료)", "중단(통화불가)", "중단(사유입력)", "상담취소"};
             String query2 = "select C.Name, A.State from COMPANY C, ASSIGNED A where A.Company_num = C.Id and Apply_num = ?";
 
             pstmt = conn.prepareStatement(query2);

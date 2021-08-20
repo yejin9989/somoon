@@ -30,7 +30,7 @@ String apply_num = request.getParameter("apply_num");
 String state = request.getParameter("state");
 
 //해당 신청내역 상태 업데이트하기
-query = "Update ASSIGNED set State = 7 where Apply_num = ?";
+query = "Update ASSIGNED set State = 11 where Apply_num = ? and State >= 2";
 pstmt = conn.prepareStatement(query);
 pstmt.setString(1, apply_num);
 pstmt.executeUpdate();
