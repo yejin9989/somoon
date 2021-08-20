@@ -50,7 +50,8 @@ if(pw != null){
 		session.setAttribute("name", customer_name);
 		
 		//개인페이지로
-		response.sendRedirect("https://somoonhouse.com/customer_request.jsp");
+		response.sendRedirect("customer_request.jsp");
+		//test
 	}
 	else{
 	}
