@@ -10,6 +10,10 @@
 String now = "_remodeling_form.jsp";
 */
 
+	//변수 설정
+	String[] state = {"회사수락대기","회사거절","상담대기","고객부재중","상담중","미팅 예정","계약진행중","(계약완료)X","계약완료","중단(고객 부재중)","중단", "상담취소"};
+	String[] building_types = {"아파트", "빌라", "주택", "원룸"};
+
 //DB에 사용 할 객체들 정의
 Connection conn = DBUtil.getMySQLConnection();
 PreparedStatement pstmt = null;
@@ -101,7 +105,6 @@ while(rs.next()){
 
 	//빌딩타입 한글로 변경
 	if(item_building != null && !item_building.equals("null")){
-		String[] building_types = {"아파트", "빌라", "주택", "원룸"};
 		item_building = building_types[Integer.parseInt(item_building)];
 	}
 	else {
@@ -243,24 +246,13 @@ input[type="checkbox"]:checked + label span {
 #addr, #phone{
 	font-size: 10px;
 }
-#stt0, #stt1, #stt2, #stt3{
+.stt{
 	color: white;
 	font-size: 9pt;
     border-radius: 5px;
     padding: 1px 4px;
-    width: fit-content
-}
-#stt0{
+    width: fit-content;
 	background: #476aba;
-}
-#stt1{
-	background: #ba4747;
-}
-#stt2{
-	background: #47ba47;
-}
-#stt3{
-	background: #8e47ba;
 }
 .submit_btn{
 	text-align:center;
@@ -381,6 +373,8 @@ select{
     			<div class="info"><span>처리상태</span>
     				<%
     				for(HashMap<String, String> hm : companylist){
+    					if(hm.get("state").equals("0") || hm.get("state").equals("1"))
+    						continue;
     				%>
     				<div class="company" id="<%out.print(hm.get("id"));%>">
     					<div class="state">
@@ -389,22 +383,7 @@ select{
     							%>
     						<div id="as">A/S <%out.print(hm.get("as_warranty"));%></div><%
     						}%>
-    						<%if(hm.get("state").equals("0"))
-    							{%><div id="stt0">상담 대기</div><%}%>
-    						<%if(hm.get("state").equals("1"))
-    							{%><div id="stt0">상담 중</div><%}%>
-    						<%if(hm.get("state").equals("2"))
-    							{%><div id="stt1">상담 완료</div><%}%>
-    						<%if(hm.get("state").equals("3"))
-    							{%><div id="stt1">통화 불가</div><%}%>
-    						<%if(hm.get("state").equals("4"))
-    							{%><div id="stt2">계약 대기 중</div><%}%>
-    						<%if(hm.get("state").equals("5"))
-    							{%><div id="stt2">계약 성사</div><%}%>
-    						<%if(hm.get("state").equals("6"))
-    							{%><div id="stt3">계약 불발</div><%}%>
-    						<%if(hm.get("state").equals("7"))
-    							{%><div id="stt3">상담 취소</div><%}%>
+							<div class="stt"><%=state[Integer.parseInt(hm.get("state"))]%></div>
     					</div>
     					<div id="addr"><%=hm.get("address")%></div>
     					<div id="phone"><%=hm.get("phone")%></div>
