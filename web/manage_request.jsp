@@ -354,7 +354,7 @@
                                         %>
                                     </div>
                                     <div class="info">
-                                        <textarea id="textarea<%out.print(hm.get("number"));%>" style="display:none;">https://somoonhouse.com/customer_login.jsp?customer_num=<%out.print(hm.get("number"));%></textarea>
+                                        <textarea id="textarea<%out.print(hm.get("number"));%>">https://somoonhouse.com/customer_login.jsp?customer_num=<%out.print(hm.get("number"));%></textarea>
                                         <input class="copy_button" type="button" value="고객페이지 링크복사" onclick="myFunction('textarea<%out.print(hm.get("number"));%>')">
                                     </div>
                                 </div>
