@@ -53,8 +53,7 @@
     white-space: nowrap;
 }
 .body_container_header .body_header .upper_header .right_header{
-    /*display: flex;*/
-    display: none;
+    display: flex;
     position: relative;
     align-items: center;
     justify-content: space-between;
