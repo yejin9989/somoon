@@ -76,8 +76,7 @@
         <jsp:include page="navbar.jsp" flush="false"/>
     </navbar>
     <div id="main">
-        <h2>제목</h2>
-        <p>이곳에 내용을 작성하세요</p>
+        <div
     </div>
     <footer>
         <jsp:include page="newTestFooter.jsp" flush="false"/>
