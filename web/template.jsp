@@ -80,7 +80,7 @@
         <p>이곳에 내용을 작성하세요</p>
     </div>
     <footer>
-        <jsp:include page="footer.jsp" flush="false"/>
+        <jsp:include page="newTestFooter.jsp" flush="false"/>
     </footer>
 </div>
 <%
