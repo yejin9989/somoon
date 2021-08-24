@@ -27,8 +27,8 @@
     background-color: #f5f5f5;
 }
 .body_container .body_main .main_header{
-    /*display:flex;*/
-    display:none;
+    display:flex;
+    /*display:none;*/
     position: relative;
     justify-content: center;
     align-items: center;
