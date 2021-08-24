@@ -162,7 +162,7 @@
                             <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/magnifying.png?raw=true" />
                         </div>
                         <div class="text_container">
-                            <input class="text_input" type="text" name="aborted" placeholder="전화, 고객명, 주소" />
+                            <input class="text_input" type="text" name="aborted" placeholder="전화, 고객명, 주소" value="<%=aborted_search%>" />
                             <input type="submit" style="display:none;" />
                         </div>
                     </div>
