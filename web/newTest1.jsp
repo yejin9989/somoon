@@ -19,10 +19,8 @@
     ResultSet rs = null;
     PreparedStatement pstmt = null;
     String query = "";
-    String done_search = "";
-    done_search = request.getParameter("done")+"";
+    String done_search = request.getParameter("done")+"";
     if(done_search == "null" || done_search.equals("null")) done_search = "";
-    out.print(done_search);
 
     //변수설정
     String[] buildingType = {"아파트", "빌라", "주택", "원룸"};
