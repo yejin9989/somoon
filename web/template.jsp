@@ -36,7 +36,6 @@
     String param = request.getParameter("param");
 
     //필요한 변수 선언
-    int i, j;
     String mylog = "";
 
     //DB 관련 객체 선언
