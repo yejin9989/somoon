@@ -68,50 +68,8 @@
     <title>소문난집</title>
 </head>
 <body>
+<jsp:include page="/homepage_mob_header.jsp" flush="false" />
 <div class="body_container_Mob">
-    <div class="header">
-        <div class="header_upper">
-            <div class="menu" onclick="open_slide()">
-                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/menu5.png?raw=true" />
-            </div>
-            <div class="logo">
-                <a href="https://somoonhouse.com/">
-                    <img src="https://somoonhouse.com/otherimg/index/somunlogo.jpg" />
-                </a>
-            </div>
-            <a class="instaA" href="https://www.instagram.com/somoonhouse/">
-                <div class="insta">
-                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/instagram2.png?raw=true" />
-                </div>
-            </a>
-        </div>
-        <div class="underline"></div>
-        <div class="header_lower">
-            <div id="area_header" onclick="area_click()">
-                <span id="area_span">지역별 인테리어</span>
-                <div id="area_div">
-                    <a href="https://somoonhouse.com/newindex.jsp?Daegu=141"><span>중구</span></a>
-                    <a href="https://somoonhouse.com/newindex.jsp?Daegu=142"><span>동구</span></a>
-                    <a href="https://somoonhouse.com/newindex.jsp?Daegu=143"><span>서구</span></a>
-                    <a href="https://somoonhouse.com/newindex.jsp?Daegu=144"><span>남구</span></a>
-                    <a href="https://somoonhouse.com/newindex.jsp?Daegu=145"><span>북구</span></a>
-                    <a href="https://somoonhouse.com/newindex.jsp?Daegu=146"><span>수성구</span></a>
-                    <a href="https://somoonhouse.com/newindex.jsp?Daegu=147"><span>달서구</span></a>
-                    <a href="https://somoonhouse.com/newindex.jsp?Daegu=148"><span>달성군</span></a>
-                    <a href="https://somoonhouse.com/newindex.jsp?Daegu=15"><span>경북</span></a>
-                </div>
-            </div>
-            <a href="https://somoonhouse.com/newindex.jsp?theme_id=1">
-                <span>인기 인테리어</span>
-            </a>
-            <!-- a>
-                <span>시공 후기</span>
-            </a>
-            <a href="https://somoonhouse.com/banner1.jsp?id=3">
-                <span>파트너스</span>
-            </a -->
-        </div>
-    </div>
     <div class="container">
         <div class="banner">
             <div class="img_container">
