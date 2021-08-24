@@ -55,9 +55,6 @@
     query += " WHERE A.Company_num = " + s_id;
     query += " And R.Number = A.Apply_num";
     query += " And A.State = 8"; // 탭에따라 이 쿼리 바꾸어주기
-    if(done_search != null && done_search != "") {
-        query += " And (R.Name Like \"%" + done_search + "%\" OR R.Phone Like \"%" + done_search + "%\" OR R.Address Like \"%" + done_search + "%\")";
-    }
     pstmt = conn.prepareStatement(query);
     rs = pstmt.executeQuery();
 
@@ -77,6 +74,9 @@
         query += " And R.Number = A.Apply_num";
         query += " And A.State = 8";
         query += " And Date(Apply_date) = '" + rs.getString("Apply_date") + "'";
+        if(done_search != null && done_search != "") {
+            query += " And (R.Name Like \"%" + done_search + "%\" OR R.Phone Like \"%" + done_search + "%\" OR R.Address Like \"%" + done_search + "%\")";
+        }
         pstmt = conn.prepareStatement(query);
         ResultSet rs2 = pstmt.executeQuery();
 

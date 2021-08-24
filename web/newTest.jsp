@@ -58,15 +58,6 @@
     query = "SELECT distinct Apply_date FROM ASSIGNED A, REMODELING_APPLY R";
     query += " WHERE A.Company_num = " + s_id;
     query += " And R.Number = A.Apply_num";
-    if(ing_filter.equals("100")) {
-        query += " And A.State >= 2 And A.State < 8"; // 탭에따라 이 쿼리 바꾸어주기
-    }
-    else {
-        query += " And A.State = " + ing_filter;
-    }
-    if(ing_search != null && ing_search != "") {
-        query += " And (R.Name Like \"%" + ing_search + "%\" OR R.Phone Like \"%" + ing_search + "%\" OR R.Address Like \"%" + ing_search + "%\")";
-    }
     pstmt = conn.prepareStatement(query);
     rs = pstmt.executeQuery();
 
@@ -86,6 +77,15 @@
         query += " And R.Number = A.Apply_num";
         query += " And A.State >= 2 And A.State < 8";
         query += " And Date(Apply_date) = '" + rs.getString("Apply_date") + "'";
+        if(ing_filter.equals("100")) {
+            query += " And A.State >= 2 And A.State < 8"; // 탭에따라 이 쿼리 바꾸어주기
+        }
+        else {
+            query += " And A.State = " + ing_filter;
+        }
+        if(ing_search != null && ing_search != "") {
+            query += " And (R.Name Like \"%" + ing_search + "%\" OR R.Phone Like \"%" + ing_search + "%\" OR R.Address Like \"%" + ing_search + "%\")";
+        }
         pstmt = conn.prepareStatement(query);
         ResultSet rs2 = pstmt.executeQuery();
 
