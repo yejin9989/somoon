@@ -20,7 +20,10 @@
     ResultSet rs = null;
     PreparedStatement pstmt = null;
     String query = "";
-    String sql = "";
+    String ing_search = request.getParameter("ing")+"";
+    if(ing_search == null || ing_search.equals("null")) ing_search = "";
+    String ing_filter = request.getParameter("filter")+"";
+    if(ing_filter == null || ing_filter.equals("null")) ing_filter = "100";
 
     //변수설정
     String[] buildingType = {"아파트", "빌라", "주택", "원룸"};
@@ -55,7 +58,15 @@
     query = "SELECT distinct Apply_date FROM ASSIGNED A, REMODELING_APPLY R";
     query += " WHERE A.Company_num = " + s_id;
     query += " And R.Number = A.Apply_num";
-    query += " And A.State >= 2 And A.State < 8"; // 탭에따라 이 쿼리 바꾸어주기
+    if(ing_filter.equals("100")) {
+        query += " And A.State >= 2 And A.State < 8"; // 탭에따라 이 쿼리 바꾸어주기
+    }
+    else {
+        query += " And A.State = " + ing_filter;
+    }
+    if(ing_search != null && ing_search != "") {
+        query += " And (R.Name Like \"%" + ing_search + "%\" OR R.Phone Like \"%" + ing_search + "%\" OR R.Address Like \"%" + ing_search + "%\")";
+    }
     pstmt = conn.prepareStatement(query);
     rs = pstmt.executeQuery();
 
@@ -157,26 +168,44 @@
     <jsp:include page="/newTestHeader.jsp?tab=InProgress" flush="false" />
     <div class="body_main">
         <div class="main_header">
-            <div class="left_container">
-                <div class="left_box">
-                    <div class="img_container">
-                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/magnifying.png?raw=true" />
-                    </div>
-                    <div class="text_container">
-                        <input class="text_input" type="text" placeholder="전화, 고객명, 주소" />
-                    </div>
-                </div>
-            </div>
-            <div class="right_container">
-                <div class="right_box">
-                    <div class="text_container">
-                        <span>전체보기</span>
-                    </div>
-                    <div class="img_container">
-                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/underDirection.png?raw=true" />
+            <form id="form_ing" name="form_ing" method="POST" action="newTest.jsp">
+                <div class="left_container">
+                    <div class="left_box">
+                        <div class="img_container">
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/magnifying.png?raw=true" />
+                        </div>
+                        <div class="text_container">
+                            <input class="text_input" type="text" name="ing" placeholder="전화, 고객명, 주소" value="<%=ing_search%>" />
+
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div class="right_container">
+<%--                    <div class="right_box">--%>
+<%--                        <div class="text_container">--%>
+<%--                            <span>전체보기</span>--%>
+<%--                        </div>--%>
+<%--                        <div class="img_container">--%>
+<%--                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/underDirection.png?raw=true" />--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+                    <div class="right_box">
+                        <div class="text_container">
+                            <select class="filter" type="text" name="filter">
+                                <option value="100" selected>전체보기</option>
+                                <%for (int j = 0; j < assignedState.length; j++) {
+                                    String selected = "";
+                                     if(j+2 == Integer.parseInt(ing_filter))
+                                         selected = "selected";
+                                %>
+                                <option value="<%=j+2%>" <%=selected%>><%=assignedState[j]%></option>
+                                <%}%>
+                            </select>
+                        </div>
+                    </div>
+                    <input type="submit" value="검색" />
+                </div>
+            </form>
         </div>
         <div class="main_body_none">
             <div class="img_container">
@@ -240,7 +269,7 @@
                             </div>
                             <div class="text">
                                 <span class="sec_fir">진행 단계</span>
-                                <select class="fiv" name="state<%=apply.get("Number")%>"  />
+                                <select class="fiv" name="state<%=apply.get("Number")%>">
                                 <%for (int j = 0; j < assignedState.length; j++) {
                                     String selected = "";
                                     if(j+2 == Integer.parseInt(String.valueOf(apply.get("State"))))
@@ -431,6 +460,8 @@
             $('.main_body_yes').css('display','flex');
         }
     })
+    // 새로고침 시 get parameter 초기화
+    history.replaceState({}, null, location.pathname);
 </script>
 </body>
 </html>
