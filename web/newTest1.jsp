@@ -19,7 +19,10 @@
     ResultSet rs = null;
     PreparedStatement pstmt = null;
     String query = "";
-    String sql = "";
+    String done_search = "";
+    done_search = request.getParameter("done")+"";
+    if(done_search == "null" || done_search.equals("null")) done_search = "";
+    out.print(done_search);
 
     //변수설정
     String[] buildingType = {"아파트", "빌라", "주택", "원룸"};
@@ -54,6 +57,9 @@
     query += " WHERE A.Company_num = " + s_id;
     query += " And R.Number = A.Apply_num";
     query += " And A.State = 8"; // 탭에따라 이 쿼리 바꾸어주기
+    if(done_search != null && done_search != "") {
+        query += " And (R.Name Like \"%" + done_search + "%\" OR R.Phone Like \"%" + done_search + "%\" OR R.Address Like \"%" + done_search + "%\")";
+    }
     pstmt = conn.prepareStatement(query);
     rs = pstmt.executeQuery();
 
@@ -149,20 +155,21 @@
 <div class="body_container">
     <jsp:include page="/newTestHeader.jsp" flush="false" />
     <div class="body_main">
-        <!--
         <div class="main_header">
             <div class="left_container">
-                <div class="left_box">
-                    <div class="img_container">
-                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/magnifying.png?raw=true" />
+                <form id="form_done" name="form_done" method="POST" action="newTest1.jsp">
+                    <div class="left_box">
+                        <div class="img_container">
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/magnifying.png?raw=true" />
+                        </div>
+                        <div class="text_container">
+                            <input class="text_input" type="text" name="done" placeholder="전화, 고객명, 주소" />
+                            <input type="submit" style="display:none;" />
+                        </div>
                     </div>
-                    <div class="text_container">
-                        <input class="text_input" type="text" placeholder="전화, 고객명, 주소" />
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
-        -->
         <div class="main_body_none">
             <div class="img_container">
                 <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/search2.png?raw=true" />
@@ -224,6 +231,8 @@
             $('.main_body_yes').css('display','flex');
         }
     })
+    // 새로고침 시 get parameter 초기화
+    history.replaceState({}, null, location.pathname);
 </script>
 </body>
 </html>
