@@ -7,7 +7,6 @@
 <% response.setContentType("text/html; charset=utf-8"); %>
 <%
     //필요한 변수 선언
-    int i, j;
     String mylog = "";
 
     //파라미터 가져오기
@@ -21,15 +20,19 @@
     String sql = "";
 
     //DB 가져오기 예시
-    /*query = "select * from KEYWORD";
+    query = "select * from COUPON";
     pstmt = conn.prepareStatement(query);
     rs = pstmt.executeQuery();
-    HashMap<String, String> keyword = new HashMap<String, String>();
+    HashMap<String, HashMap<String, String>> coupon = new HashMap<String, HashMap<String, String>>();
     while(rs.next()) {
-        keyword.put(rs.getString("Id"), rs.getString("Name"));
+        HashMap<String, String> hm = new HashMap<String, String>();
+        hm.put("name", rs.getString("Name"));
+        hm.put("period", rs.getString("Period"));
+        hm.put("quantity", rs.getString("Quantity"));
+        hm.put("price", rs.getString("Price"));
+        coupon.put(rs.getString("Id"), hm);
     }
     pstmt.close();
-     */
 %>
 <!DOCTYPE html>
 <html>
@@ -56,25 +59,30 @@
         </div>
         <div class="main_container">
             <div class="partner_container">
+                <%
+                for(String key: coupon.keySet()){
+                    HashMap item = coupon.get(key);
+        %>
                 <div class="goods_container">
                     <div class="goods_left_box">
                         <div class="text_area">
-                            <span class="upper_text">주거 프라임</span>
+                            <span class="upper_text"><%=item.get("name")%></span><!--span class="upper_text">주거 프라임</span-->
                         </div>
                         <div class="text_area">
-                            <span class="mid_text">기간 <span class="mid_date_text">2021.06.01 ~ 2021.06.30</span></span>
+                            <span class="mid_text">기간 <span class="mid_date_text"><%=item.get("period")%>일</span></span>
                         </div>
                         <div class="text_area">
-                            <span class="lower_text">배분 5건</span>
+                            <span class="lower_text">배분 <%=item.get("quantity")%>건</span>
                         </div>
                     </div>
                     <div class="goods_mid_box">
-                        <span>34,500원</span>
+                        <span><%=item.get("price")%>원</span>
                     </div>
                     <div class="goods_right_box" onclick="open_modal()">
                         <span>신청하기</span>
                     </div>
                 </div>
+                <%}%>
             </div>
         </div>
         <div class="modal_container" id="modal_container">
