@@ -62,92 +62,16 @@
 <head>
     <link rel="SHORTCUT ICON" href="https://somoonhouse.com/img/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/homepage_pc.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/homepage.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/homepage_header.css"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <title>소문난집</title>
 </head>
 <body>
-    <jsp:include page="/homepage_pc_header.jsp" flush="false" />
-    <div class="body_container_PC">
-        <div class="header_pc">
-            <div class="header_left">
-                <a href="https://somoonhouse.com/" target="_self">
-                    <img src="https://somoonhouse.com/otherimg/index/somunlogo.jpg" />
-                </a>
-            </div>
-            <div class="header_right">
-                <div id="area_header_pc">
-                    <span>지역별 인테리어</span>
-                    <div id="area_div_pc">
-                        <a href="https://somoonhouse.com/newindex.jsp?Daegu=141"><span>중구</span></a>
-                        <a href="https://somoonhouse.com/newindex.jsp?Daegu=142"><span>동구</span></a>
-                        <a href="https://somoonhouse.com/newindex.jsp?Daegu=143"><span>서구</span></a>
-                        <a href="https://somoonhouse.com/newindex.jsp?Daegu=144"><span>남구</span></a>
-                        <a href="https://somoonhouse.com/newindex.jsp?Daegu=145"><span>북구</span></a>
-                        <a href="https://somoonhouse.com/newindex.jsp?Daegu=146"><span>수성구</span></a>
-                        <a href="https://somoonhouse.com/newindex.jsp?Daegu=147"><span>달서구</span></a>
-                        <a href="https://somoonhouse.com/newindex.jsp?Daegu=148"><span>달성군</span></a>
-                        <a href="https://somoonhouse.com/newindex.jsp?Daegu=15"><span>경북</span></a>
-                    </div>
-                </div>
-                <div class="sidebar"></div>
-                <a href="https://somoonhouse.com/newindex.jsp?theme_id=1">
-                    <span>인기 인테리어</span>
-                </a>
-                <!-- div class="sidebar"></div>
-                <a>
-                    <span>시공 후기</span>
-                </a>
-                <div class="sidebar"></div>
-                <a>
-                    <span>파트너스</span>
-                </a -->
-            </div>
-        </div>
-        <div class="header_mob">
-            <div class="header_upper">
-                <div class="menu" onclick="open_slide()">
-                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/menu5.png?raw=true" />
-                </div>
-                <div class="logo">
-                    <a href="https://somoonhouse.com/">
-                        <img src="https://somoonhouse.com/otherimg/index/somunlogo.jpg" />
-                    </a>
-                </div>
-                <a class="instaA" href="https://www.instagram.com/somoonhouse/">
-                    <div class="insta">
-                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/instagram2.png?raw=true" />
-                    </div>
-                </a>
-            </div>
-            <div class="underline"></div>
-            <div class="header_lower">
-                <div id="area_header" onclick="area_click()">
-                    <span id="area_span">지역별 인테리어</span>
-                    <div id="area_div">
-                        <a href="https://somoonhouse.com/newindex.jsp?Daegu=141"><span>중구</span></a>
-                        <a href="https://somoonhouse.com/newindex.jsp?Daegu=142"><span>동구</span></a>
-                        <a href="https://somoonhouse.com/newindex.jsp?Daegu=143"><span>서구</span></a>
-                        <a href="https://somoonhouse.com/newindex.jsp?Daegu=144"><span>남구</span></a>
-                        <a href="https://somoonhouse.com/newindex.jsp?Daegu=145"><span>북구</span></a>
-                        <a href="https://somoonhouse.com/newindex.jsp?Daegu=146"><span>수성구</span></a>
-                        <a href="https://somoonhouse.com/newindex.jsp?Daegu=147"><span>달서구</span></a>
-                        <a href="https://somoonhouse.com/newindex.jsp?Daegu=148"><span>달성군</span></a>
-                        <a href="https://somoonhouse.com/newindex.jsp?Daegu=15"><span>경북</span></a>
-                    </div>
-                </div>
-                <a href="https://somoonhouse.com/newindex.jsp?theme_id=1">
-                    <span>인기 인테리어</span>
-                </a>
-                <!-- a>
-                    <span>시공 후기</span>
-                </a>
-                <a href="https://somoonhouse.com/banner1.jsp?id=3">
-                    <span>파트너스</span>
-                </a -->
-            </div>
-        </div>
+    <div class="body_container">
+        <jsp:include page="/homepage_pc_header.jsp" flush="false" />
+        <jsp:include page="/homepage_mob_header.jsp" flush="false" />
         <div class="container">
             <div class="banner">
                 <div class="img_container">
@@ -155,16 +79,16 @@
                         <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow.png?raw=true" />
                     </div>
                     <div class="bannerBox">
-                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat1.jpg?raw=true" />
+                        <img class="bannerImg" src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat1.jpg?raw=true" />
                     </div>
                     <div class="bannerBox">
-                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat2.jpg?raw=true" />
+                        <img class="bannerImg" src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat2.jpg?raw=true" />
                     </div>
                     <div class="bannerBox">
-                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat3.jpg?raw=true" />
+                        <img class="bannerImg" src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat3.jpg?raw=true" />
                     </div>
                     <div class="bannerBox">
-                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat4.jpg?raw=true" />
+                        <img class="bannerImg" src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat4.jpg?raw=true" />
                     </div>
                     <div class="turn after" onclick="bannerRight()">
                         <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow.png?raw=true" />
@@ -172,7 +96,6 @@
                 </div>
             </div>
         </div>
-        <div class="underline"></div>
         <div class="container">
             <div class="area_part">
                 <div class="upper">
@@ -180,42 +103,54 @@
                 </div>
                 <div class="lower" id="slider_container">
                     <div class="slider" id="area_slider">
-                        <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1" >
-                            <div>
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
-                            </div>
-                            <span>모던</span>
-                        </a>
-                        <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
-                            <div>
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
-                            </div>
-                            <span>화이트</span>
-                        </a>
-                        <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
-                            <div>
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
-                            </div>
-                            <span>침실</span>
-                        </a>
-                        <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
-                            <div>
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
-                            </div>
-                            <span>화장실</span>
-                        </a>
-                        <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
-                            <div>
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
-                            </div>
-                            <span>현관</span>
-                        </a>
-                        <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
-                            <div>
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
-                            </div>
-                            <span>복도</span>
-                        </a>
+                        <div class="part">
+                            <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1" >
+                                <div>
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
+                                </div>
+                                <span>모던</span>
+                            </a>
+                        </div>
+                        <div class="part">
+                            <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
+                                <div>
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
+                                </div>
+                                <span>화이트</span>
+                            </a>
+                        </div>
+                        <div class="part">
+                            <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
+                                <div>
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
+                                </div>
+                                <span>침실</span>
+                            </a>
+                        </div>
+                        <div class="part">
+                            <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
+                                <div>
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
+                                </div>
+                                <span>화장실</span>
+                            </a>
+                        </div>
+                        <div class="part">
+                            <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
+                                <div>
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
+                                </div>
+                                <span>현관</span>
+                            </a>
+                        </div>
+                        <div class="part">
+                            <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
+                                <div>
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
+                                </div>
+                                <span>복도</span>
+                            </a>
+                        </div>
                         <!--a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                             <div>
                                 <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
@@ -287,7 +222,7 @@
                     <span>소문난집 이용후기</span>
                 </div>
                 <div class="lower">
-                    <div class="boxes">
+                    <div class="boxes" id="reviewBox">
                         <div class="reviewBox sub">
                             <div class="top">
                                 <div class="star">
@@ -564,7 +499,7 @@
             <div class="style">
                 <div class="upper">
                     <div class="left">
-                        <span>공사 항목부터 시공까지 자세히 알아보세요</span>
+                        <span>금액별 확인하기</span>
                     </div>
                     <div class="right">
                         <a href="https://somoonhouse.com/newindex.jsp?theme_id=1">
@@ -740,32 +675,16 @@
     gtag('config', 'G-PC15JG6KGN');
 </script>
 <script>
-    const open_slide = () => {
-        var back = document.getElementById("menu_slide_container");
-        if(back.style.display === "flex"){
-            back.style.display = "none";
+    // banner 이미지 정보가 로드 되고나면 진행해야함.
+    var bannerMinHeight = 987654321;
+    var bannerImgs = document.getElementsByClassName("bannerImg");
+    for(var i = 0; i < bannerImgs.length; i++){
+        if(bannerImgs[i].naturalHeight < bannerMinHeight){
+            bannerMinHeight = bannerImgs[i].naturalHeight;
         }
-        else{
-            back.style.display = "flex";
-        }
-        var menu_slide = document.getElementById("menu_slide");
-        if(menu_slide.style.transform !== "translateX(270px)"){
-            menu_slide.style.transform = "translateX(270px)";
-        }
+
     }
-    const close_slide = () => {
-        var back = document.getElementById("menu_slide_container");
-        if(back.style.display === "flex"){
-            back.style.display = "none";
-        }
-        else{
-            back.style.display = "flex";
-        }
-        var menu_slide = document.getElementById("menu_slide");
-        if(menu_slide.style.transform === "translateX(270px)"){
-            menu_slide.style.transform = "translateX(0)";
-        }
-    }
+
     const abs = (a) => {
         return a >= 0 ? a : -1 * a;
     }
@@ -796,14 +715,7 @@
         }
         block[i].style.width = gdiffNum + "px";
     }
-    var area_header = document.getElementById("area_header_pc");
-    var area_div = document.getElementById("area_div_pc");
-    area_header.onmouseenter = () => {
-        area_div.style.display = "flex";
-    }
-    area_header.onmouseleave = () => {
-        area_div.style.display = "none";
-    }
+
     /*
     var sliderContainer = document.getElementById("slider_container");
     var slider = document.getElementById("area_slider");
@@ -842,47 +754,147 @@
 
     var boxes = document.getElementsByClassName("reviewBox");
     var mainBoxNum;
-    var pos = -478;
-    const goLeft = () => {
-        if(pos === (-478 + 660)){
-            pos -= boxes.length * 660;
-        }
-        pos += 660;
+    var PCPos = -478;
+    var MobPos = -415;
+    if(matchMedia("(max-width: 700px)").matches){
         for(var i = 0; i < boxes.length; i++){
             if(boxes[i].className === "reviewBox main"){
                 mainBoxNum = i;
             }
-            boxes[i].style.transform = "translateX(" + pos + "px)";
+            boxes[i].style.transform = "translateX(" + MobPos + "px)";
         }
-        boxes[mainBoxNum].className = "reviewBox sub";
-        if(mainBoxNum === 0){
-            mainBoxNum = boxes.length - 1;
+    }
+    else{
+        for(var i = 0; i < boxes.length; i++){
+            if(boxes[i].className === "reviewBox main"){
+                mainBoxNum = i;
+            }
+            boxes[i].style.transform = "translateX(" + PCPos + "px)";
+        }
+    }
+    const goLeft = () => {
+        if(matchMedia("(max-width: 700px)").matches){
+            if(MobPos === (-415 + 400)){
+                MobPos -= boxes.length * 400;
+            }
+            MobPos += 400;
+            if(PCPos === (-478 + 660)){
+                PCPos -= boxes.length * 660;
+            }
+            PCPos += 660;
+            for(var i = 0; i < boxes.length; i++){
+                if(boxes[i].className === "reviewBox main"){
+                    mainBoxNum = i;
+                }
+                boxes[i].style.transform = "translateX(" + MobPos + "px)";
+            }
+            boxes[mainBoxNum].className = "reviewBox sub";
+            if(mainBoxNum === 0){
+                mainBoxNum = boxes.length - 1;
+            }
+            else{
+                mainBoxNum--;
+            }
+            boxes[mainBoxNum].className = "reviewBox main";
         }
         else{
-            mainBoxNum--;
+            if(MobPos === (-415 + 400)){
+                MobPos -= boxes.length * 400;
+            }
+            MobPos += 400;
+            if(PCPos === (-478 + 660)){
+                PCPos -= boxes.length * 660;
+            }
+            PCPos += 660;
+            for(var i = 0; i < boxes.length; i++){
+                if(boxes[i].className === "reviewBox main"){
+                    mainBoxNum = i;
+                }
+                boxes[i].style.transform = "translateX(" + PCPos + "px)";
+            }
+            boxes[mainBoxNum].className = "reviewBox sub";
+            if(mainBoxNum === 0){
+                mainBoxNum = boxes.length - 1;
+            }
+            else{
+                mainBoxNum--;
+            }
+            boxes[mainBoxNum].className = "reviewBox main";
         }
-        boxes[mainBoxNum].className = "reviewBox main";
     }
     const goRight = () => {
-        if(pos === (-478 - (boxes.length - 2) * 660)){
-            pos += boxes.length * 660;
-        }
-        pos -= 660;
-        for(var i = 0; i < boxes.length; i++){
-            if(boxes[i].className === "reviewBox main"){
-                mainBoxNum = i;
+        if(matchMedia("(max-width: 700px)").matches){
+            if(MobPos === (-415 - (boxes.length - 2) * 400)){
+                MobPos += boxes.length * 400;
             }
-            boxes[i].style.transform = "translateX(" + pos + "px)";
-        }
-        boxes[mainBoxNum].className = "reviewBox sub";
-        if(mainBoxNum === boxes.length - 1){
-            mainBoxNum = 0;
+            MobPos -= 400;
+            if(PCPos === (-478 - (boxes.length - 2) * 660)){
+                PCPos += boxes.length * 660;
+            }
+            PCPos -= 660;
+            for(var i = 0; i < boxes.length; i++){
+                if(boxes[i].className === "reviewBox main"){
+                    mainBoxNum = i;
+                }
+                boxes[i].style.transform = "translateX(" + MobPos + "px)";
+            }
+            boxes[mainBoxNum].className = "reviewBox sub";
+            if(mainBoxNum === boxes.length - 1){
+                mainBoxNum = 0;
+            }
+            else{
+                mainBoxNum++;
+            }
+            boxes[mainBoxNum].className = "reviewBox main";
         }
         else{
-            mainBoxNum++;
+            if(MobPos === (-415 - (boxes.length - 2) * 400)){
+                MobPos += boxes.length * 400;
+            }
+            MobPos -= 400;
+            if(PCPos === (-478 - (boxes.length - 2) * 660)){
+                PCPos += boxes.length * 660;
+            }
+            PCPos -= 660;
+            for(var i = 0; i < boxes.length; i++){
+                if(boxes[i].className === "reviewBox main"){
+                    mainBoxNum = i;
+                }
+                boxes[i].style.transform = "translateX(" + PCPos + "px)";
+            }
+            boxes[mainBoxNum].className = "reviewBox sub";
+            if(mainBoxNum === boxes.length - 1){
+                mainBoxNum = 0;
+            }
+            else{
+                mainBoxNum++;
+            }
+            boxes[mainBoxNum].className = "reviewBox main";
         }
-        boxes[mainBoxNum].className = "reviewBox main";
     }
+
+    var reviewBox = document.getElementById("reviewBox");
+    var isSmall = reviewBox.clientWidth >= 684 ? false : true;
+    const observer = new ResizeObserver((prop) => {
+        if(prop[0].contentRect.width >= 684){
+            if(isSmall){
+                isSmall = false;
+                for(var i = 0; i < boxes.length; i++){
+                    boxes[i].style.transform = "translateX(" + PCPos + "px)";
+                }
+            }
+        }
+        else{
+            if(!isSmall){
+                isSmall = true;
+                for(var i = 0; i < boxes.length; i++){
+                    boxes[i].style.transform = "translateX(" + MobPos + "px)";
+                }
+            }
+        }
+    })
+    observer.observe(reviewBox);
+
     var banner = document.getElementsByClassName("bannerBox");
     var bannerPos = 0;
     const bannerLeft = () => {
