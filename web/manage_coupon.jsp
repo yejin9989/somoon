@@ -49,9 +49,8 @@
     query = "select * from ISSUED_COUPON I, COMPANY C where I.Company_id = C.Id";
     pstmt = conn.prepareStatement(query);
     rs = pstmt.executeQuery();
-    HashMap<String, String> keyword = new HashMap<String, String>();
+    HashMap<String, HashMap<String, String>> company = new HashMap<String, HashMap<String, String>>();
     while(rs.next()) {
-        keyword.put(rs.getString("Id"), rs.getString("Name"));
     }
     pstmt.close();
 %>
@@ -77,23 +76,6 @@
     <div id="main">
         <div class="sub_header">회사관리</div>
         <div class="main_container">
-            <div class="company_container">
-                <div class="company_img">
-                    <img src="https://somoonhouse.com/sources/anonymous.jpg">
-                </div>
-                <div class="company_desc">
-                    <div class="company_name">JYP 인테리어</div>
-                    <div class="company_info">
-                        <div class="company_last_coupon">잔여 <span>3</span>건</div>
-                        <div class="company_last_consulting">미상담 <span>1</span>건</div>
-                    </div>
-                    <div class="company_last_login">last login 21.08.24</div>
-                </div>
-                <div class="company_button_area">
-                    <div class="company_button_issue">건수 부여</div>
-                    <div class="company_button_text">미상담 문자 전송</div>
-                </div>
-            </div>
             <div class="company_container">
                 <div class="company_img">
                     <img src="https://somoonhouse.com/sources/anonymous.jpg">
