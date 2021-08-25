@@ -204,8 +204,8 @@
                                 <%}%>
                             </select>
                         </div>
+                        <input type="submit" value="검색" />
                     </div>
-                    <input type="submit" value="검색" />
                 </div>
             </form>
         </div>
