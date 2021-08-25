@@ -60,55 +60,78 @@
 <head>
     <link rel="SHORTCUT ICON" href="https://somoonhouse.com/img/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/newindex.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/manage_coupon.css"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <title>소문난집</title>
 </head>
 <body>
 <div id="container">
-    <div>
+    <!-- div>
         <span id="topBtn">top</span>
         <span id="applyBtn"><div>상담<br>신청</div></span>
-    </div>
+    </div -->
     <navbar>
         <jsp:include page="navbar.jsp" flush="false"/>
     </navbar>
     <div id="main">
-        <div class="sub_header">회사관리</div>
+        <div class="couponHeader">회사관리</div>
         <div class="main_container">
             <div class="company_container">
-                <div class="company_img">
-                    <img src="https://somoonhouse.com/sources/anonymous.jpg">
-                </div>
-                <div class="company_desc">
-                    <div class="company_name">JYP 인테리어</div>
-                    <div class="company_info">
-                        <div class="company_last_coupon">잔여 <span>3</span>건</div>
-                        <div class="company_last_consulting">미상담 <span>1</span>건</div>
+                <div class="company_left">
+                    <div class="company_img">
+                        <img src="https://somoonhouse.com/sources/anonymous.jpg">
                     </div>
-                    <div class="company_last_login">last login 21.08.24</div>
+                    <div class="company_desc">
+                        <div class="company_name">JYP 인테리어</div>
+                        <div class="company_info">
+                            <div class="company_last_coupon">잔여 <span>3</span>건</div>
+                            <div class="company_last_consulting">미상담 <span>1</span>건</div>
+                        </div>
+                        <div class="company_last_login">last login 21.08.24</div>
+                    </div>
                 </div>
                 <div class="company_button_area">
-                    <div class="company_button_issue">건수 부여</div>
-                    <div class="company_button_text">미상담 문자 전송</div>
+                    <button class="company_button_issue">건수 부여</button>
+                    <button class="company_button_text">미상담 문자 전송</button>
                 </div>
             </div>
             <div class="company_container">
-                <div class="company_img">
-                    <img src="https://somoonhouse.com/sources/anonymous.jpg">
-                </div>
-                <div class="company_desc">
-                    <div class="company_name">JYP 인테리어</div>
-                    <div class="company_info">
-                        <div class="company_last_coupon">잔여 <span>3</span>건</div>
-                        <div class="company_last_consulting">미상담 <span>1</span>건</div>
+                <div class="company_left">
+                    <div class="company_img">
+                        <img src="https://somoonhouse.com/sources/anonymous.jpg">
                     </div>
-                    <div class="company_last_login">last login 21.08.24</div>
+                    <div class="company_desc">
+                        <div class="company_name">JYP 인테리어</div>
+                        <div class="company_info">
+                            <div class="company_last_coupon">잔여 <span>3</span>건</div>
+                            <div class="company_last_consulting">미상담 <span>1</span>건</div>
+                        </div>
+                        <div class="company_last_login">last login 21.08.24</div>
+                    </div>
                 </div>
                 <div class="company_button_area">
-                    <div class="company_button_issue">건수 부여</div>
-                    <div class="company_button_text">미상담 문자 전송</div>
+                    <button class="company_button_issue">건수 부여</button>
+                    <button class="company_button_text">미상담 문자 전송</button>
+                </div>
+            </div>
+            <div class="company_container">
+                <div class="company_left">
+                    <div class="company_img">
+                        <img src="https://somoonhouse.com/sources/anonymous.jpg">
+                    </div>
+                    <div class="company_desc">
+                        <div class="company_name">JYP 인테리어</div>
+                        <div class="company_info">
+                            <div class="company_last_coupon">잔여 <span>3</span>건</div>
+                            <div class="company_last_consulting">미상담 <span>1</span>건</div>
+                        </div>
+                        <div class="company_last_login">last login 21.08.24</div>
+                    </div>
+                </div>
+                <div class="company_button_area">
+                    <button class="company_button_issue">건수 부여</button>
+                    <button class="company_button_text">미상담 문자 전송</button>
                 </div>
             </div>
         </div>
