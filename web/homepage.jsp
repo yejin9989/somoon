@@ -103,63 +103,49 @@
                 </div>
                 <div class="lower" id="slider_container">
                     <div class="slider" id="area_slider">
-                        <div class="part">
-                            <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1" >
-                                <div>
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
-                                </div>
-                                <span>모던</span>
-                            </a>
-                        </div>
-                        <div class="part">
-                            <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
-                                <div>
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
-                                </div>
-                                <span>화이트</span>
-                            </a>
-                        </div>
-                        <div class="part">
-                            <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
-                                <div>
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
-                                </div>
-                                <span>침실</span>
-                            </a>
-                        </div>
-                        <div class="part">
-                            <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
-                                <div>
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
-                                </div>
-                                <span>화장실</span>
-                            </a>
-                        </div>
-                        <div class="part">
-                            <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
-                                <div>
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
-                                </div>
-                                <span>현관</span>
-                            </a>
-                        </div>
-                        <div class="part">
-                            <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
-                                <div>
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
-                                </div>
-                                <span>복도</span>
-                            </a>
-                        </div>
-                        <!--a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
+                        <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
+                            <div>
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
+                            </div>
+                            <span>모던</span>
+                        </a>
+                        <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
+                            <div>
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
+                            </div>
+                            <span>화이트</span>
+                        </a>
+                        <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
+                            <div>
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
+                            </div>
+                            <span>침실</span>
+                        </a>
+                        <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
+                            <div>
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
+                            </div>
+                            <span>화장실</span>
+                        </a>
+                        <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
+                            <div>
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
+                            </div>
+                            <span>현관</span>
+                        </a>
+                        <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
+                            <div>
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
+                            </div>
+                            <span>복도</span>
+                        </a>
+                        <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                             <div>
                                 <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
                             </div>
                             <span>베란다</span>
                         </a>
-                        <div class="area"></div -->
                     </div>
-                    <!-- div class="blur"></div -->
                 </div>
             </div>
             <div class="best_inter">
@@ -499,115 +485,116 @@
             <div class="style">
                 <div class="upper">
                     <div class="left">
-                        <span>금액별 확인하기</span>
+                        <span>공사 금액부터 시공까지 자세히 알아보세요</span>
+                        <!-- span class="sub">공사 항목부터 시공까지 자세히 알아보세요</span -->
                     </div>
-                    <div class="right">
-                        <a href="https://somoonhouse.com/newindex.jsp?theme_id=1">
-                            <span>더보기</span>
-                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow.png?raw=true" />
-                        </a>
-                    </div>
+                    <a class="right" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
+                        <span>더보기</span>
+                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow.png?raw=true" />
+                    </a>
                 </div>
                 <div class="lower">
-                    <a class="style_container" href="https://github.com/">
-                        <div class="box">
-                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog5.jpg?raw=true" />
-                        </div>
-                        <div class="text">
-                            <div class="txt fir">
-                                <span class="fir_title">아이비디자인</span>
-                                <div class="fir_box">
-                                    <span class="fir_sub">A/S 1년</span>
-                                </div>
-                                <div class="fir_box">
-                                    <span class="fir_sub">응답우수</span>
-                                </div>
+                    <div class="slider">
+                        <a href="https://github.com" class="style_container">
+                            <div class="box">
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog5.jpg?raw=true" />
                             </div>
-                            <span class="txt sec">서변동 서변월드메르디앙</span>
-                            <div class="txt thr">
-                                <div class="thr_img">
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star.png?raw=true" />
+                            <div class="text">
+                                <div class="txt fir">
+                                    <span class="fir_title">아이비디자인</span>
+                                    <div class="fir_box">
+                                        <span class="fir_sub">A/S 1년</span>
+                                    </div>
+                                    <div class="fir_box">
+                                        <span class="fir_sub">응답우수</span>
+                                    </div>
                                 </div>
-                                <span>4.8</span>
-                                <div class="thr_img">
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart2.png?raw=true" />
+                                <span class="txt sec">서변동 서변월드메르디앙</span>
+                                <div class="txt thr">
+                                    <div class="thr_img">
+                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star.png?raw=true" />
+                                    </div>
+                                    <span>4.8</span>
+                                    <div class="thr_img">
+                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart2.png?raw=true" />
+                                    </div>
+                                    <span>177</span>
                                 </div>
-                                <span>177</span>
+                                <div class="txt fiv">
+                                    <span>33평</span>
+                                    <div class="sidebar"></div>
+                                    <span>600만원</span>
+                                </div>
+                                <!-- span class="txt for">#북유럽 #모던 #화이트인테리어</span -->
                             </div>
-                            <div class="txt fiv">
-                                <span>33평</span>
-                                <div class="sidebar"></div>
-                                <span>600만원</span>
+                        </a>
+                        <a href="https://github.com" class="style_container">
+                            <div class="box">
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog5.jpg?raw=true" />
                             </div>
-                            <!-- span class="txt for">#북유럽 #모던 #화이트인테리어</span -->
-                        </div>
-                    </a>
-                    <a class="style_container" href="https://github.com/">
-                        <div class="box">
-                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog5.jpg?raw=true" />
-                        </div>
-                        <div class="text">
-                            <div class="txt fir">
-                                <span class="fir_title">아이비디자인</span>
-                                <div class="fir_box">
-                                    <span class="fir_sub">A/S 1년</span>
+                            <div class="text">
+                                <div class="txt fir">
+                                    <span class="fir_title">아이비디자인</span>
+                                    <div class="fir_box">
+                                        <span class="fir_sub">A/S 1년</span>
+                                    </div>
+                                    <div class="fir_box">
+                                        <span class="fir_sub">응답우수</span>
+                                    </div>
                                 </div>
-                                <div class="fir_box">
-                                    <span class="fir_sub">응답우수</span>
+                                <span class="txt sec">서변동 서변월드메르디앙</span>
+                                <div class="txt thr">
+                                    <div class="thr_img">
+                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star.png?raw=true" />
+                                    </div>
+                                    <span>4.8</span>
+                                    <div class="thr_img">
+                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart2.png?raw=true" />
+                                    </div>
+                                    <span>177</span>
                                 </div>
+                                <div class="txt fiv">
+                                    <span>33평</span>
+                                    <div class="sidebar"></div>
+                                    <span>600만원</span>
+                                </div>
+                                <!-- span class="txt for">#북유럽 #모던 #화이트인테리어</span -->
                             </div>
-                            <span class="txt sec">서변동 서변월드메르디앙</span>
-                            <div class="txt thr">
-                                <div class="thr_img">
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star.png?raw=true" />
-                                </div>
-                                <span>4.8</span>
-                                <div class="thr_img">
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart2.png?raw=true" />
-                                </div>
-                                <span>177</span>
+                        </a>
+                        <a href="https://github.com" class="style_container">
+                            <div class="box">
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog5.jpg?raw=true" />
                             </div>
-                            <div class="txt fiv">
-                                <span>33평</span>
-                                <div class="sidebar"></div>
-                                <span>600만원</span>
-                            </div>
-                            <!-- span class="txt for">#북유럽 #모던 #화이트인테리어</span -->
-                        </div>
-                    </a>
-                    <a class="style_container" href="https://github.com/">
-                        <div class="box">
-                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog5.jpg?raw=true" />
-                        </div>
-                        <div class="text">
-                            <div class="txt fir">
-                                <span class="fir_title">아이비디자인</span>
-                                <div class="fir_box">
-                                    <span class="fir_sub">A/S 1년</span>
+                            <div class="text">
+                                <div class="txt fir">
+                                    <span class="fir_title">아이비디자인</span>
+                                    <div class="fir_box">
+                                        <span class="fir_sub">A/S 1년</span>
+                                    </div>
+                                    <div class="fir_box">
+                                        <span class="fir_sub">응답우수</span>
+                                    </div>
                                 </div>
-                                <div class="fir_box">
-                                    <span class="fir_sub">응답우수</span>
+                                <span class="txt sec">서변동 서변월드메르디앙</span>
+                                <div class="txt thr">
+                                    <div class="thr_img">
+                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star.png?raw=true" />
+                                    </div>
+                                    <span>4.8</span>
+                                    <div class="thr_img">
+                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart2.png?raw=true" />
+                                    </div>
+                                    <span>177</span>
                                 </div>
-                            </div>
-                            <span class="txt sec">서변동 서변월드메르디앙</span>
-                            <div class="txt thr">
-                                <div class="thr_img">
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star.png?raw=true" />
+                                <div class="txt fiv">
+                                    <span>33평</span>
+                                    <div class="sidebar"></div>
+                                    <span>600만원</span>
                                 </div>
-                                <span>4.8</span>
-                                <div class="thr_img">
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart2.png?raw=true" />
-                                </div>
-                                <span>177</span>
+                                <!-- span class="txt for">#북유럽 #모던 #화이트인테리어</span -->
                             </div>
-                            <div class="txt fiv">
-                                <span>33평</span>
-                                <div class="sidebar"></div>
-                                <span>600만원</span>
-                            </div>
-                            <!-- span class="txt for">#북유럽 #모던 #화이트인테리어</span -->
-                        </div>
-                    </a>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -635,7 +622,7 @@
                     </div>
                     <span>somoonhouse_official</span>
                 </div>
-                <span class="sub">소문난집 인스타그램에서 다양한 이벤트와 소식을 확인하세요.</span>
+                <span class="sub">소문난집 인스타그램에서 <br>다양한 이벤트와 소식을 확인하세요.</span>
                 <div class="follow">
                     <div class="follow_img">
                         <img
