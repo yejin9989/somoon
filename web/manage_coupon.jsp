@@ -58,6 +58,14 @@
     HashMap<String, HashMap<String, String>> company_info = new HashMap<String, HashMap<String, String>>();
     while(rs.next()) {
         HashMap<String, String> hm = new HashMap<String, String>();
+        String query2 = "SELECT SUM(Stock) FROM ISSUED_COUPON where Company_id = " + rs.getString("c.Id")
+                + " group by Company_id";
+        PreparedStatement pstmt2 = conn.prepareStatement(query2);
+        ResultSet rs2 = pstmt2.executeQuery();
+        hm.put("stock", "0");
+        while(rs2.next()){
+            hm.put("stock", rs2.getString("SUM(Stock)"));
+        }
         hm.put("modify_date", rs.getString("c.Modify_date"));
         hm.put("profile_img", rs.getString("c.Profile_img"));
         hm.put("name", rs.getString("c.Name"));
@@ -120,7 +128,7 @@
                     <div class="company_desc">
                         <div class="company_name"><%=company.get("name")%></div>
                         <div class="company_info">
-                            <div class="company_last_coupon">잔여 <span><%=company.get("cnt")%></span>건</div>
+                            <div class="company_last_coupon">잔여 <span><%=company.get("stock")%></span>건</div>
                             <div class="company_last_consulting">미상담 <span><%=company.get("cnt")%></span>건</div>
                         </div>
                         <div class="company_last_login">last login <%=company.get("modify_date")%></div>
