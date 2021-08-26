@@ -56,12 +56,15 @@
     pstmt = conn.prepareStatement(query);
     rs = pstmt.executeQuery();
     HashMap<String, HashMap<String, String>> company_info = new HashMap<String, HashMap<String, String>>();
+    String query2;
+    PreparedStatement pstmt2 = null;
+    ResultSet rs2 = null;
     while(rs.next()) {
         HashMap<String, String> hm = new HashMap<String, String>();
-        String query2 = "SELECT SUM(Stock) FROM ISSUED_COUPON where Company_id = " + rs.getString("c.Id")
+        query2 = "SELECT SUM(Stock) FROM ISSUED_COUPON where Company_id = " + rs.getString("c.Id")
                 + " group by Company_id";
-        PreparedStatement pstmt2 = conn.prepareStatement(query2);
-        ResultSet rs2 = pstmt2.executeQuery();
+        pstmt2 = conn.prepareStatement(query2);
+        rs2 = pstmt2.executeQuery();
         hm.put("stock", "0");
         while(rs2.next()){
             hm.put("stock", rs2.getString("SUM(Stock)"));
@@ -74,6 +77,8 @@
         hm.put("phone", rs.getString("c.Phone"));
         company_info.put(rs.getString("c.Id"),hm);
     }
+    pstmt2.close();
+    rs2.close();
     //회사 별 쿠폰정보 불러오기
     HashMap<String, HashMap<String, String>> company_coupon = new HashMap<String, HashMap<String, String>>();
     for(String company_id : company_info.keySet()){
@@ -92,6 +97,19 @@
         }
     }
 
+    //쿠폰정보 불러오기
+    query = "select * from COUPON";
+    pstmt = conn.prepareStatement(query);
+    rs = pstmt.executeQuery();
+    HashMap<String, HashMap<String, String>> coupon = new HashMap<>();
+    while(rs.next()){
+        HashMap<String, String> hm = new HashMap<String, String>();
+        hm.put("name", rs.getString("Name"));
+        hm.put("period", rs.getString("Period"));
+        hm.put("quantity", rs.getString("Quantity"));
+        hm.put("price", rs.getString("Price"));
+        coupon.put(rs.getString("Id"), hm);
+    }
     pstmt.close();
 %>
 <!DOCTYPE html>
@@ -115,112 +133,58 @@
     </navbar>
     <div id="main">
         <div class="couponHeader">회사관리</div>
-        <div class="main_container">
             <%
-            for (String id : company_info.keySet()){
-                HashMap company = company_info.get(id);
+                for (String id : company_info.keySet()){
+                    HashMap company = company_info.get(id);
             %>
-            <div class="company_container">
-                <div class="company_left">
-                    <div class="company_img">
-                        <img src="<%=company.get("profile_img")%>">
-                    </div>
-                    <div class="company_desc">
-                        <div class="company_name"><%=company.get("name")%></div>
-                        <div class="company_info">
-                            <div class="company_last_coupon">잔여 <span><%=company.get("stock")%></span>건</div>
-                            <div class="company_last_consulting">미상담 <span><%=company.get("cnt")%></span>건</div>
-                        </div>
-                        <div class="company_last_login">last login <%=company.get("modify_date")%></div>
-                    </div>
-                </div>
-                <div class="company_button_area">
-                    <button class="company_button_issue">건수 부여</button>
-                    <button class="company_button_text">미상담 문자 전송</button>
-                    <!--button class="company_button_state"><%=company_state[Integer.parseInt(company.get("state")+"")]%></button-->
-                </div>
-            </div>
-            <%}%>
             <div class="one_container">
                 <div class="company_container">
                     <div class="company_left">
                         <div class="company_img">
-                            <img src="https://somoonhouse.com/sources/anonymous.jpg">
+                            <img src="<%=company.get("profile_img")%>">
                         </div>
                         <div class="company_desc">
-                            <div class="company_name">JYP 인테리어</div>
+                            <div class="company_name"><%=company.get("name")%></div>
                             <div class="company_info">
-                                <div class="company_last_coupon">잔여 <span>3</span>건</div>
-                                <div class="company_last_consulting">미상담 <span>1</span>건</div>
+                                <div class="company_last_coupon">잔여 <span><%=company.get("stock")%></span>건</div>
+                                <div class="company_last_consulting">미상담 <span><%=company.get("cnt")%></span>건</div>
                             </div>
-                            <div class="company_last_login">last login 21.08.24</div>
+                            <div class="company_last_login">last login <%=company.get("modify_date")%></div>
                         </div>
                     </div>
                     <div class="company_button_area">
-                        <button class="company_button_issue" id="issue1" onclick="clickPartner(this)">건수 부여</button>
-                        <button class="company_button_text">미상담 문자 전송</button>
+                        <button class="company_button_issue" id="issue<%=id%>" onclick="clickPartner(this)">건수 부여</button>
+                        <button class="company_button_text" onclick="alertMsgDone('<%=company.get("name")%>', '<%=company.get("phone")%>', '<%=company.get("cnt")%>');">미상담 문자 전송</button>
+                        <!--button class="company_button_state"><%=company_state[Integer.parseInt(company.get("state")+"")]%></button-->
                     </div>
                 </div>
-                <div class="partner_container" id="partner1">
+                <div class="partner_container" id="partner<%=id%>">
+                    <%for(String key : coupon.keySet()){
+                        HashMap item = coupon.get(key);
+                    %>
                     <div class="goods_container">
                         <div class="goods_left_box">
                             <div class="text_area">
-                                <span class="upper_text"></span><!--span class="upper_text">주거 프라임</span-->
+                                <span class="upper_text"><%=item.get("name")%></span><!--span class="upper_text">주거 프라임</span-->
                             </div>
                             <div class="text_area">
-                                <span class="mid_text">기간 <span class="mid_date_text">일</span></span>
+                                <span class="mid_text">기간 <span class="mid_date_text"><%=item.get("period")%>일</span></span>
                             </div>
                             <div class="text_area">
-                                <span class="lower_text">배분 건</span>
+                                <span class="lower_text">배분 <%=item.get("quantity")%>건</span>
                             </div>
                         </div>
                         <div class="goods_mid_box">
-                            <span>원</span>
+                            <span><%=item.get("price")%>원</span>
                         </div>
                         <div class="goods_right_box">
                             <span>발급하기</span>
                         </div>
                     </div>
-                    <div class="goods_container">
-                        <div class="goods_left_box">
-                            <div class="text_area">
-                                <span class="upper_text"></span><!--span class="upper_text">주거 프라임</span-->
-                            </div>
-                            <div class="text_area">
-                                <span class="mid_text">기간 <span class="mid_date_text">일</span></span>
-                            </div>
-                            <div class="text_area">
-                                <span class="lower_text">배분 건</span>
-                            </div>
-                        </div>
-                        <div class="goods_mid_box">
-                            <span>원</span>
-                        </div>
-                        <div class="goods_right_box">
-                            <span>발급하기</span>
-                        </div>
-                    </div>
-                    <div class="goods_container">
-                        <div class="goods_left_box">
-                            <div class="text_area">
-                                <span class="upper_text"></span><!--span class="upper_text">주거 프라임</span-->
-                            </div>
-                            <div class="text_area">
-                                <span class="mid_text">기간 <span class="mid_date_text">일</span></span>
-                            </div>
-                            <div class="text_area">
-                                <span class="lower_text">배분 건</span>
-                            </div>
-                        </div>
-                        <div class="goods_mid_box">
-                            <span>원</span>
-                        </div>
-                        <div class="goods_right_box">
-                            <span>발급하기</span>
-                        </div>
-                    </div>
+                    <%}%>
                 </div>
             </div>
+            <%}%>
         </div>
     </div>
     <footer>
@@ -255,6 +219,16 @@
         else{
             partnerContainer.style.display = "flex";
         }
+    }
+</script>
+<script>
+    // $(".company-list").click(function(){
+    //     var div_id = $(this).attr('id');
+    //     var company_id = div_id.replace("com", "");
+    //     alertMsgDone()
+    // })
+    function alertMsgDone(name, phone, cnt) {
+        window.open("_send_cs_msg.jsp?name="+name+"&phone="+phone+"&cnt="+cnt,"pop","width=400,height=200");
     }
 </script>
 </body>
