@@ -37,6 +37,7 @@
 
     //필요한 변수 선언
     String mylog = "";
+    String[] company_state = {"미입점", "입점"};
 
     //DB 관련 객체 선언
     Connection conn = DBUtil.getMySQLConnection();
@@ -45,14 +46,44 @@
     String query = "";
     String sql = "";
 
-    //DB 가져오기 예시
-    query = "select * from ISSUED_COUPON I, COMPANY C where I.Company_id = C.Id";
+    //DB 가져오기
+    //모든 회사 불러오기
+    query = "SELECT *, COUNT(*) cnt " +
+            "FROM ASSIGNED a, COMPANY c, REMODELING_APPLY ra " +
+            "WHERE a.Company_num = c.Id AND a.Apply_num = ra.Number AND (a.State = 0 or a.State = 2) " +
+            "AND ra.Apply_date > '2021-06-09' And c.State = 1 " +
+            "GROUP BY a.Company_num order by c.State desc";
     pstmt = conn.prepareStatement(query);
     rs = pstmt.executeQuery();
-    HashMap<String, String> keyword = new HashMap<String, String>();
+    HashMap<String, HashMap<String, String>> company_info = new HashMap<String, HashMap<String, String>>();
     while(rs.next()) {
-        keyword.put(rs.getString("Id"), rs.getString("Name"));
+        HashMap<String, String> hm = new HashMap<String, String>();
+        hm.put("modify_date", rs.getString("c.Modify_date"));
+        hm.put("profile_img", rs.getString("c.Profile_img"));
+        hm.put("name", rs.getString("c.Name"));
+        hm.put("state", rs.getString("c.State"));
+        hm.put("cnt", rs.getString("cnt"));
+        hm.put("phone", rs.getString("c.Phone"));
+        company_info.put(rs.getString("c.Id"),hm);
     }
+    //회사 별 쿠폰정보 불러오기
+    HashMap<String, HashMap<String, String>> company_coupon = new HashMap<String, HashMap<String, String>>();
+    for(String company_id : company_info.keySet()){
+        // 유효기간이 오늘 이전인 쿠폰 발급 정보 가져오기
+        query = "select * from ISSUED_COUPON I, COUPON C where I.Coupon_id = C.Id and I.Company_id = " + company_id + " and Expiration_date >= CURDATE()";
+        pstmt = conn.prepareStatement(query);
+        rs = pstmt.executeQuery();
+        while(rs.next()) {
+            // 쿠폰이름, 남은 건수, 발급 일자, 유효 기간
+            HashMap<String, String> hm = new HashMap<String, String>();
+            hm.put("name", rs.getString("C.Name"));
+            hm.put("stock", rs.getString("I.Stock"));
+            hm.put("issued_date", rs.getString("I.Issued_date"));
+            hm.put("expiration_date", rs.getString("Expiration_date"));
+            company_coupon.put(company_id, hm);
+        }
+    }
+
     pstmt.close();
 %>
 <!DOCTYPE html>
@@ -77,63 +108,31 @@
     <div id="main">
         <div class="couponHeader">회사관리</div>
         <div class="main_container">
+            <%
+            for (String id : company_info.keySet()){
+                HashMap company = company_info.get(id);
+            %>
             <div class="company_container">
                 <div class="company_left">
                     <div class="company_img">
-                        <img src="https://somoonhouse.com/sources/anonymous.jpg">
+                        <img src="<%=company.get("profile_img")%>">
                     </div>
                     <div class="company_desc">
-                        <div class="company_name">JYP 인테리어</div>
+                        <div class="company_name"><%=company.get("name")%></div>
                         <div class="company_info">
-                            <div class="company_last_coupon">잔여 <span>3</span>건</div>
-                            <div class="company_last_consulting">미상담 <span>1</span>건</div>
+                            <div class="company_last_coupon">잔여 <span><%=company.get("cnt")%></span>건</div>
+                            <div class="company_last_consulting">미상담 <span><%=company.get("cnt")%></span>건</div>
                         </div>
-                        <div class="company_last_login">last login 21.08.24</div>
+                        <div class="company_last_login">last login <%=company.get("modify_date")%></div>
                     </div>
                 </div>
                 <div class="company_button_area">
                     <button class="company_button_issue">건수 부여</button>
                     <button class="company_button_text">미상담 문자 전송</button>
+                    <!--button class="company_button_state"><%=company_state[Integer.parseInt(company.get("state")+"")]%></button-->
                 </div>
             </div>
-            <div class="company_container">
-                <div class="company_left">
-                    <div class="company_img">
-                        <img src="https://somoonhouse.com/sources/anonymous.jpg">
-                    </div>
-                    <div class="company_desc">
-                        <div class="company_name">JYP 인테리어</div>
-                        <div class="company_info">
-                            <div class="company_last_coupon">잔여 <span>3</span>건</div>
-                            <div class="company_last_consulting">미상담 <span>1</span>건</div>
-                        </div>
-                        <div class="company_last_login">last login 21.08.24</div>
-                    </div>
-                </div>
-                <div class="company_button_area">
-                    <button class="company_button_issue">건수 부여</button>
-                    <button class="company_button_text">미상담 문자 전송</button>
-                </div>
-            </div>
-            <div class="company_container">
-                <div class="company_left">
-                    <div class="company_img">
-                        <img src="https://somoonhouse.com/sources/anonymous.jpg">
-                    </div>
-                    <div class="company_desc">
-                        <div class="company_name">JYP 인테리어</div>
-                        <div class="company_info">
-                            <div class="company_last_coupon">잔여 <span>3</span>건</div>
-                            <div class="company_last_consulting">미상담 <span>1</span>건</div>
-                        </div>
-                        <div class="company_last_login">last login 21.08.24</div>
-                    </div>
-                </div>
-                <div class="company_button_area">
-                    <button class="company_button_issue">건수 부여</button>
-                    <button class="company_button_text">미상담 문자 전송</button>
-                </div>
-            </div>
+            <%}%>
         </div>
     </div>
     <footer>
