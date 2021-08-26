@@ -77,61 +77,84 @@
     <div id="main">
         <div class="couponHeader">회사관리</div>
         <div class="main_container">
-            <div class="company_container">
-                <div class="company_left">
-                    <div class="company_img">
-                        <img src="https://somoonhouse.com/sources/anonymous.jpg">
-                    </div>
-                    <div class="company_desc">
-                        <div class="company_name">JYP 인테리어</div>
-                        <div class="company_info">
-                            <div class="company_last_coupon">잔여 <span>3</span>건</div>
-                            <div class="company_last_consulting">미상담 <span>1</span>건</div>
+            <div class="one_container">
+                <div class="company_container">
+                    <div class="company_left">
+                        <div class="company_img">
+                            <img src="https://somoonhouse.com/sources/anonymous.jpg">
                         </div>
-                        <div class="company_last_login">last login 21.08.24</div>
-                    </div>
-                </div>
-                <div class="company_button_area">
-                    <button class="company_button_issue">건수 부여</button>
-                    <button class="company_button_text">미상담 문자 전송</button>
-                </div>
-            </div>
-            <div class="company_container">
-                <div class="company_left">
-                    <div class="company_img">
-                        <img src="https://somoonhouse.com/sources/anonymous.jpg">
-                    </div>
-                    <div class="company_desc">
-                        <div class="company_name">JYP 인테리어</div>
-                        <div class="company_info">
-                            <div class="company_last_coupon">잔여 <span>3</span>건</div>
-                            <div class="company_last_consulting">미상담 <span>1</span>건</div>
+                        <div class="company_desc">
+                            <div class="company_name">JYP 인테리어</div>
+                            <div class="company_info">
+                                <div class="company_last_coupon">잔여 <span>3</span>건</div>
+                                <div class="company_last_consulting">미상담 <span>1</span>건</div>
+                            </div>
+                            <div class="company_last_login">last login 21.08.24</div>
                         </div>
-                        <div class="company_last_login">last login 21.08.24</div>
+                    </div>
+                    <div class="company_button_area">
+                        <button class="company_button_issue" id="issue1" onclick="clickPartner(this)">건수 부여</button>
+                        <button class="company_button_text">미상담 문자 전송</button>
                     </div>
                 </div>
-                <div class="company_button_area">
-                    <button class="company_button_issue">건수 부여</button>
-                    <button class="company_button_text">미상담 문자 전송</button>
-                </div>
-            </div>
-            <div class="company_container">
-                <div class="company_left">
-                    <div class="company_img">
-                        <img src="https://somoonhouse.com/sources/anonymous.jpg">
-                    </div>
-                    <div class="company_desc">
-                        <div class="company_name">JYP 인테리어</div>
-                        <div class="company_info">
-                            <div class="company_last_coupon">잔여 <span>3</span>건</div>
-                            <div class="company_last_consulting">미상담 <span>1</span>건</div>
+                <div class="partner_container" id="partner1">
+                    <div class="goods_container">
+                        <div class="goods_left_box">
+                            <div class="text_area">
+                                <span class="upper_text"></span><!--span class="upper_text">주거 프라임</span-->
+                            </div>
+                            <div class="text_area">
+                                <span class="mid_text">기간 <span class="mid_date_text">일</span></span>
+                            </div>
+                            <div class="text_area">
+                                <span class="lower_text">배분 건</span>
+                            </div>
                         </div>
-                        <div class="company_last_login">last login 21.08.24</div>
+                        <div class="goods_mid_box">
+                            <span>원</span>
+                        </div>
+                        <div class="goods_right_box">
+                            <span>발급하기</span>
+                        </div>
                     </div>
-                </div>
-                <div class="company_button_area">
-                    <button class="company_button_issue">건수 부여</button>
-                    <button class="company_button_text">미상담 문자 전송</button>
+                    <div class="goods_container">
+                        <div class="goods_left_box">
+                            <div class="text_area">
+                                <span class="upper_text"></span><!--span class="upper_text">주거 프라임</span-->
+                            </div>
+                            <div class="text_area">
+                                <span class="mid_text">기간 <span class="mid_date_text">일</span></span>
+                            </div>
+                            <div class="text_area">
+                                <span class="lower_text">배분 건</span>
+                            </div>
+                        </div>
+                        <div class="goods_mid_box">
+                            <span>원</span>
+                        </div>
+                        <div class="goods_right_box">
+                            <span>발급하기</span>
+                        </div>
+                    </div>
+                    <div class="goods_container">
+                        <div class="goods_left_box">
+                            <div class="text_area">
+                                <span class="upper_text"></span><!--span class="upper_text">주거 프라임</span-->
+                            </div>
+                            <div class="text_area">
+                                <span class="mid_text">기간 <span class="mid_date_text">일</span></span>
+                            </div>
+                            <div class="text_area">
+                                <span class="lower_text">배분 건</span>
+                            </div>
+                        </div>
+                        <div class="goods_mid_box">
+                            <span>원</span>
+                        </div>
+                        <div class="goods_right_box">
+                            <span>발급하기</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -159,7 +182,16 @@
     gtag('config', 'G-PC15JG6KGN');
 </script>
 <script>
-    //새 스크립트 작성
+    const clickPartner = (prop) => {
+        let idNum = prop.id.slice(5);
+        var partnerContainer = document.getElementById("partner" + idNum);
+        if(partnerContainer.style.display === "flex"){
+            partnerContainer.style.display = "none";
+        }
+        else{
+            partnerContainer.style.display = "flex";
+        }
+    }
 </script>
 </body>
 </html>
