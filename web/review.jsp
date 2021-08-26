@@ -238,10 +238,6 @@
 </script>
 <script>
     let data = [10, 8, 20, 400, 512];
-    /*
-    100% 기준으로 data 중에서 젤 높은 걸 90%로 잡아
-    나머지도 퍼센트 비교해서 일단 점을 나타내보자
-    */
     var highData = 0;
     data.forEach((prop) => {
         if(prop > highData){
