@@ -86,6 +86,11 @@
     border-width: 1px;
     border-color: #ddd;
 }
+.body_container .body_main .main_container .goods_container .left_item{
+    font-size: 20pt;
+    font-weight: 600;
+    color: #4A79F4;
+}
 .body_container .body_main .main_container .goods_container .text_area{
     display: flex;
     position: relative;
