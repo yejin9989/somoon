@@ -62,6 +62,7 @@
     while(rs.next()) {
         HashMap<String, String> hm = new HashMap<String, String>();
         query2 = "SELECT SUM(Stock) FROM ISSUED_COUPON where Company_id = " + rs.getString("c.Id")
+                + " and Expiration_date >= CURDATE()"
                 + " group by Company_id";
         pstmt2 = conn.prepareStatement(query2);
         rs2 = pstmt2.executeQuery();
@@ -177,7 +178,7 @@
                         <div class="goods_mid_box">
                             <span><%=item.get("price")%>원</span>
                         </div>
-                        <div class="goods_right_box">
+                        <div class="goods_right_box" id="<%=id%>_<%=key%>">
                             <span>발급하기</span>
                         </div>
                     </div>
@@ -230,6 +231,14 @@
     function alertMsgDone(name, phone, cnt) {
         window.open("_send_cs_msg.jsp?name="+name+"&phone="+phone+"&cnt="+cnt,"pop","width=400,height=200");
     }
+</script>
+<script>
+    $('.goods_right_box').click(function(){
+        const id = $(this).attr('id');
+        const company_id = id.slice(0, id.indexOf('_'));
+        const coupon_id = id.slice(id.indexOf('_')+1);
+        location.href = "_manage_coupon.jsp?company_id="+company_id+"&coupon_id="+coupon_id;
+    })
 </script>
 </body>
 </html>
