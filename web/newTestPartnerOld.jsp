@@ -32,7 +32,7 @@
     }
     //이용중인 상품
     LinkedHashMap<String,HashMap<String,String>> company_coupon_now = new LinkedHashMap<String,HashMap<String,String>>();
-    query = "select * from ISSUED_COUPON I, COUPON C where I.Coupon_id = C.Id and I.Company_id = " + s_id + " and Expiration_date >= CURDATE() order by Expiration_date Desc";
+    query = "select * from ISSUED_COUPON I, COUPON C where I.Coupon_id = C.Id and I.Company_id = " + s_id + " and Expiration_date >= CURDATE() order by Expiration_date asc";
     pstmt = conn.prepareStatement(query);
     rs = pstmt.executeQuery();
     while(rs.next()) {
@@ -48,7 +48,7 @@
 
     //이용끝난
     LinkedHashMap<String,HashMap<String,String>> company_coupon_old = new LinkedHashMap<String,HashMap<String,String>>();
-    query = "select * from ISSUED_COUPON I, COUPON C where I.Coupon_id = C.Id and I.Company_id = " + s_id + " and Expiration_date < CURDATE() order by Expiration_date Desc";
+    query = "select * from ISSUED_COUPON I, COUPON C where I.Coupon_id = C.Id and I.Company_id = " + s_id + " and Expiration_date < CURDATE() order by Expiration_date asc";
     pstmt = conn.prepareStatement(query);
     rs = pstmt.executeQuery();
     while(rs.next()) {
