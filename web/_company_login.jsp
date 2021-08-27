@@ -42,6 +42,7 @@
 			//세션설정
 			session.setAttribute("s_id", company_num);
 			session.setAttribute("name", company_name);
+			session.setMaxInactiveInterval(120*60);
 
 			//최근방문일 수정
 			Calendar cal = Calendar.getInstance();

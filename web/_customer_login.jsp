@@ -48,6 +48,7 @@ if(pw != null){
 		//세션설정
 		session.setAttribute("s_id", "cu"+customer_num);
 		session.setAttribute("name", customer_name);
+		session.setMaxInactiveInterval(120*60);
 		
 		//개인페이지로
 		response.sendRedirect("customer_request.jsp");
