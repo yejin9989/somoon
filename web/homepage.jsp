@@ -137,12 +137,6 @@
                             <div>
                                 <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
                             </div>
-                            <span>복도</span>
-                        </a>
-                        <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
-                            <div>
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
-                            </div>
                             <span>베란다</span>
                         </a>
                     </div>
