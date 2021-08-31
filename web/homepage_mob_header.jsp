@@ -68,7 +68,8 @@
     <title>소문난집</title>
 </head>
 <body>
-<div class="body_container_header">
+<div class="upper_fixed_mob"></div>
+<div class="body_container_header" id="header_mob">
     <div class="header_mob">
         <div class="header_upper">
             <div class="menu" onclick="open_slide()">
@@ -114,6 +115,12 @@
         <div class="underline"></div>
     </div>
 </div>
+<div class="mobileFooter" id="mobileFooter">
+    <span>견적 상담 받기</span>
+    <div>
+        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow2.png?raw=true" />
+    </div>
+</div>
 <%
     if(pstmt != null) {
         pstmt.close();
@@ -152,7 +159,7 @@
             <span>소문난집 전화문의</span>
         </div>
         <div class="menu_lower">
-            <span>010-6427-2777</span>
+            <span>053-290-5959</span>
         </div>
     </div>
 </div>
@@ -167,6 +174,29 @@
     gtag('config', 'G-PC15JG6KGN');
 </script>
 <script>
+
+    var scrollStartPos = window.scrollY;
+    var scrollPastPos = window.scrollY;
+    var headerMob = document.getElementById("header_mob");
+    var footer = document.getElementById("mobileFooter");
+    setTimeout(() => {
+        window.addEventListener('scroll', (e) => {
+            var scrollMoving = scrollPastPos - window.scrollY;
+            if(scrollMoving < 0){
+                if(scrollPastPos > 190){
+                    headerMob.style.top = "-102px";
+                }
+                footer.style.bottom = "-60px";
+            }
+            else{
+                headerMob.style.top = "0";
+                footer.style.bottom = "0";
+            }
+            scrollPastPos = window.scrollY;
+        });
+    }, 500)
+
+
     const open_slide = () => {
         var back = document.getElementById("menu_slide_container");
         if(back.style.display === "flex"){
