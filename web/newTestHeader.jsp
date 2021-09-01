@@ -9,27 +9,35 @@
     //필요한 변수 선언
     int i, j;
     String mylog = "";
+    String company_name = "";
+    String company_img = "";
+//    String company_address = "";
+    String company_introduction = "";
 
     //파라미터 가져오기
     String tab = request.getParameter("tab") + "";
+    String s_id = session.getAttribute("s_id")+"";
+//    out.println(s_id);
 
     //DB 관련 객체 선언
     Connection conn = DBUtil.getMySQLConnection();
     ResultSet rs = null;
     PreparedStatement pstmt = null;
     String query = "";
-    String sql = "";
 
-    //DB 가져오기 예시
-    /*query = "select * from KEYWORD";
-    pstmt = conn.prepareStatement(query);
-    rs = pstmt.executeQuery();
-    HashMap<String, String> keyword = new HashMap<String, String>();
-    while(rs.next()) {
-        keyword.put(rs.getString("Id"), rs.getString("Name"));
+    //DB 가져오기
+    if(s_id != null) {
+        query = "SELECT Name, Profile_img, Address, Introduction FROM COMPANY WHERE Id = " + s_id;
+        pstmt = conn.prepareStatement(query);
+        rs = pstmt.executeQuery();
+        while (rs.next()) {
+            company_name = rs.getString("Name");
+            company_img = rs.getString("Profile_img");
+//            company_address = rs.getString("Address");
+            company_introduction = rs.getString("Introduction");
+        }
+        pstmt.close();
     }
-    pstmt.close();
-     */
 %>
 <!DOCTYPE html>
 <html>
@@ -100,11 +108,14 @@
     <div id="navigation_container">
         <div id="navigation">
             <div class="user_container">
-                <div class="user_img_container">
-                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/person.png?raw=true" />
+                <div id="profile_img" class="user_img_container">
+<%--                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/person.png?raw=true" />--%>
                 </div>
                 <div class="user_name">
-                    <span>제이와이피엔터</span>
+                    <span><%=company_name%></span>
+                </div>
+                <div class="user_introduction">
+                    <span><%=company_introduction%></span>
                 </div>
             </div>
             <hr/>
@@ -116,6 +127,18 @@
                     <div class="item_text"><span class="num">1</span></div>
                     <div class="item_text"><span class="sub">건</span></div>
                     <a href="newTestPartnerOld.jsp" target="_self">
+                        <div class="item_img">
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/rightDirection2.png?raw=true" />
+                        </div>
+                    </a>
+                </div>
+                <div class="item_text">
+                    <span>환경 설정</span>
+                </div>
+                <div class="item_box">
+                    <div class="item_text"><span class="num">1</span></div>
+                    <div class="item_text"><span class="sub">건</span></div>
+                    <a href="company_home.jsp?company_id=<%=s_id%>" target="_self">
                         <div class="item_img">
                             <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/rightDirection2.png?raw=true" />
                         </div>
@@ -180,6 +203,18 @@
         alert("Edge 또는 Chrome을 사용해주시기 바랍니다.");
         window.location = "microsoft-edge:" + window.location.href;
     }
+    $('document').ready(function(){
+        let s_id = <%=s_id%>
+        if("<%=s_id%>" == "null") {
+            $('#before_login').css('display', 'flex');
+            $('#after_login').css('display','none');
+        }
+        else{
+            $('#before_login').css('display', 'none');
+            $('#after_login').css('display','flex');
+        }
+        $('#profile_img').css("background", "url(<%=company_img%>) 50% 50% / 198px");
+    })
 </script>
 <script>
     //탭 별 표시기능
