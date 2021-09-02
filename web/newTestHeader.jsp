@@ -13,6 +13,7 @@
     String company_img = "";
 //    String company_address = "";
     String company_introduction = "";
+    String stock = "";
 
     //파라미터 가져오기
     String tab = request.getParameter("tab") + "";
@@ -36,6 +37,17 @@
 //            company_address = rs.getString("Address");
             company_introduction = rs.getString("Introduction");
         }
+        //전체 잔여
+        query = "SELECT SUM(Stock) FROM ISSUED_COUPON where Company_id = " + s_id
+                + " and Expiration_date >= CURDATE()"
+                + " group by Company_id";
+        pstmt = conn.prepareStatement(query);
+        rs = pstmt.executeQuery();
+        stock = "0";
+        while(rs.next()){
+            stock = rs.getString("SUM(Stock)");
+        }
+
         pstmt.close();
     }
 %>
@@ -124,7 +136,7 @@
                     <span>현재 이용중인 상품</span>
                 </div>
                 <div class="item_box">
-                    <div class="item_text"><span class="num">1</span></div>
+                    <div class="item_text"><span class="num"><%=stock%></span></div>
                     <div class="item_text"><span class="sub">건</span></div>
                     <a href="newTestPartnerOld.jsp" target="_self">
                         <div class="item_img">
