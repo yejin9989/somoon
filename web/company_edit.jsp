@@ -144,7 +144,7 @@ if(s_id.equals("")){
 		</div>
 		<hr>
 		<div id="introduction"><textarea cols=50 name="company_introduction"><%=company_introduction%></textarea></div>
-		<input type="submit" id="edit_btn" value="정보수정하기">
+		<input type="submit" id="edit_btn" value="저장하기">
 		</form>
 	</div>
 <%
