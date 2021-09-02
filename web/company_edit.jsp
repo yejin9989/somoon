@@ -56,7 +56,7 @@ while(rs.next()){
 	company_limit_fee = rs.getString("Limit_fee");
 	company_start_year = rs.getString("Start_year");
 }
-company_introduction = company_introduction.replace("<br>", "\n");
+if(company_introduction != null && !company_introduction.equals("null")) company_introduction = company_introduction.replace("<br>", "\n");
 
 String checked = "";
 if(company_as_provide.equals("0")){
@@ -119,11 +119,11 @@ if(s_id.equals("")){
 		<div id="as_warranty"><div class="input_label">A/S 기간</div>
 			<select id="select_as_warranty" name="company_as_warranty">
 				<option value="0" <%if(company_as_warranty == null || company_as_warranty.equals("0")){%>selected="selected"<%}%>>제공안함</option>
-				<option value="1" <%if(company_as_warranty.equals("1")){%>selected="selected"<%}%>>1년</option>
-				<option value="2" <%if(company_as_warranty.equals("2")){%>selected="selected"<%}%>>2년</option>
-				<option value="3" <%if(company_as_warranty.equals("3")){%>selected="selected"<%}%>>3년</option>
-				<option value="4" <%if(company_as_warranty.equals("4")){%>selected="selected"<%}%>>4년</option>
-				<option value="5+" <%if(company_as_warranty.equals("5+")){%>selected="selected"<%}%>>5년 이상</option>
+				<option value="1" <%if(company_as_warranty != null && company_as_warranty.equals("1")){%>selected="selected"<%}%>>1년</option>
+				<option value="2" <%if(company_as_warranty != null && company_as_warranty.equals("2")){%>selected="selected"<%}%>>2년</option>
+				<option value="3" <%if(company_as_warranty != null && company_as_warranty.equals("3")){%>selected="selected"<%}%>>3년</option>
+				<option value="4" <%if(company_as_warranty != null && company_as_warranty.equals("4")){%>selected="selected"<%}%>>4년</option>
+				<option value="5+" <%if(company_as_warranty != null && company_as_warranty.equals("5+")){%>selected="selected"<%}%>>5년 이상</option>
 			</select>
 		</div>
 		<div id="as_fee"><div class="input_label">A/S 금액</div><input type="text" name="company_as_fee" value="<%=company_as_fee%>"><div class="input_desc">* 만(원) 단위로 입력하세요.</div></div>
