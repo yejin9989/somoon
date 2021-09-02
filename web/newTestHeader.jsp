@@ -36,8 +36,10 @@
             company_img = rs.getString("Profile_img");
 //            company_address = rs.getString("Address");
             company_introduction = rs.getString("Introduction");
+            if(company_introduction == null || company_introduction.equals("null"))
+                company_introduction = "소개글을 작성해주세요.";
         }
-        //전체 잔여
+        //전체 잔여ㅎ
         query = "SELECT SUM(Stock) FROM ISSUED_COUPON where Company_id = " + s_id
                 + " and Expiration_date >= CURDATE()"
                 + " group by Company_id";
