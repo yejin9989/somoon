@@ -32,7 +32,6 @@
         String date;
         HashMap<String, HashMap<String, String>> applies;
         HashMap<String, HashMap<String, String>> details;
-
         void setDate(String date){
             this.date = date;
         }
@@ -83,6 +82,9 @@
         else {
             query += " And A.State = " + ing_filter;
         }
+        if(ing_search != null && ing_search != "") {
+            query += " And (R.Name Like \"%" + ing_search + "%\" OR R.Phone Like \"%" + ing_search + "%\" OR R.Address Like \"%" + ing_search + "%\")";
+        }
         pstmt = conn.prepareStatement(query);
         ResultSet rs2 = pstmt.executeQuery();
 
@@ -94,9 +96,6 @@
             }
             else{
                 query = "select * from REMODELING where Number = " + rs2.getString("Item_num");
-                if(ing_search != null && ing_search != "") {
-                    query += " And (R.Name Like \"%" + ing_search + "%\" OR R.Phone Like \"%" + ing_search + "%\" OR R.Address Like \"%" + ing_search + "%\")";
-                }
                 pstmt = conn.prepareStatement(query);
                 ResultSet rs3 = pstmt.executeQuery();
                 while(rs3.next()){
@@ -183,14 +182,6 @@
                     </div>
                 </div>
                 <div class="right_container">
-<%--                    <div class="right_box">--%>
-<%--                        <div class="text_container">--%>
-<%--                            <span>전체보기</span>--%>
-<%--                        </div>--%>
-<%--                        <div class="img_container">--%>
-<%--                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/underDirection.png?raw=true" />--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
                     <div class="right_box">
                         <div class="text_container">
                             <select class="filter" type="text" name="filter">
@@ -467,7 +458,6 @@
             alert("로그인 세션이 만료되었습니다. 재로그인 해주세요.");
             location.href = "index.jsp";
         }
-
     })
     // 새로고침 시 get parameter 초기화
     history.replaceState({}, null, location.pathname);
