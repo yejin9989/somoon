@@ -126,9 +126,9 @@ if(s_id.equals("")){
 				<option value="5+" <%if(company_as_warranty.equals("5+")){%>selected="selected"<%}%>>5년 이상</option>
 			</select>
 		</div>
-		<div id="as_fee"><div class="input_label">A/S 금액</div><input type="text" name="company_as_fee" value="<%=company_as_fee%>"><div class="input_desc">* 만(원) 단위로 입력하세요.</div></div>
-		<div id="company_career"><div class="input_label">사업자 등록 연도</div><input type="text" name="company_start_year" value="<%=company_start_year%>"><div class="input_desc">* 사업자등록연도를 기준으로 경력이 반영됩니다. 실제 경력이 다를 경우 담당자에 연락 요망</div></div>
-		<div id="company_limit_fee"><div class="input_label">최소 시공금액</div><input type="text" name="company_limit_fee" value="<%=company_limit_fee%>"><div class="input_desc">* 만(원) 단위로 입력하세요.</div></div>
+		<div id="as_fee"><div class="input_label">A/S 금액</div><input type="text" name="company_as_fee" <%if(company_as_fee != null && !company_as_fee.equals("") && !company_as_fee.equals("null")){%>value="<%=company_as_fee%>"<%}else{%>placeholder="만(원) 단위로 숫자만 입력하세요"<%}%>></div>
+		<div id="company_career"><div class="input_label">사업자 등록 연도</div><input type="text" name="company_start_year" <%if(company_start_year != null && !company_start_year.equals("") && !company_start_year.equals("null")){%>value="<%=company_start_year%>"<%}else{%>placeholder="(년) 단위로 숫자만 입력하세요"<%}%>><div class="input_desc">* 사업자등록연도를 기준으로 경력이 반영됩니다. 실제 경력이 다를 경우 담당자에 연락 요망</div></div>
+		<div id="company_limit_fee"><div class="input_label">최소 시공금액</div><input type="text" name="company_limit_fee" <%if(company_limit_fee != null && !company_limit_fee.equals("") && !company_limit_fee.equals("null")){%>value="<%=company_limit_fee%>"<%}else{%>placeholder="만(원) 단위로 숫자만 입력하세요"<%}%>></div>
 		<div id="company_abilities">
 			<%
 			for(String key: company_abilities.keySet()){
@@ -143,7 +143,7 @@ if(s_id.equals("")){
 			<div id="add_ability"><span>+</span></div>
 		</div>
 		<hr>
-		<div id="introduction"><textarea cols=50 name="company_introduction"><%=company_introduction%></textarea></div>
+		<div id="introduction"><textarea cols=50 name="company_introduction"><%if(company_introduction != null && !company_introduction.equals("") && !company_introduction.equals("null")){%><%=company_introduction%><%}else{%>"소개글을 작성해주세요."<%}%></textarea></div>
 		<input type="submit" id="edit_btn" value="저장하기">
 		</form>
 	</div>
