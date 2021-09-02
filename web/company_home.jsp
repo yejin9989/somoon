@@ -116,9 +116,9 @@ query = "";
 			<div id="company_address"><%=company_area%></div>
 		<% if(company_as_provide.equals("1")){ %>
 			<div id="company_address">A/S 기간  <%=company_as_warranty%><%if(company_as_warranty.equals("5")){%>년 이상<%}else{%>년<%}%></div>
-			<div id="company_address">A/S 금액  <%if(!company_as_fee.equals("null")){%><%=company_as_fee%>만원<%}else{%>미입력<%}%></div>
+			<div id="company_address">A/S 금액  <%if(company_as_fee != null && !company_as_fee.equals("null")){%><%=company_as_fee%>만원<%}else{%>미입력<%}%></div>
 		<%}%>
-		<div id="company_address">경력 기간 <%if(!company_career.equals("null")){%><%=company_career%>년<%}else{%>미입력<%}%></div>
+		<div id="company_address">경력 기간 <%if(company_career != null && !company_career.equals("null")){%><%=company_career%>년<%}else{%>미입력<%}%></div>
 		<div id="company_abilities">
 			<%
 			for(i=0;i<company_abilities.size();i++){
@@ -131,7 +131,16 @@ query = "";
 			%>
 		</div>
 		<hr>
-		<div id="introduction"><div><%=company_introduction%></div></div>
+		<div id="introduction">
+			<div>
+			<%if(company_introduction == null || company_introduction.equals("null")){
+				out.println("회사 소개글을 작성해주세요.");
+			}
+			else{
+				out.println(company_introduction);
+			}%>
+			</div>
+		</div>
 		<div id="request_btn" <%if(s_id.equals(company_id)){%>style="display: none !important";<%}%>>견적상담받기</div>
 		<%
 		if(s_id.equals(company_id)){
