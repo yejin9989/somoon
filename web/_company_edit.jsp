@@ -152,7 +152,7 @@ conn.close();
 %>
 <script>
 	alert('수정을 완료했습니다.');
-	history.go(-2);
+	window.location.replace("https://somoonhouse.com/company_home.jsp?company_id="+<%=s_id%>);
 </script>
 </body>
 </html>
