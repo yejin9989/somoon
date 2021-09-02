@@ -136,11 +136,9 @@
                     <span>환경 설정</span>
                 </div>
                 <div class="item_box">
-                    <div class="item_text"><span class="num">1</span></div>
-                    <div class="item_text"><span class="sub">건</span></div>
                     <a href="company_home.jsp?company_id=<%=s_id%>" target="_self">
                         <div class="item_img">
-                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/rightDirection2.png?raw=true" />
+                            <img src="https://somoonhouse.com/icon/settings.png">
                         </div>
                     </a>
                 </div>
