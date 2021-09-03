@@ -153,48 +153,50 @@
                     </div>
                 </div>
                 <div class="lower">
-                    <a href="https://github.com" class="best_container">
-                        <div class="box">
-                            <div class="box_upper">
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" />
+                    <div class="slider">
+                        <a href="https://github.com" class="best_container">
+                            <div class="box">
+                                <div class="box_upper">
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" />
+                                </div>
+                                <div class="box_lower">
+                                    <span class="title">대구 수성구 수성동 수성보성타운</span>
+                                    <span class="sub">아파트 | 49평형 | 거실 + 주방 | 남다른디자인</span>
+                                </div>
                             </div>
-                            <div class="box_lower">
-                                <span class="title">대구 수성구 수성동 수성보성타운</span>
-                                <span class="sub">아파트 | 49평형 | 거실 + 주방 | 남다른디자인</span>
+                        </a>
+                        <a href="https://github.com" class="best_container">
+                            <div class="box">
+                                <div class="box_upper">
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog2.jpg?raw=true" />
+                                </div>
+                                <div class="box_lower">
+                                    <span class="title">대구 수성구 수성동 수성보성타운</span>
+                                    <span class="sub">아파트 | 49평형 | 거실 + 주방 | 남다른디자인</span>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                    <a href="https://github.com" class="best_container">
-                        <div class="box">
-                            <div class="box_upper">
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog2.jpg?raw=true" />
+                        </a>
+                        <a href="https://github.com" class="best_container">
+                            <div class="box">
+                                <div class="box_upper">
+                                </div>
+                                <div class="box_lower">
+                                    <span class="title">대구 수성구 수성동 수성보성타운</span>
+                                    <span class="sub">아파트 | 49평형 | 거실 + 주방 | 남다른디자인</span>
+                                </div>
                             </div>
-                            <div class="box_lower">
-                                <span class="title">대구 수성구 수성동 수성보성타운</span>
-                                <span class="sub">아파트 | 49평형 | 거실 + 주방 | 남다른디자인</span>
+                        </a>
+                        <a href="https://github.com" class="best_container">
+                            <div class="box">
+                                <div class="box_upper">
+                                </div>
+                                <div class="box_lower">
+                                    <span class="title">대구 수성구 수성동 수성보성타운</span>
+                                    <span class="sub">아파트 | 49평형 | 거실 + 주방 | 남다른디자인</span>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                    <a href="https://github.com" class="best_container">
-                        <div class="box">
-                            <div class="box_upper">
-                            </div>
-                            <div class="box_lower">
-                                <span class="title">대구 수성구 수성동 수성보성타운</span>
-                                <span class="sub">아파트 | 49평형 | 거실 + 주방 | 남다른디자인</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="https://github.com" class="best_container">
-                        <div class="box">
-                            <div class="box_upper">
-                            </div>
-                            <div class="box_lower">
-                                <span class="title">대구 수성구 수성동 수성보성타운</span>
-                                <span class="sub">아파트 | 49평형 | 거실 + 주방 | 남다른디자인</span>
-                            </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="review">
