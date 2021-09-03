@@ -77,6 +77,7 @@
                     </div>
                     <div class="goods_mid_box">
                         <span><%=item.get("price")%>원</span>
+                        <span class="vat">(VAT 포함)</span>
                     </div>
                     <div class="goods_right_box" onclick="open_modal()">
                         <span>신청하기</span>
