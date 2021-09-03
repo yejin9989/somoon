@@ -174,7 +174,6 @@
     gtag('config', 'G-PC15JG6KGN');
 </script>
 <script>
-
     var scrollStartPos = window.scrollY;
     var scrollPastPos = window.scrollY;
     var headerMob = document.getElementById("header_mob");
