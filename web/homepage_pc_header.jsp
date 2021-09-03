@@ -64,10 +64,11 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/homepage_header.css"/>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="viewport" con   tent="width=device-width, initial-scale=1, user-scalable=no" />
     <title>소문난집</title>
 </head>
 <body>
+<div class="upper_fixed_pc"></div>
 <div class="body_container_header">
     <div class="header_pc">
         <div class="header_left">

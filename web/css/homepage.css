@@ -43,17 +43,23 @@ body{
 }
 .body_container .banner .img_container .bannerBox{
     display: flex;
+    position: relative;
     justify-content: center;
     align-items: center;
     min-width: 100%;
-    height: 100%;
+    max-height: 400px;
     float: left;
     font-size: 100px;
     transition: 0.6s;
 }
+.body_container .banner .img_container .bannerBox:after{
+    content: "";
+    display: block;
+    padding-bottom: 40%;
+}
 .body_container .banner .img_container .bannerBox img{
     width: 100%;
-    max-height: 400px;
+    height: 100%;
     object-fit: cover;
 }
 .body_container .banner .img_container .turn{
@@ -343,7 +349,7 @@ body{
     transition: 0.6s;
 }
 .body_container .review .lower .boxes .sub .text{
-    height: 130px;
+    height: 220px;
     transition: 0.6s;
     overflow: hidden;
 }
@@ -384,6 +390,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    min-width: 80px;
     width: 80px;
     height: 30px;
     border-radius: 5px;
@@ -753,7 +760,24 @@ body{
     height: 150px;
     object-fit: cover;
 }
+@media (min-width: 701px) and (max-width: 830px) {
+    .style .lower .slider{
+        justify-content: left !important;
+    }
+    .body_container .best_inter .best_container .box .box_upper{
+        height: 70%;
+    }
+    .body_container .best_inter .best_container .box .box_lower{
+        top:70%;
+        height: 30%;
+    }
+}
 @media (min-width: 701px) {
+    .upper_fixed{
+        width: 100%;
+        height: 61px;
+        background: #fff;
+    }
     .area_part .upper{
         padding-left: 50px !important;
     }
@@ -773,8 +797,19 @@ body{
         width: 20px;
         height: 20px;
     }
+    .style .lower .slider{
+        justify-content: center;
+    }
+    .style .lower .slider .style_container:nth-child(n+4){
+        display: none !important;
+    }
 }
 @media (max-width: 700px) {
+    .upper_fixed{
+        width: 100%;
+        height: 102px;
+        background: #fff;
+    }
     .body_container .area_part .upper{
         padding: 0 0 0 20px;
     }
@@ -845,7 +880,7 @@ body{
         box-shadow: 1px 1px 4px 2px rgba(100, 100, 100, 0.2);
     }
     .body_container .review .lower .boxes .sub{
-        height: 300px;
+        height: 450px;
         box-shadow: 1px 1px 4px 2px rgba(100, 100, 100, 0.2);
     }
 }

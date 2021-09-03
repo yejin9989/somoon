@@ -161,7 +161,9 @@
                         <div class="company_desc">
                             <div class="company_name"><%=company.get("name")%></div>
                             <div class="company_info">
-                                <div class="company_last_coupon">잔여 <span><%=company.get("stock")%></span>건</div>
+                                <div class="company_last_coupon" onclick="given(<%=id%>)">잔여
+                                    <span><%=company.get("stock")%></span>건
+                                </div>
                                 <div class="company_last_consulting">미상담 <span><%=company.get("cnt")%></span>건</div>
                             </div>
                             <div class="company_last_login">last login <%=company.get("modify_date")%></div>
@@ -198,6 +200,91 @@
                     </div>
                     <%}%>
                 </div>
+                <div class="modal_background" id="modal_background<%=id%>" onclick="clickModalBackground()">
+                    <div class="modal" id="modal<%=id%>" onclick="clickModal()">
+                        <div class="main_header">
+                            <span>님</span>
+                        </div>
+                        <div class="main_container">
+                            <div class="sub_text"><span>전체 잔여 건수</span></div>
+                            <div class="goods_container">
+                                <span class="left_item">건</span>
+                            </div>
+                            <div class="sub_text"><span>이용중인 상품</span></div>
+                            <div class="goods_container">
+                                <div class="text_area">
+                                    <span class="upper_text"></span>
+                                </div>
+                                <div class="text_area">
+                                    <span class="mid_text">기간 <span class="mid_date_text"></span></span>
+                                </div>
+                                <div class="text_area">
+                                    <span class="lower_text">배분 건/건</span>
+                                </div>
+                                <div class="return" onclick="cancelProduct()">
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/X.png?raw=true" />
+                                </div>
+                            </div>
+                            <div class="sub_text"><span>이용 끝난 상품</span></div>
+                            <div class="goods_container">
+                                <div class="text_area">
+                                    <span class="upper_text"></span>
+                                </div>
+                                <div class="text_area">
+                                    <span class="mid_text">기간 <span class="mid_date_text"> ~ </span></span>
+                                </div>
+                                <div class="text_area">
+                                    <span class="lower_text">배분 건/건</span>
+                                </div>
+                            </div>
+                            <div class="goods_container">
+                                <div class="text_area">
+                                    <span class="upper_text"></span>
+                                </div>
+                                <div class="text_area">
+                                    <span class="mid_text">기간 <span class="mid_date_text"> ~ </span></span>
+                                </div>
+                                <div class="text_area">
+                                    <span class="lower_text">배분 건/건</span>
+                                </div>
+                            </div>
+                            <div class="goods_container">
+                                <div class="text_area">
+                                    <span class="upper_text"></span>
+                                </div>
+                                <div class="text_area">
+                                    <span class="mid_text">기간 <span class="mid_date_text"> ~ </span></span>
+                                </div>
+                                <div class="text_area">
+                                    <span class="lower_text">배분 건/건</span>
+                                </div>
+                            </div>
+                            <div class="goods_container">
+                                <div class="text_area">
+                                    <span class="upper_text"></span>
+                                </div>
+                                <div class="text_area">
+                                    <span class="mid_text">기간 <span class="mid_date_text"> ~ </span></span>
+                                </div>
+                                <div class="text_area">
+                                    <span class="lower_text">배분 건/건</span>
+                                </div>
+                            </div>
+                            <div class="goods_container">
+                                <div class="text_area">
+                                    <span class="upper_text"></span>
+                                </div>
+                                <div class="text_area">
+                                    <span class="mid_text">기간 <span class="mid_date_text"> ~ </span></span>
+                                </div>
+                                <div class="text_area">
+                                    <span class="lower_text">배분 건/건</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
             <%}%>
         </div>
@@ -225,6 +312,52 @@
     gtag('config', 'G-PC15JG6KGN');
 </script>
 <script>
+    const cancelProduct = () => {
+        alert("상품 취소");
+    }
+    var modalBackground;
+    var modal;
+    const given = (prop) => {
+        modalBackground = document.getElementById("modal_background" + prop);
+        modal = document.getElementById("modal" + prop);
+        if(modalBackground.style.display === "flex"){
+            modalBackground.style.display = "none";
+        }
+        else{
+            modalBackground.style.display = "flex";
+        }
+        if(modal.style.display === "flex"){
+            modal.style.display = "none";
+        }
+        else{
+            modal.style.display = "flex";
+        }
+    }
+    var isNone = 0;
+    const clickModalBackground = () => {
+        if(isNone){
+            isNone = 0;
+            return;
+        }
+        else{
+            if(modalBackground.style.display === "flex"){
+                modalBackground.style.display = "none";
+            }
+            else{
+                modalBackground.style.display = "flex";
+            }
+            if(modal.style.display === "flex"){
+                modal.style.display = "none";
+            }
+            else{
+                modal.style.display = "flex";
+            }
+        }
+    }
+    const clickModal = () => {
+        isNone = 1;
+    }
+
     const clickPartner = (prop) => {
         let idNum = prop.id.slice(5);
         var partnerContainer = document.getElementById("partner" + idNum);
