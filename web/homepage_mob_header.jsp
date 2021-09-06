@@ -178,17 +178,27 @@
     var scrollPastPos = window.scrollY;
     var headerMob = document.getElementById("header_mob");
     var footer = document.getElementById("mobileFooter");
+
+    const handler = {
+        set : (obj, prop, value) => {
+            obj[prop] = value;
+        }
+    }
+    const checkHeader = new Proxy({check : true}, handler);
+
     setTimeout(() => {
         window.addEventListener('scroll', (e) => {
             var scrollMoving = scrollPastPos - window.scrollY;
             if(scrollMoving < 0){
                 if(scrollPastPos > 190){
                     headerMob.style.top = "-102px";
+                    if(checkHeader.check) checkHeader.check = false;
                 }
                 footer.style.bottom = "-60px";
             }
             else{
                 headerMob.style.top = "0";
+                if(!checkHeader.check) checkHeader.check = true;
                 footer.style.bottom = "0";
             }
             scrollPastPos = window.scrollY;
