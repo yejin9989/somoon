@@ -72,13 +72,43 @@
     <jsp:include page="/homepage_pc_header.jsp" flush="false" />
     <jsp:include page="/homepage_mob_header.jsp" flush="false" />
     <div class="interior_container">
-        <div class="upper" id="interior_upper"></div>
-
+        <div class="upper" id="interior_upper">
+            <div class="searchBoxContainer">
+                <form id="form_done" name="form_done" method="POST" action="newTest1.jsp">
+                    <div class="searchBox" id="searchBox">
+                        <div class="img_container">
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/magnifying.png?raw=true" />
+                        </div>
+                        <div class="text_container">
+                            <input class="text_input" id="searchTextInput" type="text" placeholder="" value=""/>
+                            <input class="searchSubmit" type="submit" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="filter" id="filter">
+                <button onclick="openFilterSlider()">필터</button>
+                <div class='tagBox'>
+                    <div class='leftTag sideTag'></div>
+                    <div class='nowTag tag' onclick='clickToNone()'>tagData.area[i]<div>X</div>
+                    </div>
+                    <div class='rightTag sideTag'></div>
+                </div>
+            </div>
+            <div class="filterSlider" id="filterSlider">
+                <div class='tagBox'>
+                    <div class='leftTag sideTag'></div>
+                    <div class='allTag tag" + i + "' onclick='test()'>tagData.area[i]<div class='onOff'>X</div>
+                    </div>
+                    <div class='rightTag sideTag'></div>
+                </div>
+            </div>
+        </div>
+        <div id="upperShadow"></div>
+        <div class="interior_body">테스트</div>
     </div>
-
 </div>
 <jsp:include page="/newTestFooter.jsp" flush="false" />
-
 <%
     if(pstmt != null) {
         pstmt.close();
@@ -90,7 +120,6 @@
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -98,12 +127,100 @@
     gtag('config', 'G-PC15JG6KGN');
 </script>
 <script>
-
-
-
+    const tagData = {
+        area : ["중구", "동구", "서구", "남구", "북구", "수성구", "달서구", "달성군", "경북"],
+        hashtag : ["모던", "화이트", "블랙", "미니멀"]
+    }
 
     var upper = document.getElementById("interior_upper");
-    upper.style.top = "0";
+    upper.style.top = "102px";
+    handler.set = (obj, prop, value) => {
+        obj[prop] = value;
+        value ?
+            upper.style.top = "102px"
+            :
+            upper.style.top = "0";
+    }
+
+    const upperShadow = document.getElementById("upperShadow");
+    upperShadow.style.height = upper.clientHeight + "px";
+
+    const openFilterSlider = () => {
+        var filterSlider = document.getElementById("filterSlider");
+        if(filterSlider.style.display === "flex"){
+            filterSlider.style.display = "none";
+            upperShadow.style.height = upper.clientHeight + "px";
+        }
+        else{
+            filterSlider.style.display = "flex";
+            upperShadow.style.height = upper.clientHeight + "px";
+        }
+    }
+
+    const searchTextInput = document.getElementById("searchTextInput");
+    const searchBox = document.getElementById("searchBox");
+    searchTextInput.addEventListener('focus', () => {
+        searchBox.style.background = "#fff";
+    })
+    searchTextInput.addEventListener('blur', () => {
+        searchBox.style.background = "#fafafa";
+    })
+
+
+    const filter = document.getElementById("filter");
+    const filterSlider = document.getElementById("filterSlider");
+    console.log(tagData[0]);
+
+    var i = 0;
+    for(i; i < tagData.area.length; i++){
+        filter.innerHTML += "<div class='tagBox'><div class='leftTag sideTag'></div><div class='nowTag tag" + i +
+            "' onclick='clickToNone(this, " +
+            i + ")'>" +
+            tagData.area[i] +
+            "<div>X</div></div><div class='rightTag sideTag'></div></div>";
+        filterSlider.innerHTML += "<div class='tagBox'><div class='leftTag sideTag'></div><div class='allTag tag" + i + "' onclick='test(this, "
+            + i + ")'>" +
+            tagData.area[i] +
+            "<div class='onOff'>X</div></div><div class='rightTag sideTag'></div></div>";
+    }
+    for(var j = 0, i; j < tagData.hashtag.length; i++, j++){
+        filter.innerHTML += "<div class='tagBox'><div class='leftTag sideTag'></div><div class='nowTag tag" + i +
+            "' onclick='clickToNone(this, " + i + ")'>" +
+            tagData.hashtag[j] +
+            "<div>X</div></div><div class='rightTag sideTag'></div></div>";
+        filterSlider.innerHTML += "<div class='tagBox'><div class='leftTag sideTag'></div><div class='allTag tag" + i +
+            "' onclick='test(this, "
+            + i + ")'>" +
+            tagData.hashtag[j] +
+            "<div class='onOff'>X</div></div><div class='rightTag sideTag'></div></div>";
+    }
+
+    var nowTag = document.getElementsByClassName("nowTag");
+    var allTag = document.getElementsByClassName("allTag");
+    var tagBox = document.getElementsByClassName("tagBox");
+    var onOff = document.getElementsByClassName("onOff");
+    var leftTag = document.getElementsByClassName("leftTag");
+    var rightTag = document.getElementsByClassName("rightTag");
+    const clickToNone = (prop, index) => {
+        prop.style.display = "none";
+        leftTag[index].style.display = "none";
+        rightTag[index].style.display = "none";
+        onOff[index].style.visibility = "hidden";
+    }
+    const test = (prop, index) => {
+        if(onOff[index].style.visibility === "visible"){
+            onOff[index].style.visibility = "hidden";
+            leftTag[index].style.display = "none";
+            rightTag[index].style.display = "none";
+            nowTag[index].style.display = "none";
+        }
+        else{
+            onOff[index].style.visibility = "visible";
+            leftTag[index].style.display = "flex";
+            rightTag[index].style.display = "flex";
+            nowTag[index].style.display = "flex";
+        }
+    }
 
 </script>
 </body>
