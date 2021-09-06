@@ -41,6 +41,8 @@
         hm.put("name", rs.getString("C.Name"));
         hm.put("stock", rs.getString("I.Stock"));
         hm.put("quantity", rs.getString("C.Quantity"));
+        hm.put("origin", rs.getString("C.Origin"));
+        hm.put("extra", rs.getString("C.Extra"));
         hm.put("issued_date", rs.getString("I.Issued_date"));
         hm.put("expiration_date", rs.getString("Expiration_date"));
         company_coupon_now.put(rs.getString("I.Id"), hm);
@@ -57,6 +59,8 @@
         hm.put("name", rs.getString("C.Name"));
         hm.put("stock", rs.getString("I.Stock"));
         hm.put("quantity", rs.getString("C.Quantity"));
+        hm.put("origin", rs.getString("C.Origin"));
+        hm.put("extra", rs.getString("C.Extra"));
         hm.put("issued_date", rs.getString("I.Issued_date"));
         hm.put("expiration_date", rs.getString("Expiration_date"));
         company_coupon_old.put(rs.getString("I.Id"), hm);
@@ -103,13 +107,18 @@
              %>
             <div class="goods_container">
                 <div class="text_area">
-                    <span class="upper_text"><%=coupon.get("name")%></span>
+                    <span class="upper_text"><%=coupon.get("name")%>
+                        <%if(coupon.get("origin")!=null && !coupon.get("origin").equals("null")) {
+                            out.print("(" + coupon.get("origin") + " + " + coupon.get("extra"));
+                        }
+                        %>
+                    </span>
                 </div>
                 <div class="text_area">
                     <span class="mid_text">기간 <span class="mid_date_text"><%=coupon.get("issued_date")%> ~ <%=coupon.get("expiration_date")%></span></span>
                 </div>
                 <div class="text_area">
-                    <span class="lower_text">배분 <%=coupon.get("stock")%>건/<%=coupon.get("quantity")%>건</span>
+                    <span class="lower_text">잔여 <%=coupon.get("stock")%> / 전체 <%=coupon.get("quantity")%></span>
                 </div>
             </div>
             <%}%>
@@ -119,7 +128,12 @@
             %>
             <div class="goods_container">
                 <div class="text_area">
-                    <span class="upper_text"><%=coupon.get("name")%></span>
+                    <span class="upper_text"><%=coupon.get("name")%>
+                        <%if(coupon.get("origin")!=null && !coupon.get("origin").equals("null")) {
+                            out.print("(" + coupon.get("origin") + " + " + coupon.get("extra"));
+                        }
+                        %>
+                    </span>
                 </div>
                 <div class="text_area">
                     <span class="mid_text">기간 <span class="mid_date_text"><%=coupon.get("issued_date")%> ~ <%=coupon.get("expiration_date")%></span></span>

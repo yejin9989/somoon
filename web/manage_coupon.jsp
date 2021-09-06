@@ -48,11 +48,9 @@
 
     //DB 가져오기
     //모든 회사 불러오기
-    query = "SELECT *, COUNT(*) cnt " +
-            "FROM ASSIGNED a, COMPANY c, REMODELING_APPLY ra " +
-            "WHERE a.Company_num = c.Id AND a.Apply_num = ra.Number AND (a.State = 0 or a.State = 2) " +
-            "AND ra.Apply_date > '2021-06-09' And c.State = 1 " +
-            "GROUP BY a.Company_num order by c.State desc";
+    query = "SELECT * " +
+            "FROM COMPANY " +
+            "WHERE State = 1 ";
     pstmt = conn.prepareStatement(query);
     rs = pstmt.executeQuery();
     HashMap<String, HashMap<String, String>> company_info = new HashMap<String, HashMap<String, String>>();
@@ -61,7 +59,7 @@
     ResultSet rs2 = null;
     while(rs.next()) {
         HashMap<String, String> hm = new HashMap<String, String>();
-        query2 = "SELECT SUM(Stock) FROM ISSUED_COUPON where Company_id = " + rs.getString("c.Id")
+        query2 = "SELECT SUM(Stock) FROM ISSUED_COUPON where Company_id = " + rs.getString("Id")
                 + " and Expiration_date >= CURDATE()"
                 + " group by Company_id";
         pstmt2 = conn.prepareStatement(query2);
@@ -70,16 +68,32 @@
         while(rs2.next()){
             hm.put("stock", rs2.getString("SUM(Stock)"));
         }
-        hm.put("modify_date", rs.getString("c.Modify_date"));
-        hm.put("profile_img", rs.getString("c.Profile_img"));
-        hm.put("name", rs.getString("c.Name"));
-        hm.put("state", rs.getString("c.State"));
-        hm.put("cnt", rs.getString("cnt"));
-        hm.put("phone", rs.getString("c.Phone"));
-        company_info.put(rs.getString("c.Id"),hm);
+        hm.put("modify_date", rs.getString("Modify_date"));
+        hm.put("profile_img", rs.getString("Profile_img"));
+        hm.put("name", rs.getString("Name"));
+        hm.put("state", rs.getString("State"));
+        hm.put("cnt", "0");
+        hm.put("phone", rs.getString("Phone"));
+        company_info.put(rs.getString("Id"),hm);
     }
     pstmt2.close();
     rs2.close();
+
+    query = "SELECT COUNT(*) cnt, c.Id " +
+            "FROM REMODELING_APPLY ra, ASSIGNED a, COMPANY c " +
+            "WHERE a.Company_num = c.Id " +
+            "AND a.Apply_num = ra.Number " +
+            "AND (a.State=0 or a.State=2) " +
+            "AND ra.Apply_date>'2021-06-09' " +
+            "GROUP BY c.Id";
+    pstmt = conn.prepareStatement(query);
+    rs = pstmt.executeQuery();
+    while(rs.next()){
+        HashMap hm = company_info.get(rs.getString("c.Id"));
+        if(hm != null) {
+            hm.put("cnt", rs.getString("cnt"));
+        }
+    }
     //회사 별 쿠폰정보 불러오기
     HashMap<String, HashMap<String, String>> company_coupon = new HashMap<String, HashMap<String, String>>();
     for(String company_id : company_info.keySet()){

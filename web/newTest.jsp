@@ -32,7 +32,6 @@
         String date;
         HashMap<String, HashMap<String, String>> applies;
         HashMap<String, HashMap<String, String>> details;
-
         void setDate(String date){
             this.date = date;
         }
@@ -83,6 +82,9 @@
         else {
             query += " And A.State = " + ing_filter;
         }
+        if(ing_search != null && ing_search != "") {
+            query += " And (R.Name Like \"%" + ing_search + "%\" OR R.Phone Like \"%" + ing_search + "%\" OR R.Address Like \"%" + ing_search + "%\")";
+        }
         pstmt = conn.prepareStatement(query);
         ResultSet rs2 = pstmt.executeQuery();
 
@@ -94,9 +96,6 @@
             }
             else{
                 query = "select * from REMODELING where Number = " + rs2.getString("Item_num");
-                if(ing_search != null && ing_search != "") {
-                    query += " And (R.Name Like \"%" + ing_search + "%\" OR R.Phone Like \"%" + ing_search + "%\" OR R.Address Like \"%" + ing_search + "%\")";
-                }
                 pstmt = conn.prepareStatement(query);
                 ResultSet rs3 = pstmt.executeQuery();
                 while(rs3.next()){
@@ -183,14 +182,6 @@
                     </div>
                 </div>
                 <div class="right_container">
-<%--                    <div class="right_box">--%>
-<%--                        <div class="text_container">--%>
-<%--                            <span>전체보기</span>--%>
-<%--                        </div>--%>
-<%--                        <div class="img_container">--%>
-<%--                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/underDirection.png?raw=true" />--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
                     <div class="right_box">
                         <div class="text_container">
                             <select class="filter" type="text" name="filter">
@@ -283,7 +274,7 @@
                             </div>
                         </div>
                         <div class="under_container">
-                            <div class="side_container" onclick="calling()">
+                            <div class="side_container" id="call<%=apply.get("Number")%>" onclick="calling(this)">
                                 <div class="img_container">
                                     <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/call.png?raw=true" />
                                 </div>
@@ -291,7 +282,7 @@
                                     <span><a href="tel:<%=apply.get("Phone")%>">전화</a></span>
                                 </div>
                             </div>
-                            <div class="side_container" onclick="massage()">
+                            <div class="side_container" id="msg<%=apply.get("Number")%>" onclick="massage(this)">
                                 <div class="img_container">
                                     <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/talk.png?raw=true" />
                                 </div>
@@ -422,11 +413,15 @@
         var state = $('select[name=state'+id+']').val();
         location.href = '_newTest_company_change_state.jsp?companyNum='+'<%=s_id%>'+'&state='+state+'&applyNum='+id;
     }
-    function calling(){
-        alert("전화 걸기");
+    function calling(obj){
+        // 전화걸기 버튼을 누를 시 상담중으로 상태변경
+        var id = obj.getAttribute("id").substring(4);
+        location.href = '_newTest_company_change_state.jsp?companyNum='+'<%=s_id%>'+'&state=4&applyNum='+id;
     }
-    function massage(){
-        alert("문자 보내기");
+    function massage(obj){
+        // 문자보내기 버튼을 누를 시 상담중으로 상태변경
+        var id = obj.getAttribute("id").substring(3);
+        location.href = '_newTest_company_change_state.jsp?companyNum='+'<%=s_id%>'+'&state=4&applyNum='+id;
     }
     var modalNum;
     function open_modal(obj){
@@ -467,7 +462,6 @@
             alert("로그인 세션이 만료되었습니다. 재로그인 해주세요.");
             location.href = "index.jsp";
         }
-
     })
     // 새로고침 시 get parameter 초기화
     history.replaceState({}, null, location.pathname);
