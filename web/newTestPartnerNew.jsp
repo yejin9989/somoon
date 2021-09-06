@@ -20,7 +20,7 @@
     String sql = "";
 
     //DB 가져오기 예시
-    query = "select * from COUPON";
+    query = "select * from COUPON where Id > 1"; // 이벤트 쿠폰은 제외한 상품
     pstmt = conn.prepareStatement(query);
     rs = pstmt.executeQuery();
     HashMap<String, HashMap<String, String>> coupon = new HashMap<String, HashMap<String, String>>();
@@ -29,6 +29,8 @@
         hm.put("name", rs.getString("Name"));
         hm.put("period", rs.getString("Period"));
         hm.put("quantity", rs.getString("Quantity"));
+        hm.put("origin", rs.getString("Origin"));
+        hm.put("extra", rs.getString("Extra"));
         hm.put("price", rs.getString("Price"));
         coupon.put(rs.getString("Id"), hm);
     }
@@ -66,13 +68,13 @@
                 <div class="goods_container">
                     <div class="goods_left_box">
                         <div class="text_area">
-                            <span class="upper_text"><%=item.get("name")%></span><!--span class="upper_text">주거 프라임</span-->
+                            <span class="upper_text"><%=item.get("name")%> (<%=item.get("origin")%>건)</span><!--span class="upper_text">주거 프라임</span-->
                         </div>
                         <div class="text_area">
-                            <span class="mid_text">기간 <span class="mid_date_text"><%=item.get("period")%>일</span></span>
+                            <span class="mid_text">결제일로부터 <span class="mid_date_text"><%=item.get("period")%>일간</span></span>
                         </div>
                         <div class="text_area">
-                            <span class="lower_text">배분 <%=item.get("quantity")%>건</span>
+                            <span class="lower_text">전체 <%=item.get("quantity")%>건 (기본 <%=item.get("origin")%>건 + 보완 <%=item.get("extra")%>건)</span>
                         </div>
                     </div>
                     <div class="goods_mid_box">
