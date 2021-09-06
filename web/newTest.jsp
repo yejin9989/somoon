@@ -274,7 +274,7 @@
                             </div>
                         </div>
                         <div class="under_container">
-                            <div class="side_container" onclick="calling()">
+                            <div class="side_container" id="call<%=apply.get("Number")%>" onclick="calling(this)">
                                 <div class="img_container">
                                     <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/call.png?raw=true" />
                                 </div>
@@ -282,7 +282,7 @@
                                     <span><a href="tel:<%=apply.get("Phone")%>">전화</a></span>
                                 </div>
                             </div>
-                            <div class="side_container" onclick="massage()">
+                            <div class="side_container" id="msg<%=apply.get("Number")%>" onclick="massage(this)">
                                 <div class="img_container">
                                     <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/talk.png?raw=true" />
                                 </div>
@@ -413,11 +413,15 @@
         var state = $('select[name=state'+id+']').val();
         location.href = '_newTest_company_change_state.jsp?companyNum='+'<%=s_id%>'+'&state='+state+'&applyNum='+id;
     }
-    function calling(){
-        alert("전화 걸기");
+    function calling(obj){
+        // 전화걸기 버튼을 누를 시 상담중으로 상태변경
+        var id = obj.getAttribute("id").substring(4);
+        location.href = '_newTest_company_change_state.jsp?companyNum='+'<%=s_id%>'+'&state=4&applyNum='+id;
     }
-    function massage(){
-        alert("문자 보내기");
+    function massage(obj){
+        // 문자보내기 버튼을 누를 시 상담중으로 상태변경
+        var id = obj.getAttribute("id").substring(3);
+        location.href = '_newTest_company_change_state.jsp?companyNum='+'<%=s_id%>'+'&state=4&applyNum='+id;
     }
     var modalNum;
     function open_modal(obj){
