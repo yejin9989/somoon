@@ -76,7 +76,7 @@
                 <span>소문난집</span>
             </div>
             <div class="right_header">
-                <a href="newTestPartnerNew.jsp" target="_self">
+                <a href="newTestPartnerNew.jsp" target="_self"> <!--style 해제 해주어야함-->
                     <div class="img_container">
                         <img class="cart"
                              src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cart2.png?raw=true" />

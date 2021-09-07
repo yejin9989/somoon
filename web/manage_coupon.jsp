@@ -48,11 +48,9 @@
 
     //DB 가져오기
     //모든 회사 불러오기
-    query = "SELECT *, COUNT(*) cnt " +
-            "FROM ASSIGNED a, COMPANY c, REMODELING_APPLY ra " +
-            "WHERE a.Company_num = c.Id AND a.Apply_num = ra.Number AND (a.State = 0 or a.State = 2) " +
-            "AND ra.Apply_date > '2021-06-09' And c.State = 1 " +
-            "GROUP BY a.Company_num order by c.State desc";
+    query = "SELECT * " +
+            "FROM COMPANY " +
+            "WHERE State = 1 ";
     pstmt = conn.prepareStatement(query);
     rs = pstmt.executeQuery();
     HashMap<String, HashMap<String, String>> company_info = new HashMap<String, HashMap<String, String>>();
@@ -61,7 +59,7 @@
     ResultSet rs2 = null;
     while(rs.next()) {
         HashMap<String, String> hm = new HashMap<String, String>();
-        query2 = "SELECT SUM(Stock) FROM ISSUED_COUPON where Company_id = " + rs.getString("c.Id")
+        query2 = "SELECT SUM(Stock) FROM ISSUED_COUPON where Company_id = " + rs.getString("Id")
                 + " and Expiration_date >= CURDATE()"
                 + " group by Company_id";
         pstmt2 = conn.prepareStatement(query2);
@@ -70,16 +68,32 @@
         while(rs2.next()){
             hm.put("stock", rs2.getString("SUM(Stock)"));
         }
-        hm.put("modify_date", rs.getString("c.Modify_date"));
-        hm.put("profile_img", rs.getString("c.Profile_img"));
-        hm.put("name", rs.getString("c.Name"));
-        hm.put("state", rs.getString("c.State"));
-        hm.put("cnt", rs.getString("cnt"));
-        hm.put("phone", rs.getString("c.Phone"));
-        company_info.put(rs.getString("c.Id"),hm);
+        hm.put("modify_date", rs.getString("Modify_date"));
+        hm.put("profile_img", rs.getString("Profile_img"));
+        hm.put("name", rs.getString("Name"));
+        hm.put("state", rs.getString("State"));
+        hm.put("cnt", "0");
+        hm.put("phone", rs.getString("Phone"));
+        company_info.put(rs.getString("Id"),hm);
     }
     pstmt2.close();
     rs2.close();
+
+    query = "SELECT COUNT(*) cnt, c.Id " +
+            "FROM REMODELING_APPLY ra, ASSIGNED a, COMPANY c " +
+            "WHERE a.Company_num = c.Id " +
+            "AND a.Apply_num = ra.Number " +
+            "AND (a.State=0 or a.State=2) " +
+            "AND ra.Apply_date>'2021-06-09' " +
+            "GROUP BY c.Id";
+    pstmt = conn.prepareStatement(query);
+    rs = pstmt.executeQuery();
+    while(rs.next()){
+        HashMap hm = company_info.get(rs.getString("c.Id"));
+        if(hm != null) {
+            hm.put("cnt", rs.getString("cnt"));
+        }
+    }
     //회사 별 쿠폰정보 불러오기
     HashMap<String, HashMap<String, String>> company_coupon = new HashMap<String, HashMap<String, String>>();
     for(String company_id : company_info.keySet()){
@@ -147,7 +161,9 @@
                         <div class="company_desc">
                             <div class="company_name"><%=company.get("name")%></div>
                             <div class="company_info">
-                                <div class="company_last_coupon">잔여 <span><%=company.get("stock")%></span>건</div>
+                                <div class="company_last_coupon" onclick="given(<%=id%>)">잔여
+                                    <span><%=company.get("stock")%></span>건
+                                </div>
                                 <div class="company_last_consulting">미상담 <span><%=company.get("cnt")%></span>건</div>
                             </div>
                             <div class="company_last_login">last login <%=company.get("modify_date")%></div>
@@ -184,6 +200,91 @@
                     </div>
                     <%}%>
                 </div>
+                <div class="modal_background" id="modal_background<%=id%>" onclick="clickModalBackground()">
+                    <div class="modal" id="modal<%=id%>" onclick="clickModal()">
+                        <div class="main_header">
+                            <span>님</span>
+                        </div>
+                        <div class="main_container">
+                            <div class="sub_text"><span>전체 잔여 건수</span></div>
+                            <div class="goods_container">
+                                <span class="left_item">건</span>
+                            </div>
+                            <div class="sub_text"><span>이용중인 상품</span></div>
+                            <div class="goods_container">
+                                <div class="text_area">
+                                    <span class="upper_text"></span>
+                                </div>
+                                <div class="text_area">
+                                    <span class="mid_text">기간 <span class="mid_date_text"></span></span>
+                                </div>
+                                <div class="text_area">
+                                    <span class="lower_text">배분 건/건</span>
+                                </div>
+                                <div class="return" onclick="cancelProduct()">
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/X.png?raw=true" />
+                                </div>
+                            </div>
+                            <div class="sub_text"><span>이용 끝난 상품</span></div>
+                            <div class="goods_container">
+                                <div class="text_area">
+                                    <span class="upper_text"></span>
+                                </div>
+                                <div class="text_area">
+                                    <span class="mid_text">기간 <span class="mid_date_text"> ~ </span></span>
+                                </div>
+                                <div class="text_area">
+                                    <span class="lower_text">배분 건/건</span>
+                                </div>
+                            </div>
+                            <div class="goods_container">
+                                <div class="text_area">
+                                    <span class="upper_text"></span>
+                                </div>
+                                <div class="text_area">
+                                    <span class="mid_text">기간 <span class="mid_date_text"> ~ </span></span>
+                                </div>
+                                <div class="text_area">
+                                    <span class="lower_text">배분 건/건</span>
+                                </div>
+                            </div>
+                            <div class="goods_container">
+                                <div class="text_area">
+                                    <span class="upper_text"></span>
+                                </div>
+                                <div class="text_area">
+                                    <span class="mid_text">기간 <span class="mid_date_text"> ~ </span></span>
+                                </div>
+                                <div class="text_area">
+                                    <span class="lower_text">배분 건/건</span>
+                                </div>
+                            </div>
+                            <div class="goods_container">
+                                <div class="text_area">
+                                    <span class="upper_text"></span>
+                                </div>
+                                <div class="text_area">
+                                    <span class="mid_text">기간 <span class="mid_date_text"> ~ </span></span>
+                                </div>
+                                <div class="text_area">
+                                    <span class="lower_text">배분 건/건</span>
+                                </div>
+                            </div>
+                            <div class="goods_container">
+                                <div class="text_area">
+                                    <span class="upper_text"></span>
+                                </div>
+                                <div class="text_area">
+                                    <span class="mid_text">기간 <span class="mid_date_text"> ~ </span></span>
+                                </div>
+                                <div class="text_area">
+                                    <span class="lower_text">배분 건/건</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
             <%}%>
         </div>
@@ -211,6 +312,52 @@
     gtag('config', 'G-PC15JG6KGN');
 </script>
 <script>
+    const cancelProduct = () => {
+        alert("상품 취소");
+    }
+    var modalBackground;
+    var modal;
+    const given = (prop) => {
+        modalBackground = document.getElementById("modal_background" + prop);
+        modal = document.getElementById("modal" + prop);
+        if(modalBackground.style.display === "flex"){
+            modalBackground.style.display = "none";
+        }
+        else{
+            modalBackground.style.display = "flex";
+        }
+        if(modal.style.display === "flex"){
+            modal.style.display = "none";
+        }
+        else{
+            modal.style.display = "flex";
+        }
+    }
+    var isNone = 0;
+    const clickModalBackground = () => {
+        if(isNone){
+            isNone = 0;
+            return;
+        }
+        else{
+            if(modalBackground.style.display === "flex"){
+                modalBackground.style.display = "none";
+            }
+            else{
+                modalBackground.style.display = "flex";
+            }
+            if(modal.style.display === "flex"){
+                modal.style.display = "none";
+            }
+            else{
+                modal.style.display = "flex";
+            }
+        }
+    }
+    const clickModal = () => {
+        isNone = 1;
+    }
+
     const clickPartner = (prop) => {
         let idNum = prop.id.slice(5);
         var partnerContainer = document.getElementById("partner" + idNum);

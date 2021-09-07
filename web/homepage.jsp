@@ -137,12 +137,6 @@
                             <div>
                                 <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
                             </div>
-                            <span>복도</span>
-                        </a>
-                        <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
-                            <div>
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
-                            </div>
                             <span>베란다</span>
                         </a>
                     </div>
@@ -159,48 +153,50 @@
                     </div>
                 </div>
                 <div class="lower">
-                    <a href="https://github.com" class="best_container">
-                        <div class="box">
-                            <div class="box_upper">
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" />
+                    <div class="slider">
+                        <a href="https://github.com" class="best_container">
+                            <div class="box">
+                                <div class="box_upper">
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" />
+                                </div>
+                                <div class="box_lower">
+                                    <span class="title">대구 수성구 수성동 수성보성타운</span>
+                                    <span class="sub">아파트 | 49평형 | 거실 + 주방 | 남다른디자인</span>
+                                </div>
                             </div>
-                            <div class="box_lower">
-                                <span class="title">대구 수성구 수성동 수성보성타운</span>
-                                <span class="sub">아파트 | 49평형 | 거실 + 주방 | 남다른디자인</span>
+                        </a>
+                        <a href="https://github.com" class="best_container">
+                            <div class="box">
+                                <div class="box_upper">
+                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog2.jpg?raw=true" />
+                                </div>
+                                <div class="box_lower">
+                                    <span class="title">대구 수성구 수성동 수성보성타운</span>
+                                    <span class="sub">아파트 | 49평형 | 거실 + 주방 | 남다른디자인</span>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                    <a href="https://github.com" class="best_container">
-                        <div class="box">
-                            <div class="box_upper">
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog2.jpg?raw=true" />
+                        </a>
+                        <a href="https://github.com" class="best_container">
+                            <div class="box">
+                                <div class="box_upper">
+                                </div>
+                                <div class="box_lower">
+                                    <span class="title">대구 수성구 수성동 수성보성타운</span>
+                                    <span class="sub">아파트 | 49평형 | 거실 + 주방 | 남다른디자인</span>
+                                </div>
                             </div>
-                            <div class="box_lower">
-                                <span class="title">대구 수성구 수성동 수성보성타운</span>
-                                <span class="sub">아파트 | 49평형 | 거실 + 주방 | 남다른디자인</span>
+                        </a>
+                        <a href="https://github.com" class="best_container">
+                            <div class="box">
+                                <div class="box_upper">
+                                </div>
+                                <div class="box_lower">
+                                    <span class="title">대구 수성구 수성동 수성보성타운</span>
+                                    <span class="sub">아파트 | 49평형 | 거실 + 주방 | 남다른디자인</span>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                    <a href="https://github.com" class="best_container">
-                        <div class="box">
-                            <div class="box_upper">
-                            </div>
-                            <div class="box_lower">
-                                <span class="title">대구 수성구 수성동 수성보성타운</span>
-                                <span class="sub">아파트 | 49평형 | 거실 + 주방 | 남다른디자인</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="https://github.com" class="best_container">
-                        <div class="box">
-                            <div class="box_upper">
-                            </div>
-                            <div class="box_lower">
-                                <span class="title">대구 수성구 수성동 수성보성타운</span>
-                                <span class="sub">아파트 | 49평형 | 거실 + 주방 | 남다른디자인</span>
-                            </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="review">
@@ -594,6 +590,72 @@
                                 <!-- span class="txt for">#북유럽 #모던 #화이트인테리어</span -->
                             </div>
                         </a>
+                        <a href="https://github.com" class="style_container">
+                            <div class="box">
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog5.jpg?raw=true" />
+                            </div>
+                            <div class="text">
+                                <div class="txt fir">
+                                    <span class="fir_title">아이비디자인</span>
+                                    <div class="fir_box">
+                                        <span class="fir_sub">A/S 1년</span>
+                                    </div>
+                                    <div class="fir_box">
+                                        <span class="fir_sub">응답우수</span>
+                                    </div>
+                                </div>
+                                <span class="txt sec">서변동 서변월드메르디앙</span>
+                                <div class="txt thr">
+                                    <div class="thr_img">
+                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star.png?raw=true" />
+                                    </div>
+                                    <span>4.8</span>
+                                    <div class="thr_img">
+                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart2.png?raw=true" />
+                                    </div>
+                                    <span>177</span>
+                                </div>
+                                <div class="txt fiv">
+                                    <span>33평</span>
+                                    <div class="sidebar"></div>
+                                    <span>600만원</span>
+                                </div>
+                                <!-- span class="txt for">#북유럽 #모던 #화이트인테리어</span -->
+                            </div>
+                        </a>
+                        <a href="https://github.com" class="style_container">
+                            <div class="box">
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog5.jpg?raw=true" />
+                            </div>
+                            <div class="text">
+                                <div class="txt fir">
+                                    <span class="fir_title">아이비디자인</span>
+                                    <div class="fir_box">
+                                        <span class="fir_sub">A/S 1년</span>
+                                    </div>
+                                    <div class="fir_box">
+                                        <span class="fir_sub">응답우수</span>
+                                    </div>
+                                </div>
+                                <span class="txt sec">서변동 서변월드메르디앙</span>
+                                <div class="txt thr">
+                                    <div class="thr_img">
+                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star.png?raw=true" />
+                                    </div>
+                                    <span>4.8</span>
+                                    <div class="thr_img">
+                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart2.png?raw=true" />
+                                    </div>
+                                    <span>177</span>
+                                </div>
+                                <div class="txt fiv">
+                                    <span>33평</span>
+                                    <div class="sidebar"></div>
+                                    <span>600만원</span>
+                                </div>
+                                <!-- span class="txt for">#북유럽 #모던 #화이트인테리어</span -->
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -662,6 +724,8 @@
     gtag('config', 'G-PC15JG6KGN');
 </script>
 <script>
+
+
     // banner 이미지 정보가 로드 되고나면 진행해야함.
     var bannerMinHeight = 987654321;
     var bannerImgs = document.getElementsByClassName("bannerImg");
@@ -669,7 +733,6 @@
         if(bannerImgs[i].naturalHeight < bannerMinHeight){
             bannerMinHeight = bannerImgs[i].naturalHeight;
         }
-
     }
 
     const abs = (a) => {
@@ -703,46 +766,11 @@
         block[i].style.width = gdiffNum + "px";
     }
 
-    /*
-    var sliderContainer = document.getElementById("slider_container");
-    var slider = document.getElementById("area_slider");
-    var areas = document.getElementsByClassName("area");
-    var slideNum = areas.length;
-    var canMove = 0;
-    var startXPos, sliderPos = 0;
-    var moving, nowPos;
-    sliderContainer.onmousedown = (event) => {
-        canMove = 1;
-        startXPos = event.pageX;
-    }
-    sliderContainer.onmouseup = (event) => {
-        canMove = 0;
-        sliderPos += event.pageX - startXPos;
-    }
-    sliderContainer.onmousemove = (event) => {
-        if(canMove){
-            moving = event.pageX - startXPos;
-            if((sliderPos + moving <= 0) && (sliderPos + moving >= (slideNum - 6) * -170)){
-                nowPos = sliderPos + moving;
-                slider.style.transform = "translateX(" + nowPos + "px)";
-            }
-        }
-    }
-    sliderContainer.onmouseleave = (event) => {
-        if(canMove){
-            canMove = 0;
-            sliderPos += event.pageX - startXPos;
-        }
-    }
-    for(var i = 0; i < slideNum; i++){
-        areas[i].style.pointerEvents = "none";
-    }
-     */
-
+    var reviewBox = document.getElementById("reviewBox");
     var boxes = document.getElementsByClassName("reviewBox");
     var mainBoxNum;
-    var PCPos = -478;
-    var MobPos = -415;
+    var PCPos = Math.round(-660 + (reviewBox.clientWidth - 660) / 2);
+    var MobPos = Math.round(-400 + (reviewBox.clientWidth - 400) / 2);
     if(matchMedia("(max-width: 700px)").matches){
         for(var i = 0; i < boxes.length; i++){
             if(boxes[i].className === "reviewBox main"){
@@ -760,15 +788,13 @@
         }
     }
     const goLeft = () => {
+        if(mainBoxNum === 0){
+            PCPos -= boxes.length * 660;
+            MobPos -= boxes.length * 400;
+        }
+        PCPos += 660;
+        MobPos += 400;
         if(matchMedia("(max-width: 700px)").matches){
-            if(MobPos === (-415 + 400)){
-                MobPos -= boxes.length * 400;
-            }
-            MobPos += 400;
-            if(PCPos === (-478 + 660)){
-                PCPos -= boxes.length * 660;
-            }
-            PCPos += 660;
             for(var i = 0; i < boxes.length; i++){
                 if(boxes[i].className === "reviewBox main"){
                     mainBoxNum = i;
@@ -776,23 +802,10 @@
                 boxes[i].style.transform = "translateX(" + MobPos + "px)";
             }
             boxes[mainBoxNum].className = "reviewBox sub";
-            if(mainBoxNum === 0){
-                mainBoxNum = boxes.length - 1;
-            }
-            else{
-                mainBoxNum--;
-            }
+            mainBoxNum === 0 ? mainBoxNum = boxes.length - 1 : mainBoxNum--;
             boxes[mainBoxNum].className = "reviewBox main";
         }
         else{
-            if(MobPos === (-415 + 400)){
-                MobPos -= boxes.length * 400;
-            }
-            MobPos += 400;
-            if(PCPos === (-478 + 660)){
-                PCPos -= boxes.length * 660;
-            }
-            PCPos += 660;
             for(var i = 0; i < boxes.length; i++){
                 if(boxes[i].className === "reviewBox main"){
                     mainBoxNum = i;
@@ -800,25 +813,18 @@
                 boxes[i].style.transform = "translateX(" + PCPos + "px)";
             }
             boxes[mainBoxNum].className = "reviewBox sub";
-            if(mainBoxNum === 0){
-                mainBoxNum = boxes.length - 1;
-            }
-            else{
-                mainBoxNum--;
-            }
+            mainBoxNum === 0 ? mainBoxNum = boxes.length - 1 : mainBoxNum--;
             boxes[mainBoxNum].className = "reviewBox main";
         }
     }
     const goRight = () => {
+        if(mainBoxNum === boxes.length - 1){
+            MobPos += boxes.length * 400;
+            PCPos += boxes.length * 660;
+        }
+        MobPos -= 400;
+        PCPos -= 660;
         if(matchMedia("(max-width: 700px)").matches){
-            if(MobPos === (-415 - (boxes.length - 2) * 400)){
-                MobPos += boxes.length * 400;
-            }
-            MobPos -= 400;
-            if(PCPos === (-478 - (boxes.length - 2) * 660)){
-                PCPos += boxes.length * 660;
-            }
-            PCPos -= 660;
             for(var i = 0; i < boxes.length; i++){
                 if(boxes[i].className === "reviewBox main"){
                     mainBoxNum = i;
@@ -826,23 +832,10 @@
                 boxes[i].style.transform = "translateX(" + MobPos + "px)";
             }
             boxes[mainBoxNum].className = "reviewBox sub";
-            if(mainBoxNum === boxes.length - 1){
-                mainBoxNum = 0;
-            }
-            else{
-                mainBoxNum++;
-            }
+            mainBoxNum === boxes.length - 1 ? mainBoxNum = 0 : mainBoxNum++;
             boxes[mainBoxNum].className = "reviewBox main";
         }
         else{
-            if(MobPos === (-415 - (boxes.length - 2) * 400)){
-                MobPos += boxes.length * 400;
-            }
-            MobPos -= 400;
-            if(PCPos === (-478 - (boxes.length - 2) * 660)){
-                PCPos += boxes.length * 660;
-            }
-            PCPos -= 660;
             for(var i = 0; i < boxes.length; i++){
                 if(boxes[i].className === "reviewBox main"){
                     mainBoxNum = i;
@@ -850,17 +843,10 @@
                 boxes[i].style.transform = "translateX(" + PCPos + "px)";
             }
             boxes[mainBoxNum].className = "reviewBox sub";
-            if(mainBoxNum === boxes.length - 1){
-                mainBoxNum = 0;
-            }
-            else{
-                mainBoxNum++;
-            }
+            mainBoxNum === boxes.length - 1 ? mainBoxNum = 0 : mainBoxNum++;
             boxes[mainBoxNum].className = "reviewBox main";
         }
     }
-
-    var reviewBox = document.getElementById("reviewBox");
     var isSmall = reviewBox.clientWidth >= 684 ? false : true;
     const observer = new ResizeObserver((prop) => {
         if(prop[0].contentRect.width >= 684){
@@ -870,10 +856,22 @@
                     boxes[i].style.transform = "translateX(" + PCPos + "px)";
                 }
             }
+            else{
+                PCPos = Math.round(-660 + (reviewBox.clientWidth - 660) / 2 - 660 * (mainBoxNum - 1));
+                for(var i = 0; i < boxes.length; i++){
+                    boxes[i].style.transform = "translateX(" + PCPos + "px)";
+                }
+            }
         }
         else{
             if(!isSmall){
                 isSmall = true;
+                for(var i = 0; i < boxes.length; i++){
+                    boxes[i].style.transform = "translateX(" + MobPos + "px)";
+                }
+            }
+            else{
+                MobPos = Math.round(-400 + (reviewBox.clientWidth - 400) / 2 - 400 * (mainBoxNum - 1));
                 for(var i = 0; i < boxes.length; i++){
                     boxes[i].style.transform = "translateX(" + MobPos + "px)";
                 }

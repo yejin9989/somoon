@@ -18,6 +18,7 @@
 .one_container{
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
     width: 100%;
     height: 100%;
@@ -102,6 +103,9 @@
     font-size: 18px;
     font-weight: 600;
     border-radius: 10px;
+}
+.company_button_issue:hover{
+
 }
 .partner_container{
     display: none;
@@ -202,6 +206,138 @@
     writing-mode: vertical-rl;
     text-orientation: upright;
 }
+.modal_background{
+    display: none;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 20;
+}
+.modal{
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: 600px;
+    width: 70%;
+    height: 80vh;
+    background: #f5f5f5;
+    overflow: scroll;
+}
+.modal .main_header{
+    display:flex;
+    align-items: center;
+    width: 100%;
+    min-height: 60px;
+    height: 60px;
+    padding-left: 5%;
+    background-color: #fafafa;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+.modal .main_header span{
+    font-size: 18px;
+    font-weight: 600;
+    color:#000;
+    margin: 5px 20px;
+    white-space: nowrap;
+}
+.modal .main_container{
+    display:block;
+    width:100%;
+    height: 100%;
+    padding: 5px 20px;
+}
+.modal .main_container .sub_text{
+    display:flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+    white-space: nowrap;
+}
+.modal .main_container .sub_text span{
+    font-size: 16px;
+    font-weight: 500;
+    color:#000;
+}
+.modal .main_container .goods_container{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 10px;
+    width: 100%;
+    height: 80px;
+    margin-bottom: 20px;
+    background-color: #fafafa;
+    border-radius: 8px;
+    border:solid;
+    border-width: 1px;
+    border-color: #ddd;
+    overflow: hidden;
+}
+.modal .main_container .goods_container .left_item{
+    font-size: 20pt;
+    font-weight: 600;
+    color: #4A79F4;
+}
+.modal .main_container .goods_container .text_area{
+    display: flex;
+    position: relative;
+    align-items: center;
+    padding-left: 10px;
+    width: 100%;
+    height: calc(100% / 3);
+    overflow: hidden;
+}
+.modal .main_container .goods_container .text_area .upper_text{
+    font-size: 15px;
+    font-weight: 600;
+    color:#000;
+}
+.modal .main_container .goods_container .text_area .mid_text{
+    font-size: 15px;
+    color: gray;
+}
+.modal .main_container .goods_container .text_area .mid_date_text{
+    font-size: 16px;
+    color: gray;
+}
+.modal .main_container .goods_container .text_area .lower_text{
+    font-size: 15px;
+    font-weight: 600;
+    color: #4A79F4;
+}
+.modal .main_container .goods_container .return{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: absolute;
+    top:0;
+    right:0;
+    width: 30px;
+    height: 100%;
+    background: #dedede;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+}
+.modal .main_container .goods_container .return img{
+    width: 25px;
+    height: 25px;
+    object-fit: fill;
+    filter: invert(1);
+}
 @media (max-width: 500px) {
     .company_img{
         display: none;
@@ -224,5 +360,8 @@
     .goods_mid_box
     span {
         font-size: 20px;
+    }
+    .modal{
+        width: 100%;
     }
 }

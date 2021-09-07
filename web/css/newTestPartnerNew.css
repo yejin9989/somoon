@@ -120,6 +120,7 @@
     position: relative;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     min-width: 150px;
     width: 200px;
     height: 100px;
@@ -128,12 +129,18 @@
     border-width: 1px;
     border-color: #ddd;
     border-left: none;
+    gap: 8px;
 }
 .body_container .body_main .main_container .partner_container .goods_container .goods_mid_box span{
     color:#000;
     font-size: 25px;
     font-weight: 700;
     white-space: nowrap;
+}
+.body_container .body_main .main_container .partner_container .goods_container .goods_mid_box .vat{
+    color: #808080;
+    font-size: 12px !important;
+    font-weight: 500;
 }
 .body_container .body_main .main_container .partner_container .goods_container .goods_right_box{
     display: flex;

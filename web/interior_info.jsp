@@ -36,7 +36,6 @@
     String param = request.getParameter("param");
 
     //필요한 변수 선언
-    int i, j;
     String mylog = "";
 
     //DB 관련 객체 선언
@@ -62,51 +61,21 @@
 <head>
     <link rel="SHORTCUT ICON" href="https://somoonhouse.com/img/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/homepage_header.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/interior_info.css"/>
     <meta charset="UTF-8">
-    <meta name="viewport" con   tent="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <title>소문난집</title>
 </head>
 <body>
-<div class="upper_fixed_pc"></div>
-<div class="body_container_header">
-    <div class="header_pc">
-        <div class="header_left">
-            <a href="https://somoonhouse.com/" target="_self">
-                <img src="https://somoonhouse.com/otherimg/index/somunlogo.jpg" />
-            </a>
-        </div>
-        <div class="header_right">
-            <div id="area_header_pc">
-                <span>지역별 인테리어</span>
-                <div id="area_div_pc">
-                    <a href="https://somoonhouse.com/newindex.jsp?Daegu=141"><span>중구</span></a>
-                    <a href="https://somoonhouse.com/newindex.jsp?Daegu=142"><span>동구</span></a>
-                    <a href="https://somoonhouse.com/newindex.jsp?Daegu=143"><span>서구</span></a>
-                    <a href="https://somoonhouse.com/newindex.jsp?Daegu=144"><span>남구</span></a>
-                    <a href="https://somoonhouse.com/newindex.jsp?Daegu=145"><span>북구</span></a>
-                    <a href="https://somoonhouse.com/newindex.jsp?Daegu=146"><span>수성구</span></a>
-                    <a href="https://somoonhouse.com/newindex.jsp?Daegu=147"><span>달서구</span></a>
-                    <a href="https://somoonhouse.com/newindex.jsp?Daegu=148"><span>달성군</span></a>
-                    <a href="https://somoonhouse.com/newindex.jsp?Daegu=15"><span>경북</span></a>
-                </div>
-            </div>
-            <div class="sidebar"></div>
-            <a href="https://somoonhouse.com/newindex.jsp?theme_id=1">
-                <span>인기 인테리어</span>
-            </a>
-            <!--div class="sidebar"></div>
-            <a>
-                <span>시공 후기</span>
-            </a>
-            <div class="sidebar"></div>
-            <a>
-                <span>파트너스</span>
-            </a-->
-        </div>
-    </div>
-    <div class="underline"></div>
+
+<div class="body_container">
+    <jsp:include page="/homepage_pc_header.jsp" flush="false" />
+    <jsp:include page="/homepage_mob_header.jsp" flush="false" />
+
+
+
 </div>
+<jsp:include page="/newTestFooter.jsp" flush="false" />
 
 <%
     if(pstmt != null) {
@@ -127,14 +96,7 @@
     gtag('config', 'G-PC15JG6KGN');
 </script>
 <script>
-    var area_header = document.getElementById("area_header_pc");
-    var area_div = document.getElementById("area_div_pc");
-    area_header.onmouseenter = () => {
-        area_div.style.display = "flex";
-    }
-    area_header.onmouseleave = () => {
-        area_div.style.display = "none";
-    }
+//새 스크립트 작성
 </script>
 </body>
 </html>
