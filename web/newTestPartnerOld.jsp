@@ -32,7 +32,7 @@
     }
     //이용중인 상품
     LinkedHashMap<String,HashMap<String,String>> company_coupon_now = new LinkedHashMap<String,HashMap<String,String>>();
-    query = "select * from ISSUED_COUPON I, COUPON C where I.Coupon_id = C.Id and I.Company_id = " + s_id + " and Expiration_date >= CURDATE() order by Expiration_date asc";
+    query = "select * from ISSUED_COUPON I, COUPON C where I.Coupon_id = C.Id and I.Company_id = " + s_id + " and (Expiration_date >= CURDATE() and I.Stock > 0) order by Expiration_date asc";
     pstmt = conn.prepareStatement(query);
     rs = pstmt.executeQuery();
     while(rs.next()) {
@@ -50,7 +50,7 @@
 
     //이용끝난
     LinkedHashMap<String,HashMap<String,String>> company_coupon_old = new LinkedHashMap<String,HashMap<String,String>>();
-    query = "select * from ISSUED_COUPON I, COUPON C where I.Coupon_id = C.Id and I.Company_id = " + s_id + " and Expiration_date < CURDATE() order by Expiration_date asc";
+    query = "select * from ISSUED_COUPON I, COUPON C where I.Coupon_id = C.Id and I.Company_id = " + s_id + " and (Expiration_date < CURDATE() or I.Stock = 0) order by Expiration_date asc";
     pstmt = conn.prepareStatement(query);
     rs = pstmt.executeQuery();
     while(rs.next()) {
@@ -97,7 +97,7 @@
             <span><%=company_name%>님</span>
         </div>
         <div class="main_container">
-            <div class="sub_text"><span>전체 잔여 건수</span></div>
+            <div class="sub_text"><span>총 잔여 건수</span></div>
             <div class="goods_container">
                 <span class="left_item"><%=stock%>건</span>
             </div>
