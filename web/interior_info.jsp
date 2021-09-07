@@ -61,27 +61,22 @@
 <head>
     <link rel="SHORTCUT ICON" href="https://somoonhouse.com/img/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/newindex.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/interior_info.css"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <title>소문난집</title>
 </head>
 <body>
-<div id="container">
-    <div>
-        <span id="topBtn">top</span>
-        <span id="applyBtn"><div>상담<br>신청</div></span>
-    </div>
-    <navbar>
-        <jsp:include page="navbar.jsp" flush="false"/>
-    </navbar>
-    <div id="main">
-        <div
-    </div>
-    <footer>
-        <jsp:include page="newTestFooter.jsp" flush="false"/>
-    </footer>
+
+<div class="body_container">
+    <jsp:include page="/homepage_pc_header.jsp" flush="false" />
+    <jsp:include page="/homepage_mob_header.jsp" flush="false" />
+
+
+
 </div>
+<jsp:include page="/newTestFooter.jsp" flush="false" />
+
 <%
     if(pstmt != null) {
         pstmt.close();

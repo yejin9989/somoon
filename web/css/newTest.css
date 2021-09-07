@@ -27,19 +27,27 @@
     background-color: #f5f5f5;
 }
 .body_container .body_main .main_header{
-    /*display:flex;*/
-    display:none;
+    display:flex;
+    /*display:none;*/
     position: relative;
     justify-content: center;
     align-items: center;
+    max-width: 800px;
     width:80%;
     height: 90px;
-    padding: 10px 0;
+    padding: 10px 20px;
+}
+.main_header #form_ing{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 .body_container .body_main .main_header .left_container{
     width:100%;
     height:100%;
-    padding: 15px;
+    padding: 15px 15px 15px 0;
 }
 .body_container .body_main .main_header .left_container .left_box{
     display:flex;
@@ -68,7 +76,6 @@
 .body_container .body_main .main_header .left_container .left_box .text_container{
     width:100%;
     height:100%;
-    background-color: #3cb2ff;
 }
 .body_container .body_main .main_header .left_container .left_box .text_container .text_input{
     width:100%;
@@ -89,7 +96,7 @@
 .body_container .body_main .main_header .right_container{
     width: 200px;
     height: 100%;
-    padding: 15px;
+    padding: 15px 0 15px 15px;
 }
 .body_container .body_main .main_header .right_container .right_box{
     display:flex;
@@ -104,6 +111,32 @@
     border:solid;
     border-width: 1px;
     border-color: #ddd;
+    gap: 10px;
+}
+.body_container .body_main .main_header .right_container .right_box select{
+    width: 90px;
+    height: 25px;
+    border:none;
+    color: #000;
+    font-size: 16px;
+    font-weight: 500;
+    outline-color: #ddd;
+    outline-width: 0.5px;
+    padding: 0 5px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url('https://github.com/Yoonlang/web-programming/blob/master/html/assets/underDirection.png?raw=true') no-repeat 95% 50%;
+    background-size: 13px 13px;
+}
+.body_container .body_main .main_header .right_container .right_box input[type="submit"]{
+    background: #fff;
+    border:none;
+    outline:none;
+    font-size: 16px;
+    border:solid;
+    border-width: 1px;
+    padding: 2px;
 }
 .body_container .body_main .main_header .right_container .right_box .text_container{
 }
@@ -642,5 +675,8 @@
     .body_container .body_main .modal_container_non_fin .modal_box .item_container .stop_step{
         height: 140px;
         margin: 5px 0 5px 0;
+    }
+    .body_container .body_main .main_header{
+        width: 100%;
     }
 }

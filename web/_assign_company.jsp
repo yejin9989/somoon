@@ -71,7 +71,7 @@
 			pstmt.setString(3, company);
 		}
 		else{
-			sql = "INSERT INTO ASSIGNED VALUES(?, ?, ?, default, default, default)";
+			sql = "INSERT INTO ASSIGNED (Apply_num, Company_num, State, Assigned_id, Memo, Aborted_state) VALUES(?, ?, ?, default, default, default, default)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, apply_num);
 			pstmt.setString(2, company);

@@ -15,6 +15,7 @@ Statement stmt = null;
 String query = "";
 String sql = "";
 ResultSet rs = null;
+ResultSet rs2 = null;
 
 //세션 생성 create session
 session.setAttribute("page", "_company_edit.jsp"); // 현재 페이지 current page
@@ -24,7 +25,6 @@ String s_id = session.getAttribute("s_id")+"";// 현재 사용자 current user
 String name = session.getAttribute("name")+"";
 
 String company_id = request.getParameter("company");
-company_id = "1";
 
 String company_area = request.getParameter("company_area");
 String company_as_warranty = request.getParameter("company_as_warranty");
@@ -37,6 +37,7 @@ String company_limit_fee = request.getParameter("company_limit_fee");
 if(company_limit_fee.equals("null")) company_limit_fee = null;
 String company_start_year = request.getParameter("company_start_year");
 if(company_start_year.equals("null")) company_start_year = null;
+String part = request.getParameter("part");
 %><%
 
 //A/S제공여부 boolean처리
@@ -45,6 +46,11 @@ if(company_as_warranty.equals("null") || company_as_warranty.equals("0"))
 	company_as_provide = "0";
 else
 	company_as_provide = "1";
+
+//부분시공 가능 여부 boolean처리
+if(part.equals("yes"))
+	part = "1";
+else part = "0";
 
 //소개글 줄 바꿈 대치 시켜야함
 company_introduction = company_introduction.replace("\n", "<br>");
@@ -70,6 +76,25 @@ pstmt.setString(7, company_limit_fee);
 pstmt.setString(8, company_start_year);
 pstmt.setString(9, company_id);
 pstmt.executeUpdate();
+
+// 부분시공 가능 여부 업데이트하기
+query = "select count(*) cnt from SPECIALIZED where Company_num = ? and Ability_num = 11";
+pstmt = conn.prepareStatement(query);
+pstmt.setString(1, company_id);
+rs = pstmt.executeQuery();
+while(rs.next()) {
+	query = "delete from SPECIALIZED where Company_num = ? and Ability_num = 11";
+	pstmt = conn.prepareStatement(query);
+	pstmt.setString(1, s_id);
+	pstmt.executeUpdate();
+}
+if(part.equals("1")) {
+	query = "insert into SPECIALIZED values(?, ?)";
+	pstmt = conn.prepareStatement(query);
+	pstmt.setString(1, s_id);
+	pstmt.setString(2, "11");
+	pstmt.executeUpdate();
+}
 
 //태그 처리
 //태그가 있는 경우
@@ -127,7 +152,7 @@ conn.close();
 %>
 <script>
 	alert('수정을 완료했습니다.');
-	self.close();
+	window.location.replace("https://somoonhouse.com/company_home.jsp?company_id="+<%=s_id%>);
 </script>
 </body>
 </html>
