@@ -112,7 +112,7 @@
     color: gray;
 }
 .body_container .body_main .main_container .partner_container .goods_container .goods_left_box .text_area .lower_text{
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
     color: #4A79F4;
 }
@@ -174,6 +174,7 @@
     width:100%;
     height:100%;
     background-color: rgba(0, 0, 0, 0.4);
+    z-index: 3;
 }
 .body_container .body_main .modal_container .modal_box_before{
     display: block;
@@ -379,13 +380,14 @@
     span {
         font-size: 20px;
     }
-    .body_container .body_main .main_container .partner_container .goods_container{
-        padding: 10px 8px;
-    }
     .body_container .body_main .main_container .partner_container .goods_container .goods_left_box .text_area{
         overflow: visible !important;
     }
     .body_container .body_main .main_container .partner_container .goods_container .goods_left_box .text_area .lower_text{
         white-space: nowrap;
+    }
+    .body_container .body_main .main_container .partner_container .goods_container .goods_left_box .text_area .lower_text_inner{
+        font-size: 12px;
+        font-weight: 510;
     }
 }
