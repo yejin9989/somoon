@@ -88,20 +88,8 @@
             </div>
             <div class="filter" id="filter">
                 <button onclick="openFilterSlider()">필터</button>
-                <div class='tagBox'>
-                    <div class='leftTag sideTag'></div>
-                    <div class='nowTag tag' onclick='clickToNone()'>tagData.area[i]<div>X</div>
-                    </div>
-                    <div class='rightTag sideTag'></div>
-                </div>
             </div>
             <div class="filterSlider" id="filterSlider">
-                <div class='tagBox'>
-                    <div class='leftTag sideTag'></div>
-                    <div class='allTag tag" + i + "' onclick='test()'>tagData.area[i]<div class='onOff'>X</div>
-                    </div>
-                    <div class='rightTag sideTag'></div>
-                </div>
             </div>
         </div>
         <div id="upperShadow"></div>
@@ -173,52 +161,53 @@
 
     var i = 0;
     for(i; i < tagData.area.length; i++){
-        filter.innerHTML += "<div class='tagBox'><div class='leftTag sideTag'></div><div class='nowTag tag" + i +
-            "' onclick='clickToNone(this, " +
-            i + ")'>" +
-            tagData.area[i] +
-            "<div>X</div></div><div class='rightTag sideTag'></div></div>";
-        filterSlider.innerHTML += "<div class='tagBox'><div class='leftTag sideTag'></div><div class='allTag tag" + i + "' onclick='test(this, "
-            + i + ")'>" +
-            tagData.area[i] +
-            "<div class='onOff'>X</div></div><div class='rightTag sideTag'></div></div>";
+        filter.innerHTML +=
+            "<div class='nowTagBox' onclick='clickToNone(this, " + i + ")'>" +
+            "<div class='leftTag sideTag'></div>" +
+            "<div class='nowTag tag" + i + "'>" + tagData.area[i] +
+            "<div>X</div></div>" +
+            "<div class='rightTag sideTag'></div></div>";
+        filterSlider.innerHTML +=
+            "<div class='allTagBox' onclick='test(this, " + i + ")'>" +
+            "<div class='leftTag sideTag'></div>" +
+            "<div class='allTag tag" + i + "'>" + tagData.area[i] +
+            "<div class='onOff'>X</div>" +
+            "</div><div class='rightTag sideTag'></div></div>";
     }
     for(var j = 0, i; j < tagData.hashtag.length; i++, j++){
-        filter.innerHTML += "<div class='tagBox'><div class='leftTag sideTag'></div><div class='nowTag tag" + i +
-            "' onclick='clickToNone(this, " + i + ")'>" +
-            tagData.hashtag[j] +
-            "<div>X</div></div><div class='rightTag sideTag'></div></div>";
-        filterSlider.innerHTML += "<div class='tagBox'><div class='leftTag sideTag'></div><div class='allTag tag" + i +
-            "' onclick='test(this, "
-            + i + ")'>" +
-            tagData.hashtag[j] +
-            "<div class='onOff'>X</div></div><div class='rightTag sideTag'></div></div>";
+        filter.innerHTML +=
+            "<div class='nowTagBox' onclick='clickToNone(this, " + i + ")'>" +
+            "<div class='leftTag sideTag'></div>" +
+            "<div class='nowTag tag" + i + "'>" + tagData.hashtag[j] +
+            "<div>X</div></div>" +
+            "<div class='rightTag sideTag'></div></div>";
+        filterSlider.innerHTML +=
+            "<div class='allTagBox' onclick='test(this, " + i + ")'>" +
+            "<div class='leftTag sideTag'></div>" +
+            "<div class='allTag tag" + i + "'>" + tagData.hashtag[j] +
+            "<div class='onOff'>X</div>" +
+            "</div><div class='rightTag sideTag'></div></div>";
     }
 
     var nowTag = document.getElementsByClassName("nowTag");
     var allTag = document.getElementsByClassName("allTag");
-    var tagBox = document.getElementsByClassName("tagBox");
+    var nowTagBox = document.getElementsByClassName("nowTagBox");
+    var allTagBox = document.getElementsByClassName("allTagBox");
     var onOff = document.getElementsByClassName("onOff");
     var leftTag = document.getElementsByClassName("leftTag");
     var rightTag = document.getElementsByClassName("rightTag");
     const clickToNone = (prop, index) => {
-        prop.style.display = "none";
-        leftTag[index].style.display = "none";
-        rightTag[index].style.display = "none";
+        nowTagBox[index].style.display = "none";
         onOff[index].style.visibility = "hidden";
     }
     const test = (prop, index) => {
         if(onOff[index].style.visibility === "visible"){
             onOff[index].style.visibility = "hidden";
-            leftTag[index].style.display = "none";
-            rightTag[index].style.display = "none";
-            nowTag[index].style.display = "none";
+            nowTagBox[index].style.display = "none";
         }
         else{
             onOff[index].style.visibility = "visible";
-            leftTag[index].style.display = "flex";
-            rightTag[index].style.display = "flex";
-            nowTag[index].style.display = "flex";
+            nowTagBox[index].style.display = "flex";
         }
     }
 

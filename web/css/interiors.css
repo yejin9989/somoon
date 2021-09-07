@@ -77,8 +77,10 @@
     color: #999;
     background-color: #FAFAFA;
 }
-.interior_container .upper .tagBox{
+.interior_container .upper .nowTagBox,
+.interior_container .upper .allTagBox{
     display: flex;
+    width: auto;
     height: 100%;
 }
 .interior_container .upper .filter{
@@ -111,20 +113,30 @@
     height: 30px;
     background: #FAFAFA;
     white-space: nowrap;
+    z-index: 2;
+    border: solid 1px #ddd;
+    border-left: none;
+    border-right: none;
 }
 .interior_container .upper .filter .sideTag{
     display: none;
 }
 .interior_container .upper .sideTag{
+    float: left;
     width: 30px;
     height: 30px;
     background: #fafafa;
+    border: solid 1px #ddd;
 }
 .interior_container .upper .leftTag{
+    position: relative;
     border-radius: 50% 0 0 50%;
+    left: 10px;
 }
 .interior_container .upper .rightTag{
+    position: relative;
     border-radius: 0 50% 50% 0;
+    right:10px;
 }
 .interior_container #upperShadow{
     width: 100%;
