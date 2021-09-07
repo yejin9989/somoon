@@ -87,6 +87,7 @@
     border-width: 1px;
     border-color: #ddd;
     border-right: none;
+    z-index: 2;
 }
 .body_container .body_main .main_container .partner_container .goods_container .goods_left_box .text_area{
     display: flex;
@@ -377,5 +378,14 @@
     .goods_mid_box
     span {
         font-size: 20px;
+    }
+    .body_container .body_main .main_container .partner_container .goods_container{
+        padding: 10px 8px;
+    }
+    .body_container .body_main .main_container .partner_container .goods_container .goods_left_box .text_area{
+        overflow: visible !important;
+    }
+    .body_container .body_main .main_container .partner_container .goods_container .goods_left_box .text_area .lower_text{
+        white-space: nowrap;
     }
 }
