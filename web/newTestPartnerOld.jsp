@@ -97,7 +97,7 @@
             <span><%=company_name%>님</span>
         </div>
         <div class="main_container">
-            <div class="sub_text"><span>전체 잔여 건수</span></div>
+            <div class="sub_text"><span>총 잔여 건수</span></div>
             <div class="goods_container">
                 <span class="left_item"><%=stock%>건</span>
             </div>
