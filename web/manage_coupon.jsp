@@ -206,7 +206,7 @@
                             <span>님</span>
                         </div>
                         <div class="main_container">
-                            <div class="sub_text"><span>전체 잔여 건수</span></div>
+                            <div class="sub_text"><span>총 잔여 건수</span></div>
                             <div class="goods_container">
                                 <span class="left_item">건</span>
                             </div>
@@ -219,7 +219,7 @@
                                     <span class="mid_text">기간 <span class="mid_date_text"></span></span>
                                 </div>
                                 <div class="text_area">
-                                    <span class="lower_text">배분 건/건</span>
+                                    <span class="lower_text">잔여 건/전체 건</span>
                                 </div>
                                 <div class="return" onclick="cancelProduct()">
                                     <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/X.png?raw=true" />
@@ -234,7 +234,7 @@
                                     <span class="mid_text">기간 <span class="mid_date_text"> ~ </span></span>
                                 </div>
                                 <div class="text_area">
-                                    <span class="lower_text">배분 건/건</span>
+                                    <span class="lower_text">전체 건/잔여 건</span>
                                 </div>
                             </div>
                             <div class="goods_container">
