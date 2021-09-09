@@ -94,22 +94,26 @@
             hm.put("cnt", rs.getString("cnt"));
         }
     }
-    //회사 별 쿠폰정보 불러오기
-    HashMap<String, HashMap<String, String>> company_coupon = new HashMap<String, HashMap<String, String>>();
+    // 회사 별 쿠폰정보 불러오기
+    HashMap<String, LinkedList<HashMap<String, String>>> company_coupon = new HashMap<String, LinkedList<HashMap<String, String>>>();
     for(String company_id : company_info.keySet()){
         // 유효기간이 오늘 이전인 쿠폰 발급 정보 가져오기
-        query = "select * from ISSUED_COUPON I, COUPON C where I.Coupon_id = C.Id and I.Company_id = " + company_id + " and Expiration_date >= CURDATE()";
+        query = "select * from ISSUED_COUPON I, COUPON C where I.Coupon_id = C.Id and I.Company_id = " + company_id + " and Expiration_date >= CURDATE() and I.Stock != 0";
         pstmt = conn.prepareStatement(query);
         rs = pstmt.executeQuery();
+        LinkedList<HashMap<String, String>> coupons = new LinkedList<HashMap<String, String>>();
         while(rs.next()) {
             // 쿠폰이름, 남은 건수, 발급 일자, 유효 기간
             HashMap<String, String> hm = new HashMap<String, String>();
             hm.put("name", rs.getString("C.Name"));
             hm.put("stock", rs.getString("I.Stock"));
+            hm.put("quantity", rs.getString("C.Quantity"));
             hm.put("issued_date", rs.getString("I.Issued_date"));
             hm.put("expiration_date", rs.getString("Expiration_date"));
-            company_coupon.put(company_id, hm);
+            hm.put("issued_id", rs.getString("I.Id"));
+            coupons.add(hm);
         }
+        company_coupon.put(company_id, coupons);
     }
 
     //쿠폰정보 불러오기
@@ -203,85 +207,33 @@
                 <div class="modal_background" id="modal_background<%=id%>" onclick="clickModalBackground()">
                     <div class="modal" id="modal<%=id%>" onclick="clickModal()">
                         <div class="main_header">
-                            <span>님</span>
+                            <span><%=company.get("name")%></span>
                         </div>
                         <div class="main_container">
                             <div class="sub_text"><span>총 잔여 건수</span></div>
                             <div class="goods_container">
-                                <span class="left_item">건</span>
+                                <span class="left_item"><%=company.get("stock")%>건</span>
                             </div>
                             <div class="sub_text"><span>이용중인 상품</span></div>
+                            <%
+                                LinkedList<HashMap<String, String>> list = company_coupon.get(id);
+                                for(HashMap<String, String> hm : list){
+                            %>
                             <div class="goods_container">
                                 <div class="text_area">
-                                    <span class="upper_text"></span>
+                                    <span class="upper_text"><%=hm.get("name")%></span>
                                 </div>
                                 <div class="text_area">
-                                    <span class="mid_text">기간 <span class="mid_date_text"></span></span>
+                                    <span class="mid_text">기간 <span class="mid_date_text"><%=hm.get("issued_date")%>~<%=hm.get("expiration_date")%></span></span>
                                 </div>
                                 <div class="text_area">
-                                    <span class="lower_text">잔여 건/전체 건</span>
+                                    <span class="lower_text">잔여 <%=hm.get("stock")%>건/전체 <%=hm.get("quantity")%>건</span>
                                 </div>
-                                <div class="return" onclick="cancelProduct()">
+                                <div class="return" onclick="cancelProduct('<%=hm.get("issued_id")%>')">
                                     <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/X.png?raw=true" />
                                 </div>
                             </div>
-                            <div class="sub_text"><span>이용 끝난 상품</span></div>
-                            <div class="goods_container">
-                                <div class="text_area">
-                                    <span class="upper_text"></span>
-                                </div>
-                                <div class="text_area">
-                                    <span class="mid_text">기간 <span class="mid_date_text"> ~ </span></span>
-                                </div>
-                                <div class="text_area">
-                                    <span class="lower_text">전체 건/잔여 건</span>
-                                </div>
-                            </div>
-                            <div class="goods_container">
-                                <div class="text_area">
-                                    <span class="upper_text"></span>
-                                </div>
-                                <div class="text_area">
-                                    <span class="mid_text">기간 <span class="mid_date_text"> ~ </span></span>
-                                </div>
-                                <div class="text_area">
-                                    <span class="lower_text">배분 건/건</span>
-                                </div>
-                            </div>
-                            <div class="goods_container">
-                                <div class="text_area">
-                                    <span class="upper_text"></span>
-                                </div>
-                                <div class="text_area">
-                                    <span class="mid_text">기간 <span class="mid_date_text"> ~ </span></span>
-                                </div>
-                                <div class="text_area">
-                                    <span class="lower_text">배분 건/건</span>
-                                </div>
-                            </div>
-                            <div class="goods_container">
-                                <div class="text_area">
-                                    <span class="upper_text"></span>
-                                </div>
-                                <div class="text_area">
-                                    <span class="mid_text">기간 <span class="mid_date_text"> ~ </span></span>
-                                </div>
-                                <div class="text_area">
-                                    <span class="lower_text">배분 건/건</span>
-                                </div>
-                            </div>
-                            <div class="goods_container">
-                                <div class="text_area">
-                                    <span class="upper_text"></span>
-                                </div>
-                                <div class="text_area">
-                                    <span class="mid_text">기간 <span class="mid_date_text"> ~ </span></span>
-                                </div>
-                                <div class="text_area">
-                                    <span class="lower_text">배분 건/건</span>
-                                </div>
-                            </div>
-
+                            <%}%>
                         </div>
                     </div>
                 </div>
@@ -312,8 +264,8 @@
     gtag('config', 'G-PC15JG6KGN');
 </script>
 <script>
-    const cancelProduct = () => {
-        alert("상품 취소");
+    const cancelProduct = (id) => {
+        alert(id);
     }
     var modalBackground;
     var modal;
