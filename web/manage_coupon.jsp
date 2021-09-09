@@ -229,7 +229,7 @@
                                 <div class="text_area">
                                     <span class="lower_text">잔여 <%=hm.get("stock")%>건/전체 <%=hm.get("quantity")%>건</span>
                                 </div>
-                                <div class="return" onclick="cancelProduct('<%=hm.get("issued_id")%>')">
+                                <div class="return" onclick="cancelProduct('<%=hm.get("name")%>', '<%=hm.get("issued_id")%>')">
                                     <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/X.png?raw=true" />
                                 </div>
                             </div>
@@ -264,8 +264,10 @@
     gtag('config', 'G-PC15JG6KGN');
 </script>
 <script>
-    const cancelProduct = (id) => {
-        alert(id);
+    const cancelProduct = (title, id) => {
+        if(confirm(title + "상품을 회수하시겠습니까?")){
+            location.href = "_manage_coupon_delete_coupon.jsp?issued_id="+id;
+        }
     }
     var modalBackground;
     var modal;
