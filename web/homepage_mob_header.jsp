@@ -1,6 +1,5 @@
 <%@ page import="java.net.URLEncoder" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page language="java" import="java.text.*,java.sql.*,java.util.*,java.security.*,java.math.BigInteger" %>
 <%@ page language="java" import="myPackage.*" %>
 <% request.setCharacterEncoding("UTF-8"); %>
