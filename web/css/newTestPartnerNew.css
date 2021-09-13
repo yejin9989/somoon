@@ -384,10 +384,11 @@
         overflow: visible !important;
     }
     .body_container .body_main .main_container .partner_container .goods_container .goods_left_box .text_area .lower_text{
+        font-size: 13px;
         white-space: nowrap;
     }
     .body_container .body_main .main_container .partner_container .goods_container .goods_left_box .text_area .lower_text_inner{
-        font-size: 12px;
+        font-size: 10px;
         font-weight: 510;
     }
 }
