@@ -103,7 +103,7 @@
                             <span class="upper_text"><%=item.get("name")%> (<%=item.get("origin")%>건)</span>
                         </div>
                         <div class="text_area">
-                            <span class="mid_text">결제일로부터 <span class="mid_date_text"><%=item.get("period")%>일간</span>
+                            <span class="mid_text">결제일로부터 <span class="mid_date_text"><%=item.get("period")%>일간</span></span>
                         </div>
                         <div class="text_area">
                             <span class="lower_text">전체 <%=item.get("quantity")%>건 <span class="lower_text_inner">(기본
