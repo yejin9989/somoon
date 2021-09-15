@@ -119,8 +119,8 @@
             </a>
         </div>
     </div>
-    <div id="navigation_container">
-        <div id="navigation">
+    <div id="navigation_container" onclick="closeMenu()">
+        <div id="navigation" onclick="nonCloseMenu()">
             <div class="user_container">
                 <div id="profile_img" class="user_img_container">
 <%--                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/person.png?raw=true" />--%>
@@ -143,16 +143,6 @@
                     <a href="newTestPartnerOld.jsp" target="_self">
                         <div class="item_img">
                             <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/rightDirection2.png?raw=true" />
-                        </div>
-                    </a>
-                </div>
-                <div class="item_text">
-                    <span>환경 설정</span>
-                </div>
-                <div class="item_box">
-                    <a href="company_home.jsp?company_id=<%=s_id%>" target="_self">
-                        <div class="item_img">
-                            <img src="https://somoonhouse.com/icon/settings.png">
                         </div>
                     </a>
                 </div>
@@ -191,9 +181,15 @@
                     </div>
                 </div>
             </a>
-        </div>
-        <div class="cancel_container" onclick="slide()">
-            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancel.png?raw=true" />
+            <div class="setting_container">
+                <a class="setting" href="company_home.jsp?company_id=<%=s_id%>" target="_self">
+                    <img
+                            src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/setting2.png?raw=true">
+                </a>
+                <div class="cancel_container" onclick="slide()">
+                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancel.png?raw=true" />
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -202,13 +198,34 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
 <script>
-    function slide(){
-        var nav = document.getElementById("navigation_container");
-        if(nav.style.display === "grid"){
-            nav.style.display = "none";
+    var nav = document.getElementById("navigation_container");
+    var innerNav = document.getElementById("navigation");
+    var isClose = true;
+    const closeMenu = () => {
+        if(isClose){
+            nav.style.visibility = "hidden";
+            nav.style.background = "rgba(0, 0, 0, 0)";
+            nav.style.zIndex = 0;
+            innerNav.style.right = "-300px";
+        }
+        isClose = true;
+    }
+    const nonCloseMenu = () => {
+        isClose = false;
+    }
+    const slide = () => {
+        if(nav.style.zIndex == 5){
+            nav.style.visibility = "hidden";
+            nav.style.background = "rgba(0, 0, 0, 0)";
+            nav.style.zIndex = 0;
+            innerNav.style.right = "-300px";
+            isClose = true;
         }
         else{
-            nav.style.display = "grid";
+            nav.style.visibility = "visible";
+            nav.style.background = "rgba(0, 0, 0, 0.7)";
+            innerNav.style.right = 0;
+            nav.style.zIndex = 5;
         }
     }
     if (window.navigator.userAgent.match(/MSIE|Internet Explorer|Trident/i)) {

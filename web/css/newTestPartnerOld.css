@@ -104,6 +104,7 @@
     font-size: 15px;
     font-weight: 600;
     color:#000;
+    white-space: nowrap;
 }
 .body_container .body_main .main_container .goods_container .text_area .mid_text{
     font-size: 15px;
@@ -117,4 +118,12 @@
     font-size: 15px;
     font-weight: 600;
     color: #4A79F4;
+}
+
+@media (max-width: 470px) {
+
+    .body_container .body_main .main_container .goods_container{
+        width: 100%;
+    }
+
 }
