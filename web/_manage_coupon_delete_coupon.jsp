@@ -3,6 +3,7 @@
          pageEncoding="UTF-8"%>
 <%@ page language="java" import="java.text.*,java.sql.*,java.util.*,java.security.*,java.math.BigInteger" %>
 <%@ page language="java" import="myPackage.*" %>
+<%@ page import="javax.persistence.criteria.CriteriaBuilder" %>
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setContentType("text/html; charset=utf-8"); %>
 <%
@@ -11,12 +12,7 @@
     String mylog = "";
 
     //파라미터 가져오기
-    //String param = request.getParameter("param");
-    String apply_num = request.getParameter("applyNum") + "";
-    String state = request.getParameter("state") + "";
-    String company_num = request.getParameter("companyNum") + "";
-    //String apply_num = "1";
-    //String company_num = "2";
+    String issued_id = request.getParameter("issued_id");
 
     //DB 관련 객체 선언
     Connection conn = DBUtil.getMySQLConnection();
@@ -25,22 +21,13 @@
     String query = "";
     String sql = "";
 
-    //DB update
-    query = "UPDATE ASSIGNED SET State = ? WHERE Apply_num = ? AND Company_num = ?";
-    pstmt = conn.prepareStatement(query);
-    pstmt.setInt(1, Integer.parseInt(state));
-    pstmt.setInt(2, Integer.parseInt(apply_num));
-    pstmt.setInt(3, Integer.parseInt(company_num));
+    //쿠폰삭제(회수)하기
+    sql = "delete from ISSUED_COUPON where Id = ?";
+    pstmt = conn.prepareStatement(sql);
+    pstmt.setString(1, issued_id);
     pstmt.executeUpdate();
 
-    //응답시간 설정
-    query = "UPDATE ASSIGNED SET Modify_date = NOW() WHERE Apply_num = ? AND Company_num = ? AND Modify_date IS NULL AND Accept_time IS NOT NULL";
-    pstmt = conn.prepareStatement(query);
-    pstmt.setInt(1, Integer.parseInt(apply_num));
-    pstmt.setInt(2, Integer.parseInt(company_num));
-    pstmt.executeUpdate();
-
-    //pstmt.close();
+    pstmt.close();
 %>
 <!DOCTYPE html>
 <html>
@@ -53,10 +40,13 @@
     <title>소문난집</title>
 </head>
 <body>
+<%=mylog%>
 <%
+    if(rs != null){
+        rs.close();
+    }
     if(pstmt != null) {
         pstmt.close();
-        //rs.close();
         query = "";
         conn.close();
     }
@@ -67,10 +57,10 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
 <script>
     //새 스크립트 작성
-    //window.close();
     $(document).ready(function(){
+        alert("해당 쿠폰이 회수되었습니다.");
         location.href = document.referrer;
-    })
+    });
 </script>
 </body>
 </html>

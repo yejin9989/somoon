@@ -62,23 +62,27 @@
         query = "select * from REMODELING_APPLY where Number < 0";
     else
      */
-
     query = "select * from REMODELING_APPLY";
 
+
+
 //특정상태에 대한 결과를 받아오는 탭일 경우
-    if(!state.equals("null") && !state.equals("NULL") && !state.equals("Null") && state != null && !state.contains("6")){
+
+    if(!s_id.equals("100")){
+        query += " where Number < 0";
+    }
+    else if(!state.equals("null") && !state.equals("NULL") && !state.equals("Null") && state != null && !state.contains("6")){
         query += " where State = " + state;
     }
     query += " order by State asc, Number desc";
     pstmt = conn.prepareStatement(query);
+
     rs = pstmt.executeQuery();
+
     LinkedList<HashMap<String, String>> itemlist = new LinkedList<HashMap<String, String>>();
     HashMap<String, LinkedList<HashMap<String, String>>> totalstatemap = new HashMap<String, LinkedList<HashMap<String, String>>>();
 
-
     LinkedList<Dates> datelist = new LinkedList<Dates>();
-
-
 
     while(rs.next()){
         HashMap<String, String> itemmap = new HashMap<String, String>();
@@ -249,8 +253,6 @@
     </script>
     <link rel="SHORTCUT ICON" href="img/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="https://pm.pstatic.net/css/webfont_v170623.css"/>
-    <link rel="stylesheet" type="text/css" href="slick-1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="slick-1.8.1/slick/slick-theme.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/manage_request.css"/>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <meta charset="UTF-8">
@@ -610,7 +612,14 @@ conn.close();
     wcs_add["wa"] = "3602e31fd32c7e";
     wcs_do();
 </script>
-<script type="text/javascript" src="slick-1.8.1/slick/slick.min.js"></script>
+<script>
+    $("document").ready(function(){
+        if("<%=s_id%>" != "100"){
+            alert("접근 권한이 없습니다!");
+            location.href = "index.jsp";
+        }
+    })
+</script>
 </div>
 </div>
 </body>

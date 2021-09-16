@@ -177,7 +177,6 @@
                         </div>
                         <div class="text_container">
                             <input class="text_input" type="text" name="ing" placeholder="전화, 고객명, 주소" value="<%=ing_search%>" />
-
                         </div>
                     </div>
                 </div>

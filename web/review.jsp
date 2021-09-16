@@ -110,7 +110,7 @@
                                 <div class="lineBar"></div>
                             </div>
                         </div>
-                    </div>
+                    </div>`
                     <div class="reviewPart">
                         <div class="line">
                             <div class="chart">

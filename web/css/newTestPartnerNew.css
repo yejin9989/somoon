@@ -22,7 +22,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     width:100%;
-    min-height: calc(100vh - 250px);
+    min-height: calc(100vh - 150px);
     height: 100%;
     background-color: #f5f5f5;
 }
@@ -106,6 +106,7 @@
 .body_container .body_main .main_container .partner_container .goods_container .goods_left_box .text_area .mid_text{
     font-size: 15px;
     color: gray;
+    white-space: nowrap;
 }
 .body_container .body_main .main_container .partner_container .goods_container .goods_left_box .text_area .mid_date_text{
     font-size: 16px;
@@ -178,6 +179,7 @@
 }
 .body_container .body_main .modal_container .modal_box_before{
     display: block;
+    position: relative;
     width: 350px;
     height: 400px;
     background-color: #fafafa;
@@ -227,6 +229,7 @@
 .body_container .body_main .modal_container .modal_box_before .item_container .select_item .text_area .mid_text{
     font-size: 15px;
     color: gray;
+    white-space: nowrap;
 }
 .body_container .body_main .modal_container .modal_box_before .item_container .select_item .text_area .mid_date_text{
     font-size: 16px;
@@ -288,6 +291,7 @@
 }
 .body_container .body_main .modal_container .modal_box_after{
     display:none;
+    position: relative;
     width: 350px;
     height: 400px;
     background-color: #fafafa;
@@ -384,10 +388,11 @@
         overflow: visible !important;
     }
     .body_container .body_main .main_container .partner_container .goods_container .goods_left_box .text_area .lower_text{
+        font-size: 13px;
         white-space: nowrap;
     }
     .body_container .body_main .main_container .partner_container .goods_container .goods_left_box .text_area .lower_text_inner{
-        font-size: 12px;
+        font-size: 10px;
         font-weight: 510;
     }
 }

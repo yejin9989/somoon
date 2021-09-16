@@ -180,9 +180,11 @@
                             <div class="text">
                                 <span class="thr"><%=apply.get("Due")%> / <%=apply.get("Budget")%></span><!--span class="thr">1개월 이내 / 8천만원 이하</span-->
                             </div>
+                            <!--
                             <div class="text">
-                                <a href="<%=apply.get("URL")%>>"><span class="for"><%=apply.get("Title")%></span></a><!--a href="#"><span class="for">없음</span></a-->
+                                <a href="<%=apply.get("URL")%>>"><span class="for"><%=apply.get("Title")%></span></a>
                             </div>
+                            -->
                         </div>
                         <div class="under_container">
                             <a href="#" target="_self" class="accept" id="<%=apply.get("Number")%>">

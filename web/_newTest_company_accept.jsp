@@ -35,13 +35,19 @@
     }
 
     if(stock != 0) {
-        //DB update
+        //DB update - state
         query = "UPDATE ASSIGNED SET State = 2 WHERE Apply_num = ? AND Company_num = ?";
         pstmt = conn.prepareStatement(query);
         pstmt.setInt(1, Integer.parseInt(apply_num));
         pstmt.setInt(2, Integer.parseInt(company_num));
         pstmt.executeUpdate();
-        //pstmt.close();
+
+        //DB update - accept time
+        query = "UPDATE ASSIGNED SET Accept_time = NOW() WHERE Apply_num = ? AND Company_num = ?";
+        pstmt = conn.prepareStatement(query);
+        pstmt.setInt(1, Integer.parseInt(apply_num));
+        pstmt.setInt(2, Integer.parseInt(company_num));
+        pstmt.executeUpdate();
 
         query = "UPDATE ISSUED_COUPON set Stock = Stock-1 " +
                 "where Company_id = " + s_id + " and Expiration_date >= CURDATE() " +

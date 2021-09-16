@@ -12,35 +12,27 @@
 
     //파라미터 가져오기
     //String param = request.getParameter("param");
-    String apply_num = request.getParameter("applyNum") + "";
-    String state = request.getParameter("state") + "";
-    String company_num = request.getParameter("companyNum") + "";
-    //String apply_num = "1";
-    //String company_num = "2";
 
     //DB 관련 객체 선언
     Connection conn = DBUtil.getMySQLConnection();
-    ResultSet rs = null;
     PreparedStatement pstmt = null;
-    String query = "";
     String sql = "";
 
-    //DB update
-    query = "UPDATE ASSIGNED SET State = ? WHERE Apply_num = ? AND Company_num = ?";
-    pstmt = conn.prepareStatement(query);
-    pstmt.setInt(1, Integer.parseInt(state));
-    pstmt.setInt(2, Integer.parseInt(apply_num));
-    pstmt.setInt(3, Integer.parseInt(company_num));
-    pstmt.executeUpdate();
+    String name = "MS타일";
+    String address = "대구광역시 수성구 달구벌대로 2662, 1층(만촌동)";
+    String introduction = "소개글을 작성해주세요.";
+    int state = 1;
+    String phone = "010-7438-0801";
+    String profile_img = "https://somoonhouse.com/sources/anonymous.jpg";
+    String pw = "password(\"0801\")";
 
-    //응답시간 설정
-    query = "UPDATE ASSIGNED SET Modify_date = NOW() WHERE Apply_num = ? AND Company_num = ? AND Modify_date IS NULL AND Accept_time IS NOT NULL";
-    pstmt = conn.prepareStatement(query);
-    pstmt.setInt(1, Integer.parseInt(apply_num));
-    pstmt.setInt(2, Integer.parseInt(company_num));
+    //DB 가져오기 예시
+    sql = "insert into COMPANY (Name, Address, Introduction, State, Phone, Profile_img, Pw) values " +
+            "(\"MS타일\", \"대구광역시 수성구 달구벌대로 2662, 1층(만촌동)\", \"소개글을 작성해주세요.\", 1, \"010-7438-0801\", \"https://somoonhouse.com/sources/anonymous.jpg\", password(\"0801\"))";
+    pstmt = conn.prepareStatement(sql);
     pstmt.executeUpdate();
+    pstmt.close();
 
-    //pstmt.close();
 %>
 <!DOCTYPE html>
 <html>
@@ -53,14 +45,17 @@
     <title>소문난집</title>
 </head>
 <body>
+<%=mylog%>
 <%
     if(pstmt != null) {
         pstmt.close();
-        //rs.close();
-        query = "";
+        sql = "";
         conn.close();
     }
 %>
+
+
+
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -68,9 +63,6 @@
 <script>
     //새 스크립트 작성
     //window.close();
-    $(document).ready(function(){
-        location.href = document.referrer;
-    })
 </script>
 </body>
 </html>
