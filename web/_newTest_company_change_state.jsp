@@ -40,6 +40,7 @@
     pstmt.setInt(2, Integer.parseInt(company_num));
     pstmt.executeUpdate();
 
+//헐 모르고 지움
     //pstmt.close();
 %>
 <!DOCTYPE html>
