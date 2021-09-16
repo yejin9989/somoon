@@ -34,7 +34,7 @@
     pstmt.executeUpdate();
 
     //응답시간 설정
-    query = "UPDATE ASSIGNED SET Contact_time = NOW() WHERE Apply_num = ? AND Company_num = ? AND Modify_date IS NULL AND Accept_time IS NOT NULL";
+    query = "UPDATE ASSIGNED SET Modify_date = NOW() WHERE Apply_num = ? AND Company_num = ? AND Modify_date IS NULL AND Accept_time IS NOT NULL";
     pstmt = conn.prepareStatement(query);
     pstmt.setInt(1, Integer.parseInt(apply_num));
     pstmt.setInt(2, Integer.parseInt(company_num));
