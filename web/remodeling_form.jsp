@@ -90,8 +90,8 @@ for(i=1; i<=division1.size(); i++){
 	<div style="margin:auto;width:max-content;color: #6d6d6d;font-size:10pt;">우리 동네 리모델링 플랫폼</div>
 	</div>
 </div>
-	<div id="banner">
-	</div>
+	<!--div id="banner">
+	</div-->
     <div id="container">
 	<!------------ 내용물  --------------->
 	<form action="_remodeling_form.jsp" method="post"  onSubmit="return formChk();">
