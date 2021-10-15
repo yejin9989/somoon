@@ -97,7 +97,7 @@
             </div>
         </div>
         <div class="container">
-            <div class="area_part">
+            <!--div class="area_part">
                 <div class="upper">
                     <span>인테리어 스타일이 궁금하다면?</span>
                 </div>
@@ -141,62 +141,187 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </div-->
             <div class="best_inter">
                 <div class="upper">
-                    <span>BEST 인테리어</span>
+                    <span>대구 인테리어 전문가를 만나보세요</span>
                     <div>
                         <a href="https://somoonhouse.com/newindex.jsp?theme_id=1">
-                            <span>더보기</span>
+                            <span>자세히보기</span>
                             <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow.png?raw=true" />
                         </a>
                     </div>
                 </div>
                 <div class="lower">
-                    <div class="slider">
-                        <a href="https://github.com" class="best_container">
-                            <div class="box">
-                                <div class="box_upper">
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" />
+                    <a href="https://github.com" class="best_container">
+                        <div class="box">
+                            <div class="box_upper">
+                                <div class="imgBox"><img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" /></div>
+                                <div class="imgBox secondImg"><img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" /></div>
+                            </div>
+                            <div class="box_lower">
+                                <div class="txt fir">
+                                    <span class="fir_title">아이비디자인</span>
+                                    <div class="fir_box">
+                                        <span class="fir_sub">A/S 1년</span>
+                                    </div>
+                                    <div class="fir_box">
+                                        <span class="fir_sub">응답우수</span>
+                                    </div>
                                 </div>
-                                <div class="box_lower">
-                                    <span class="title">대구 수성구 수성동 수성보성타운</span>
-                                    <span class="sub">아파트 | 49평형 | 거실 + 주방 | 남다른디자인</span>
+                                <div class="txt thr">
+                                    <div class="thr_img">
+                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star.png?raw=true" />
+                                    </div>
+                                    <span>4.8</span>
+                                    <div class="thr_img">
+                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart2.png?raw=true" />
+                                    </div>
+                                    <span>177</span>
                                 </div>
                             </div>
-                        </a>
-                        <a href="https://github.com" class="best_container">
-                            <div class="box">
-                                <div class="box_upper">
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog2.jpg?raw=true" />
+                        </div>
+                    </a>
+                    <a href="https://github.com" class="best_container">
+                        <div class="box">
+                            <div class="box_upper">
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" />
+                            </div>
+                            <div class="box_lower">
+                                <div class="txt fir">
+                                    <span class="fir_title">아이비디자인</span>
+                                    <div class="fir_box">
+                                        <span class="fir_sub">A/S 1년</span>
+                                    </div>
+                                    <div class="fir_box">
+                                        <span class="fir_sub">응답우수</span>
+                                    </div>
                                 </div>
-                                <div class="box_lower">
-                                    <span class="title">대구 수성구 수성동 수성보성타운</span>
-                                    <span class="sub">아파트 | 49평형 | 거실 + 주방 | 남다른디자인</span>
+                                <div class="txt thr">
+                                    <div class="thr_img">
+                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star.png?raw=true" />
+                                    </div>
+                                    <span>4.8</span>
+                                    <div class="thr_img">
+                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart2.png?raw=true" />
+                                    </div>
+                                    <span>177</span>
                                 </div>
                             </div>
-                        </a>
-                        <a href="https://github.com" class="best_container">
-                            <div class="box">
-                                <div class="box_upper">
+                        </div>
+                    </a>
+                    <a href="https://github.com" class="best_container">
+                        <div class="box">
+                            <div class="box_upper">
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" />
+                            </div>
+                            <div class="box_lower">
+                                <div class="txt fir">
+                                    <span class="fir_title">아이비디자인</span>
+                                    <div class="fir_box">
+                                        <span class="fir_sub">A/S 1년</span>
+                                    </div>
+                                    <div class="fir_box">
+                                        <span class="fir_sub">응답우수</span>
+                                    </div>
                                 </div>
-                                <div class="box_lower">
-                                    <span class="title">대구 수성구 수성동 수성보성타운</span>
-                                    <span class="sub">아파트 | 49평형 | 거실 + 주방 | 남다른디자인</span>
+                                <div class="txt thr">
+                                    <div class="thr_img">
+                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star.png?raw=true" />
+                                    </div>
+                                    <span>4.8</span>
+                                    <div class="thr_img">
+                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart2.png?raw=true" />
+                                    </div>
+                                    <span>177</span>
                                 </div>
                             </div>
-                        </a>
-                        <a href="https://github.com" class="best_container">
-                            <div class="box">
-                                <div class="box_upper">
+                        </div>
+                    </a>
+                    <a href="https://github.com" class="best_container">
+                        <div class="box">
+                            <div class="box_upper">
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" />
+                            </div>
+                            <div class="box_lower">
+                                <div class="txt fir">
+                                    <span class="fir_title">아이비디자인</span>
+                                    <div class="fir_box">
+                                        <span class="fir_sub">A/S 1년</span>
+                                    </div>
+                                    <div class="fir_box">
+                                        <span class="fir_sub">응답우수</span>
+                                    </div>
                                 </div>
-                                <div class="box_lower">
-                                    <span class="title">대구 수성구 수성동 수성보성타운</span>
-                                    <span class="sub">아파트 | 49평형 | 거실 + 주방 | 남다른디자인</span>
+                                <div class="txt thr">
+                                    <div class="thr_img">
+                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star.png?raw=true" />
+                                    </div>
+                                    <span>4.8</span>
+                                    <div class="thr_img">
+                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart2.png?raw=true" />
+                                    </div>
+                                    <span>177</span>
                                 </div>
                             </div>
-                        </a>
-                    </div>
+                        </div>
+                    </a>
+                    <a href="https://github.com" class="best_container">
+                        <div class="box">
+                            <div class="box_upper">
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" />
+                            </div>
+                            <div class="box_lower">
+                                <div class="txt fir">
+                                    <span class="fir_title">아이비디자인</span>
+                                    <div class="fir_box">
+                                        <span class="fir_sub">A/S 1년</span>
+                                    </div>
+                                    <div class="fir_box">
+                                        <span class="fir_sub">응답우수</span>
+                                    </div>
+                                </div>
+                                <div class="txt thr">
+                                    <div class="thr_img">
+                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star.png?raw=true" />
+                                    </div>
+                                    <span>4.8</span>
+                                    <div class="thr_img">
+                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart2.png?raw=true" />
+                                    </div>
+                                    <span>177</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://github.com" class="best_container">
+                        <div class="box">
+                            <div class="box_upper">
+                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" />
+                            </div>
+                            <div class="box_lower">
+                                <div class="txt fir">
+                                    <span class="fir_title">아이비디자인</span>
+                                    <div class="fir_box">
+                                        <span class="fir_sub">A/S 1년</span>
+                                    </div>
+                                    <div class="fir_box">
+                                        <span class="fir_sub">응답우수</span>
+                                    </div>
+                                </div>
+                                <div class="txt thr">
+                                    <div class="thr_img">
+                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star.png?raw=true" />
+                                    </div>
+                                    <span>4.8</span>
+                                    <div class="thr_img">
+                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart2.png?raw=true" />
+                                    </div>
+                                    <span>177</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
             <div class="review">
@@ -478,11 +603,10 @@
                     </div>
                 </div>
             </div>
-            <div class="style">
+            <!--div class="style">
                 <div class="upper">
                     <div class="left">
                         <span>공사 금액부터 시공까지 자세히 알아보세요</span>
-                        <!-- span class="sub">공사 항목부터 시공까지 자세히 알아보세요</span -->
                     </div>
                     <a class="right" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                         <span>더보기</span>
@@ -521,7 +645,6 @@
                                     <div class="sidebar"></div>
                                     <span>600만원</span>
                                 </div>
-                                <!-- span class="txt for">#북유럽 #모던 #화이트인테리어</span -->
                             </div>
                         </a>
                         <a href="https://github.com" class="style_container">
@@ -554,7 +677,6 @@
                                     <div class="sidebar"></div>
                                     <span>600만원</span>
                                 </div>
-                                <!-- span class="txt for">#북유럽 #모던 #화이트인테리어</span -->
                             </div>
                         </a>
                         <a href="https://github.com" class="style_container">
@@ -587,7 +709,6 @@
                                     <div class="sidebar"></div>
                                     <span>600만원</span>
                                 </div>
-                                <!-- span class="txt for">#북유럽 #모던 #화이트인테리어</span -->
                             </div>
                         </a>
                         <a href="https://github.com" class="style_container">
@@ -620,7 +741,6 @@
                                     <div class="sidebar"></div>
                                     <span>600만원</span>
                                 </div>
-                                <!-- span class="txt for">#북유럽 #모던 #화이트인테리어</span -->
                             </div>
                         </a>
                         <a href="https://github.com" class="style_container">
@@ -653,12 +773,11 @@
                                     <div class="sidebar"></div>
                                     <span>600만원</span>
                                 </div>
-                                <!-- span class="txt for">#북유럽 #모던 #화이트인테리어</span -->
                             </div>
                         </a>
                     </div>
                 </div>
-            </div>
+            </div-->
         </div>
         <div class="free">
             <a href="https://somoonhouse.com/remodeling_form.jsp?item_num=0">
@@ -715,14 +834,14 @@
     <jsp:include page="/newTestFooter.jsp" flush="false" />
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-PC15JG6KGN');
-</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PC15JG6KGN');
+    </script>
 <script>
 
 
