@@ -185,7 +185,8 @@
                     <a href="https://github.com" class="best_container">
                         <div class="box">
                             <div class="box_upper">
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" />
+                                <div class="imgBox"><img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" /></div>
+                                <div class="imgBox secondImg"><img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" /></div>
                             </div>
                             <div class="box_lower">
                                 <div class="txt fir">
@@ -213,7 +214,8 @@
                     <a href="https://github.com" class="best_container">
                         <div class="box">
                             <div class="box_upper">
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" />
+                                <div class="imgBox"><img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" /></div>
+                                <div class="imgBox secondImg"><img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" /></div>
                             </div>
                             <div class="box_lower">
                                 <div class="txt fir">
@@ -241,7 +243,8 @@
                     <a href="https://github.com" class="best_container">
                         <div class="box">
                             <div class="box_upper">
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" />
+                                <div class="imgBox"><img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" /></div>
+                                <div class="imgBox secondImg"><img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" /></div>
                             </div>
                             <div class="box_lower">
                                 <div class="txt fir">
@@ -269,35 +272,8 @@
                     <a href="https://github.com" class="best_container">
                         <div class="box">
                             <div class="box_upper">
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" />
-                            </div>
-                            <div class="box_lower">
-                                <div class="txt fir">
-                                    <span class="fir_title">아이비디자인</span>
-                                    <div class="fir_box">
-                                        <span class="fir_sub">A/S 1년</span>
-                                    </div>
-                                    <div class="fir_box">
-                                        <span class="fir_sub">응답우수</span>
-                                    </div>
-                                </div>
-                                <div class="txt thr">
-                                    <div class="thr_img">
-                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star.png?raw=true" />
-                                    </div>
-                                    <span>4.8</span>
-                                    <div class="thr_img">
-                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart2.png?raw=true" />
-                                    </div>
-                                    <span>177</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="https://github.com" class="best_container">
-                        <div class="box">
-                            <div class="box_upper">
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" />
+                                <div class="imgBox"><img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" /></div>
+                                <div class="imgBox secondImg"><img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" /></div>
                             </div>
                             <div class="box_lower">
                                 <div class="txt fir">

@@ -67,13 +67,140 @@
     <title>소문난집</title>
 </head>
 <body>
-
+<jsp:include page="/homepage_pc_header.jsp" flush="false" />
+<jsp:include page="/homepage_mob_header.jsp" flush="false" />
 <div class="body_container">
-    <jsp:include page="/homepage_pc_header.jsp" flush="false" />
-    <jsp:include page="/homepage_mob_header.jsp" flush="false" />
+    <div class="interior_info_box">
+        <!-- 배경 사진 들어가는 div 큰 화면일 땐 250 250 이었다가 작은 화면으로 바뀌면 배경화면처럼 들어가야함.-->
+        <div class="background">
+            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/moonstar.jpeg?raw=true" />
+        </div>
+        <!-- 회사명 들어가는 div 큰 화면일 땐 오른쪽 위에 위치하다가 작은 화면으로 바뀌면 배경사진 밑에 한줄 차지해야하고 스크롤 하면서 자연스럽게 위에 fixed해서 붙어야함-->
+        <div class="info_title" id="info_title">
+            <span class="title_name">한빛디자인<span class="title_sub">계약 3건 · 상담 12건</span></span>
+            <span class="title_submit">상담 신청</span>
+        </div>
+        <div class="info_title_block" id="info_title_block"></div>
+        <!-- detail 큰 화면일 땐 오른쪽 아래에 위치 작은 화면으로 바뀌면 회사명 div 밑에 붙어야하고, fixed 하지 않아도 됨-->
+        <div class="detail">
+            <div class="info">
+                <div class="title">대표자</div>
+                <div class="sub">임재한</div>
+            </div>
+            <div class="info">
+                <div class="title">경력</div>
+                <div class="sub">200년</div>
+            </div>
+            <div class="info">
+                <div class="title">주소</div>
+                <div class="sub addr">대구 북구 대현로 19길 54 가나다라마바사가나다라마바사가나다라마바사가나다라마바사</div>
+            </div>
+        </div>
+    </div>
 
-
-
+    <!-- 각 업체별 사례 -->
+    <div class="interior_info_case">
+        <div class="upper">
+            <span>업체 시공 사례</span>
+        </div>
+        <div class="lower">
+            <div class="slider">
+                <a href="https://github.com" class="case_container">
+                    <div class="box">
+                        <div class="box_upper">
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" />
+                        </div>
+                        <div class="box_lower">
+                            <span class="title">대구 수성구 수성동 수성보성타운</span>
+                            <span class="sub">아파트 | 49평형 | 거실 + 주방</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://github.com" class="case_container">
+                    <div class="box">
+                        <div class="box_upper">
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" />
+                        </div>
+                        <div class="box_lower">
+                            <span class="title">대구 수성구 수성동 수성보성타운</span>
+                            <span class="sub">아파트 | 49평형 | 거실 + 주방</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://github.com" class="case_container">
+                    <div class="box">
+                        <div class="box_upper">
+                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" />
+                        </div>
+                        <div class="box_lower">
+                            <span class="title">대구 수성구 수성동 수성보성타운</span>
+                            <span class="sub">아파트 | 49평형 | 거실 + 주방</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- 후기 : 후기 페이지에 있는 거 가져오기 -->
+    <div class="interior_info_review">
+        <div class="reviewUpperTextContainer"><span>고객 후기</span></div>
+        <div class="reviewBoxContainer">
+            <div class="reviewBox">
+                <div class="upper">
+                    <span class="num">4.9</span>
+                    <div class="infoDiv">
+                        <span class="info">김○○님</span>
+                    </div>
+                </div>
+                <div class="imgs">
+                    <div>
+                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" />
+                    </div>
+                    <div>
+                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog2.jpg?raw=true" />
+                    </div>
+                    <div>
+                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat1.jpg?raw=true" />
+                    </div>
+                    <div class="lastImg"></div>
+                </div>
+                <div class="text">
+                <span>
+                    이번에 로또 1등 당첨 되면서 집을 보러 가게 됐는데
+                    인테리어가 마음에 안들어서 OROKOS 인테리어에 맡겼는데
+                    일 정말 잘하더라고요~~! 여기 강추합니다! 대박.
+                </span>
+                </div>
+            </div>
+            <div class="reviewBox">
+                <div class="upper">
+                    <span class="num">4.9</span>
+                    <div class="infoDiv">
+                        <span class="info">김○○님</span>
+                    </div>
+                </div>
+                <div class="imgs">
+                    <div>
+                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" />
+                    </div>
+                    <div>
+                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog2.jpg?raw=true" />
+                    </div>
+                    <div>
+                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat1.jpg?raw=true" />
+                    </div>
+                    <div class="lastImg"></div>
+                </div>
+                <div class="text">
+                <span>
+                    이번에 로또 1등 당첨 되면서 집을 보러 가게 됐는데
+                    인테리어가 마음에 안들어서 OROKOS 인테리어에 맡겼는데
+                    일 정말 잘하더라고요~~! 여기 강추합니다! 대박.
+                </span>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <jsp:include page="/newTestFooter.jsp" flush="false" />
 
@@ -96,7 +223,32 @@
     gtag('config', 'G-PC15JG6KGN');
 </script>
 <script>
-//새 스크립트 작성
+    /*
+    const info_title = document.getElementById("info_title");
+    const info_title_block = document.getElementById("info_title_block");
+    let isForMobile = window.innerWidth > 700 ? false : true;
+    window.addEventListener('resize', (event) => {
+        isForMobile = event.currentTarget.innerWidth > 700 ? false : true;
+    })
+    window.onscroll = () => {
+        if(isForMobile){
+            if(document.documentElement.scrollTop >= 250 && info_title.style.position !== "fixed"){
+                info_title.style.position = "fixed";
+                info_title_block.style.display = "flex";
+            }
+            if(document.documentElement.scrollTop < 250 && info_title.style.position === "fixed"){
+                info_title.style.position = null;
+                info_title_block.style.display = "none";
+            }
+        }
+        else{
+            if(info_title.style.position === "fixed"){
+                info_title.style.position = "";
+                info_title_block.style.display = "none";
+            }
+        }
+    }
+    */
 </script>
 </body>
 </html>
