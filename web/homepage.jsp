@@ -152,7 +152,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="lower">
+                <div class="lower" id="best_inter_lower">
                     <a href="https://github.com" class="best_container">
                         <div class="box">
                             <div class="box_upper">
@@ -1026,6 +1026,21 @@
     if (window.navigator.userAgent.match(/MSIE|Internet Explorer|Trident/i)) {
         alert("Edge 또는 Chrome을 사용해주시기 바랍니다.");
         window.location = "microsoft-edge:" + window.location.href;
+    }
+
+    let best_container = document.getElementsByClassName("best_container");
+    let best_inter_lower = document.getElementById("best_inter_lower");
+
+    let isForMobile = window.innerWidth > 700 ? false : true;
+    window.addEventListener('resize', (event) => {
+        isForMobile = event.currentTarget.innerWidth > 700 ? false : true;
+    })
+    window.onscroll = () => {
+        if(!isForMobile && (best_container.length & 1)){
+            var div = document.createElement("div");
+            div.className = "best_container";
+            best_inter_lower.appendChild(div);
+        }
     }
 </script>
 </body>
