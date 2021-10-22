@@ -72,7 +72,7 @@
     <jsp:include page="/homepage_pc_header.jsp" flush="false" />
     <jsp:include page="/homepage_mob_header.jsp" flush="false" />
     <div class="interior_container">
-        <div class="upper" id="interior_upper">
+        <!-- div class="upper" id="interior_upper">
             <div class="searchBoxContainer">
                 <form id="form_done" name="form_done" method="POST" action="newTest1.jsp">
                     <div class="searchBox" id="searchBox">
@@ -92,7 +92,10 @@
             <div class="filterSlider" id="filterSlider">
             </div>
         </div>
-        <div id="upperShadow"></div>
+        <div id="upperShadow"></div -->
+        <div>소문난집 파트너스에 신청하세요!
+            소문난집 파트너스 목록
+        </div>
         <div class="interior_body">테스트</div>
     </div>
 </div>
