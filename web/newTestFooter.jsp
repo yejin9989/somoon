@@ -46,7 +46,7 @@
 <%
 
 %>
-<div class="body_container">
+<div class="body_container_footer">
     <div class="body_footer">
         <div class="text_container">
             <div class="text">

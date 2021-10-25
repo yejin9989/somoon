@@ -79,44 +79,6 @@ else{
 %>
 <%
 now = session.getAttribute("page") + "";
-Connection conn = DBUtil.getMySQLConnection();
-ResultSet rs = null;
-PreparedStatement pstmt = null;
-String query = "SELECT * FROM IMG WHERE Page = ?";
-pstmt = conn.prepareStatement(query);
-pstmt.setString(1, now);
-rs = pstmt.executeQuery();
-String imgpath;
-String id;
-String cls;
-String[][] img = new String[100][3];
-int i = 0;
-while(rs.next()){
-	id = rs.getString("Id");
-	cls = rs.getString("Class");
-	imgpath = rs.getString("ImgPath");
-	img[i][0] = id;
-	img[i][1] = cls;
-	img[i][2] = imgpath;
-	i++;
-}
-int imgnum = i;
-pstmt.close();
-rs.close();
-query="";
-
-int point=0;
-query="SELECT * FROM USERS WHERE Id = ?";
-pstmt = conn.prepareStatement(query);
-pstmt.setString(1,s_id);
-rs=pstmt.executeQuery();
-while(rs.next()){
-	point = rs.getInt("Point");
-}
-pstmt.close();
-rs.close();
-query="";
-conn.close();
 %>
 <%
 //CSRF 방지를 위한 상태 토큰 검증
@@ -183,31 +145,6 @@ state = request.getParameter("state");
 		</div>
     </div>
 </div>
-<script>
-//for progress tag in HTML 
-function tag () {
-  var ratio = <%=point%>/100
-  let progress = document.querySelector('.progressTag')
-  let interval = 1
-  let updatesPerSecond = 1000 / 60
-  let end = progress.max * ratio
-
-  $('.menu_button').click(function animator () {
-    progress.value = progress.value + interval
-    if ( progress.value + interval < end){
-      setTimeout(animator, updatesPerSecond);
-    } else { 
-      progress.value = end
-    }
-  });
-
-  setTimeout(() => {
-    animator()
-  }, updatesPerSecond)
-}
-
-tag()
-</script>
 
 <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
 <script type="text/javascript">
