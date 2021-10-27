@@ -68,6 +68,10 @@
     <title>소문난집</title>
 </head>
 <body>
+<div class="fixed_button">
+    <span id="topBtn">top</span>
+    <span id="applyBtn"><div>상담<br>신청</div></span>
+</div>
 <div class="upper_fixed_pc"></div>
 <div class="body_container_header">
     <div class="header_pc">
@@ -77,7 +81,7 @@
             </a>
         </div>
         <div class="header_right">
-            <!--div id="area_header_pc">
+            <div id="area_header_pc">
                 <span>지역별 인테리어</span>
                 <div id="area_div_pc">
                     <a href="https://somoonhouse.com/newindex.jsp?Daegu=141"><span>중구</span></a>
@@ -93,15 +97,15 @@
             </div>
             <div class="sidebar"></div>
             <a href="https://somoonhouse.com/newindex.jsp?theme_id=1">
-                <span>파트너스</span>
-            </a-->
-            <a>
+                <span>인기 인테리어</span>
+            </a>
+            <!--a>
                 <span>시공 후기</span>
             </a>
             <div class="sidebar"></div>
             <a>
                 <span>파트너스</span>
-            </a>
+            </a-->
         </div>
     </div>
     <div class="underline"></div>
