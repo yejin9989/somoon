@@ -74,22 +74,13 @@
         <jsp:include page="/homepage_mob_header.jsp" flush="false" />
         <div class="container">
             <div class="banner">
-                <div class="img_container">
+                <div class="img_container" id="bannerParent">
                     <div class="turn before" onclick="bannerLeft()">
                         <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow.png?raw=true" />
                     </div>
-                    <div class="bannerBox">
-                        <img class="bannerImg" src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat1.jpg?raw=true" />
-                    </div>
-                    <div class="bannerBox">
-                        <img class="bannerImg" src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat2.jpg?raw=true" />
-                    </div>
-                    <div class="bannerBox">
-                        <img class="bannerImg" src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat3.jpg?raw=true" />
-                    </div>
-                    <div class="bannerBox">
-                        <img class="bannerImg" src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat4.jpg?raw=true" />
-                    </div>
+                    <!-- a class="bannerBox" >
+                        <img />
+                    </a -->
                     <div class="turn after" onclick="bannerRight()">
                         <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow.png?raw=true" />
                     </div>
@@ -818,17 +809,8 @@
         gtag('js', new Date());
         gtag('config', 'G-PC15JG6KGN');
     </script>
+    <script src="./homepage_banner.js"></script>
 <script>
-
-
-    // banner 이미지 정보가 로드 되고나면 진행해야함.
-    var bannerMinHeight = 987654321;
-    var bannerImgs = document.getElementsByClassName("bannerImg");
-    for(var i = 0; i < bannerImgs.length; i++){
-        if(bannerImgs[i].naturalHeight < bannerMinHeight){
-            bannerMinHeight = bannerImgs[i].naturalHeight;
-        }
-    }
 
     const abs = (a) => {
         return a >= 0 ? a : -1 * a;
@@ -975,54 +957,7 @@
     })
     observer.observe(reviewBox);
 
-    var banner = document.getElementsByClassName("bannerBox");
-    var bannerPos = 0;
-    const bannerLeft = () => {
-        if(bannerPos === 0){
-            bannerPos = banner.length * -100;
-        }
-        bannerPos += 100;
-        for(var i = 0; i < banner.length; i++){
-            banner[i].style.transform = "translateX(" + bannerPos + "%)";
-        }
-    }
-    const bannerRight = () => {
-        if(bannerPos === -100 * (banner.length - 1)){
-            bannerPos = 100;
-        }
-        bannerPos -= 100;
-        for(var i = 0; i < banner.length; i++){
-            banner[i].style.transform = "translateX(" + bannerPos + "%)";
-        }
-    }
-    let wait = -1;
-    var turn = document.getElementsByClassName("turn");
-    turn[0].addEventListener("click", () => {
-        if(wait === bannerSlideTime) return;
-        clearInterval(bannerSlideTime);
-        wait = bannerSlideTime;
-        setTimeout(() => {
-            bannerSlideTime = setInterval(bannerAutoSlide, 3000);
-        }, 5000);
-    })
-    turn[1].addEventListener("click", () => {
-        if(wait === bannerSlideTime) return;
-        clearInterval(bannerSlideTime);
-        wait = bannerSlideTime;
-        setTimeout(() => {
-            bannerSlideTime = setInterval(bannerAutoSlide, 3000);
-        }, 5000);
-    })
-    const bannerAutoSlide = () => {
-        if(bannerPos === -100 * (banner.length - 1)){
-            bannerPos = 100;
-        }
-        bannerPos -= 100;
-        for(var i = 0; i < banner.length; i++){
-            banner[i].style.transform = "translateX(" + bannerPos + "%)";
-        }
-    }
-    let bannerSlideTime = setInterval(bannerAutoSlide, 3000);
+
     if (window.navigator.userAgent.match(/MSIE|Internet Explorer|Trident/i)) {
         alert("Edge 또는 Chrome을 사용해주시기 바랍니다.");
         window.location = "microsoft-edge:" + window.location.href;
@@ -1042,6 +977,29 @@
             best_inter_lower.appendChild(div);
         }
     }
+
+    // let state;
+    // const useState = (initState) => {
+    //     if(state === undefined){
+    //         state = initState;
+    //     }
+    //     const setState = (newState) => {
+    //         state = newState;
+    //         render();
+    //     }
+    //     return [state, setState];
+    // }
+    //
+    // const render = async () => {
+    //     await useState();
+    //     console.log(bannerData);
+    // }
+    // const [bannerData, setBannerData] = useState();
+
+
+
+
+
 </script>
 </body>
 </html>

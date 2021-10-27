@@ -7,7 +7,7 @@
 <% response.setContentType("text/html; charset=utf-8"); %>
 <%
     //캐시 설정 - 이미지 캐시 폐기 기간을 늘려서 반응속도를 올림
-    response.setHeader("Cache-Control", "no-cache");
+    response.setHeader("Cache-Control", "no-cache")  ,;
     response.setHeader("Pragma", "no-cache");
     response.setDateHeader("Expires", 31536000);
 
