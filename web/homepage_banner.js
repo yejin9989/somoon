@@ -34,9 +34,7 @@ const getBannerData = async () => {
         })
         .then((res) => {
             bannerData = res;
-            console.log(bannerData);
             makeBanner();
-            //setBannerData(res);
         })
         .catch((err) => {
             console.log(err);
