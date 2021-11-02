@@ -7,7 +7,7 @@
 <% response.setContentType("text/html; charset=utf-8"); %>
 <%
     //캐시 설정 - 이미지 캐시 폐기 기간을 늘려서 반응속도를 올림
-    response.setHeader("Cache-Control", "no-cache")  ,;
+    response.setHeader("Cache-Control", "no-cache") ;
     response.setHeader("Pragma", "no-cache");
     response.setDateHeader("Expires", 31536000);
 
@@ -92,11 +92,27 @@
             <div class="filterSlider" id="filterSlider">
             </div>
         </div>
-        <div id="upperShadow"></div -->
+        <div id="upperShadow"></div>
         <div>소문난집 파트너스에 신청하세요!
             소문난집 파트너스 목록
+        </div-->
+        <div class="interior_body">
+            <a href="https://github.com" class="company_container">
+                <div class="company_text">
+                    <div class="left">
+                        <span>햇반먹자디자인</span>
+                        <span>대구 수성구</span>
+                    </div>
+                    <span class="title_sub">계약 3건 · 상담 12건</span>
+                </div>
+                <div class="company_imgs">
+                    <div class="company_img"><img /></div>
+                    <div class="company_img"><img /></div>
+                    <div class="company_img"><img /></div>
+                    <div class="company_img"><img /></div>
+                </div>
+            </a>
         </div>
-        <div class="interior_body">테스트</div>
     </div>
 </div>
 <jsp:include page="/newTestFooter.jsp" flush="false" />

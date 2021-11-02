@@ -238,7 +238,7 @@ body{
     flex-direction: row;
     overflow: hidden;
 }
-body_container .best_inter .best_container .box .box_upper .imgBox:after{
+.body_container .best_inter .best_container .box .box_upper .imgBox:after{
     content: "";
     display: block;
 }
@@ -254,12 +254,12 @@ body_container .best_inter .best_container .box .box_upper .imgBox:after{
     padding: 7px;
 }
 .body_container .best_inter .best_container .box .box_lower .txt{
+    margin-bottom: 7px;
     display: flex;
     position: relative;
     align-items: center;
     flex-direction: row;
     width: 100%;
-    margin-bottom: 9px;
 }
 .body_container .best_inter .best_container .box .box_lower .fir .fir_title{
     color: #000;
@@ -281,16 +281,21 @@ body_container .best_inter .best_container .box .box_upper .imgBox:after{
     font-weight: 530;
     white-space: nowrap;
 }
-.body_container .best_inter .best_container .box .box_lower .thr .thr_img{
-    width: 23px;
-    height: 23px;
-    margin: 0 8px;
+.body_container .best_inter .best_container .box .box_lower .thr .title_sub{
+    margin-left: 2px;
+    font-size: 12px;
+    font-weight: 500;
 }
-.body_container .best_inter .best_container .box .box_lower .thr .thr_img img{
-    width:100%;
-    height: 100%;
-    object-fit: cover;
-}
+/*.body_container .best_inter .best_container .box .box_lower .thr .thr_img{*/
+/*    width: 23px;*/
+/*    height: 23px;*/
+/*    margin: 0 8px;*/
+/*}*/
+/*.body_container .best_inter .best_container .box .box_lower .thr .thr_img img{*/
+/*    width:100%;*/
+/*    height: 100%;*/
+/*    object-fit: cover;*/
+/*}*/
 /*.body_container .best_inter .best_container .box .box_lower .title{*/
 /*    font-size: 16px;*/
 /*    font-weight: 600;*/
@@ -302,6 +307,16 @@ body_container .best_inter .best_container .box .box_upper .imgBox:after{
 /*    font-weight: 530;*/
 /*    color: #777;*/
 /*}*/
+@media (max-width: 370px){
+    .body_container .best_inter .best_container .box .box_lower .txt{
+        margin-bottom: 3px;
+    }
+}
+
+
+
+
+
 .body_container .review{
     display: flex;
     flex-direction: column;
@@ -741,7 +756,7 @@ body_container .best_inter .best_container .box .box_upper .imgBox:after{
     font-size: 16px;
     font-weight: 520;
     color:#000;
-    margin: 4px 0 20px 0;
+    margin: 4px 0 20px 12px;
     line-height: 23px;
 }
 .body_container .insta .follow{

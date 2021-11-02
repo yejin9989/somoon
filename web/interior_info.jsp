@@ -112,7 +112,7 @@
                         </div>
                         <div class="box_lower">
                             <span class="title">대구 수성구 수성동 수성보성타운</span>
-                            <span class="sub">아파트 | 49평형 | 거실 + 주방</span>
+                            <span class="sub">아파트 | 49평형</span>
                         </div>
                     </div>
                 </a>
@@ -123,7 +123,7 @@
                         </div>
                         <div class="box_lower">
                             <span class="title">대구 수성구 수성동 수성보성타운</span>
-                            <span class="sub">아파트 | 49평형 | 거실 + 주방</span>
+                            <span class="sub">아파트 | 49평형</span>
                         </div>
                     </div>
                 </a>
@@ -134,7 +134,7 @@
                         </div>
                         <div class="box_lower">
                             <span class="title">대구 수성구 수성동 수성보성타운</span>
-                            <span class="sub">아파트 | 49평형 | 거실 + 주방</span>
+                            <span class="sub">아파트 | 49평형</span>
                         </div>
                     </div>
                 </a>
@@ -142,7 +142,7 @@
         </div>
     </div>
     <!-- 후기 : 후기 페이지에 있는 거 가져오기 -->
-    <div class="interior_info_review">
+    <!--div class="interior_info_review">
         <div class="reviewUpperTextContainer"><span>고객 후기</span></div>
         <div class="reviewBoxContainer">
             <div class="reviewBox">
@@ -200,7 +200,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div-->
 </div>
 <jsp:include page="/newTestFooter.jsp" flush="false" />
 
