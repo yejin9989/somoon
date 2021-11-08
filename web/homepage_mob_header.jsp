@@ -114,12 +114,12 @@
         <div class="underline"></div>
     </div>
 </div>
-<div class="mobileFooter" id="mobileFooter">
+<a href="https://somoonhouse.com/remodeling_form.jsp?item_num=0" class="mobileFooter" id="mobileFooter">
     <span>견적 상담 받기</span>
     <div>
         <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow2.png?raw=true" />
     </div>
-</div>
+</a>
 <%
     if(pstmt != null) {
         pstmt.close();

@@ -373,6 +373,7 @@
     border-width: 1px;
     border-color: #fff;
     transition: 0.7s;
+    text-decoration: none;
 }
 .mobileFooter span{
     font-size: 18px;
@@ -450,6 +451,7 @@
     line-height:50px;
 }
 #applyBtn{
+    text-decoration: none;
     bottom: 70px;
     background: #4098f4;
 }

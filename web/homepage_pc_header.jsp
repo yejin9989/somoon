@@ -70,7 +70,7 @@
 <body>
 <div class="fixed_button">
     <span id="topBtn">top</span>
-    <span id="applyBtn"><div>상담<br>신청</div></span>
+    <a href="https://somoonhouse.com/remodeling_form.jsp?item_num=0" id="applyBtn"><div>상담<br>신청</div></a>
 </div>
 <div class="upper_fixed_pc"></div>
 <div class="body_container_header">
@@ -138,6 +138,12 @@
     area_header.onmouseleave = () => {
         area_div.style.display = "none";
     }
+
+    const goToTop = () => {
+        window.scrollTo(0, 0);
+    }
+    const topBtn = document.getElementById("topBtn");
+    topBtn.onclick = goToTop;
 </script>
 </body>
 </html>
