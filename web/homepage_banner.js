@@ -1,20 +1,18 @@
-var bannerMinHeight = 987654321;
-var bannerImgs = document.getElementsByClassName("bannerImg");
-for(var i = 0; i < bannerImgs.length; i++){
+let bannerMinHeight = 987654321;
+const bannerImgs = document.getElementsByClassName("bannerImg");
+for(let i = 0; i < bannerImgs.length; i++){
     if(bannerImgs[i].naturalHeight < bannerMinHeight){
         bannerMinHeight = bannerImgs[i].naturalHeight;
     }
 }
 
-
 const makeBanner = () => {
-    var bannerParent = document.getElementById("bannerParent");
-
-    for(var i = 0; i < bannerData.length; i++){
-        var bannerBox = document.createElement("a");
+    const bannerParent = document.getElementById("bannerParent");
+    for(let i = 0; i < bannerData.length; i++){
+        let bannerBox = document.createElement("a"),
+            bannerImg = document.createElement("img");
         bannerBox.className = "bannerBox";
         bannerBox.href = bannerData[i].url;
-        var bannerImg = document.createElement("img");
         bannerImg.className = "bannerImg";
         bannerImg.src = bannerData[i].img_path;
         bannerBox.appendChild(bannerImg);
@@ -42,14 +40,14 @@ const getBannerData = async () => {
 }
 getBannerData();
 
-var banner = document.getElementsByClassName("bannerBox");
-var bannerPos = 0;
+const banner = document.getElementsByClassName("bannerBox");
+let bannerPos = 0;
 const bannerLeft = () => {
     if(bannerPos === 0){
         bannerPos = banner.length * -100;
     }
     bannerPos += 100;
-    for(var i = 0; i < banner.length; i++){
+    for(let i = 0; i < banner.length; i++){
         banner[i].style.transform = "translateX(" + bannerPos + "%)";
     }
 }
@@ -58,12 +56,12 @@ const bannerRight = () => {
         bannerPos = 100;
     }
     bannerPos -= 100;
-    for(var i = 0; i < banner.length; i++){
+    for(let i = 0; i < banner.length; i++){
         banner[i].style.transform = "translateX(" + bannerPos + "%)";
     }
 }
 let wait = -1;
-var turn = document.getElementsByClassName("turn");
+const turn = document.getElementsByClassName("turn");
 turn[0].addEventListener("click", () => {
     if(wait === bannerSlideTime) return;
     clearInterval(bannerSlideTime);
@@ -85,7 +83,7 @@ const bannerAutoSlide = () => {
         bannerPos = 100;
     }
     bannerPos -= 100;
-    for(var i = 0; i < banner.length; i++){
+    for(let i = 0; i < banner.length; i++){
         banner[i].style.transform = "translateX(" + bannerPos + "%)";
     }
 }
