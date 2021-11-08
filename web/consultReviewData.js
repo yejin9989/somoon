@@ -21,13 +21,7 @@ const makeNoImgReview = () => {
     for(let i = 0; i < reviewData.length; i++){
         makeNoImgReviewBox(reviewData[i]);
     }
-    // 여기다가 get set 설정해두고
-}
 
-const createEle = (sortOfElement, className) => {
-    let nameOfElement = document.createElement(sortOfElement);
-    if (className !== undefined) nameOfElement.className = className;
-    return nameOfElement;
 }
 
 getReviewData();

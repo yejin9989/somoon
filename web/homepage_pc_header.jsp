@@ -101,11 +101,11 @@
             </a>
             <!--a>
                 <span>시공 후기</span>
-            </a>
-            <div class="sidebar"></div>
-            <a>
-                <span>파트너스</span>
             </a-->
+            <div class="sidebar"></div>
+            <a href="https://somoonhouse.com/interiors.jsp">
+                <span>파트너스</span>
+            </a>
         </div>
     </div>
     <div class="underline"></div>
@@ -130,8 +130,8 @@
     gtag('config', 'G-PC15JG6KGN');
 </script>
 <script>
-    var area_header = document.getElementById("area_header_pc");
-    var area_div = document.getElementById("area_div_pc");
+    const area_header = document.getElementById("area_header_pc"),
+        area_div = document.getElementById("area_div_pc");
     area_header.onmouseenter = () => {
         area_div.style.display = "flex";
     }

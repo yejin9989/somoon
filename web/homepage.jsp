@@ -133,7 +133,7 @@
                     </div>
                 </div>
             </div-->
-            <div class="best_inter">
+            <div class="partner_info">
                 <div class="upper">
                     <span>대구 인테리어 전문가를 만나보세요</span>
                     <div>
@@ -143,8 +143,8 @@
                         </a>
                     </div>
                 </div>
-                <div class="lower" id="best_inter_lower">
-                    <a href="https://github.com" class="best_container">
+                <div class="lower" id="partner_info_lower">
+                    <!--a href="https://github.com" class="partner_info_container">
                         <div class="box">
                             <div class="box_upper">
                                 <div class="imgBox"><img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" /></div>
@@ -155,42 +155,10 @@
                                     <span class="fir_title">아이비디자인</span>
                                     <div class="fir_box">
                                         <span class="fir_sub">A/S 1년</span>
-                                    </div>
-                                    <div class="fir_box">
-                                        <span class="fir_sub">응답우수</span>
                                     </div>
                                 </div>
                                 <div class="txt thr">
                                     <span class="title_sub">계약 3건 · 상담 12건</span>
-                                    <!--div class="thr_img">
-                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star.png?raw=true" />
-                                    </div>
-                                    <span>4.8</span>
-                                    <div class="thr_img">
-                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart2.png?raw=true" />
-                                    </div>
-                                    <span>177</span-->
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="https://github.com" class="best_container">
-                        <div class="box">
-                            <div class="box_upper">
-                                <div class="imgBox"><img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" /></div>
-                                <div class="imgBox secondImg"><img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" /></div>
-                            </div>
-                            <div class="box_lower">
-                                <div class="txt fir">
-                                    <span class="fir_title">아이비디자인</span>
-                                    <div class="fir_box">
-                                        <span class="fir_sub">A/S 1년</span>
-                                    </div>
-                                    <div class="fir_box">
-                                        <span class="fir_sub">응답우수</span>
-                                    </div>
-                                </div>
-                                <div class="txt thr">
                                     <div class="thr_img">
                                         <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star.png?raw=true" />
                                     </div>
@@ -202,95 +170,9 @@
                                 </div>
                             </div>
                         </div>
-                    </a>
-                    <a href="https://github.com" class="best_container">
-                        <div class="box">
-                            <div class="box_upper">
-                                <div class="imgBox"><img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" /></div>
-                                <div class="imgBox secondImg"><img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" /></div>
-                            </div>
-                            <div class="box_lower">
-                                <div class="txt fir">
-                                    <span class="fir_title">아이비디자인</span>
-                                    <div class="fir_box">
-                                        <span class="fir_sub">A/S 1년</span>
-                                    </div>
-                                    <div class="fir_box">
-                                        <span class="fir_sub">응답우수</span>
-                                    </div>
-                                </div>
-                                <div class="txt thr">
-                                    <div class="thr_img">
-                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star.png?raw=true" />
-                                    </div>
-                                    <span>4.8</span>
-                                    <div class="thr_img">
-                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart2.png?raw=true" />
-                                    </div>
-                                    <span>177</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="https://github.com" class="best_container">
-                        <div class="box">
-                            <div class="box_upper">
-                                <div class="imgBox"><img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" /></div>
-                                <div class="imgBox secondImg"><img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" /></div>
-                            </div>
-                            <div class="box_lower">
-                                <div class="txt fir">
-                                    <span class="fir_title">아이비디자인</span>
-                                    <div class="fir_box">
-                                        <span class="fir_sub">A/S 1년</span>
-                                    </div>
-                                    <div class="fir_box">
-                                        <span class="fir_sub">응답우수</span>
-                                    </div>
-                                </div>
-                                <div class="txt thr">
-                                    <div class="thr_img">
-                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star.png?raw=true" />
-                                    </div>
-                                    <span>4.8</span>
-                                    <div class="thr_img">
-                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart2.png?raw=true" />
-                                    </div>
-                                    <span>177</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="https://github.com" class="best_container">
-                        <div class="box">
-                            <div class="box_upper">
-                                <div class="imgBox"><img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" /></div>
-                                <div class="imgBox secondImg"><img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" /></div>
-                            </div>
-                            <div class="box_lower">
-                                <div class="txt fir">
-                                    <span class="fir_title">아이비디자인</span>
-                                    <div class="fir_box">
-                                        <span class="fir_sub">A/S 1년</span>
-                                    </div>
-                                    <div class="fir_box">
-                                        <span class="fir_sub">응답우수</span>
-                                    </div>
-                                </div>
-                                <div class="txt thr">
-                                    <div class="thr_img">
-                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star.png?raw=true" />
-                                    </div>
-                                    <span>4.8</span>
-                                    <div class="thr_img">
-                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart2.png?raw=true" />
-                                    </div>
-                                    <span>177</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+                    </a -->
                 </div>
+                <div class="moreInfo" id="moreInfo">더 보 기</div>
             </div>
             <div class="review">
                 <div class="upper">
@@ -581,12 +463,15 @@
     <script src="./homepage_banner.js"></script>
     <script src="./consultReviewData.js"></script>
 <script>
+    const createEle = (sortOfElement, className) => {
+        let nameOfElement = document.createElement(sortOfElement);
+        if (className !== undefined) nameOfElement.className = className;
+        return nameOfElement;
+    }
 
     const abs = (a) => {
         return a >= 0 ? a : -1 * a;
     }
-
-    // get set 넘어오면 옵저버랑 이런 애들 함수로 만들어서 설정하면?
 
     const starSetting = () => {
         const block = document.getElementsByClassName("block"),
@@ -737,6 +622,10 @@
         })
         observer.observe(reviewBoxContainer);
     }
+    setTimeout(() => {
+        starSetting();
+        reviewBoxSetting();
+    }, 1500);
 
     let reviewMainBoxCount = 0;
     const makeNoImgReviewBox = (prop) => {
@@ -760,13 +649,19 @@
         comBox = createEle("div", "comBox");
         coms = createEle("span");
 
+        let compArr = prop.remodeling_apply.companies.map((value) => {
+            return value.name;
+        }), compStr = compArr.join(", "),
+            customerAddrArr = prop.remodeling_apply.address.split(' '),
+            customerAddrStr = customerAddrArr[0] + " " + (customerAddrArr[1] ?? "");
+
         grade.innerHTML = prop.point;
         const str = prop.content.replaceAll('\\n', '<br/>');
         textPre.innerHTML = str;
-        reviewAddr.innerHTML = "양식 다 똑같이. 대구 북구 침산동";
+        reviewAddr.innerHTML = customerAddrStr;
         reviewName.innerHTML = "&nbsp " + prop.remodeling_apply.name[0] + "** 님";
         comBox.innerHTML = "견적업체";
-        coms.innerHTML = "업체 3개";
+        coms.innerHTML = compStr;
 
         reviewBoxContainer.appendChild(reviewBox);
         reviewBox.appendChild(reviewBoxTop);
@@ -788,21 +683,119 @@
         reviewUnder.appendChild(coms);
     }
 
+    const makeHomepageCompanyInfoBox = (prop) => {
+        let partnerContainer = document.getElementById("partner_info_lower"),
+            partnerInfoContainer, partnerInfoBox,
+            boxUpper, boxLower, upperFirstImgBox, upperFirstImg,
+            upperSecondImgBox, upperSecondImg, lowerTextFir, lowerTextThr,
+            firTitle, firBox, firSub, thrTitleSub;
+
+        partnerInfoContainer = createEle("a", "partner_info_container");
+        partnerInfoBox = createEle("div", "box");
+        boxUpper = createEle("div", "box_upper");
+        boxLower = createEle("div", "box_lower");
+        upperFirstImgBox = createEle("div", "imgBox");
+        upperFirstImg = createEle("img");
+        upperSecondImgBox = createEle("div", "imgBox secondImg");
+        upperSecondImg = createEle("img");
+        lowerTextFir = createEle("div", "txt fir");
+        lowerTextThr = createEle("div", "txt thr");
+        firTitle = createEle("span", "fir_title");
+        thrTitleSub = createEle("span", "title_sub");
+
+        const war = prop.as_warranty,
+            counseling = prop.counseling,
+            construction = prop.construction,
+            img1 = prop.represent_img1,
+            img2 = prop.represent_img2,
+            comName = prop.name;
+        if(war != null){
+            firBox = createEle("div", "fir_box");
+            firSub = createEle("span", "fir_sub");
+            firSub.innerHTML = "A/S " + war + "년";
+        }
+
+        partnerInfoContainer.href = "https://somoonhouse.com/newindex.jsp?bdNm=" + comName;
+        firTitle.innerHTML = comName;
+        thrTitleSub.innerHTML = "계약 " + construction + "건 · 상담 " + counseling + "건";
+        upperFirstImg.src = img1;
+        upperSecondImg.src = img2;
+
+        partnerContainer.appendChild(partnerInfoContainer);
+        partnerInfoContainer.appendChild(partnerInfoBox);
+        partnerInfoBox.appendChild(boxUpper);
+        partnerInfoBox.appendChild(boxLower);
+        boxUpper.appendChild(upperFirstImgBox);
+        boxUpper.appendChild(upperSecondImgBox);
+        upperFirstImgBox.appendChild(upperFirstImg);
+        upperSecondImgBox.appendChild(upperSecondImg);
+        boxLower.appendChild(lowerTextFir);
+        boxLower.appendChild(lowerTextThr);
+        lowerTextFir.appendChild(firTitle);
+        lowerTextThr.appendChild(thrTitleSub);
+        if(war != null){
+            lowerTextFir.appendChild(firBox);
+            firBox.appendChild(firSub);
+        }
+    }
+
+    let companyData;
+    const getCompanyData = async () => {
+        await fetch("http://3.138.194.75:8080/auth-non/company/represent", {
+            method: "GET",
+            headers: {
+            }
+        })
+            .then((res) => {
+                return res.json();
+            })
+            .then((res) => {
+                companyData = res;
+                makeHomepageCompanyInfo();
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }
+
+    let companyCount = 0;
+    const makeHomepageCompanyInfo = () => {
+        for(let i = companyCount; i < companyCount + 8; i++){
+            makeHomepageCompanyInfoBox(companyData[i]);
+        }
+        companyCount += 8;
+    }
+    getCompanyData();
+
+    const makeMoreHomepageCompanyInfo = () => {
+        for(let i = companyCount; i < companyCount + 4; i++){
+            if(companyData[i] === undefined){
+                infoBtn.style.display = "none";
+                break;
+            }
+            makeHomepageCompanyInfoBox(companyData[i]);
+        }
+        companyCount += 4;
+    }
+
+    const infoBtn = document.getElementById("moreInfo");
+    infoBtn.onclick = makeMoreHomepageCompanyInfo;
+
     if (window.navigator.userAgent.match(/MSIE|Internet Explorer|Trident/i)) {
         alert("Edge 또는 Chrome을 사용해주시기 바랍니다.");
         window.location = "microsoft-edge:" + window.location.href;
     }
-    let best_container = document.getElementsByClassName("best_container"),
-        best_inter_lower = document.getElementById("best_inter_lower"),
+    let partner_info_container = document.getElementsByClassName("partner_info_container"),
+        partner_info_lower = document.getElementById("partner_info_lower"),
         isForMobile = window.innerWidth > 700 ? false : true;
     window.addEventListener('resize', (event) => {
         isForMobile = event.currentTarget.innerWidth > 700 ? false : true;
     })
     window.onscroll = () => {
-        if(!isForMobile && (best_container.length & 1)){
-            var div = document.createElement("div");
-            div.className = "best_container";
-            best_inter_lower.appendChild(div);
+        if(!isForMobile && (partner_info_container.length & 1)){
+            let div = document.createElement("div");
+            div.className = "partner_info_container";
+            partner_info_lower.appendChild(div);
         }
     }
 </script>

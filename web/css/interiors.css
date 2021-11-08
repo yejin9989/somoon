@@ -141,11 +141,6 @@
 .interior_container #upperShadow{
     width: 100%;
 }
-.interior_container .interior_body{
-    width: 100%;
-    height: 1000px;
-    background: #f1f1f5;
-}
 @media (min-width: 701px) {
     .interior_container .upper{
         top:61px !important;
@@ -162,18 +157,91 @@
 .interior_body{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100%;
-    margin-bottom: 50px;
+    gap: 45px;
+    white-space: nowrap;
+    padding: 40px 0 60px 0;
+}
+.company_container{
+    display: flex;
+    max-width: 1024px;
+    width: 100%;
+    height: 150px;
+    text-decoration: none;
+}
+.company_container .company_text{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    padding: 0 10px;
+}
+.company_container .company_text .left{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.company_container .company_text .left .name{
+    font-size: 16px;
+    font-weight: 530;
+    color: #000;
+}
+.company_container .company_text .left .addr{
+    font-size: 14px;
+    font-weight: 500;
+    color: #000;
+}
+.company_container .company_text .title_sub{
+    font-size: 14px;
+    font-weight: 500;
+    color: #000;
+}
+.company_container .company_imgs{
+    display: flex;
     gap: 10px;
+    align-items: center;
+    padding: 0 5px;
+}
+.company_container .company_imgs .company_img{
+    width: 150px;
+    height: 120px;
+    overflow: hidden;
+    border-radius: 3px;
+}
+.company_container .company_imgs .company_img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 @media (min-width: 701px) and (max-width: 830px) {
 
 }
 @media (min-width: 701px) {
-
+    .company_container{
+        flex-direction: row;
+    }
+    .company_container .company_text{
+        width: 30%;
+        flex-direction: column;
+        padding-left: 40px;
+    }
+    .company_container .company_imgs{
+        width: 70%
+    }
 }
 @media (max-width: 700px) {
-
+    .company_container{
+        flex-direction: column;
+        gap: 10px;
+    }
+    .company_container .company_text{
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .company_container .company_imgs{
+        width: 100%;
+        justify-content: center;
+    }
 }
