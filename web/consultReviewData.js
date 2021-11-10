@@ -1,6 +1,6 @@
 let reviewData;
 const getReviewData = async () => {
-    await fetch("http://3.138.194.75:8080/auth-non/review", {
+    await fetch("https://somunbackend.com/auth-non/review", {
         method: "GET",
         headers: {
         }
