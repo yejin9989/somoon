@@ -718,7 +718,7 @@
 
         partnerInfoContainer.href = "https://somoonhouse.com/newindex.jsp?bdNm=" + comName;
         firTitle.innerHTML = comName;
-        thrTitleSub.innerHTML = "계약 " + construction + "건 · 상담 " + counseling + "건";
+        thrTitleSub.innerHTML = "상담 " + counseling + "건";
         upperFirstImg.src = img1;
         upperSecondImg.src = img2;
 

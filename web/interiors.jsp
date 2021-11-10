@@ -255,7 +255,7 @@
         companyContainer.href = "https://somoonhouse.com/newindex.jsp?bdNm=" + comName;
         leftName.innerHTML = comName;
         leftAddr.innerHTML = "대구";
-        titleSub.innerHTML = "계약 " + construction + "건 · 상담 " + counseling + "건";
+        titleSub.innerHTML = "상담 " + counseling + "건";
         interiorsContainer.appendChild(companyContainer);
         companyContainer.appendChild(companyText);
         companyContainer.appendChild(companyImgs);
