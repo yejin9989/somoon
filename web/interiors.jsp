@@ -7,7 +7,7 @@
 <% response.setContentType("text/html; charset=utf-8"); %>
 <%
     //캐시 설정 - 이미지 캐시 폐기 기간을 늘려서 반응속도를 올림
-    response.setHeader("Cache-Control", "no-cache");
+    response.setHeader("Cache-Control", "no-cache") ;
     response.setHeader("Pragma", "no-cache");
     response.setDateHeader("Expires", 31536000);
 
@@ -92,11 +92,25 @@
             <div class="filterSlider" id="filterSlider">
             </div>
         </div>
-        <div id="upperShadow"></div -->
+        <div id="upperShadow"></div>
         <div>소문난집 파트너스에 신청하세요!
             소문난집 파트너스 목록
+        </div-->
+        <div class="interior_body" id="interior_body">
+            <!-- a href="https://github.com" class="company_container">
+                <div class="company_text">
+                    <div class="left">
+                        <span class="name">햇반먹자디자인</span>
+                        <span class="addr">대구 수성구</span>
+                    </div>
+                    <span class="title_sub">계약 3건 · 상담 12건</span>
+                </div>
+                <div class="company_imgs">
+                    <div class="company_img"><img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" /></div>
+                    <div class="company_img"><img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" /></div>
+                </div>
+            </a -->
         </div>
-        <div class="interior_body">테스트</div>
     </div>
 </div>
 <jsp:include page="/newTestFooter.jsp" flush="false" />
@@ -118,12 +132,18 @@
     gtag('config', 'G-PC15JG6KGN');
 </script>
 <script>
+    const createEle = (sortOfElement, className) => {
+        let nameOfElement = document.createElement(sortOfElement);
+        if (className !== undefined) nameOfElement.className = className;
+        return nameOfElement;
+    }
+    /*
     const tagData = {
         area : ["중구", "동구", "서구", "남구", "북구", "수성구", "달서구", "달성군", "경북"],
         hashtag : ["모던", "화이트", "블랙", "미니멀"]
     }
 
-    var upper = document.getElementById("interior_upper");
+    const upper = document.getElementById("interior_upper");
     upper.style.top = "102px";
     handler.set = (obj, prop, value) => {
         obj[prop] = value;
@@ -137,7 +157,6 @@
     upperShadow.style.height = upper.clientHeight + "px";
 
     const openFilterSlider = () => {
-        var filterSlider = document.getElementById("filterSlider");
         if(filterSlider.style.display === "flex"){
             filterSlider.style.display = "none";
             upperShadow.style.height = upper.clientHeight + "px";
@@ -148,8 +167,8 @@
         }
     }
 
-    const searchTextInput = document.getElementById("searchTextInput");
-    const searchBox = document.getElementById("searchBox");
+    const searchTextInput = document.getElementById("searchTextInput"),
+        searchBox = document.getElementById("searchBox");
     searchTextInput.addEventListener('focus', () => {
         searchBox.style.background = "#fff";
     })
@@ -158,11 +177,10 @@
     })
 
 
-    const filter = document.getElementById("filter");
-    const filterSlider = document.getElementById("filterSlider");
-    console.log(tagData[0]);
+    const filter = document.getElementById("filter"),
+        filterSlider = document.getElementById("filterSlider");
 
-    var i = 0;
+    let i = 0;
     for(i; i < tagData.area.length; i++){
         filter.innerHTML +=
             "<div class='nowTagBox' onclick='clickToNone(this, " + i + ")'>" +
@@ -177,7 +195,7 @@
             "<div class='onOff'>X</div>" +
             "</div><div class='rightTag sideTag'></div></div>";
     }
-    for(var j = 0, i; j < tagData.hashtag.length; i++, j++){
+    for(let j = 0, i; j < tagData.hashtag.length; i++, j++){
         filter.innerHTML +=
             "<div class='nowTagBox' onclick='clickToNone(this, " + i + ")'>" +
             "<div class='leftTag sideTag'></div>" +
@@ -192,13 +210,13 @@
             "</div><div class='rightTag sideTag'></div></div>";
     }
 
-    var nowTag = document.getElementsByClassName("nowTag");
-    var allTag = document.getElementsByClassName("allTag");
-    var nowTagBox = document.getElementsByClassName("nowTagBox");
-    var allTagBox = document.getElementsByClassName("allTagBox");
-    var onOff = document.getElementsByClassName("onOff");
-    var leftTag = document.getElementsByClassName("leftTag");
-    var rightTag = document.getElementsByClassName("rightTag");
+    const nowTag = document.getElementsByClassName("nowTag");
+        allTag = document.getElementsByClassName("allTag"),
+        nowTagBox = document.getElementsByClassName("nowTagBox"),
+        allTagBox = document.getElementsByClassName("allTagBox"),
+        onOff = document.getElementsByClassName("onOff"),
+        leftTag = document.getElementsByClassName("leftTag"),
+        rightTag = document.getElementsByClassName("rightTag");
     const clickToNone = (prop, index) => {
         nowTagBox[index].style.display = "none";
         onOff[index].style.visibility = "hidden";
@@ -213,6 +231,72 @@
             nowTagBox[index].style.display = "flex";
         }
     }
+
+    */
+
+    const makeInteriorsCompanyInfoBox = (prop) => {
+        let interiorsContainer = document.getElementById("interior_body"),
+            companyContainer, companyText, companyTextLeft,
+            leftName, leftAddr, titleSub, companyImgs;
+
+        const comName = prop.name,
+            counseling = prop.counseling,
+            construction = prop.construction,
+            img = [prop.represent_img1, prop.represent_img2];
+
+        companyContainer = createEle("a", "company_container");
+        companyText = createEle("div", "company_text");
+        companyTextLeft = createEle("div", "left");
+        leftName = createEle("span", "name");
+        leftAddr = createEle("span", "addr");
+        titleSub = createEle("span", "title_sub");
+        companyImgs = createEle("div", "company_imgs");
+
+        companyContainer.href = "https://somoonhouse.com/newindex.jsp?bdNm=" + comName;
+        leftName.innerHTML = comName;
+        leftAddr.innerHTML = "대구";
+        titleSub.innerHTML = "상담 " + counseling + "건";
+        interiorsContainer.appendChild(companyContainer);
+        companyContainer.appendChild(companyText);
+        companyContainer.appendChild(companyImgs);
+        companyText.appendChild(companyTextLeft);
+        companyTextLeft.appendChild(leftName);
+        companyTextLeft.appendChild(leftAddr);
+        companyText.appendChild(titleSub);
+        for(let i = 0; i < 2; i++){
+            let cImg = createEle("img"),
+                companyImg = createEle("div", "company_img");
+            cImg.src = img[i];
+            companyImg.appendChild(cImg);
+            companyImgs.appendChild(companyImg);
+        }
+    }
+
+    let companyData;
+    const getCompanyData = async () => {
+        await fetch("https://somunbackend.com/auth-non/company/represent", {
+            method: "GET",
+            headers: {
+            }
+        })
+            .then((res) => {
+                return res.json();
+            })
+            .then((res) => {
+                companyData = res;
+                makeInteriorsCompanyInfo();
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }
+
+    const makeInteriorsCompanyInfo = () => {
+        for(let i = 0; i < companyData.length; i++){
+            makeInteriorsCompanyInfoBox(companyData[i]);
+        }
+    }
+    getCompanyData();
 
 </script>
 </body>
