@@ -110,7 +110,7 @@
                                 <div class="lineBar"></div>
                             </div>
                         </div>
-                    </div>`
+                    </div>
                     <div class="reviewPart">
                         <div class="line">
                             <div class="chart">
@@ -128,9 +128,10 @@
                     <div>5</div>
                 </div-->
             </div>
-            <div class="reviewRealContainer">
+            <div class="reviewRealContainer" id="reviewRealContainer">
                 <div class="reviewRealUpperTextContainer"><span>고객님들의 생생 후기!</span></div>
-                <div class="reviewRealBox">
+                <!-- 사진 있는 후기 먼저 보여줘야함 -->
+                <!--div class="reviewRealBox">
                     <div class="upper">
                         <span class="num">4.9</span>
                         <div class="infoDiv">
@@ -156,68 +157,12 @@
 일 정말 잘하더라고요~~! 여기 강추합니다! 대박.
                         </span>
                     </div>
-                </div>
-                <div class="reviewRealBox">
-                    <div class="upper">
-                        <span class="num">4.9</span>
-                        <div class="infoDiv">
-                            <span class="info">김○○님</span><span class="mid">|</span><span class="info">OROKOS 인테리어</span>
-                        </div>
-                    </div>
-                    <div class="imgs">
-                        <div>
-                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" />
-                        </div>
-                        <div>
-                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog2.jpg?raw=true" />
-                        </div>
-                        <div>
-                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat1.jpg?raw=true" />
-                        </div>
-                        <div class="lastImg"></div>
-                    </div>
-                    <div class="text">
-                        <span>
-이번에 로또 1등 당첨 되면서 집을 보러 가게 됐는데
-인테리어가 마음에 안들어서 OROKOS 인테리어에 맡겼는데
-일 정말 잘하더라고요~~! 여기 강추합니다! 대박.
-                        </span>
-                    </div>
-                </div>
-                <div class="reviewRealBox">
-                    <div class="upper">
-                        <span class="num">4.9</span>
-                        <div class="infoDiv">
-                            <span class="info">김○○님</span><span class="mid">|</span><span class="info">OROKOS 인테리어</span>
-                        </div>
-                    </div>
-                    <div class="imgs">
-                        <div>
-                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" />
-                        </div>
-                        <div>
-                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog2.jpg?raw=true" />
-                        </div>
-                        <div>
-                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat1.jpg?raw=true" />
-                        </div>
-                        <div class="lastImg"></div>
-                    </div>
-                    <div class="text">
-                        <span>
-이번에 로또 1등 당첨 되면서 집을 보러 가게 됐는데
-인테리어가 마음에 안들어서 OROKOS 인테리어에 맡겼는데
-일 정말 잘하더라고요~~! 여기 강추합니다! 대박.
-                        </span>
-                    </div>
-                </div>
+                </div-->
             </div>
         </div>
     </div>
 </div>
     <jsp:include page="/newTestFooter.jsp" flush="false" />
-<!-- div class="DFSPannel" id="DFSPannel">
-</div -->
 <%
     if(pstmt != null) {
         pstmt.close();
@@ -236,6 +181,7 @@
         gtag('js', new Date());
         gtag('config', 'G-PC15JG6KGN');
     </script>
+    <script src="./consultReviewData.js"></script>
 <script>
     let data = [10, 8, 20, 400, 512];
     var highData = 0;
@@ -253,6 +199,39 @@
     for(var i = 0; i < chart.length; i++){
         chart[i].style.top = percentData[i] + "%";
     }
+
+
+    var reviewRealContainer = document.getElementById("reviewRealContainer");
+
+    const makeNoImgReviewBox = (prop) => {
+        let reviewBox, reviewBoxUpper, upperNum, infoDiv, info, infoMid, reviewText, reviewTextSpan;
+        reviewBox = createEle("div", "reviewRealBox");
+        reviewBoxUpper = createEle("div", "upper");
+        upperNum = createEle("span", "num");
+        infoDiv = createEle("div", "infoDiv");
+        info = createEle("span", "info");
+        infoMid = createEle("span", "mid");
+        reviewText = createEle("div", "text");
+        reviewTextSpan = createEle("span");
+
+        const str = prop.content.replaceAll('\\n', '<br/>');
+        upperNum.innerHTML = prop.point;
+        //info.innerHTML =
+        //infoMid.innerHTML = '|';
+        reviewTextSpan.innerHTML = str;
+
+        reviewRealContainer.appendChild(reviewBox);
+        reviewBox.appendChild(reviewBoxUpper);
+        reviewBox.appendChild(reviewText);
+        reviewBoxUpper.appendChild(upperNum);
+        reviewBoxUpper.appendChild(infoDiv);
+        //infoDiv.appendChild(info);
+        //infoDiv.appendChild(infoMid);
+        //infoDiv.appendChild(info);
+        reviewText.appendChild(reviewTextSpan);
+    }
+
+
 
 </script>
 </body>

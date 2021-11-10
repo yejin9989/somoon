@@ -68,6 +68,10 @@
     <title>소문난집</title>
 </head>
 <body>
+<div class="fixed_button">
+    <span id="topBtn">top</span>
+    <a href="https://somoonhouse.com/remodeling_form.jsp?item_num=0" id="applyBtn"><div>상담<br>신청</div></a>
+</div>
 <div class="upper_fixed_pc"></div>
 <div class="body_container_header">
     <div class="header_pc">
@@ -77,7 +81,7 @@
             </a>
         </div>
         <div class="header_right">
-            <!--div id="area_header_pc">
+            <div id="area_header_pc">
                 <span>지역별 인테리어</span>
                 <div id="area_div_pc">
                     <a href="https://somoonhouse.com/newindex.jsp?Daegu=141"><span>중구</span></a>
@@ -93,13 +97,13 @@
             </div>
             <div class="sidebar"></div>
             <a href="https://somoonhouse.com/newindex.jsp?theme_id=1">
-                <span>파트너스</span>
-            </a-->
-            <a>
-                <span>시공 후기</span>
+                <span>인기 인테리어</span>
             </a>
+            <!--a>
+                <span>시공 후기</span>
+            </a-->
             <div class="sidebar"></div>
-            <a>
+            <a href="https://somoonhouse.com/interiors.jsp">
                 <span>파트너스</span>
             </a>
         </div>
@@ -126,14 +130,20 @@
     gtag('config', 'G-PC15JG6KGN');
 </script>
 <script>
-    var area_header = document.getElementById("area_header_pc");
-    var area_div = document.getElementById("area_div_pc");
+    const area_header = document.getElementById("area_header_pc"),
+        area_div = document.getElementById("area_div_pc");
     area_header.onmouseenter = () => {
         area_div.style.display = "flex";
     }
     area_header.onmouseleave = () => {
         area_div.style.display = "none";
     }
+
+    const goToTop = () => {
+        window.scrollTo(0, 0);
+    }
+    const topBtn = document.getElementById("topBtn");
+    topBtn.onclick = goToTop;
 </script>
 </body>
 </html>

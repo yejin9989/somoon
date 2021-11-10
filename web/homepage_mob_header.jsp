@@ -106,20 +106,20 @@
             </a>
             <!-- a>
                 <span>시공 후기</span>
-            </a>
-            <a href="https://somoonhouse.com/banner1.jsp?id=3">
+            </a-->
+            <a href="https://somoonhouse.com/interiors.jsp">
                 <span>파트너스</span>
-            </a -->
+            </a>
         </div>
         <div class="underline"></div>
     </div>
 </div>
-<div class="mobileFooter" id="mobileFooter">
+<a href="https://somoonhouse.com/remodeling_form.jsp?item_num=0" class="mobileFooter" id="mobileFooter">
     <span>견적 상담 받기</span>
     <div>
         <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow2.png?raw=true" />
     </div>
-</div>
+</a>
 <%
     if(pstmt != null) {
         pstmt.close();
@@ -173,10 +173,10 @@
     gtag('config', 'G-PC15JG6KGN');
 </script>
 <script>
-    var scrollStartPos = window.scrollY;
-    var scrollPastPos = window.scrollY;
-    var headerMob = document.getElementById("header_mob");
-    var footer = document.getElementById("mobileFooter");
+    let scrollStartPos = window.scrollY,
+        scrollPastPos = window.scrollY;
+    const headerMob = document.getElementById("header_mob"),
+        footer = document.getElementById("mobileFooter");
 
     const handler = {
         set : (obj, prop, value) => {

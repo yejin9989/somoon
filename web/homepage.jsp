@@ -66,6 +66,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/homepage_header.css"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>소문난집</title>
 </head>
 <body>
@@ -74,22 +75,13 @@
         <jsp:include page="/homepage_mob_header.jsp" flush="false" />
         <div class="container">
             <div class="banner">
-                <div class="img_container">
+                <div class="img_container" id="bannerParent">
                     <div class="turn before" onclick="bannerLeft()">
                         <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow.png?raw=true" />
                     </div>
-                    <div class="bannerBox">
-                        <img class="bannerImg" src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat1.jpg?raw=true" />
-                    </div>
-                    <div class="bannerBox">
-                        <img class="bannerImg" src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat2.jpg?raw=true" />
-                    </div>
-                    <div class="bannerBox">
-                        <img class="bannerImg" src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat3.jpg?raw=true" />
-                    </div>
-                    <div class="bannerBox">
-                        <img class="bannerImg" src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat4.jpg?raw=true" />
-                    </div>
+                    <!-- a class="bannerBox" >
+                        <img />
+                    </a -->
                     <div class="turn after" onclick="bannerRight()">
                         <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow.png?raw=true" />
                     </div>
@@ -142,7 +134,7 @@
                     </div>
                 </div>
             </div-->
-            <div class="best_inter">
+            <div class="partner_info">
                 <div class="upper">
                     <span>대구 인테리어 전문가를 만나보세요</span>
                     <div>
@@ -152,8 +144,8 @@
                         </a>
                     </div>
                 </div>
-                <div class="lower" id="best_inter_lower">
-                    <a href="https://github.com" class="best_container">
+                <div class="lower" id="partner_info_lower">
+                    <!--a href="https://github.com" class="partner_info_container">
                         <div class="box">
                             <div class="box_upper">
                                 <div class="imgBox"><img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" /></div>
@@ -165,11 +157,9 @@
                                     <div class="fir_box">
                                         <span class="fir_sub">A/S 1년</span>
                                     </div>
-                                    <div class="fir_box">
-                                        <span class="fir_sub">응답우수</span>
-                                    </div>
                                 </div>
                                 <div class="txt thr">
+                                    <span class="title_sub">계약 3건 · 상담 12건</span>
                                     <div class="thr_img">
                                         <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star.png?raw=true" />
                                     </div>
@@ -181,124 +171,9 @@
                                 </div>
                             </div>
                         </div>
-                    </a>
-                    <a href="https://github.com" class="best_container">
-                        <div class="box">
-                            <div class="box_upper">
-                                <div class="imgBox"><img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" /></div>
-                                <div class="imgBox secondImg"><img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" /></div>
-                            </div>
-                            <div class="box_lower">
-                                <div class="txt fir">
-                                    <span class="fir_title">아이비디자인</span>
-                                    <div class="fir_box">
-                                        <span class="fir_sub">A/S 1년</span>
-                                    </div>
-                                    <div class="fir_box">
-                                        <span class="fir_sub">응답우수</span>
-                                    </div>
-                                </div>
-                                <div class="txt thr">
-                                    <div class="thr_img">
-                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star.png?raw=true" />
-                                    </div>
-                                    <span>4.8</span>
-                                    <div class="thr_img">
-                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart2.png?raw=true" />
-                                    </div>
-                                    <span>177</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="https://github.com" class="best_container">
-                        <div class="box">
-                            <div class="box_upper">
-                                <div class="imgBox"><img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" /></div>
-                                <div class="imgBox secondImg"><img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" /></div>
-                            </div>
-                            <div class="box_lower">
-                                <div class="txt fir">
-                                    <span class="fir_title">아이비디자인</span>
-                                    <div class="fir_box">
-                                        <span class="fir_sub">A/S 1년</span>
-                                    </div>
-                                    <div class="fir_box">
-                                        <span class="fir_sub">응답우수</span>
-                                    </div>
-                                </div>
-                                <div class="txt thr">
-                                    <div class="thr_img">
-                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star.png?raw=true" />
-                                    </div>
-                                    <span>4.8</span>
-                                    <div class="thr_img">
-                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart2.png?raw=true" />
-                                    </div>
-                                    <span>177</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="https://github.com" class="best_container">
-                        <div class="box">
-                            <div class="box_upper">
-                                <div class="imgBox"><img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" /></div>
-                                <div class="imgBox secondImg"><img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" /></div>
-                            </div>
-                            <div class="box_lower">
-                                <div class="txt fir">
-                                    <span class="fir_title">아이비디자인</span>
-                                    <div class="fir_box">
-                                        <span class="fir_sub">A/S 1년</span>
-                                    </div>
-                                    <div class="fir_box">
-                                        <span class="fir_sub">응답우수</span>
-                                    </div>
-                                </div>
-                                <div class="txt thr">
-                                    <div class="thr_img">
-                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star.png?raw=true" />
-                                    </div>
-                                    <span>4.8</span>
-                                    <div class="thr_img">
-                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart2.png?raw=true" />
-                                    </div>
-                                    <span>177</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="https://github.com" class="best_container">
-                        <div class="box">
-                            <div class="box_upper">
-                                <div class="imgBox"><img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" /></div>
-                                <div class="imgBox secondImg"><img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" /></div>
-                            </div>
-                            <div class="box_lower">
-                                <div class="txt fir">
-                                    <span class="fir_title">아이비디자인</span>
-                                    <div class="fir_box">
-                                        <span class="fir_sub">A/S 1년</span>
-                                    </div>
-                                    <div class="fir_box">
-                                        <span class="fir_sub">응답우수</span>
-                                    </div>
-                                </div>
-                                <div class="txt thr">
-                                    <div class="thr_img">
-                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star.png?raw=true" />
-                                    </div>
-                                    <span>4.8</span>
-                                    <div class="thr_img">
-                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart2.png?raw=true" />
-                                    </div>
-                                    <span>177</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+                    </a -->
                 </div>
+                <div class="moreInfo" id="moreInfo">더 보 기</div>
             </div>
             <div class="review">
                 <div class="upper">
@@ -306,7 +181,7 @@
                 </div>
                 <div class="lower">
                     <div class="boxes" id="reviewBox">
-                        <div class="reviewBox sub">
+                        <!--div class="reviewBox sub">
                             <div class="top">
                                 <div class="star">
                                     <div class="block"></div>
@@ -335,245 +210,13 @@
                                     <span>굿하우스 / 바르다인테리어디자인 / 아이비디자인</span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="reviewBox main">
-                            <div class="top">
-                                <div class="star">
-                                    <div class="block"></div>
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                </div>
-                                <span class="grade">4.8</span>
-                            </div>
-                            <div class="text">
-<pre>
-좋은 업체 소개해주셔서 감사합니다~~
-미팅했던 두 곳은 진정성 있게 봐주셨습니다
-번창하세요~~
-소문난집 화이팅~~
-오늘 점심은 혜화문식당입니다
-</pre>
-                            </div>
-                            <div class="bot">
-                                <span class="address">대구 북구 대현동 <span>&nbsp 김** 님</span></span>
-                                <div class="under">
-                                    <div class="comBox">견적업체</div>
-                                    <span>굿하우스 / 바르다인테리어디자인 / 아이비디자인</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="reviewBox sub">
-                            <div class="top">
-                                <div class="star">
-                                    <div class="block"></div>
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                </div>
-                                <span class="grade">4.2</span>
-                            </div>
-                            <div class="text">
-<pre>
-좋은 업체 소개해주셔서 감사합니다~~
-미팅했던 두 곳은 진정성 있게 봐주셨습니다
-번창하세요~~
-소문난집 화이팅~~
-오늘 점심은 혜화문식당입니다
-</pre>
-                            </div>
-                            <div class="bot">
-                                <span class="address">대구 북구 대현동 <span>&nbsp 김** 님</span></span>
-                                <div class="under">
-                                    <div class="comBox">견적업체</div>
-                                    <span>굿하우스 / 바르다인테리어디자인 / 아이비디자인</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="reviewBox sub">
-                            <div class="top">
-                                <div class="star">
-                                    <div class="block"></div>
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                </div>
-                                <span class="grade">4.9</span>
-                            </div>
-                            <div class="text">
-<pre>
-좋은 업체 소개해주셔서 감사합니다~~
-미팅했던 두 곳은 진정성 있게 봐주셨습니다
-번창하세요~~
-소문난집 화이팅~~
-오늘 점심은 혜화문식당입니다
-</pre>
-                            </div>
-                            <div class="bot">
-                                <span class="address">대구 북구 대현동 <span>&nbsp 김** 님</span></span>
-                                <div class="under">
-                                    <div class="comBox">견적업체</div>
-                                    <span>굿하우스 / 바르다인테리어디자인 / 아이비디자인</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="reviewBox sub">
-                            <div class="top">
-                                <div class="star">
-                                    <div class="block"></div>
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                </div>
-                                <span class="grade">4.5</span>
-                            </div>
-                            <div class="text">
-<pre>
-좋은 업체 소개해주셔서 감사합니다~~
-미팅했던 두 곳은 진정성 있게 봐주셨습니다
-번창하세요~~
-소문난집 화이팅~~
-오늘 점심은 혜화문식당입니다
-</pre>
-                            </div>
-                            <div class="bot">
-                                <span class="address">대구 북구 대현동 <span>&nbsp 김** 님</span></span>
-                                <div class="under">
-                                    <div class="comBox">견적업체</div>
-                                    <span>굿하우스 / 바르다인테리어디자인 / 아이비디자인</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="reviewBox sub">
-                            <div class="top">
-                                <div class="star">
-                                    <div class="block"></div>
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                </div>
-                                <span class="grade">4.8</span>
-                            </div>
-                            <div class="text">
-<pre>
-좋은 업체 소개해주셔서 감사합니다~~
-미팅했던 두 곳은 진정성 있게 봐주셨습니다
-번창하세요~~
-소문난집 화이팅~~
-오늘 점심은 혜화문식당입니다
-</pre>
-                            </div>
-                            <div class="bot">
-                                <span class="address">대구 북구 대현동 <span>&nbsp 김** 님</span></span>
-                                <div class="under">
-                                    <div class="comBox">견적업체</div>
-                                    <span>굿하우스 / 바르다인테리어디자인 / 아이비디자인</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="reviewBox sub">
-                            <div class="top">
-                                <div class="star">
-                                    <div class="block"></div>
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                </div>
-                                <span class="grade">4.5</span>
-                            </div>
-                            <div class="text">
-<pre>
-좋은 업체 소개해주셔서 감사합니다~~
-미팅했던 두 곳은 진정성 있게 봐주셨습니다
-번창하세요~~
-소문난집 화이팅~~
-오늘 점심은 혜화문식당입니다
-</pre>
-                            </div>
-                            <div class="bot">
-                                <span class="address">대구 북구 대현동 <span>&nbsp 김** 님</span></span>
-                                <div class="under">
-                                    <div class="comBox">견적업체</div>
-                                    <span>굿하우스 / 바르다인테리어디자인 / 아이비디자인</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="reviewBox sub">
-                            <div class="top">
-                                <div class="star">
-                                    <div class="block"></div>
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                </div>
-                                <span class="grade">4.9</span>
-                            </div>
-                            <div class="text">
-<pre>
-좋은 업체 소개해주셔서 감사합니다~~
-미팅했던 두 곳은 진정성 있게 봐주셨습니다
-번창하세요~~
-소문난집 화이팅~~
-오늘 점심은 혜화문식당입니다
-</pre>
-                            </div>
-                            <div class="bot">
-                                <span class="address">대구 북구 대현동 <span>&nbsp 김** 님</span></span>
-                                <div class="under">
-                                    <div class="comBox">견적업체</div>
-                                    <span>굿하우스 / 바르다인테리어디자인 / 아이비디자인</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="reviewBox sub">
-                            <div class="top">
-                                <div class="star">
-                                    <div class="block"></div>
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                </div>
-                                <span class="grade">5.0</span>
-                            </div>
-                            <div class="text">
-<pre>
-좋은 업체 소개해주셔서 감사합니다~~
-미팅했던 두 곳은 진정성 있게 봐주셨습니다
-번창하세요~~
-소문난집 화이팅~~
-오늘 점심은 혜화문식당입니다
-</pre>
-                            </div>
-                            <div class="bot">
-                                <span class="address">대구 북구 대현동 <span>&nbsp 김** 님</span></span>
-                                <div class="under">
-                                    <div class="comBox">견적업체</div>
-                                    <span>굿하우스 / 바르다인테리어디자인 / 아이비디자인</span>
-                                </div>
-                            </div>
-                        </div>
+                        </div-->
                     </div>
                     <div class="btn_container">
-                        <div class="left" onclick="goLeft()">
+                        <div class="left" id="reviewLeftBtn">
                             <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow.png?raw=true" />
                         </div>
-                        <div class="right" onclick="goRight()">
+                        <div class="right" id="reviewRightBtn">
                             <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow.png?raw=true" />
                         </div>
                     </div>
@@ -785,18 +428,18 @@
                         <img
                                 src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart4.png?raw=true" />
                     </div>
-                    <span>1.2K</span>
+                    <span>1.3K</span>
                 </div>
                 <div class="imgs">
                     <a href="https://www.instagram.com/somoonhouse/">
-                        <div class="a"></div>
-                        <div class="b"></div>
-                        <div class="a"></div>
-                        <div class="b"></div>
-                        <div class="b"></div>
-                        <div class="a"></div>
-                        <div class="b"></div>
-                        <div class="a"></div>
+                        <div class="a"><img src="https://somoonhouse.com/otherimg/index/instagram/004.jpeg" /></div>
+                        <div class="a"><img src="https://somoonhouse.com/otherimg/index/instagram/002.jpeg" /></div>
+                        <div class="a"><img src="https://somoonhouse.com/otherimg/index/instagram/003.jpeg" /></div>
+                        <div class="a"><img src="https://somoonhouse.com/otherimg/index/instagram/008.jpeg" /></div>
+                        <div class="b"><img src="https://somoonhouse.com/otherimg/index/instagram/005.jpeg" /></div>
+                        <div class="b"><img src="https://somoonhouse.com/otherimg/index/instagram/006.jpeg" /></div>
+                        <div class="b"><img src="https://somoonhouse.com/otherimg/index/instagram/001.jpeg" /></div>
+                        <div class="b"><img src="https://somoonhouse.com/otherimg/index/instagram/007.jpeg" /></div>
                     </a>
                 </div>
             </div>
@@ -818,228 +461,342 @@
         gtag('js', new Date());
         gtag('config', 'G-PC15JG6KGN');
     </script>
+    <script src="./homepage_banner.js"></script>
+    <script src="./consultReviewData.js"></script>
 <script>
-
-
-    // banner 이미지 정보가 로드 되고나면 진행해야함.
-    var bannerMinHeight = 987654321;
-    var bannerImgs = document.getElementsByClassName("bannerImg");
-    for(var i = 0; i < bannerImgs.length; i++){
-        if(bannerImgs[i].naturalHeight < bannerMinHeight){
-            bannerMinHeight = bannerImgs[i].naturalHeight;
-        }
+    const createEle = (sortOfElement, className) => {
+        let nameOfElement = document.createElement(sortOfElement);
+        if (className !== undefined) nameOfElement.className = className;
+        return nameOfElement;
     }
 
     const abs = (a) => {
         return a >= 0 ? a : -1 * a;
     }
-    var block = document.getElementsByClassName("block");
-    var grade = document.getElementsByClassName("grade");
-    for(var i = 0; i < grade.length; i++){
-        var gdiffNum = (5 - grade[i].textContent[0]) * 40;
-        switch(10 - grade[i].textContent[2] * 1){
-            case 10: break;
-            case 1: gdiffNum -= 32;
-                break;
-            case 2: gdiffNum -= 31;
-                break;
-            case 3: gdiffNum -= 27;
-                break;
-            case 4: gdiffNum -= 24;
-                break;
-            case 5: gdiffNum -= 20;
-                break;
-            case 6: gdiffNum -= 17;
-                break;
-            case 7: gdiffNum -= 15;
-                break;
-            case 8: gdiffNum -= 13;
-                break;
-            case 9: gdiffNum -= 11;
-                break;
-        }
-        block[i].style.width = gdiffNum + "px";
-    }
 
-    var reviewBox = document.getElementById("reviewBox");
-    var boxes = document.getElementsByClassName("reviewBox");
-    var mainBoxNum;
-    var PCPos = Math.round(-660 + (reviewBox.clientWidth - 660) / 2);
-    var MobPos = Math.round(-400 + (reviewBox.clientWidth - 400) / 2);
-    if(matchMedia("(max-width: 700px)").matches){
-        for(var i = 0; i < boxes.length; i++){
-            if(boxes[i].className === "reviewBox main"){
-                mainBoxNum = i;
+    const starSetting = () => {
+        const block = document.getElementsByClassName("block"),
+            grade = document.getElementsByClassName("grade");
+        for(let i = 0; i < grade.length; i++){
+            let gdiffNum = (5 - grade[i].textContent[0]) * 40;
+            switch(10 - grade[i].textContent[2] * 1){
+                case 10: break;
+                case 1: gdiffNum -= 32;
+                    break;
+                case 2: gdiffNum -= 31;
+                    break;
+                case 3: gdiffNum -= 27;
+                    break;
+                case 4: gdiffNum -= 24;
+                    break;
+                case 5: gdiffNum -= 20;
+                    break;
+                case 6: gdiffNum -= 17;
+                    break;
+                case 7: gdiffNum -= 15;
+                    break;
+                case 8: gdiffNum -= 13;
+                    break;
+                case 9: gdiffNum -= 11;
+                    break;
             }
-            boxes[i].style.transform = "translateX(" + MobPos + "px)";
+            block[i].style.width = gdiffNum + "px";
         }
     }
-    else{
-        for(var i = 0; i < boxes.length; i++){
-            if(boxes[i].className === "reviewBox main"){
-                mainBoxNum = i;
-            }
-            boxes[i].style.transform = "translateX(" + PCPos + "px)";
-        }
-    }
-    const goLeft = () => {
-        if(mainBoxNum === 0){
-            PCPos -= boxes.length * 660;
-            MobPos -= boxes.length * 400;
-        }
-        PCPos += 660;
-        MobPos += 400;
+    const reviewBoxSetting = () => {
+        const reviewBoxContainer = document.getElementById("reviewBox"),
+            boxes = document.getElementsByClassName("reviewBox");
+        let mainBoxNum,
+            PCPos = Math.round(-660 + (reviewBoxContainer.clientWidth - 660) / 2),
+            MobPos = Math.round(-400 + (reviewBoxContainer.clientWidth - 400) / 2);
         if(matchMedia("(max-width: 700px)").matches){
-            for(var i = 0; i < boxes.length; i++){
+            for(let i = 0; i < boxes.length; i++){
                 if(boxes[i].className === "reviewBox main"){
                     mainBoxNum = i;
                 }
                 boxes[i].style.transform = "translateX(" + MobPos + "px)";
             }
-            boxes[mainBoxNum].className = "reviewBox sub";
-            mainBoxNum === 0 ? mainBoxNum = boxes.length - 1 : mainBoxNum--;
-            boxes[mainBoxNum].className = "reviewBox main";
         }
         else{
-            for(var i = 0; i < boxes.length; i++){
+            for(let i = 0; i < boxes.length; i++){
                 if(boxes[i].className === "reviewBox main"){
                     mainBoxNum = i;
                 }
                 boxes[i].style.transform = "translateX(" + PCPos + "px)";
             }
-            boxes[mainBoxNum].className = "reviewBox sub";
-            mainBoxNum === 0 ? mainBoxNum = boxes.length - 1 : mainBoxNum--;
-            boxes[mainBoxNum].className = "reviewBox main";
         }
-    }
-    const goRight = () => {
-        if(mainBoxNum === boxes.length - 1){
-            MobPos += boxes.length * 400;
-            PCPos += boxes.length * 660;
-        }
-        MobPos -= 400;
-        PCPos -= 660;
-        if(matchMedia("(max-width: 700px)").matches){
-            for(var i = 0; i < boxes.length; i++){
-                if(boxes[i].className === "reviewBox main"){
-                    mainBoxNum = i;
-                }
-                boxes[i].style.transform = "translateX(" + MobPos + "px)";
+        const goLeft = () => {
+            if(mainBoxNum === 0){
+                PCPos -= boxes.length * 660;
+                MobPos -= boxes.length * 400;
             }
-            boxes[mainBoxNum].className = "reviewBox sub";
-            mainBoxNum === boxes.length - 1 ? mainBoxNum = 0 : mainBoxNum++;
-            boxes[mainBoxNum].className = "reviewBox main";
-        }
-        else{
-            for(var i = 0; i < boxes.length; i++){
-                if(boxes[i].className === "reviewBox main"){
-                    mainBoxNum = i;
-                }
-                boxes[i].style.transform = "translateX(" + PCPos + "px)";
-            }
-            boxes[mainBoxNum].className = "reviewBox sub";
-            mainBoxNum === boxes.length - 1 ? mainBoxNum = 0 : mainBoxNum++;
-            boxes[mainBoxNum].className = "reviewBox main";
-        }
-    }
-    var isSmall = reviewBox.clientWidth >= 684 ? false : true;
-    const observer = new ResizeObserver((prop) => {
-        if(prop[0].contentRect.width >= 684){
-            if(isSmall){
-                isSmall = false;
-                for(var i = 0; i < boxes.length; i++){
-                    boxes[i].style.transform = "translateX(" + PCPos + "px)";
-                }
-            }
-            else{
-                PCPos = Math.round(-660 + (reviewBox.clientWidth - 660) / 2 - 660 * (mainBoxNum - 1));
-                for(var i = 0; i < boxes.length; i++){
-                    boxes[i].style.transform = "translateX(" + PCPos + "px)";
-                }
-            }
-        }
-        else{
-            if(!isSmall){
-                isSmall = true;
-                for(var i = 0; i < boxes.length; i++){
+            PCPos += 660;
+            MobPos += 400;
+            if(matchMedia("(max-width: 700px)").matches){
+                for(let i = 0; i < boxes.length; i++){
+                    if(boxes[i].className === "reviewBox main"){
+                        mainBoxNum = i;
+                    }
                     boxes[i].style.transform = "translateX(" + MobPos + "px)";
                 }
+                boxes[mainBoxNum].className = "reviewBox sub";
+                mainBoxNum === 0 ? mainBoxNum = boxes.length - 1 : mainBoxNum--;
+                boxes[mainBoxNum].className = "reviewBox main";
             }
             else{
-                MobPos = Math.round(-400 + (reviewBox.clientWidth - 400) / 2 - 400 * (mainBoxNum - 1));
-                for(var i = 0; i < boxes.length; i++){
-                    boxes[i].style.transform = "translateX(" + MobPos + "px)";
+                for(let i = 0; i < boxes.length; i++){
+                    if(boxes[i].className === "reviewBox main"){
+                        mainBoxNum = i;
+                    }
+                    boxes[i].style.transform = "translateX(" + PCPos + "px)";
                 }
+                boxes[mainBoxNum].className = "reviewBox sub";
+                mainBoxNum === 0 ? mainBoxNum = boxes.length - 1 : mainBoxNum--;
+                boxes[mainBoxNum].className = "reviewBox main";
             }
         }
-    })
-    observer.observe(reviewBox);
+        const goRight = () => {
+            if(mainBoxNum === boxes.length - 1){
+                MobPos += boxes.length * 400;
+                PCPos += boxes.length * 660;
+            }
+            MobPos -= 400;
+            PCPos -= 660;
+            if(matchMedia("(max-width: 700px)").matches){
+                for(let i = 0; i < boxes.length; i++){
+                    if(boxes[i].className === "reviewBox main"){
+                        mainBoxNum = i;
+                    }
+                    boxes[i].style.transform = "translateX(" + MobPos + "px)";
+                }
+                boxes[mainBoxNum].className = "reviewBox sub";
+                mainBoxNum === boxes.length - 1 ? mainBoxNum = 0 : mainBoxNum++;
+                boxes[mainBoxNum].className = "reviewBox main";
+            }
+            else{
+                for(let i = 0; i < boxes.length; i++){
+                    if(boxes[i].className === "reviewBox main"){
+                        mainBoxNum = i;
+                    }
+                    boxes[i].style.transform = "translateX(" + PCPos + "px)";
+                }
+                boxes[mainBoxNum].className = "reviewBox sub";
+                mainBoxNum === boxes.length - 1 ? mainBoxNum = 0 : mainBoxNum++;
+                boxes[mainBoxNum].className = "reviewBox main";
+            }
+        }
+        const reviewLeftBtn  = document.getElementById("reviewLeftBtn"),
+            reviewRightBtn  = document.getElementById("reviewRightBtn");
+        reviewLeftBtn.onclick = goLeft;
+        reviewRightBtn.onclick = goRight;
 
-    var banner = document.getElementsByClassName("bannerBox");
-    var bannerPos = 0;
-    const bannerLeft = () => {
-        if(bannerPos === 0){
-            bannerPos = banner.length * -100;
+        let isSmall = reviewBoxContainer.clientWidth >= 684 ? false : true;
+        const observer = new ResizeObserver((prop) => {
+            if(prop[0].contentRect.width >= 684){
+                if(isSmall){
+                    isSmall = false;
+                    for(let i = 0; i < boxes.length; i++){
+                        boxes[i].style.transform = "translateX(" + PCPos + "px)";
+                    }
+                }
+                else{
+                    PCPos = Math.round(-660 + (reviewBoxContainer.clientWidth - 660) / 2 - 660 * (mainBoxNum - 1));
+                    for(let i = 0; i < boxes.length; i++){
+                        boxes[i].style.transform = "translateX(" + PCPos + "px)";
+                    }
+                }
+            }
+            else{
+                if(!isSmall){
+                    isSmall = true;
+                    for(let i = 0; i < boxes.length; i++){
+                        boxes[i].style.transform = "translateX(" + MobPos + "px)";
+                    }
+                }
+                else{
+                    MobPos = Math.round(-400 + (reviewBoxContainer.clientWidth - 400) / 2 - 400 * (mainBoxNum - 1));
+                    for(let i = 0; i < boxes.length; i++){
+                        boxes[i].style.transform = "translateX(" + MobPos + "px)";
+                    }
+                }
+            }
+        })
+        observer.observe(reviewBoxContainer);
+    }
+    setTimeout(() => {
+        starSetting();
+        reviewBoxSetting();
+    }, 1500);
+
+    let reviewMainBoxCount = 0;
+    const makeNoImgReviewBox = (prop) => {
+        let reviewBox, reviewBoxTop, reviewBoxText, textPre, reviewBoxBot,
+            starDiv, starBlock, grade, reviewAddr, reviewName,
+            reviewUnder, comBox, coms,
+            reviewBoxContainer = document.getElementById("reviewBox");
+
+        reviewMainBoxCount++;
+        reviewBox = reviewMainBoxCount == 2 ? createEle("div", "reviewBox main") : createEle("div", "reviewBox sub");
+        reviewBoxTop = createEle("div", "top");
+        reviewBoxText = createEle("div", "text");
+        reviewBoxBot = createEle("div", "bot");
+        starDiv = createEle("div", "star");
+        starBlock = createEle("div", "block");
+        grade = createEle("span", "grade");
+        textPre = createEle("pre");
+        reviewAddr = createEle("span", "address");
+        reviewName = createEle("span");
+        reviewUnder = createEle("div", "under");
+        comBox = createEle("div", "comBox");
+        coms = createEle("span");
+
+        let compArr = prop.remodeling_apply.companies.map((value) => {
+            return value.name;
+        }), compStr = compArr.join(", "),
+            customerAddrArr = prop.remodeling_apply.address.split(' '),
+            customerAddrStr = customerAddrArr[0] + " " + (customerAddrArr[1] ?? "");
+
+        grade.innerHTML = prop.point;
+        const str = prop.content.replaceAll('\\n', '<br/>');
+        textPre.innerHTML = str;
+        reviewAddr.innerHTML = customerAddrStr;
+        reviewName.innerHTML = "&nbsp " + prop.remodeling_apply.name[0] + "** 님";
+        comBox.innerHTML = "견적업체";
+        coms.innerHTML = compStr;
+
+        reviewBoxContainer.appendChild(reviewBox);
+        reviewBox.appendChild(reviewBoxTop);
+        reviewBox.appendChild(reviewBoxText);
+        reviewBox.appendChild(reviewBoxBot);
+        reviewBoxTop.appendChild(starDiv);
+        starDiv.appendChild(starBlock);
+        for(let i = 0; i < 5; i++){
+            let starImg = createEle("img");
+            starImg.src = "https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true";
+            starDiv.appendChild(starImg);
         }
-        bannerPos += 100;
-        for(var i = 0; i < banner.length; i++){
-            banner[i].style.transform = "translateX(" + bannerPos + "%)";
+        reviewBoxTop.appendChild(grade);
+        reviewBoxText.appendChild(textPre);
+        reviewBoxBot.appendChild(reviewAddr);
+        reviewBoxBot.appendChild(reviewUnder);
+        reviewAddr.appendChild(reviewName);
+        reviewUnder.appendChild(comBox);
+        reviewUnder.appendChild(coms);
+    }
+
+    const makeHomepageCompanyInfoBox = (prop) => {
+        let partnerContainer = document.getElementById("partner_info_lower"),
+            partnerInfoContainer, partnerInfoBox,
+            boxUpper, boxLower, upperFirstImgBox, upperFirstImg,
+            upperSecondImgBox, upperSecondImg, lowerTextFir, lowerTextThr,
+            firTitle, firBox, firSub, thrTitleSub;
+
+        partnerInfoContainer = createEle("a", "partner_info_container");
+        partnerInfoBox = createEle("div", "box");
+        boxUpper = createEle("div", "box_upper");
+        boxLower = createEle("div", "box_lower");
+        upperFirstImgBox = createEle("div", "imgBox");
+        upperFirstImg = createEle("img");
+        upperSecondImgBox = createEle("div", "imgBox secondImg");
+        upperSecondImg = createEle("img");
+        lowerTextFir = createEle("div", "txt fir");
+        lowerTextThr = createEle("div", "txt thr");
+        firTitle = createEle("span", "fir_title");
+        thrTitleSub = createEle("span", "title_sub");
+
+        const war = prop.as_warranty,
+            counseling = prop.counseling,
+            construction = prop.construction,
+            img1 = prop.represent_img1,
+            img2 = prop.represent_img2,
+            comName = prop.name;
+        if(war != null){
+            firBox = createEle("div", "fir_box");
+            firSub = createEle("span", "fir_sub");
+            firSub.innerHTML = "A/S " + war + "년";
+        }
+
+        partnerInfoContainer.href = "https://somoonhouse.com/newindex.jsp?bdNm=" + comName;
+        firTitle.innerHTML = comName;
+        thrTitleSub.innerHTML = "상담 " + counseling + "건";
+        upperFirstImg.src = img1;
+        upperSecondImg.src = img2;
+
+        partnerContainer.appendChild(partnerInfoContainer);
+        partnerInfoContainer.appendChild(partnerInfoBox);
+        partnerInfoBox.appendChild(boxUpper);
+        partnerInfoBox.appendChild(boxLower);
+        boxUpper.appendChild(upperFirstImgBox);
+        boxUpper.appendChild(upperSecondImgBox);
+        upperFirstImgBox.appendChild(upperFirstImg);
+        upperSecondImgBox.appendChild(upperSecondImg);
+        boxLower.appendChild(lowerTextFir);
+        boxLower.appendChild(lowerTextThr);
+        lowerTextFir.appendChild(firTitle);
+        lowerTextThr.appendChild(thrTitleSub);
+        if(war != null){
+            lowerTextFir.appendChild(firBox);
+            firBox.appendChild(firSub);
         }
     }
-    const bannerRight = () => {
-        if(bannerPos === -100 * (banner.length - 1)){
-            bannerPos = 100;
-        }
-        bannerPos -= 100;
-        for(var i = 0; i < banner.length; i++){
-            banner[i].style.transform = "translateX(" + bannerPos + "%)";
-        }
+
+    let companyData;
+    const getCompanyData = async () => {
+        await fetch("https://somunbackend.com/auth-non/company/represent", {
+            method: "GET",
+            headers: {
+            }
+        })
+            .then((res) => {
+                return res.json();
+            })
+            .then((res) => {
+                companyData = res;
+                makeHomepageCompanyInfo();
+            })
+            .catch((err) => {
+                console.log(err);
+            })
     }
-    let wait = -1;
-    var turn = document.getElementsByClassName("turn");
-    turn[0].addEventListener("click", () => {
-        if(wait === bannerSlideTime) return;
-        clearInterval(bannerSlideTime);
-        wait = bannerSlideTime;
-        setTimeout(() => {
-            bannerSlideTime = setInterval(bannerAutoSlide, 3000);
-        }, 5000);
-    })
-    turn[1].addEventListener("click", () => {
-        if(wait === bannerSlideTime) return;
-        clearInterval(bannerSlideTime);
-        wait = bannerSlideTime;
-        setTimeout(() => {
-            bannerSlideTime = setInterval(bannerAutoSlide, 3000);
-        }, 5000);
-    })
-    const bannerAutoSlide = () => {
-        if(bannerPos === -100 * (banner.length - 1)){
-            bannerPos = 100;
+
+    let companyCount = 0;
+    const makeHomepageCompanyInfo = () => {
+        for(let i = companyCount; i < companyCount + 8; i++){
+            makeHomepageCompanyInfoBox(companyData[i]);
         }
-        bannerPos -= 100;
-        for(var i = 0; i < banner.length; i++){
-            banner[i].style.transform = "translateX(" + bannerPos + "%)";
-        }
+        companyCount += 8;
     }
-    let bannerSlideTime = setInterval(bannerAutoSlide, 3000);
+    getCompanyData();
+
+    const makeMoreHomepageCompanyInfo = () => {
+        for(let i = companyCount; i < companyCount + 4; i++){
+            if(companyData[i] === undefined){
+                infoBtn.style.display = "none";
+                break;
+            }
+            makeHomepageCompanyInfoBox(companyData[i]);
+        }
+        companyCount += 4;
+    }
+
+    const infoBtn = document.getElementById("moreInfo");
+    infoBtn.onclick = makeMoreHomepageCompanyInfo;
+
     if (window.navigator.userAgent.match(/MSIE|Internet Explorer|Trident/i)) {
         alert("Edge 또는 Chrome을 사용해주시기 바랍니다.");
         window.location = "microsoft-edge:" + window.location.href;
     }
-
-    let best_container = document.getElementsByClassName("best_container");
-    let best_inter_lower = document.getElementById("best_inter_lower");
-
-    let isForMobile = window.innerWidth > 700 ? false : true;
+    let partner_info_container = document.getElementsByClassName("partner_info_container"),
+        partner_info_lower = document.getElementById("partner_info_lower"),
+        isForMobile = window.innerWidth > 700 ? false : true;
     window.addEventListener('resize', (event) => {
         isForMobile = event.currentTarget.innerWidth > 700 ? false : true;
     })
     window.onscroll = () => {
-        if(!isForMobile && (best_container.length & 1)){
-            var div = document.createElement("div");
-            div.className = "best_container";
-            best_inter_lower.appendChild(div);
+        if(!isForMobile && (partner_info_container.length & 1)){
+            let div = document.createElement("div");
+            div.className = "partner_info_container";
+            partner_info_lower.appendChild(div);
         }
     }
 </script>
