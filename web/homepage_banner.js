@@ -22,7 +22,7 @@ const makeBanner = () => {
 
 let bannerData;
 const getBannerData = async () => {
-    await fetch("http://3.138.194.75:8080/auth-non/recommend/display", {
+    await fetch("https://somunbackend.com/auth-non/recommend/display", {
         method: "GET",
         headers: {
         }

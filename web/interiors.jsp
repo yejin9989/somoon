@@ -274,7 +274,7 @@
 
     let companyData;
     const getCompanyData = async () => {
-        await fetch("http://3.138.194.75:8080/auth-non/company/represent", {
+        await fetch("https://somunbackend.com/auth-non/company/represent", {
             method: "GET",
             headers: {
             }
