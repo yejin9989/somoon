@@ -189,7 +189,7 @@ conn.close();
 		else if($(this).attr('id') == "upload")
 			location.href='item_upload.jsp';
 		else if($(this).attr('id') == "home")
-			location.href='index.jsp';
+			location.href='${pageContext.request.contextPath}';
 		else if($(this).attr('id') == "blog")
 			location.href='https://blog.naver.com/somoonhouse';
 		else if($(this).attr('id') == "searchurl")

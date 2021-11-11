@@ -261,10 +261,8 @@
 </head>
 <body>
 <div id="container">
-    <div id="somun_navbar">
-        <div id="somun_logo"><a href="index.jsp"><img style="height:30px;"src="https://somoonhouse.com/otherimg/index/somunlogo.jpg"></a></div>
-        <div id="alert"><a href="alert.jsp"><img style="height:30px;"src="https://somoonhouse.com/otherimg/index/alert.jpg"></a></div>
-    </div>
+    <jsp:include page="/homepage_pc_header.jsp" flush="false" />
+    <jsp:include page="/homepage_mob_header.jsp" flush="false" />
     <div class="tab">
         <a class="tab-item" href="_refresh_request.jsp?state=0">미배분</a>
         <a class="tab-item" href="_refresh_request.jsp?state=1">재배분필요</a>
