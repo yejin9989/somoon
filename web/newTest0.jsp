@@ -170,7 +170,7 @@
                 <div class="box_container">
                     <div class="main_box">
                         <div class="text_container">
-                            <div class="text"><span class="fir">주거 프라임</span></div>
+                            <!--<div class="text"><span class="fir">주거 프라임</span></div>-->
                             <div class="text">
                                 <span class="sec_sec"><%=apply.get("Building_type")%> <%=apply.get("Area")%>평</span><!--span class="sec_sec">아파트 32평</span-->
                             </div>
