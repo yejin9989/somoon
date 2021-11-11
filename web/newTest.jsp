@@ -255,10 +255,12 @@
                                 <span class="sec_fir">예산</span>
                                 <span class="thr"><%=apply.get("Budget")%></span><!--span class="thr">8천만원 이하</span-->
                             </div>
+                            <!--
                             <div class="text">
                                 <span class="sec_fir">신청한 디자인</span>
                                 <a href="<%=apply.get("URL")%>"><span class="for"><%=apply.get("Title")%></span></a>
                             </div>
+                            -->
                             <div class="text">
                                 <span class="sec_fir">진행 단계</span>
                                 <select class="fiv" name="state<%=apply.get("Number")%>">
