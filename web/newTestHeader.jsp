@@ -72,7 +72,7 @@
     <div class="body_header">
         <div class="upper_header">
             <div class="left_header">
-                <a href="${pageContext.request.contextPath}">
+                <a href="homepage.jsp">
                     <span>소문난집</span>
                 </a>
             </div>
