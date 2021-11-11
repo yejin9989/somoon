@@ -78,6 +78,7 @@
 			background-size: 69px 26px;
 			height: 26px;
 			width: 69px;
+			cursor: pointer;
 		}
 		#x_btn{
 			font-size: 33pt;
@@ -185,6 +186,11 @@
 </body>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+	$('#logo').click(function(){
+		location.href="${pageContext.request.contextPath}";
+	})
+</script>
 <script>
 	$('#rem_req_btn').click(function(){
 		location.href="remodeling_form.jsp?item_num="+"<%=num%>";

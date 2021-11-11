@@ -57,7 +57,6 @@
 <html>
 <head>
     <link rel="SHORTCUT ICON" href="https://somoonhouse.com/img/favicon.ico" />
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/newTestHeader.css"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -73,7 +72,9 @@
     <div class="body_header">
         <div class="upper_header">
             <div class="left_header">
-                <span>소문난집</span>
+                <a href="${pageContext.request.contextPath}">
+                    <span>소문난집</span>
+                </a>
             </div>
             <div class="right_header">
                 <a href="newTestPartnerNew.jsp" target="_self"> <!--style 해제 해주어야함-->
@@ -194,7 +195,6 @@
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
 <script>

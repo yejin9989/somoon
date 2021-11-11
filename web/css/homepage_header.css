@@ -215,6 +215,7 @@
     filter: invert(0);
     padding: 60px 20px 20px 20px;
     gap: 20px;
+    box-sizing: border-box; /*newindex.jsp랑 homepage.jsp의 박스크기가 달라서 추가해줌.*/
 }
 .menu_slide .close_btn{
     position: absolute;
