@@ -234,7 +234,7 @@
                             <div class="slide_btn" id="slide_btn<%=apply.get("Number")%>" onclick="slide_detail(this)">
                                 <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow.png?raw=true" />
                             </div>
-                            <div class="text"><span class="fir">주거 프라임</span></div>
+                            <!--<div class="text"><span class="fir">주거 프라임</span></div>-->
                             <div class="text">
                                 <span class="sec_fir">성함</span>
                                 <span class="sec_sec"><%=apply.get("Name")%></span><!--span class="sec_sec">정진성</span-->
