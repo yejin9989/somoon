@@ -74,15 +74,15 @@
                             <span class="mid_text">결제일로부터 <span class="mid_date_text"><%=item.get("period")%>일간</span></span>
                         </div>
                         <div class="text_area">
+                            <span class="lower_text">전체 <%=item.get("quantity")%>건
                             <%
                                 if(!item.get("extra").equals("0")){//보완건이 0인 경우 설명 표시하지 않음
                             %>
-                            <span class="lower_text">전체 <%=item.get("quantity")%>건 <span class="lower_text_inner">(기본
-                                <%=item.get("origin")%>건
-                                + 보완 <%=item.get("extra")%>건)</span></span>
+                                <span class="lower_text_inner">(기본 <%=item.get("origin")%>건 + 보완 <%=item.get("extra")%>건)</span>
                             <%
                                 }
                             %>
+                            </span>
                         </div>
                     </div>
                     <div class="goods_mid_box">
@@ -112,15 +112,17 @@
                             <span class="mid_text">결제일로부터 <span class="mid_date_text"><%=item.get("period")%>일간</span></span>
                         </div>
                         <div class="text_area">
+                            <span class="lower_text">전체 <%=item.get("quantity")%>건
                             <%
                                 if(!item.get("extra").equals("0")){//보완건이 0인 경우 설명 표시하지 않음
                             %>
-                            <span class="lower_text">전체 <%=item.get("quantity")%>건 <span class="lower_text_inner">(기본
-                                <%=item.get("origin")%>건
-                                + 보완 <%=item.get("extra")%>건)</span></span>
+                                <span class="lower_text_inner">
+                                    (기본<%=item.get("origin")%>건 + 보완 <%=item.get("extra")%>건)
+                                </span>
                             <%
                                 }
                             %>
+                            </span>
                         </div>
                     </div>
                     <span class="item_span">가격 : <%=item.get("price")%>원</span>
