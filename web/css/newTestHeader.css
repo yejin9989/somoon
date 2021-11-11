@@ -56,7 +56,10 @@
     width: 200px;
     height: 100%;
 }
-.body_container_header .body_header .upper_header .left_header span{
+.body_container_header .body_header .upper_header .left_header a{
+    text-decoration: none;
+}
+.body_container_header .body_header .upper_header .left_header a span{
     color:#fff;
     font-size: 25px;
     font-weight: 800;

@@ -147,9 +147,8 @@
         <span id="topBtn">top</span>
         <span id="applyBtn"><div>상담<br>신청</div></span>
     </div -->
-    <navbar>
-        <jsp:include page="navbar.jsp" flush="false"/>
-    </navbar>
+    <jsp:include page="/homepage_pc_header.jsp" flush="false" />
+    <jsp:include page="/homepage_mob_header.jsp" flush="false" />
     <div id="main">
         <div class="couponHeader">회사관리</div>
             <%
