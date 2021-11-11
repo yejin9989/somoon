@@ -44,13 +44,11 @@
 </head>
 <body>
 <div id="container">
+    <jsp:include page="/homepage_pc_header.jsp" flush="false" />
+    <jsp:include page="/homepage_mob_header.jsp" flush="false" />
     <div>
         <span id="topBtn">top</span>
         <span id="applyBtn"><div>상담<br>신청</div></span>
-    </div>
-    <div id="somun_navbar">
-        <div id="somun_logo"><a href="index.jsp"><img style="height:30px;"src="https://somoonhouse.com/otherimg/index/somunlogo.jpg"></a></div>
-        <div id="alert"><a href="alert.jsp"><img style="height:30px;"src="https://somoonhouse.com/otherimg/index/alert.jpg"></a></div>
     </div>
     <div id="main">
         <div id="full-image">

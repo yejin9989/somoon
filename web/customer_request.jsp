@@ -341,13 +341,8 @@ select{
 </head>
 <body>
 <div id="container">
-<div id="somun_navbar">
-	<div id="somun_menu"></div>
-	<div style="float:left;width:100%;height:max-content;margin-bottom:10px;text-align:center;">
-	<div id="somun_logo"><a href="index.jsp"><img style="width:128px;"src="https://somoonhouse.com/img/somunlogo.png"></a></div>
-	<div style="margin:auto;width:max-content;color: #31b1f2;font-size:10pt;">대구 1등 리모델링 플랫폼</div>
-	</div>
-</div>
+	<jsp:include page="/homepage_pc_header.jsp" flush="false" />
+	<jsp:include page="/homepage_mob_header.jsp" flush="false" />
 <div></div>
 <div id="content">
     <div style="width:100%;display:inline-block;border-radius:5px;">

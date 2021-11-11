@@ -83,13 +83,8 @@ for(i=1; i<=division1.size(); i++){
 <title>소문난집</title>
 </head>
 <body>
-<div id="somun_navbar">
-	<div id="somun_menu"></div>
-	<div style="float:left;width:100%;height:max-content;margin-bottom:10px;text-align:center;">
-	<div id="somun_logo"><a href="index.jsp"><img style="width:128px;"src="https://somoonhouse.com/img/somunlogo.png"></a></div>
-	<div style="margin:auto;width:max-content;color: #6d6d6d;font-size:10pt;">우리 동네 리모델링 플랫폼</div>
-	</div>
-</div>
+<jsp:include page="/homepage_pc_header.jsp" flush="false" />
+<jsp:include page="/homepage_mob_header.jsp" flush="false" />
 	<!--div id="banner">
 	</div-->
     <div id="container">
