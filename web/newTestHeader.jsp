@@ -172,16 +172,18 @@
                     <span>053-290-5959</span>
                 </div>
             </div>
+            <!--
             <a class="board_href" href="newTestBoard.jsp" target="_self">
                 <div class="board_container">
                     <div class="menu_upper">
                         <div class="upper_img">
                             <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/write.png?raw=true" />
                         </div>
-                        <span>익명 게시판</span>
+                            <span>익명 게시판</span>
                     </div>
                 </div>
             </a>
+            -->
             <div class="setting_container">
                 <a class="setting" href="company_home.jsp?company_id=<%=s_id%>" target="_self">
                     <img
