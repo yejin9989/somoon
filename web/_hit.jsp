@@ -188,7 +188,7 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script>
 	$('#logo').click(function(){
-		location.href="${pageContext.request.contextPath}";
+		location.href="homepage.jsp";
 	})
 </script>
 <script>
