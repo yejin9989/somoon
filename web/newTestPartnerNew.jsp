@@ -55,7 +55,7 @@
     <div class="body_main">
         <div class="main_header">
             <div class="img_container">
-                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/com.png?raw=true" />
+                <img src="https://somoonhouse.com/otherimg/assets/com.png?raw=true" />
             </div>
             <span>소문난집 파트너를 위한 상품</span>
         </div>
@@ -121,7 +121,7 @@
                     <button id="next<%=key%>" onclick="modal_next(this)"><span>신 청 하 기</span></button>
                 </div>
                 <div class="modal_cancel" id="cancel<%=key%>" onclick="close_modal(this)">
-                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancel.png?raw=true" />
+                    <img src="https://somoonhouse.com/otherimg/assets/cancel.png?raw=true" />
                 </div>
             </div>
             <div class="modal_box_after" id="modal_box_after<%=key%>">
@@ -137,7 +137,7 @@
                     <button id="prev<%=key%>" onclick="modal_previous(this)"><span>신 청 취 소</span></button>
                 </div>
                 <div class="modal_cancel" id="close<%=key%>" onclick="close_modal(this)">
-                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancel.png?raw=true" />
+                    <img src="https://somoonhouse.com/otherimg/assets/cancel.png?raw=true" />
                 </div>
             </div>
         </div>

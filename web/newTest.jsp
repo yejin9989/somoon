@@ -173,7 +173,7 @@
                 <div class="left_container">
                     <div class="left_box">
                         <div class="img_container">
-                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/magnifying.png?raw=true" />
+                            <img src="https://somoonhouse.com/otherimg/assets/magnifying.png?raw=true" />
                         </div>
                         <div class="text_container">
                             <input class="text_input" type="text" name="ing" placeholder="전화, 고객명, 주소" value="<%=ing_search%>" />
@@ -201,7 +201,7 @@
         </div>
         <div class="main_body_none">
             <div class="img_container">
-                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/search2.png?raw=true" />
+                <img src="https://somoonhouse.com/otherimg/assets/search2.png?raw=true" />
             </div>
             <div class="text_container">
                 <span>진행중인 공사가 없습니다.</span>
@@ -232,7 +232,7 @@
                                 <%}%>
                             </div>
                             <div class="slide_btn" id="slide_btn<%=apply.get("Number")%>" onclick="slide_detail(this)">
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow.png?raw=true" />
+                                <img src="https://somoonhouse.com/otherimg/assets/arrow.png?raw=true" />
                             </div>
                             <div class="text"><span class="fir">주거 프라임</span></div>
                             <div class="text">
@@ -275,7 +275,7 @@
                         <div class="under_container">
                             <div class="side_container" id="call<%=apply.get("Number")%>">
                                 <div class="img_container">
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/call.png?raw=true" />
+                                    <img src="https://somoonhouse.com/otherimg/assets/call.png?raw=true" />
                                 </div>
                                 <div class="text_container">
                                     <span><a href="tel:<%=apply.get("Phone")%>">전화</a></span>
@@ -283,7 +283,7 @@
                             </div>
                             <div class="side_container" id="msg<%=apply.get("Number")%>">
                                 <div class="img_container">
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/talk.png?raw=true" />
+                                    <img src="https://somoonhouse.com/otherimg/assets/talk.png?raw=true" />
                                 </div>
                                 <div class="text_container">
                                     <span><a href="tel:<%=apply.get("Phone")%>">문자</a></span>
@@ -291,7 +291,7 @@
                             </div>
                             <div class="side_container" id="com<%=apply.get("Number")%>" onclick="open_modal(this)">
                                 <div class="img_container">
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/check3.png?raw=true" />
+                                    <img src="https://somoonhouse.com/otherimg/assets/check3.png?raw=true" />
                                 </div>
                                 <div class="text_container">
                                     <span>완료</span>
@@ -299,7 +299,7 @@
                             </div>
                             <div class="side_container" id="stop<%=apply.get("Number")%>" onclick="open_modal_non_fin(this)">
                                 <div class="img_container">
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancel2.png?raw=true" />
+                                    <img src="https://somoonhouse.com/otherimg/assets/cancel2.png?raw=true" />
                                 </div>
                                 <div class="text_container">
                                     <span>중단</span>
@@ -326,7 +326,7 @@
                                     <button type="submit"><span>완 료</span></button>
                                 </div>
                                 <div class="modal_cancel" onclick="close_modal()">
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancel.png?raw=true" />
+                                    <img src="https://somoonhouse.com/otherimg/assets/cancel.png?raw=true" />
                                 </div>
                             </div>
                         </form>
@@ -367,7 +367,7 @@
                                     <button type="submit"><span>중 단</span></button>
                                 </div>
                                 <div class="modal_cancel" onclick="close_modal_non_fin()">
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancel.png?raw=true" />
+                                    <img src="https://somoonhouse.com/otherimg/assets/cancel.png?raw=true" />
                                 </div>
                             </div>
                         </form>

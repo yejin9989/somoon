@@ -140,13 +140,13 @@
                     </div>
                     <div class="imgs">
                         <div>
-                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" />
+                            <img src="https://somoonhouse.com/otherimg/assets/dog1.jpg?raw=true" />
                         </div>
                         <div>
-                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog2.jpg?raw=true" />
+                            <img src="https://somoonhouse.com/otherimg/assets/dog2.jpg?raw=true" />
                         </div>
                         <div>
-                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat1.jpg?raw=true" />
+                            <img src="https://somoonhouse.com/otherimg/assets/cat1.jpg?raw=true" />
                         </div>
                         <div class="lastImg"></div>
                     </div>

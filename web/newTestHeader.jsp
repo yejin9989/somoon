@@ -79,16 +79,16 @@
                 <a href="newTestPartnerNew.jsp" target="_self"> <!--style 해제 해주어야함-->
                     <div class="img_container">
                         <img class="cart"
-                             src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cart2.png?raw=true" />
+                             src="https://somoonhouse.com/otherimg/assets/cart2.png?raw=true" />
                     </div>
                 </a>
                 <a href="newTestPartnerOld.jsp" target="_self">
                     <div class="img_container">
-                        <img class="graph" src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/graph2.png?raw=true" />
+                        <img class="graph" src="https://somoonhouse.com/otherimg/assets/graph2.png?raw=true" />
                     </div>
                 </a>
                 <div class="img_container" id="menu_slide" onclick="slide()">
-                    <img class="menu" src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/menu3.png?raw=true" />
+                    <img class="menu" src="https://somoonhouse.com/otherimg/assets/menu3.png?raw=true" />
                 </div>
             </div>
         </div>
@@ -142,7 +142,7 @@
                     <div class="item_text"><span class="sub">건</span></div>
                     <a href="newTestPartnerOld.jsp" target="_self">
                         <div class="item_img">
-                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/rightDirection2.png?raw=true" />
+                            <img src="https://somoonhouse.com/otherimg/assets/rightDirection2.png?raw=true" />
                         </div>
                     </a>
                 </div>
@@ -155,7 +155,7 @@
                     <div class="item_box">
                         <div class="item_text"><span class="sub">로그인</span></div>
                         <div class="item_img">
-                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/rightDirection2.png?raw=true" />
+                            <img src="https://somoonhouse.com/otherimg/assets/rightDirection2.png?raw=true" />
                         </div>
                     </div>
                 </a>
@@ -163,7 +163,7 @@
             <div class="menu_container">
                 <div class="menu_upper">
                     <div class="upper_img">
-                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/call.png?raw=true" />
+                        <img src="https://somoonhouse.com/otherimg/assets/call.png?raw=true" />
                     </div>
                     <span>소문난집 전화문의</span>
                 </div>
@@ -175,7 +175,7 @@
                 <div class="board_container">
                     <div class="menu_upper">
                         <div class="upper_img">
-                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/write.png?raw=true" />
+                            <img src="https://somoonhouse.com/otherimg/assets/write.png?raw=true" />
                         </div>
                         <span>익명 게시판</span>
                     </div>
@@ -184,10 +184,10 @@
             <div class="setting_container">
                 <a class="setting" href="company_home.jsp?company_id=<%=s_id%>" target="_self">
                     <img
-                            src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/setting2.png?raw=true">
+                            src="https://somoonhouse.com/otherimg/assets/setting2.png?raw=true">
                 </a>
                 <div class="cancel_container" onclick="slide()">
-                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancel.png?raw=true" />
+                    <img src="https://somoonhouse.com/otherimg/assets/cancel.png?raw=true" />
                 </div>
             </div>
         </div>
