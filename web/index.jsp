@@ -132,7 +132,7 @@
 		<span id="applyBtn"><div>상담<br>신청</div></span>
 	</div>
 	<div id="somun_navbar">
-		<div id="somun_logo"><a href="index.jsp"><img style="height:30px;"src="https://somoonhouse.com/otherimg/index/somunlogo.jpg"></a></div>
+		<div id="somun_logo"><a href="https://somoonhouse.com/"><img style="height:30px;"src="https://somoonhouse.com/otherimg/index/somunlogo.jpg"></a></div>
 		<div id="alert"><a href="alert.jsp"><img style="height:30px;"src="https://somoonhouse.com/otherimg/index/alert.jpg"></a></div>
 	</div>
 	<div id="main">

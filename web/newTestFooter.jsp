@@ -76,7 +76,7 @@
             <div class="text">
                 <span class="key">instagram</span>
                 <div class="value_img">
-                    <a href="https://www.instagram.com/somoonhouse/" target="_self"><img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/instagram.png?raw=true" /></a>
+                    <a href="https://www.instagram.com/somoonhouse/" target="_self"><img src="https://somoonhouse.com/otherimg/assets/instagram.png?raw=true" /></a>
                 </div>
             </div>
         </div>
