@@ -54,28 +54,31 @@
     }
 
     //DB 가져오기
-    query = "SELECT distinct Apply_date FROM ASSIGNED A, REMODELING_APPLY R";
+    // 날짜별로 담기
+    query = "SELECT distinct Date(Accept_time) AS Accept_date FROM ASSIGNED A, REMODELING_APPLY R";
     query += " WHERE A.Company_num = " + s_id;
     query += " And R.Number = A.Apply_num";
+    query += " Order by Accept_date desc";
     pstmt = conn.prepareStatement(query);
     rs = pstmt.executeQuery();
 
     LinkedList<Dates> datelist = new LinkedList<Dates>();
 
+    // 날짜별로 신청정보 가져오기
     while(rs.next()) {
 
         Dates date = new Dates();
-        date.setDate(rs.getString("Apply_date"));
+        date.setDate(rs.getString("Accept_date"));
 
-        HashMap<String, HashMap<String, String>> applies = new HashMap<String, HashMap<String, String>>();
-        HashMap<String, HashMap<String, String>> details = new HashMap<String, HashMap<String, String>>();
+        HashMap<String, HashMap<String, String>> applies = new HashMap<String, HashMap<String, String>>(); //신청자, 주소 정보
+        HashMap<String, HashMap<String, String>> details = new HashMap<String, HashMap<String, String>>(); //신청 시공 정보
 
         int cnt = 0;
 
-        query = "SELECT * FROM ASSIGNED A, REMODELING_APPLY R";
+        query = "SELECT *, Date(Accept_time) AS Accept_date FROM ASSIGNED A, REMODELING_APPLY R";
         query += " WHERE A.Company_num = " + s_id;
         query += " And R.Number = A.Apply_num";
-        query += " And Date(Apply_date) = '" + rs.getString("Apply_date") + "'";
+        query += " And Date(Accept_time) = '" + rs.getString("Accept_date") + "'";
         if(ing_filter.equals("100")) {
             query += " And A.State >= 2 And A.State < 8"; // 탭에따라 이 쿼리 바꾸어주기
         }
