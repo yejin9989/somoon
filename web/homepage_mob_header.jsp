@@ -72,7 +72,7 @@
     <div class="header_mob">
         <div class="header_upper">
             <div class="menu" onclick="open_slide()">
-                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/menu5.png?raw=true" />
+                <img src="https://somoonhouse.com/otherimg/assets/menu5.png?raw=true" />
             </div>
             <div class="logo">
                 <a href="https://somoonhouse.com/">
@@ -81,7 +81,7 @@
             </div>
             <a class="instaA" href="https://www.instagram.com/somoonhouse/">
                 <div class="insta">
-                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/instagram2.png?raw=true" />
+                    <img src="https://somoonhouse.com/otherimg/assets/instagram2.png?raw=true" />
                 </div>
             </a>
         </div>
@@ -117,7 +117,7 @@
 <a href="https://somoonhouse.com/remodeling_form.jsp?item_num=0" class="mobileFooter" id="mobileFooter">
     <span>견적 상담 받기</span>
     <div>
-        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow2.png?raw=true" />
+        <img src="https://somoonhouse.com/otherimg/assets/arrow2.png?raw=true" />
     </div>
 </a>
 <%
@@ -131,21 +131,21 @@
 <div class="menu_slide_container" id="menu_slide_container" onclick="close_slide()"></div>
 <div class="menu_slide" id="menu_slide">
     <div class="close_btn" onclick="close_slide()">
-        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/X.png?raw=true" />
+        <img src="https://somoonhouse.com/otherimg/assets/X.png?raw=true" />
     </div>
     <span class="head">대구 경북 인테리어<br>전문가를 만나보세요.</span>
     <a class="cons" href="https://somoonhouse.com/remodeling_form.jsp?item_num=0">견적 상담</a>
     <a class="cons b" href="https://somoonhouse.com/banner1.jsp?id=3">시공전문가 입점문의</a>
     <a class="insta_cont" href="https://www.instagram.com/somoonhouse/">
         <div class="img_cont">
-            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/insta.png?raw=true" />
+            <img src="https://somoonhouse.com/otherimg/assets/insta.png?raw=true" />
         </div>
         <div class="text_cont">
             <span>소문난집 인스타그램</span>
             <div class="under">
                 <span>바로가기</span>
                 <div class="arrow">
-                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow2.png?raw=true" />
+                    <img src="https://somoonhouse.com/otherimg/assets/arrow2.png?raw=true" />
                 </div>
             </div>
         </div>
@@ -153,7 +153,7 @@
     <div class="menu_container">
         <div class="menu_upper">
             <div class="upper_img">
-                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/call.png?raw=true" />
+                <img src="https://somoonhouse.com/otherimg/assets/call.png?raw=true" />
             </div>
             <span>소문난집 전화문의</span>
         </div>

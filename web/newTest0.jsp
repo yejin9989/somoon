@@ -149,7 +149,7 @@
     <div class="body_main">
         <div class="main_body_none">
             <div class="img_container">
-                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/search2.png?raw=true" />
+                <img src="https://somoonhouse.com/otherimg/assets/search2.png?raw=true" />
             </div>
             <div class="text_container">
                 <span>신규 신청건이 없습니다.</span>
@@ -190,7 +190,7 @@
                             <a href="#" target="_self" class="accept" id="<%=apply.get("Number")%>">
                                 <div class="side_container">
                                     <div class="img_container">
-                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/distri.png?raw=true" />
+                                        <img src="https://somoonhouse.com/otherimg/assets/distri.png?raw=true" />
                                     </div>
                                     <div class="text_container distri">
                                         <span>수락</span>
@@ -203,7 +203,7 @@
                             <a href="#" target="_self" class="accept" id="<%=apply.get("Number")%>">
                                 <div class="side_container">
                                     <div class="img_container">
-                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancle.png?raw=true" />
+                                        <img src="https://somoonhouse.com/otherimg/assets/cancle.png?raw=true" />
                                     </div>
                                     <div class="text_container">
                                         <span>거절</span>

@@ -54,28 +54,31 @@
     }
 
     //DB 가져오기
-    query = "SELECT distinct Apply_date FROM ASSIGNED A, REMODELING_APPLY R";
+    // 날짜별로 담기
+    query = "SELECT distinct Date(Accept_time) AS Accept_date FROM ASSIGNED A, REMODELING_APPLY R";
     query += " WHERE A.Company_num = " + s_id;
     query += " And R.Number = A.Apply_num";
+    query += " Order by Accept_date desc";
     pstmt = conn.prepareStatement(query);
     rs = pstmt.executeQuery();
 
     LinkedList<Dates> datelist = new LinkedList<Dates>();
 
+    // 날짜별로 신청정보 가져오기
     while(rs.next()) {
 
         Dates date = new Dates();
-        date.setDate(rs.getString("Apply_date"));
+        date.setDate(rs.getString("Accept_date"));
 
-        HashMap<String, HashMap<String, String>> applies = new HashMap<String, HashMap<String, String>>();
-        HashMap<String, HashMap<String, String>> details = new HashMap<String, HashMap<String, String>>();
+        HashMap<String, HashMap<String, String>> applies = new HashMap<String, HashMap<String, String>>(); //신청자, 주소 정보
+        HashMap<String, HashMap<String, String>> details = new HashMap<String, HashMap<String, String>>(); //신청 시공 정보
 
         int cnt = 0;
 
-        query = "SELECT * FROM ASSIGNED A, REMODELING_APPLY R";
+        query = "SELECT *, Date(Accept_time) AS Accept_date FROM ASSIGNED A, REMODELING_APPLY R";
         query += " WHERE A.Company_num = " + s_id;
         query += " And R.Number = A.Apply_num";
-        query += " And Date(Apply_date) = '" + rs.getString("Apply_date") + "'";
+        query += " And Date(Accept_time) = '" + rs.getString("Accept_date") + "'";
         if(ing_filter.equals("100")) {
             query += " And A.State >= 2 And A.State < 8"; // 탭에따라 이 쿼리 바꾸어주기
         }
@@ -173,7 +176,7 @@
                 <div class="left_container">
                     <div class="left_box">
                         <div class="img_container">
-                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/magnifying.png?raw=true" />
+                            <img src="https://somoonhouse.com/otherimg/assets/magnifying.png?raw=true" />
                         </div>
                         <div class="text_container">
                             <input class="text_input" type="text" name="ing" placeholder="전화, 고객명, 주소" value="<%=ing_search%>" />
@@ -201,7 +204,7 @@
         </div>
         <div class="main_body_none">
             <div class="img_container">
-                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/search2.png?raw=true" />
+                <img src="https://somoonhouse.com/otherimg/assets/search2.png?raw=true" />
             </div>
             <div class="text_container">
                 <span>진행중인 공사가 없습니다.</span>
@@ -232,7 +235,7 @@
                                 <%}%>
                             </div>
                             <div class="slide_btn" id="slide_btn<%=apply.get("Number")%>" onclick="slide_detail(this)">
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow.png?raw=true" />
+                                <img src="https://somoonhouse.com/otherimg/assets/arrow.png?raw=true" />
                             </div>
                             <!--<div class="text"><span class="fir">주거 프라임</span></div>-->
                             <div class="text">
@@ -277,7 +280,7 @@
                         <div class="under_container">
                             <div class="side_container" id="call<%=apply.get("Number")%>">
                                 <div class="img_container">
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/call.png?raw=true" />
+                                    <img src="https://somoonhouse.com/otherimg/assets/call.png?raw=true" />
                                 </div>
                                 <div class="text_container">
                                     <span><a href="tel:<%=apply.get("Phone")%>">전화</a></span>
@@ -285,7 +288,7 @@
                             </div>
                             <div class="side_container" id="msg<%=apply.get("Number")%>">
                                 <div class="img_container">
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/talk.png?raw=true" />
+                                    <img src="https://somoonhouse.com/otherimg/assets/talk.png?raw=true" />
                                 </div>
                                 <div class="text_container">
                                     <span><a href="tel:<%=apply.get("Phone")%>">문자</a></span>
@@ -293,7 +296,7 @@
                             </div>
                             <div class="side_container" id="com<%=apply.get("Number")%>" onclick="open_modal(this)">
                                 <div class="img_container">
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/check3.png?raw=true" />
+                                    <img src="https://somoonhouse.com/otherimg/assets/check3.png?raw=true" />
                                 </div>
                                 <div class="text_container">
                                     <span>완료</span>
@@ -301,7 +304,7 @@
                             </div>
                             <div class="side_container" id="stop<%=apply.get("Number")%>" onclick="open_modal_non_fin(this)">
                                 <div class="img_container">
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancel2.png?raw=true" />
+                                    <img src="https://somoonhouse.com/otherimg/assets/cancel2.png?raw=true" />
                                 </div>
                                 <div class="text_container">
                                     <span>중단</span>
@@ -328,7 +331,7 @@
                                     <button type="submit"><span>완 료</span></button>
                                 </div>
                                 <div class="modal_cancel" onclick="close_modal()">
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancel.png?raw=true" />
+                                    <img src="https://somoonhouse.com/otherimg/assets/cancel.png?raw=true" />
                                 </div>
                             </div>
                         </form>
@@ -369,7 +372,7 @@
                                     <button type="submit"><span>중 단</span></button>
                                 </div>
                                 <div class="modal_cancel" onclick="close_modal_non_fin()">
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cancel.png?raw=true" />
+                                    <img src="https://somoonhouse.com/otherimg/assets/cancel.png?raw=true" />
                                 </div>
                             </div>
                         </form>

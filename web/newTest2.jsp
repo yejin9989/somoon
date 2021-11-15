@@ -159,7 +159,7 @@
                 <form id="fomr_aborted" name="form_aborted" method="post" action="newTest2.jsp">
                     <div class="left_box">
                         <div class="img_container">
-                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/magnifying.png?raw=true" />
+                            <img src="https://somoonhouse.com/otherimg/assets/magnifying.png?raw=true" />
                         </div>
                         <div class="text_container">
                             <input class="text_input" type="text" name="aborted" placeholder="전화, 고객명, 주소" value="<%=aborted_search%>" />
@@ -171,7 +171,7 @@
         </div>
         <div class="main_body_none">
             <div class="img_container">
-                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/search2.png?raw=true" />
+                <img src="https://somoonhouse.com/otherimg/assets/search2.png?raw=true" />
             </div>
             <div class="text_container">
                 <span>중단된 공사가 없습니다.</span>
@@ -201,7 +201,7 @@
                         <div class="right_box" id="btn<%=apply.get("Number")%>" onclick="stop_btn(this)">
                             <div class="img_container">
                                 <img id="arrow<%=apply.get("Number")%>"
-                                        src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/underDirection.png?raw=true" />
+                                        src="https://somoonhouse.com/otherimg/assets/underDirection.png?raw=true" />
                             </div>
                         </div>
                     </div>
