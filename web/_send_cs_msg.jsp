@@ -10,7 +10,7 @@
 <% response.setCharacterEncoding("UTF-8"); %>
 <%@ page language="java" %>
 <%@ page import="myPackage.*" %>
-<%@ page import="myPackage.MessageSend2" %>
+<%@ page import="myPackage.MessageSend3" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +27,7 @@
     String cnt = request.getParameter("cnt")+"";
 %>
 <%
-    MessageSend2 msg = new MessageSend2();
+    MessageSend3 msg = new MessageSend3();
 	String msg_str = "[소문난집]\n"+name+"님, 현재 미상담 건수가 "+cnt+"건 있습니다. 상담 완료 및 상담 상태 변경 부탁드립니다.";
 
 
