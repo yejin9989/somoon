@@ -275,7 +275,7 @@
                             </div>
                         </div>
                         <div class="under_container">
-                            <div class="side_container" id="call<%=apply.get("Number")%>">
+                            <div class="side_container" id="call<%=apply.get("Number")%>" onclick="change_phase(this)">
                                 <div class="img_container">
                                     <img src="https://somoonhouse.com/otherimg/assets/call.png?raw=true" />
                                 </div>
@@ -283,7 +283,7 @@
                                     <span><a href="tel:<%=apply.get("Phone")%>">전화</a></span>
                                 </div>
                             </div>
-                            <div class="side_container" id="msg<%=apply.get("Number")%>">
+                            <div class="side_container" id="msg<%=apply.get("Number")%>" onclick="change_phase(this)">
                                 <div class="img_container">
                                     <img src="https://somoonhouse.com/otherimg/assets/talk.png?raw=true" />
                                 </div>
@@ -448,6 +448,21 @@
         var modal = document.getElementById("modal_container_non_fin" + modalNum);
         modal.style.display = "none"
     }
+
+    const change_phase = (prop) => {
+        const boxID = prop.id.substr(0, 3) === "msg" ?
+            prop.id.substr(3, prop.id.length) :
+            prop.id.substr(4, prop.id.length);
+        const selectDiv = document.getElementsByName("state" + boxID);
+        let selectedIndex;
+        for(let i = 0; i < selectDiv[0].length; i++)
+            if(selectDiv[0][i].selected) selectedIndex = i;
+        if(selectedIndex === 0 || selectedIndex === 1){
+            selectDiv[0][selectedIndex].selected = false;
+            selectDiv[0][2].selected = true;
+        }
+    }
+
     $('document').ready(function(){
         if('<%=datelist.size()%>' == '0'){
             $('.main_body_none').css('display', 'flex');
