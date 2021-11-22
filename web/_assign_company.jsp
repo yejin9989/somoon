@@ -11,7 +11,7 @@
 <% response.setCharacterEncoding("UTF-8"); %>
 <%@ page language="java" %>
 <%@ page import="myPackage.*" %>
-<%@ page import="myPackage.MessageSend2" %>
+<%@ page import="myPackage.MessageSend3" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -157,7 +157,7 @@
 	String company_name = "";
 	String company_phone = "";
 	String msg_str = "";
-	MessageSend2 msg = new MessageSend2();
+	MessageSend3 msg = new MessageSend3();
 
 	for(String com : company1) {
 		sql = "SELECT Name, Phone, Id FROM COMPANY WHERE Id = '" + com +"'";
