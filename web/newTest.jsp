@@ -417,16 +417,6 @@
         var state = $('select[name=state'+id+']').val();
         location.href = '_newTest_company_change_state.jsp?companyNum='+'<%=s_id%>'+'&state='+state+'&applyNum='+id;
     }
-    function calling(obj){
-        // 전화걸기 버튼을 누를 시 상담중으로 상태변경
-        var id = obj.getAttribute("id").substring(4);
-        location.href = '_newTest_company_change_state.jsp?companyNum='+'<%=s_id%>'+'&state=4&applyNum='+id+'&call=true';
-    }
-    function massage(obj){
-        // 문자보내기 버튼을 누를 시 상담중으로 상태변경
-        var id = obj.getAttribute("id").substring(3);
-        location.href = '_newTest_company_change_state.jsp?companyNum='+'<%=s_id%>'+'&state=4&applyNum='+id+'&text=true';
-    }
     var modalNum;
     function open_modal(obj){
         modalNum = obj.id.slice(3);
@@ -463,6 +453,17 @@
         if(selectedIndex === 0 || selectedIndex === 1){
             selectDiv[0][selectedIndex].selected = false;
             selectDiv[0][2].selected = true;
+
+            $.ajax("_newTest_company_change_state.jsp?companyNum=<%=s_id%>&state=4&applyNum="+boxID+"&text=true")
+            .done(function(){
+                //alert("성공");
+            })
+            .fail(function() {
+                //alert("실패");
+            })
+            .always(function() {
+                //alert("완료");
+            });
         }
     }
 
