@@ -147,7 +147,7 @@
 		<script>
 		alert('견적 신청 완료!\n2일 이내(주말 제외)로 친절한 소문난집 담당자가 연락드릴 예정이니, 조금만 기다려주세요 🙂');
 		//alert(<%=building_type%>+'building_type'+<%=div1%>+'div1');
-		history.go(-2);
+		location.href = "homepage.jsp";
 		</script>
 		<%
 	}

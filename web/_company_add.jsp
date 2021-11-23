@@ -18,13 +18,13 @@
     PreparedStatement pstmt = null;
     String sql = "";
 
-    String name = "MS타일";
-    String address = "대구광역시 수성구 달구벌대로 2662, 1층(만촌동)";
-    String introduction = "소개글을 작성해주세요.";
+    String name = request.getParameter("name");
+    String address = request.getParameter("address");
+    String introduction = request.getParameter("introduction");
     String state = "1";
-    String phone = "010-7438-0801";
+    String phone = request.getParameter("phone");
     String profile_img = "https://somoonhouse.com/sources/anonymous.jpg";
-    String pw = "password(\"0801\")";
+    String pw = request.getParameter("pw");
 
     //DB 가져오기 예시
     sql = "insert into COMPANY (Name, Address, Introduction, State, Phone, Profile_img, Pw) values " +
@@ -70,6 +70,9 @@
 <script>
     //새 스크립트 작성
     //window.close();
+    $("document").ready(function(){
+        history.back();
+    })
 </script>
 </body>
 </html>
