@@ -21,15 +21,22 @@
     String name = "MS타일";
     String address = "대구광역시 수성구 달구벌대로 2662, 1층(만촌동)";
     String introduction = "소개글을 작성해주세요.";
-    int state = 1;
+    String state = "1";
     String phone = "010-7438-0801";
     String profile_img = "https://somoonhouse.com/sources/anonymous.jpg";
     String pw = "password(\"0801\")";
 
     //DB 가져오기 예시
     sql = "insert into COMPANY (Name, Address, Introduction, State, Phone, Profile_img, Pw) values " +
-            "(\"MS타일\", \"대구광역시 수성구 달구벌대로 2662, 1층(만촌동)\", \"소개글을 작성해주세요.\", 1, \"010-7438-0801\", \"https://somoonhouse.com/sources/anonymous.jpg\", password(\"0801\"))";
+            "(?, ?, ?, ?, ?, ?, password(?))";
     pstmt = conn.prepareStatement(sql);
+    pstmt.setString(1, name);
+    pstmt.setString(2, address);
+    pstmt.setString(3, introduction);
+    pstmt.setString(4, state);
+    pstmt.setString(5, phone);
+    pstmt.setString(6, profile_img);
+    pstmt.setString(7,pw);
     pstmt.executeUpdate();
     pstmt.close();
 
