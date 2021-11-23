@@ -480,7 +480,7 @@
         //세션 없을 시 리다이렉트
         if("<%=s_id%>" == "null"){
             alert("로그인 세션이 만료되었습니다. 재로그인 해주세요.");
-            location.href = "index.jsp";
+            location.href = "homepage.jsp";
         }
     })
     // 새로고침 시 get parameter 초기화
