@@ -69,7 +69,7 @@
         HashMap<String, HashMap<String, String>> details = new HashMap<String, HashMap<String, String>>();
 
 
-        query = "SELECT * FROM ASSIGNED A, REMODELING_APPLY R";
+        query = "SELECT *, DATE_FORMAT(A.Contract_date,'%Y-%m-%d') as C_date FROM ASSIGNED A, REMODELING_APPLY R";
         query += " WHERE A.Company_num = " + s_id;
         query += " And R.Number = A.Apply_num";
         query += " And A.State = 8";
@@ -115,6 +115,9 @@
             temp.put("Assigned_time", rs2.getString("R.Assigned_time"));
             temp.put("State", rs2.getString("A.State"));
             temp.put("Assigned_id", rs2.getString("A.Assigned_id"));
+            temp.put("Contract_date", rs2.getString("C_date"));
+            temp.put("contract_price", rs2.getString("A.contract_price"));
+            temp.put("contract_img_path", rs2.getString("A.contract_img_path"));
             temp.put("Memo", rs2.getString("A.Memo"));
             temp.put("Modify_date", rs2.getString("A.Modify_date"));
             applies.put(temp.get("Number"), temp);
@@ -193,7 +196,12 @@
                             </div>
                             <div class="under_container">
                                 <div class="under_box">
-                                    <span>계약 성사 : 2021.05.18</span>
+                                    <span>계약 성사 :<%=apply.get("Contract_date")%></span>
+                                    <!-- 이부분 수정 부탁 드립니다. 계약금, 계약서 이미지.. 모달창 띄워서 이미지 보여줘도 되구 자유롭게 해주세여 -->
+                                    <!--
+                                    <span>계약금 :<%=apply.get("contract_price")%></span>
+                                    <span>계약서 이미지 : <img src="<%=apply.get("contract_img_path")%>"> </span>
+                                    -->
                                 </div>
                             </div>
                         </div>
