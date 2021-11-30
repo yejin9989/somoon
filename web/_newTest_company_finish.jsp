@@ -101,7 +101,7 @@
         %>
         <script>
         alert('등록을 완료했습니다.');
-        self.close();
+        location.href = "newTest1.jsp";
         </script>
         <%
     }
@@ -109,7 +109,7 @@
         %>
         <script>
         alert('등록을 실패했습니다.');
-        self.close();
+        history.back();
         </script>
         <%
     }
@@ -149,9 +149,6 @@
 <script>
     //새 스크립트 작성
     //window.close();
-    $(document).ready(function (){
-        location.href = "newTest1.jsp";
-    })
 </script>
 </body>
 </html>
