@@ -76,7 +76,7 @@
     }
 
     if(contract_img_path != null) {
-        file1 = "otherimg/contract/" + contract_img_path;
+        file1 = "https://somoonhouse.com/otherimg/contract/" + contract_img_path;
         out.print("filename : " + file1);
     }
     else{
