@@ -76,8 +76,8 @@
     }
 
     if(contract_img_path != null) {
-        file1 = "otherimg/contract/" + contract_img_path;
-        out.print("filename : " + file1);
+        file1 = "https://somoonhouse.com/otherimg/contract/" + contract_img_path;
+        //out.print("filename : " + file1);
     }
     else{
         %><script>alert("계약서를 업로드 해주시길 바랍니다."); window,history.back();</script><%
@@ -93,15 +93,15 @@
         pstmt.setString(1, file1);
         pstmt.setString(2, contract_price);
         pstmt.setString(3, assigned_id);
-        out.print(pstmt);
+        //out.print(pstmt);
         pstmt.executeUpdate();
         pstmt.close();
 
-        out.print("contract_date : " + contract_date + " contract_price: " + contract_price);
+        //out.print("contract_date : " + contract_date + " contract_price: " + contract_price);
         %>
         <script>
         alert('등록을 완료했습니다.');
-        self.close();
+        location.href = "newTest1.jsp";
         </script>
         <%
     }
@@ -109,7 +109,7 @@
         %>
         <script>
         alert('등록을 실패했습니다.');
-        self.close();
+        history.back();
         </script>
         <%
     }
