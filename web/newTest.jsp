@@ -313,19 +313,20 @@
                         </div>
                     </div>
                     <div class="modal_container_fin" id="modal_container_fin<%=apply.get("Number")%>">
-                        <form method="post">
+                        <form action="_newTest_company_finish.jsp" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="assigned_id" value="<%=apply.get("Assigned_id")%>" />
                             <div class="modal_box">
                                 <div class="item_container">
                                     <span class="item_span">계약 일시</span>
                                     <div class="select_date">
-                                        <input type="date" required/>
+                                        <input type="date" name="contract_date" required/>
                                     </div>
                                     <span class="item_span">계약금</span>
                                     <div class="input_pay">
-                                        <input type="text" placeholder="계약금을 입력해주세요" required/>
+                                        <input type="text" name="contract_price" placeholder="계약금을 입력해주세요" required/>
                                     </div>
                                     <span class="item_span">계약서 업로드</span>
-                                    <input class="file" type="file" required/>
+                                    <input class="file" name="filename1" type="file" required/>
                                 </div>
                                 <div class="btn_container">
                                     <button type="submit"><span>완 료</span></button>
@@ -337,7 +338,7 @@
                         </form>
                     </div>
                     <div class="modal_container_non_fin" id="modal_container_non_fin<%=apply.get("Number")%>">
-                        <form method="post">
+                        <form method="post" action="_newTest_company_stop.jsp">
                             <div class="modal_box">
                                 <div class="item_container">
                                     <span class="item_span">중단 단계</span>
@@ -422,20 +423,19 @@
         modalNum = obj.id.slice(3);
         var modal = document.getElementById("modal_container_fin" + modalNum);
         modal.style.display = "flex"
-        location.href = "_newTest_company_change_state.jsp?companyNum="+"<%=s_id%>"+"&state=8&applyNum="+id;
+        //location.href = "_newTest_company_change_state.jsp?companyNum="+"<%=s_id%>"+"&state=8&applyNum="+id;
     }
     function close_modal(){
         var modal = document.getElementById("modal_container_fin" + modalNum);
         modal.style.display = "none"
     }
     function open_modal_non_fin(obj){
-        /*
+
         modalNum = obj.id.slice(4);
         var modal = document.getElementById("modal_container_non_fin" + modalNum);
         modal.style.display = "flex"
-         */
         var id = obj.getAttribute("id").substring(4);
-        location.href = "_newTest_company_change_state.jsp?companyNum="+"<%=s_id%>"+"&state=9&applyNum="+id;
+        //location.href = "_newTest_company_change_state.jsp?companyNum="+"<%=s_id%>"+"&state=9&applyNum="+id;
     }
     function close_modal_non_fin(){
         var modal = document.getElementById("modal_container_non_fin" + modalNum);
