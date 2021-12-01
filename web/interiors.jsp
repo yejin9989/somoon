@@ -253,7 +253,7 @@
         companyImgs = createEle("div", "company_imgs");
 
         //companyContainer.href = "https://somoonhouse.com/newindex.jsp?bdNm=" + comName;
-        companyContainer.href = "http://localhost:8091/somoonhouse_war_exploded/interior_info.jsp?id=" + index;
+        companyContainer.href = "interior_info.jsp?id=" + index;
         leftName.innerHTML = comName;
         leftAddr.innerHTML = "대구";
         titleSub.innerHTML = "상담 " + counseling + "건";
