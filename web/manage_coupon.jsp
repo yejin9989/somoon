@@ -50,7 +50,7 @@
     //모든 회사 불러오기
     query = "SELECT * " +
             "FROM COMPANY " +
-            "WHERE State = 1 ";
+            "WHERE State = 1 OR Id = 47";
     pstmt = conn.prepareStatement(query);
     rs = pstmt.executeQuery();
     HashMap<String, HashMap<String, String>> company_info = new HashMap<String, HashMap<String, String>>();
