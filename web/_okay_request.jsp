@@ -42,14 +42,13 @@
         }
         //확인
         //out.println(pstmt);
-        //풀리퀘할라고 추가한 주석임 -_-
-        sql = "update ASSIGNED set State = 1 where Apply_num = ? And State = 0";
-        pstmt = conn.prepareStatement(sql);
-        pstmt.setString(1, req_id);
+        //sql = "update ASSIGNED set State = 1 where Apply_num = ? And State = 0";
+        //pstmt = conn.prepareStatement(sql);
+        //pstmt.setString(1, req_id);
 
 
         if(error == 0){
-            pstmt.executeUpdate();
+            //pstmt.executeUpdate();
         }
         else{
         }

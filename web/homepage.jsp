@@ -77,13 +77,13 @@
             <div class="banner">
                 <div class="img_container" id="bannerParent">
                     <div class="turn before" onclick="bannerLeft()">
-                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow.png?raw=true" />
+                        <img src="https://somoonhouse.com/otherimg/assets/arrow.png?raw=true" />
                     </div>
                     <!-- a class="bannerBox" >
                         <img />
                     </a -->
                     <div class="turn after" onclick="bannerRight()">
-                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow.png?raw=true" />
+                        <img src="https://somoonhouse.com/otherimg/assets/arrow.png?raw=true" />
                     </div>
                 </div>
             </div>
@@ -97,37 +97,37 @@
                     <div class="slider" id="area_slider">
                         <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                             <div>
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
+                                <img src="https://somoonhouse.com/otherimg/assets/dog4.jpg?raw=true" />
                             </div>
                             <span>모던</span>
                         </a>
                         <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                             <div>
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
+                                <img src="https://somoonhouse.com/otherimg/assets/dog4.jpg?raw=true" />
                             </div>
                             <span>화이트</span>
                         </a>
                         <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                             <div>
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
+                                <img src="https://somoonhouse.com/otherimg/assets/dog4.jpg?raw=true" />
                             </div>
                             <span>침실</span>
                         </a>
                         <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                             <div>
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
+                                <img src="https://somoonhouse.com/otherimg/assets/dog4.jpg?raw=true" />
                             </div>
                             <span>화장실</span>
                         </a>
                         <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                             <div>
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
+                                <img src="https://somoonhouse.com/otherimg/assets/dog4.jpg?raw=true" />
                             </div>
                             <span>현관</span>
                         </a>
                         <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                             <div>
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog4.jpg?raw=true" />
+                                <img src="https://somoonhouse.com/otherimg/assets/dog4.jpg?raw=true" />
                             </div>
                             <span>베란다</span>
                         </a>
@@ -140,7 +140,7 @@
                     <div>
                         <a href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                             <span>자세히보기</span>
-                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow.png?raw=true" />
+                            <img src="https://somoonhouse.com/otherimg/assets/arrow.png?raw=true" />
                         </a>
                     </div>
                 </div>
@@ -148,8 +148,8 @@
                     <!--a href="https://github.com" class="partner_info_container">
                         <div class="box">
                             <div class="box_upper">
-                                <div class="imgBox"><img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" /></div>
-                                <div class="imgBox secondImg"><img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" /></div>
+                                <div class="imgBox"><img src="https://somoonhouse.com/otherimg/assets/dog1.jpg?raw=true" /></div>
+                                <div class="imgBox secondImg"><img src="https://somoonhouse.com/otherimg/assets/dog1.jpg?raw=true" /></div>
                             </div>
                             <div class="box_lower">
                                 <div class="txt fir">
@@ -161,11 +161,11 @@
                                 <div class="txt thr">
                                     <span class="title_sub">계약 3건 · 상담 12건</span>
                                     <div class="thr_img">
-                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star.png?raw=true" />
+                                        <img src="https://somoonhouse.com/otherimg/assets/star.png?raw=true" />
                                     </div>
                                     <span>4.8</span>
                                     <div class="thr_img">
-                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart2.png?raw=true" />
+                                        <img src="https://somoonhouse.com/otherimg/assets/heart2.png?raw=true" />
                                     </div>
                                     <span>177</span>
                                 </div>
@@ -185,11 +185,11 @@
                             <div class="top">
                                 <div class="star">
                                     <div class="block"></div>
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
-                                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true" />
+                                    <img src="https://somoonhouse.com/otherimg/assets/star2.png?raw=true" />
+                                    <img src="https://somoonhouse.com/otherimg/assets/star2.png?raw=true" />
+                                    <img src="https://somoonhouse.com/otherimg/assets/star2.png?raw=true" />
+                                    <img src="https://somoonhouse.com/otherimg/assets/star2.png?raw=true" />
+                                    <img src="https://somoonhouse.com/otherimg/assets/star2.png?raw=true" />
                                 </div>
                                 <span class="grade">4.5</span>
                             </div>
@@ -214,10 +214,10 @@
                     </div>
                     <div class="btn_container">
                         <div class="left" id="reviewLeftBtn">
-                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow.png?raw=true" />
+                            <img src="https://somoonhouse.com/otherimg/assets/arrow.png?raw=true" />
                         </div>
                         <div class="right" id="reviewRightBtn">
-                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow.png?raw=true" />
+                            <img src="https://somoonhouse.com/otherimg/assets/arrow.png?raw=true" />
                         </div>
                     </div>
                 </div>
@@ -229,14 +229,14 @@
                     </div>
                     <a class="right" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
                         <span>더보기</span>
-                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow.png?raw=true" />
+                        <img src="https://somoonhouse.com/otherimg/assets/arrow.png?raw=true" />
                     </a>
                 </div>
                 <div class="lower">
                     <div class="slider">
                         <a href="https://github.com" class="style_container">
                             <div class="box">
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog5.jpg?raw=true" />
+                                <img src="https://somoonhouse.com/otherimg/assets/dog5.jpg?raw=true" />
                             </div>
                             <div class="text">
                                 <div class="txt fir">
@@ -251,11 +251,11 @@
                                 <span class="txt sec">서변동 서변월드메르디앙</span>
                                 <div class="txt thr">
                                     <div class="thr_img">
-                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star.png?raw=true" />
+                                        <img src="https://somoonhouse.com/otherimg/assets/star.png?raw=true" />
                                     </div>
                                     <span>4.8</span>
                                     <div class="thr_img">
-                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart2.png?raw=true" />
+                                        <img src="https://somoonhouse.com/otherimg/assets/heart2.png?raw=true" />
                                     </div>
                                     <span>177</span>
                                 </div>
@@ -268,7 +268,7 @@
                         </a>
                         <a href="https://github.com" class="style_container">
                             <div class="box">
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog5.jpg?raw=true" />
+                                <img src="https://somoonhouse.com/otherimg/assets/dog5.jpg?raw=true" />
                             </div>
                             <div class="text">
                                 <div class="txt fir">
@@ -283,11 +283,11 @@
                                 <span class="txt sec">서변동 서변월드메르디앙</span>
                                 <div class="txt thr">
                                     <div class="thr_img">
-                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star.png?raw=true" />
+                                        <img src="https://somoonhouse.com/otherimg/assets/star.png?raw=true" />
                                     </div>
                                     <span>4.8</span>
                                     <div class="thr_img">
-                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart2.png?raw=true" />
+                                        <img src="https://somoonhouse.com/otherimg/assets/heart2.png?raw=true" />
                                     </div>
                                     <span>177</span>
                                 </div>
@@ -300,7 +300,7 @@
                         </a>
                         <a href="https://github.com" class="style_container">
                             <div class="box">
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog5.jpg?raw=true" />
+                                <img src="https://somoonhouse.com/otherimg/assets/dog5.jpg?raw=true" />
                             </div>
                             <div class="text">
                                 <div class="txt fir">
@@ -315,11 +315,11 @@
                                 <span class="txt sec">서변동 서변월드메르디앙</span>
                                 <div class="txt thr">
                                     <div class="thr_img">
-                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star.png?raw=true" />
+                                        <img src="https://somoonhouse.com/otherimg/assets/star.png?raw=true" />
                                     </div>
                                     <span>4.8</span>
                                     <div class="thr_img">
-                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart2.png?raw=true" />
+                                        <img src="https://somoonhouse.com/otherimg/assets/heart2.png?raw=true" />
                                     </div>
                                     <span>177</span>
                                 </div>
@@ -332,7 +332,7 @@
                         </a>
                         <a href="https://github.com" class="style_container">
                             <div class="box">
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog5.jpg?raw=true" />
+                                <img src="https://somoonhouse.com/otherimg/assets/dog5.jpg?raw=true" />
                             </div>
                             <div class="text">
                                 <div class="txt fir">
@@ -347,11 +347,11 @@
                                 <span class="txt sec">서변동 서변월드메르디앙</span>
                                 <div class="txt thr">
                                     <div class="thr_img">
-                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star.png?raw=true" />
+                                        <img src="https://somoonhouse.com/otherimg/assets/star.png?raw=true" />
                                     </div>
                                     <span>4.8</span>
                                     <div class="thr_img">
-                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart2.png?raw=true" />
+                                        <img src="https://somoonhouse.com/otherimg/assets/heart2.png?raw=true" />
                                     </div>
                                     <span>177</span>
                                 </div>
@@ -364,7 +364,7 @@
                         </a>
                         <a href="https://github.com" class="style_container">
                             <div class="box">
-                                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog5.jpg?raw=true" />
+                                <img src="https://somoonhouse.com/otherimg/assets/dog5.jpg?raw=true" />
                             </div>
                             <div class="text">
                                 <div class="txt fir">
@@ -379,11 +379,11 @@
                                 <span class="txt sec">서변동 서변월드메르디앙</span>
                                 <div class="txt thr">
                                     <div class="thr_img">
-                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/star.png?raw=true" />
+                                        <img src="https://somoonhouse.com/otherimg/assets/star.png?raw=true" />
                                     </div>
                                     <span>4.8</span>
                                     <div class="thr_img">
-                                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart2.png?raw=true" />
+                                        <img src="https://somoonhouse.com/otherimg/assets/heart2.png?raw=true" />
                                     </div>
                                     <span>177</span>
                                 </div>
@@ -405,12 +405,12 @@
                     <div class="text_lower">
                         <span class="lower_text">무료 견적 받으러 가기</span>
                         <div class="lower_img">
-                            <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/arrow2.png?raw=true" />
+                            <img src="https://somoonhouse.com/otherimg/assets/arrow2.png?raw=true" />
                         </div>
                     </div>
                 </div>
                 <div class="free_img">
-                    <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/chat.png?raw=true" />
+                    <img src="https://somoonhouse.com/otherimg/assets/chat.png?raw=true" />
                 </div>
             </a>
         </div>
@@ -418,7 +418,7 @@
             <div class="insta">
                 <div class="title">
                     <div class="icon">
-                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/insta.png?raw=true" />
+                        <img src="https://somoonhouse.com/otherimg/assets/insta.png?raw=true" />
                     </div>
                     <span>somoonhouse_official</span>
                 </div>
@@ -426,7 +426,7 @@
                 <div class="follow">
                     <div class="follow_img">
                         <img
-                                src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/heart4.png?raw=true" />
+                                src="https://somoonhouse.com/otherimg/assets/heart4.png?raw=true" />
                     </div>
                     <span>1.3K</span>
                 </div>
@@ -446,7 +446,7 @@
         </div>
         <a class="findA" href="https://somoonhouse.com/banner1.jsp?id=3">
             <div class="find">
-                <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/with.png?raw=true" />
+                <img src="https://somoonhouse.com/otherimg/assets/with.png?raw=true" />
             </div>
         </a>
     </div>
@@ -672,7 +672,7 @@
         starDiv.appendChild(starBlock);
         for(let i = 0; i < 5; i++){
             let starImg = createEle("img");
-            starImg.src = "https://github.com/Yoonlang/web-programming/blob/master/html/assets/star2.png?raw=true";
+            starImg.src = "https://somoonhouse.com/otherimg/assets/star2.png?raw=true";
             starDiv.appendChild(starImg);
         }
         reviewBoxTop.appendChild(grade);
@@ -715,8 +715,7 @@
             firSub = createEle("span", "fir_sub");
             firSub.innerHTML = "A/S " + war + "년";
         }
-
-        partnerInfoContainer.href = "https://somoonhouse.com/newindex.jsp?bdNm=" + comName;
+        partnerInfoContainer.href = "https://somoonhouse.com/interior_info.jsp?id=" + prop.id;
         firTitle.innerHTML = comName;
         thrTitleSub.innerHTML = "상담 " + counseling + "건";
         upperFirstImg.src = img1;
@@ -747,16 +746,16 @@
             headers: {
             }
         })
-            .then((res) => {
-                return res.json();
-            })
-            .then((res) => {
-                companyData = res;
-                makeHomepageCompanyInfo();
-            })
-            .catch((err) => {
-                console.log(err);
-            })
+        .then((res) => {
+            return res.json();
+        })
+        .then((res) => {
+            companyData = res;
+            makeHomepageCompanyInfo();
+        })
+        .catch((err) => {
+            console.log(err);
+        })
     }
 
     let companyCount = 0;

@@ -80,12 +80,12 @@
                 <a href="newTestPartnerNew.jsp" target="_self"> <!--style 해제 해주어야함-->
                     <div class="img_container">
                         <img class="cart"
-                             src="https://somoonhouse.com/otherimg/assets/cart2.png?raw=true" />
+                             src="https://somoonhouse.com/otherimg/assets/cart3.png?raw=true" />
                     </div>
                 </a>
                 <a href="newTestPartnerOld.jsp" target="_self">
                     <div class="img_container">
-                        <img class="graph" src="https://somoonhouse.com/otherimg/assets/graph2.png?raw=true" />
+                        <img class="graph" src="https://somoonhouse.com/otherimg/assets/ticket.png?raw=true" />
                     </div>
                 </a>
                 <div class="img_container" id="menu_slide" onclick="slide()">

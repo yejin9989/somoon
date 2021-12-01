@@ -234,7 +234,7 @@
 
     */
 
-    const makeInteriorsCompanyInfoBox = (prop) => {
+    const makeInteriorsCompanyInfoBox = (prop, index) => {
         let interiorsContainer = document.getElementById("interior_body"),
             companyContainer, companyText, companyTextLeft,
             leftName, leftAddr, titleSub, companyImgs;
@@ -252,7 +252,8 @@
         titleSub = createEle("span", "title_sub");
         companyImgs = createEle("div", "company_imgs");
 
-        companyContainer.href = "https://somoonhouse.com/newindex.jsp?bdNm=" + comName;
+        //companyContainer.href = "https://somoonhouse.com/newindex.jsp?bdNm=" + comName;
+        companyContainer.href = "http://localhost:8091/somoonhouse_war_exploded/interior_info.jsp?id=" + index;
         leftName.innerHTML = comName;
         leftAddr.innerHTML = "대구";
         titleSub.innerHTML = "상담 " + counseling + "건";
@@ -293,7 +294,7 @@
 
     const makeInteriorsCompanyInfo = () => {
         for(let i = 0; i < companyData.length; i++){
-            makeInteriorsCompanyInfoBox(companyData[i]);
+            makeInteriorsCompanyInfoBox(companyData[i], i);
         }
     }
     getCompanyData();

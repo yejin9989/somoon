@@ -53,6 +53,7 @@
     query = "SELECT distinct Apply_date FROM ASSIGNED A, REMODELING_APPLY R";
     query += " WHERE A.Company_num = " + s_id;
     query += " And R.Number = A.Apply_num";
+    query += " And R.State != 5"; // 관리자 삭제건은 보이지 않도록
     query += " And A.State = 0"; // 탭에따라 이 쿼리 바꾸어주기
     pstmt = conn.prepareStatement(query);
     rs = pstmt.executeQuery();
@@ -105,11 +106,11 @@
             temp.put("Budget", rs2.getString("R.Budget"));
             temp.put("Consulting", rs2.getString("R.Consulting"));
             temp.put("Apply_date", rs2.getString("R.Apply_date"));
-            temp.put("State", rs2.getString("R.State"));
+            temp.put("rState", rs2.getString("R.State"));
             temp.put("Calling", rs2.getString("R.Calling"));
             temp.put("Pw", rs2.getString("R.Pw"));
             temp.put("Assigned_time", rs2.getString("R.Assigned_time"));
-            temp.put("State", rs2.getString("A.State"));
+            temp.put("aState", rs2.getString("A.State"));
             temp.put("Assigned_id", rs2.getString("A.Assigned_id"));
             temp.put("Memo", rs2.getString("A.Memo"));
             temp.put("Modify_date", rs2.getString("A.Modify_date"));
@@ -187,10 +188,10 @@
                             -->
                         </div>
                         <div class="under_container">
-                            <a href="#" target="_self" class="accept" id="<%=apply.get("Number")%>">
+                            <a href="#" target="_self" class="accept rState-<%=apply.get("rState")%> aState-<%=apply.get("aState")%>" id="<%=apply.get("Number")%>">
                                 <div class="side_container">
                                     <div class="img_container">
-                                        <img src="https://somoonhouse.com/otherimg/assets/distri.png?raw=true" />
+                                        <img src="https://somoonhouse.com/otherimg/assets/check8.png?raw=true" />
                                     </div>
                                     <div class="text_container distri">
                                         <span>수락</span>
@@ -200,7 +201,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="#" target="_self" class="accept" id="<%=apply.get("Number")%>">
+                            <a href="#" target="_self" class="refuse rState-<%=apply.get("rState")%> aState-<%=apply.get("aState")%>" id="<%=apply.get("Number")%>%>">
                                 <div class="side_container">
                                     <div class="img_container">
                                         <img src="https://somoonhouse.com/otherimg/assets/cancle.png?raw=true" />
@@ -234,8 +235,14 @@
     }
     $('.accept').click(function(){
         const id = $(this).attr("id");
+        const rState = $(this)[0].classList[1].replace("rState-", "");
+        const aState = $(this)[0].classList[2].replace("aState-", "");
+
         if( $('#timer'+id).text() == "시간종료"){
             alert("제한시간 내에 수락하지 않아 해당 신청건은 받으실 수 없습니다.");
+        }
+        else if(rState == "3"){
+            alert("선착순 마감된 상담건입니다.")
         }
         else {
             location.href = "_newTest_company_accept.jsp?companyNum=" + "<%=s_id%>" + "&applyNum=" + id;

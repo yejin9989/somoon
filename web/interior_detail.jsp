@@ -61,7 +61,7 @@
 <head>
     <link rel="SHORTCUT ICON" href="https://somoonhouse.com/img/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/interior_info.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/interior_detail.css"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <title>소문난집</title>
@@ -69,38 +69,31 @@
 <body>
 <jsp:include page="/homepage_pc_header.jsp" flush="false" />
 <jsp:include page="/homepage_mob_header.jsp" flush="false" />
+<!-- 상단 사진 -->
+<div class="interior_detail_main_img" id="interior_detail_main_img">
+
+</div>
 <div class="body_container">
-    <div class="interior_info_box">
-        <div class="background">
-            <img id="info_img" />
-        </div>
+    <!-- 내용 설명 -->
+    <div class="interior_detail_info">
         <div class="info_title" id="info_title">
             <span class="title_name" id="title_name"><span class="title_sub" id="title_sub"></span></span>
             <span class="title_submit"><a href="https://somoonhouse.com/remodeling_form.jsp?item_num=0">상담 신청</a></span>
         </div>
-        <div class="info_title_block" id="info_title_block"></div>
-        <div class="detail" id="info_title_detail">
-            <!--div class="info">
-                <div class="title">대표자</div>
-                <div class="sub">임재한</div>
-            </div>
-            <div class="info">
-                <div class="title">경력</div>
-                <div class="sub">200년</div>
-            </div>
-            <div class="info">
-                <div class="title">주소</div>
-                <div class="sub addr">대구 북구 대현로 19길 54 가나다라마바사가나다라마바사가나다라마바사가나다라마바사</div>
-            </div-->
-        </div>
+        <div class="main_title" id="main_title"></div>
+        <div class="info_detail" id="info_detail_detail"></div>
     </div>
-    <!-- 각 업체별 사례 -->
-    <div class="interior_info_case">
+
+    <!-- 사진들 -->
+    <div class="interior_detail_imgs" id="interior_detail_imgs"></div>
+
+    <!-- 이 디자이너의 다른 것들 -->
+    <div class="interior_detail_case">
         <div class="upper">
-            <span>시공 사례</span>
+            <span id="case_upper_span">의 다른 시공 사례</span>
         </div>
         <div class="lower">
-            <div class="slider" id="interior_info_case_slider">
+            <div class="slider" id="interior_detail_case_slider">
                 <!-- a href="https://github.com" class="case_container">
                     <div class="box">
                         <div class="box_upper">
@@ -115,69 +108,8 @@
             </div>
         </div>
     </div>
-    <!-- 후기 : 후기 페이지에 있는 거 가져오기 -->
-    <!--div class="interior_info_review">
-        <div class="reviewUpperTextContainer"><span>고객 후기</span></div>
-        <div class="reviewBoxContainer">
-            <div class="reviewBox">
-                <div class="upper">
-                    <span class="num">4.9</span>
-                    <div class="infoDiv">
-                        <span class="info">김○○님</span>
-                    </div>
-                </div>
-                <div class="imgs">
-                    <div>
-                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" />
-                    </div>
-                    <div>
-                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog2.jpg?raw=true" />
-                    </div>
-                    <div>
-                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat1.jpg?raw=true" />
-                    </div>
-                    <div class="lastImg"></div>
-                </div>
-                <div class="text">
-                <span>
-                    이번에 로또 1등 당첨 되면서 집을 보러 가게 됐는데
-                    인테리어가 마음에 안들어서 OROKOS 인테리어에 맡겼는데
-                    일 정말 잘하더라고요~~! 여기 강추합니다! 대박.
-                </span>
-                </div>
-            </div>
-            <div class="reviewBox">
-                <div class="upper">
-                    <span class="num">4.9</span>
-                    <div class="infoDiv">
-                        <span class="info">김○○님</span>
-                    </div>
-                </div>
-                <div class="imgs">
-                    <div>
-                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog1.jpg?raw=true" />
-                    </div>
-                    <div>
-                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/dog2.jpg?raw=true" />
-                    </div>
-                    <div>
-                        <img src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat1.jpg?raw=true" />
-                    </div>
-                    <div class="lastImg"></div>
-                </div>
-                <div class="text">
-                <span>
-                    이번에 로또 1등 당첨 되면서 집을 보러 가게 됐는데
-                    인테리어가 마음에 안들어서 OROKOS 인테리어에 맡겼는데
-                    일 정말 잘하더라고요~~! 여기 강추합니다! 대박.
-                </span>
-                </div>
-            </div>
-        </div>
-    </div-->
 </div>
 <jsp:include page="/newTestFooter.jsp" flush="false" />
-
 <%
     if(pstmt != null) {
         pstmt.close();
@@ -197,11 +129,6 @@
     gtag('config', 'G-PC15JG6KGN');
 </script>
 <script>
-    const createEle = (sortOfElement, className) => {
-        let nameOfElement = document.createElement(sortOfElement);
-        if (className !== undefined) nameOfElement.className = className;
-        return nameOfElement;
-    }
     /*
     const info_title = document.getElementById("info_title");
     const info_title_block = document.getElementById("info_title_block");
@@ -228,40 +155,64 @@
         }
     }
     */
+    const createEle = (sortOfElement, className) => {
+        let nameOfElement = document.createElement(sortOfElement);
+        if (className !== undefined) nameOfElement.className = className;
+        return nameOfElement;
+    }
 
     const url = location.href,
         urlPos = url.indexOf("?"),
+        urlAndPos = url.indexOf("&"),
         urlSub = url.substr(urlPos);
-        comID = urlPos >= 0 ? urlSub.substr(4) : "0";
+        comID = urlPos >= 0 ? url.substr(urlPos).substr(4, urlAndPos - urlPos - 4) : "0",
+        caseID = urlPos >= 0 ? url.substr(urlAndPos).substr(5) : "0";
 
-    const getTargetCompanyData = async () => {
-        const targetCompanyDataUrl = "https://somunbackend.com/auth-non/company/represent/" + comID;
-        await fetch(targetCompanyDataUrl, {
+    const getCompanyData = async () => {
+        await fetch("https://somunbackend.com/auth-non/company/represent/" + comID, {
             method: "GET",
-            headers: {}
+            headers: {
+            }
         })
         .then((res) => {
             return res.json();
         })
         .then((res) => {
-            makeTitle(res);
+            makeDetailPage(res);
         })
         .catch((err) => {
             console.log(err);
         })
     }
-    getTargetCompanyData();
+    getCompanyData();
 
-    const makeTitle = (data) => {
-        const titleName = document.getElementById("title_name"),
-            titleSub = document.getElementById("title_sub"),
-            infoImg = document.getElementById("info_img"),
-            titleDetail = document.getElementById("info_title_detail");
-        titleName.innerHTML = data[0].name;
-        if(data[0].counseling != 0){
-            titleSub.innerHTML = "상담 " + data[0].counseling + "건";
-        }
-        infoImg.src = data[0].represent_img1;
+    const getTargetCompanyCaseData = async () => {
+        const targetCompanyCaseDataUrl = "https://somunbackend.com/auth-non/remodeling/company/" + comID;
+        await fetch(targetCompanyCaseDataUrl, {
+            method: "GET",
+            headers: {}
+        })
+            .then((res) => {
+                return res.json();
+            })
+            .then((res) => {
+                makeCaseImages(res[caseID]);
+                makeCaseBoxes(res);
+                makeMoreDetailPage(res);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }
+    getTargetCompanyCaseData();
+
+    const makeMoreDetailPage = (data) => {
+        const mainTitle = document.getElementById("main_title"),
+            infoDetail = document.getElementById("info_detail_detail");
+        mainTitle.innerHTML = data[caseID].title;
+        document.styleSheets[1].addRule('.interior_detail_main_img:after', 'background-image: url(' +
+            data[caseID].remodeling_imgs[0].img_path + ');');
+
 
         const makeDetail = (titleStr, subStr) => {
             let infoDiv, titleDiv, subDiv;
@@ -272,42 +223,37 @@
             subDiv.innerHTML = subStr;
             infoDiv.appendChild(titleDiv);
             infoDiv.appendChild(subDiv);
-            titleDetail.appendChild(infoDiv);
+            infoDetail.appendChild(infoDiv);
         }
-        if(data[0].owner_name != null){
-            makeDetail("대표자", data[0].owner_name);
+
+        makeDetail("아파트명", data[caseID].apartment_name);
+        if(data[caseID].area != 0){
+            makeDetail("평수", data[caseID].area + "평");
+
         }
-        if(data[0].address != null){
-            makeDetail("주소", data[0].address);
-        }
+
+
     }
 
-    const getTargetCompanyCaseData = async () => {
-        const targetCompanyCaseDataUrl = "https://somunbackend.com/auth-non/remodeling/company/" + comID;
-        await fetch(targetCompanyCaseDataUrl, {
-            method: "GET",
-            headers: {}
-        })
-        .then((res) => {
-            return res.json();
-        })
-        .then((res) => {
-            makeCaseBoxes(res);
-        })
-        .catch((err) => {
-            console.log(err);
-        })
+    const makeCaseImages = (data) => {
+        let detailImages = document.getElementById("interior_detail_imgs");
+        for(let i = 0; i < data.remodeling_imgs.length; i++){
+            let caseImage = createEle("img");
+            caseImage.src = data.remodeling_imgs[i].img_path;
+            detailImages.appendChild(caseImage);
+        }
+
     }
-    getTargetCompanyCaseData();
 
     const makeCaseBoxes = (data) => {
         for(let i = 0; i < 5; i++){
+            if(i + "" === caseID) continue;
             makeCaseBox(data[i], i);
         }
     }
 
     const makeCaseBox = (data, index) => {
-        let  infoCaseSlider = document.getElementById("interior_info_case_slider"),
+        let  infoCaseSlider = document.getElementById("interior_detail_case_slider"),
             caseContainer, caseBox, boxUpper, boxLower, upperImg,
             lowerTitle, lowerSub;
 
@@ -319,7 +265,8 @@
         lowerTitle = createEle("span", "title");
         lowerSub = createEle("span", "sub");
 
-        caseContainer.href = "https://somoonhouse.com/interior_detail.jsp" + urlSub + "&cid=" + index;
+        caseContainer.href = "https://somoonhouse.com/interior_detail.jsp?id=" + comID +
+            "&cid=" + index;
         upperImg.src = data.remodeling_imgs[0].img_path;
         lowerTitle.innerHTML = data.apartment_name;
         const caseArea = data.area;
@@ -337,6 +284,17 @@
         caseContainer.appendChild(caseBox);
         infoCaseSlider.appendChild(caseContainer);
     }
+
+    const makeDetailPage = (data) => {
+        const caseUpperSpan = document.getElementById("case_upper_span"),
+            titleName = document.getElementById("title_name");
+        caseUpperSpan.innerHTML = data[0].name + "의 다른 시공 사례";
+        titleName.innerHTML = data[0].name;
+        titleName.onclick = () => {
+            location.href="https://somoonhouse.com/interior_info.jsp?id=" + comID;
+        }
+    }
+
 </script>
 </body>
 </html>
