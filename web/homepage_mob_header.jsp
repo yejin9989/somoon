@@ -91,7 +91,7 @@
                 <span id="area_span">지역별 인테리어</span>
                 <div id="area_div">
                     <a href="https://somoonhouse.com/newindex.jsp?Daegu=141"><span>중구</span></a>
-                    <a href="https://somoonhouse.com/newindex.jsp?Daegu=142"><span>동구</span></a>
+                    <a href="https://somoonhous bcom/newindex.jsp?Daegu=142"><span>동구</span></a>
                     <a href="https://somoonhouse.com/newindex.jsp?Daegu=143"><span>서구</span></a>
                     <a href="https://somoonhouse.com/newindex.jsp?Daegu=144"><span>남구</span></a>
                     <a href="https://somoonhouse.com/newindex.jsp?Daegu=145"><span>북구</span></a>
