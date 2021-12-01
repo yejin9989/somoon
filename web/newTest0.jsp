@@ -190,7 +190,7 @@
                             <a href="#" target="_self" class="accept" id="<%=apply.get("Number")%>">
                                 <div class="side_container">
                                     <div class="img_container">
-                                        <img src="https://somoonhouse.com/otherimg/assets/distri.png?raw=true" />
+                                        <img src="https://somoonhouse.com/otherimg/assets/check8.png?raw=true" />
                                     </div>
                                     <div class="text_container distri">
                                         <span>수락</span>

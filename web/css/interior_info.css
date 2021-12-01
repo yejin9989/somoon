@@ -46,9 +46,9 @@ body{
     margin-left: 15px;
     font-weight: 500;
 }
-.interior_info_box .info_title .title_submit{
-    font-size: 15px;
-    font-weight: 520;
+.interior_info_box .info_title .title_submit a{
+    text-decoration: none;
+    color: #000;
 }
 @media (min-width: 701px){
     .interior_info_box{
@@ -109,18 +109,21 @@ body{
         border-color: #eeeef1;
         overflow: hidden;
     }
+    .interior_info_box .info_title .title_name{
+        font-size: 15px;
+    }
     .interior_info_box .info_title .title_sub{
         font-size: 12px;
+    }
+    .interior_info_box .info_title .title_submit{
+        font-size: 13px;
+        font-weight: 510;
     }
     .interior_info_box .detail{
         width: 100%;
         height: 100%;
     }
 }
-
-
-
-
 
 .detail{
     display: flex;

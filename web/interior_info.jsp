@@ -76,11 +76,11 @@
         </div>
         <div class="info_title" id="info_title">
             <span class="title_name" id="title_name"><span class="title_sub" id="title_sub"></span></span>
-            <span class="title_submit">상담 신청</span>
+            <span class="title_submit"><a href="https://somoonhouse.com/remodeling_form.jsp?item_num=0">상담 신청</a></span>
         </div>
         <div class="info_title_block" id="info_title_block"></div>
-        <div class="detail">
-            <div class="info">
+        <div class="detail" id="info_title_detail">
+            <!--div class="info">
                 <div class="title">대표자</div>
                 <div class="sub">임재한</div>
             </div>
@@ -91,7 +91,7 @@
             <div class="info">
                 <div class="title">주소</div>
                 <div class="sub addr">대구 북구 대현로 19길 54 가나다라마바사가나다라마바사가나다라마바사가나다라마바사</div>
-            </div>
+            </div-->
         </div>
     </div>
     <!-- 각 업체별 사례 -->
@@ -255,12 +255,31 @@
     const makeTitle = (data) => {
         const titleName = document.getElementById("title_name"),
             titleSub = document.getElementById("title_sub"),
-            infoImg = document.getElementById("info_img");
+            infoImg = document.getElementById("info_img"),
+            titleDetail = document.getElementById("info_title_detail");
         titleName.innerHTML = data[0].name;
         if(data[0].counseling != 0){
             titleSub.innerHTML = "상담 " + data[0].counseling + "건";
         }
         infoImg.src = data[0].represent_img1;
+
+        const makeDetail = (titleStr, subStr) => {
+            let infoDiv, titleDiv, subDiv;
+            infoDiv = createEle("div", "info");
+            titleDiv = createEle("div", "title");
+            subDiv = createEle("div", "sub");
+            titleDiv.innerHTML = titleStr;
+            subDiv.innerHTML = subStr;
+            infoDiv.appendChild(titleDiv);
+            infoDiv.appendChild(subDiv);
+            titleDetail.appendChild(infoDiv);
+        }
+        if(data[0].owner_name != null){
+            makeDetail("대표자", data[0].owner_name);
+        }
+        if(data[0].address != null){
+            makeDetail("주소", data[0].address);
+        }
     }
 
     const getTargetCompanyCaseData = async () => {
@@ -300,13 +319,13 @@
         lowerTitle = createEle("span", "title");
         lowerSub = createEle("span", "sub");
 
-        caseContainer.href = "http://localhost:8091/somoonhouse_war_exploded/interior_detail.jsp" + urlSub + "&cid=" + index;
+        caseContainer.href = "https://somoonhouse.com/interior_detail.jsp" + urlSub + "&cid=" + index;
         upperImg.src = data.remodeling_imgs[0].img_path;
         lowerTitle.innerHTML = data.apartment_name;
-        let tempString = data.title.substr(data.title.length - 3, 3);
+        const caseArea = data.area;
         let lowerSubString = "아파트 ";
-        if(tempString[2] === "평"){
-            lowerSubString += "| " + tempString;
+        if(caseArea != 0){
+            lowerSubString += "| " + caseArea + "평";
         }
         lowerSub.innerHTML = lowerSubString;
 

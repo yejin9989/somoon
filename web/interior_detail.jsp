@@ -70,11 +70,19 @@
 <jsp:include page="/homepage_pc_header.jsp" flush="false" />
 <jsp:include page="/homepage_mob_header.jsp" flush="false" />
 <!-- 상단 사진 -->
-<div class="interior_detail_main_img" id="abcd">
+<div class="interior_detail_main_img" id="interior_detail_main_img">
+
 </div>
 <div class="body_container">
     <!-- 내용 설명 -->
-    <div></div>
+    <div class="interior_detail_info">
+        <div class="info_title" id="info_title">
+            <span class="title_name" id="title_name"><span class="title_sub" id="title_sub"></span></span>
+            <span class="title_submit"><a href="https://somoonhouse.com/remodeling_form.jsp?item_num=0">상담 신청</a></span>
+        </div>
+        <div class="main_title" id="main_title"></div>
+        <div class="info_detail" id="info_detail_detail"></div>
+    </div>
 
     <!-- 사진들 -->
     <div class="interior_detail_imgs" id="interior_detail_imgs"></div>
@@ -152,6 +160,7 @@
         if (className !== undefined) nameOfElement.className = className;
         return nameOfElement;
     }
+
     const url = location.href,
         urlPos = url.indexOf("?"),
         urlAndPos = url.indexOf("&"),
@@ -189,6 +198,7 @@
             .then((res) => {
                 makeCaseImages(res[caseID]);
                 makeCaseBoxes(res);
+                makeMoreDetailPage(res);
             })
             .catch((err) => {
                 console.log(err);
@@ -196,8 +206,36 @@
     }
     getTargetCompanyCaseData();
 
+    const makeMoreDetailPage = (data) => {
+        const mainTitle = document.getElementById("main_title"),
+            infoDetail = document.getElementById("info_detail_detail");
+        mainTitle.innerHTML = data[caseID].title;
+        document.styleSheets[1].addRule('.interior_detail_main_img:after', 'background-image: url(' +
+            data[caseID].remodeling_imgs[0].img_path + ');');
+
+
+        const makeDetail = (titleStr, subStr) => {
+            let infoDiv, titleDiv, subDiv;
+            infoDiv = createEle("div", "info");
+            titleDiv = createEle("div", "title");
+            subDiv = createEle("div", "sub");
+            titleDiv.innerHTML = titleStr;
+            subDiv.innerHTML = subStr;
+            infoDiv.appendChild(titleDiv);
+            infoDiv.appendChild(subDiv);
+            infoDetail.appendChild(infoDiv);
+        }
+
+        makeDetail("아파트명", data[caseID].apartment_name);
+        if(data[caseID].area != 0){
+            makeDetail("평수", data[caseID].area + "평");
+
+        }
+
+
+    }
+
     const makeCaseImages = (data) => {
-        console.log(data);
         let detailImages = document.getElementById("interior_detail_imgs");
         for(let i = 0; i < data.remodeling_imgs.length; i++){
             let caseImage = createEle("img");
@@ -227,13 +265,14 @@
         lowerTitle = createEle("span", "title");
         lowerSub = createEle("span", "sub");
 
-        caseContainer.href = "http://localhost:8091/somoonhouse_war_exploded/interior_detail.jsp" + urlSub + "&cid=" + index;
+        caseContainer.href = "https://somoonhouse.com/interior_detail.jsp?id=" + comID +
+            "&cid=" + index;
         upperImg.src = data.remodeling_imgs[0].img_path;
         lowerTitle.innerHTML = data.apartment_name;
-        let tempString = data.title.substr(data.title.length - 3, 3);
+        const caseArea = data.area;
         let lowerSubString = "아파트 ";
-        if(tempString[2] === "평"){
-            lowerSubString += "| " + tempString;
+        if(caseArea != 0){
+            lowerSubString += "| " + caseArea + "평";
         }
         lowerSub.innerHTML = lowerSubString;
 
@@ -247,14 +286,13 @@
     }
 
     const makeDetailPage = (data) => {
-        const caseUpperSpan = document.getElementById("case_upper_span");
+        const caseUpperSpan = document.getElementById("case_upper_span"),
+            titleName = document.getElementById("title_name");
         caseUpperSpan.innerHTML = data[0].name + "의 다른 시공 사례";
-        const mainImg = document.getElementById("abcd");
-        console.log(mainImg);
-        console.log(data);
-        document.styleSheets[1].addRule('.interior_detail_main_img:after', 'background-image: url(' +
-            data[0].represent_img1 + ');');
-        // 해결하긴 했는데 젤 메인에 회사 대표 사진이 들어가는게 맞나?
+        titleName.innerHTML = data[0].name;
+        titleName.onclick = () => {
+            location.href="https://somoonhouse.com/interior_info.jsp?id=" + comID;
+        }
     }
 
 </script>

@@ -684,7 +684,7 @@
         reviewUnder.appendChild(coms);
     }
 
-    const makeHomepageCompanyInfoBox = (prop, index) => {
+    const makeHomepageCompanyInfoBox = (prop) => {
         let partnerContainer = document.getElementById("partner_info_lower"),
             partnerInfoContainer, partnerInfoBox,
             boxUpper, boxLower, upperFirstImgBox, upperFirstImg,
@@ -715,9 +715,7 @@
             firSub = createEle("span", "fir_sub");
             firSub.innerHTML = "A/S " + war + "년";
         }
-        //partnerInfoContainer.href = "https://somoonhouse.com/newindex.jsp?bdNm=" + comName;
-        partnerInfoContainer.href = "http://localhost:8091/somoonhouse_war_exploded/interior_info.jsp?id=" + index;
-        // "https://somoonhouse.com/interior_info.jsp?id=" + index;
+        partnerInfoContainer.href = "https://somoonhouse.com/interior_info.jsp?id=" + prop.id;
         firTitle.innerHTML = comName;
         thrTitleSub.innerHTML = "상담 " + counseling + "건";
         upperFirstImg.src = img1;
@@ -763,7 +761,7 @@
     let companyCount = 0;
     const makeHomepageCompanyInfo = () => {
         for(let i = companyCount; i < companyCount + 8; i++){
-            makeHomepageCompanyInfoBox(companyData[i], i);
+            makeHomepageCompanyInfoBox(companyData[i]);
         }
         companyCount += 8;
     }
@@ -775,7 +773,7 @@
                 infoBtn.style.display = "none";
                 break;
             }
-            makeHomepageCompanyInfoBox(companyData[i], i);
+            makeHomepageCompanyInfoBox(companyData[i]);
         }
         companyCount += 4;
     }
