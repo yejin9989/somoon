@@ -210,8 +210,9 @@
         const mainTitle = document.getElementById("main_title"),
             infoDetail = document.getElementById("info_detail_detail");
         mainTitle.innerHTML = data[caseID].title;
-        document.styleSheets[1].addRule('.interior_detail_main_img:after', 'background-image: url(' +
-            data[caseID].remodeling_imgs[0].img_path + ');');
+        const mainImgUrl = data[caseID].remodeling_imgs[0].img_path.replaceAll('(', '%28').replaceAll(')', '%29');
+            document.styleSheets[1].addRule('.interior_detail_main_img:after',
+                'background-image: url(' + mainImgUrl + ');');
 
         const makeDetail = (titleStr, subStr) => {
             let infoDiv, titleDiv, subDiv;
