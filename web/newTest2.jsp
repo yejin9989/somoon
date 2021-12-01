@@ -54,6 +54,7 @@
     query = "SELECT distinct Apply_date FROM ASSIGNED A, REMODELING_APPLY R";
     query += " WHERE A.Company_num = " + s_id;
     query += " And R.Number = A.Apply_num";
+    query += " And R.State != 5"; // 관리자 삭제건은 보이지 않도록
     query += " And A.State > 8"; // 탭에따라 이 쿼리 바꾸어주기
     pstmt = conn.prepareStatement(query);
     rs = pstmt.executeQuery();
