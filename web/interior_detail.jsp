@@ -213,7 +213,6 @@
         document.styleSheets[1].addRule('.interior_detail_main_img:after', 'background-image: url(' +
             data[caseID].remodeling_imgs[0].img_path + ');');
 
-
         const makeDetail = (titleStr, subStr) => {
             let infoDiv, titleDiv, subDiv;
             infoDiv = createEle("div", "info");
@@ -248,6 +247,7 @@
     const makeCaseBoxes = (data) => {
         for(let i = 0; i < 5; i++){
             if(i + "" === caseID) continue;
+            if(data[i] === undefined) continue;
             makeCaseBox(data[i], i);
         }
     }
