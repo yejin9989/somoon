@@ -201,7 +201,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="#" target="_self" class="refuse rState-<%=apply.get("rState")%> aState-<%=apply.get("aState")%>" id="<%=apply.get("Number")%>%>">
+                            <a href="#" target="_self" class="refuse rState-<%=apply.get("rState")%> aState-<%=apply.get("aState")%>" id="<%=apply.get("Number")%>">
                                 <div class="side_container">
                                     <div class="img_container">
                                         <img src="https://somoonhouse.com/otherimg/assets/cancle.png?raw=true" />
@@ -250,6 +250,9 @@
     })
     $('.refuse').click(function(){
         const id = $(this).attr("id");
+        const rState = $(this)[0].classList[1].replace("rState-", "");
+        const aState = $(this)[0].classList[2].replace("aState-", "");
+
         location.href = "_newTest_company_refuse.jsp?companyNum="+"<%=s_id%>"+"&applyNum="+id;
     })
 </script>
