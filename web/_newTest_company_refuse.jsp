@@ -43,7 +43,6 @@
     <title>소문난집</title>
 </head>
 <body>
-<%=pstmt%>
 <%
 
     if(pstmt != null) {
@@ -58,9 +57,8 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
 <script>
-    //새 스크립트 작성
-    //window.close();
-
+        alert('거절되었습니다.');
+        location.href = "newTest0.jsp";
 </script>
 </body>
 </html>
