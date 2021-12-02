@@ -58,7 +58,7 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
 <script>
         alert('거절되었습니다.');
-        history.back();
+        location.href = "newTest0.jsp";
 </script>
 </body>
 </html>
