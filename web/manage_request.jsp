@@ -227,7 +227,7 @@
     }
 
 //회사 받아오기
-    query = "Select * from COMPANY where State = 1";
+    query = "Select * from COMPANY where State = 1 OR Id = 47" ; //47은 게스트페이지
     pstmt = conn.prepareStatement(query);
     rs = pstmt.executeQuery();
     LinkedList<HashMap<String, String>> company = new LinkedList<HashMap<String, String>>();

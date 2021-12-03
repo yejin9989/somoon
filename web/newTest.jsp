@@ -54,28 +54,32 @@
     }
 
     //DB 가져오기
-    query = "SELECT distinct Apply_date FROM ASSIGNED A, REMODELING_APPLY R";
+    // 날짜별로 담기
+    query = "SELECT distinct Date(Accept_time) AS Accept_date FROM ASSIGNED A, REMODELING_APPLY R";
     query += " WHERE A.Company_num = " + s_id;
     query += " And R.Number = A.Apply_num";
+    query += " Order by Accept_date desc";
     pstmt = conn.prepareStatement(query);
     rs = pstmt.executeQuery();
 
     LinkedList<Dates> datelist = new LinkedList<Dates>();
 
+    // 날짜별로 신청정보 가져오기
     while(rs.next()) {
 
         Dates date = new Dates();
-        date.setDate(rs.getString("Apply_date"));
+        date.setDate(rs.getString("Accept_date"));
 
-        HashMap<String, HashMap<String, String>> applies = new HashMap<String, HashMap<String, String>>();
-        HashMap<String, HashMap<String, String>> details = new HashMap<String, HashMap<String, String>>();
+        HashMap<String, HashMap<String, String>> applies = new HashMap<String, HashMap<String, String>>(); //신청자, 주소 정보
+        HashMap<String, HashMap<String, String>> details = new HashMap<String, HashMap<String, String>>(); //신청 시공 정보
 
         int cnt = 0;
 
-        query = "SELECT * FROM ASSIGNED A, REMODELING_APPLY R";
+        query = "SELECT *, Date(Accept_time) AS Accept_date FROM ASSIGNED A, REMODELING_APPLY R";
         query += " WHERE A.Company_num = " + s_id;
         query += " And R.Number = A.Apply_num";
-        query += " And Date(Apply_date) = '" + rs.getString("Apply_date") + "'";
+        query += " And R.State != 5"; // 관리자 삭제건은 보이지 않도록
+        query += " And Date(Accept_time) = '" + rs.getString("Accept_date") + "'";
         if(ing_filter.equals("100")) {
             query += " And A.State >= 2 And A.State < 8"; // 탭에따라 이 쿼리 바꾸어주기
         }
@@ -310,19 +314,20 @@
                         </div>
                     </div>
                     <div class="modal_container_fin" id="modal_container_fin<%=apply.get("Number")%>">
-                        <form method="post">
+                        <form action="_newTest_company_finish.jsp" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="assigned_id" value="<%=apply.get("Assigned_id")%>" />
                             <div class="modal_box">
                                 <div class="item_container">
                                     <span class="item_span">계약 일시</span>
                                     <div class="select_date">
-                                        <input type="date" required/>
+                                        <input type="date" name="contract_date" required/>
                                     </div>
                                     <span class="item_span">계약금</span>
                                     <div class="input_pay">
-                                        <input type="text" placeholder="계약금을 입력해주세요" required/>
+                                        <input type="text" name="contract_price" placeholder="계약금을 입력해주세요" required/>
                                     </div>
                                     <span class="item_span">계약서 업로드</span>
-                                    <input class="file" type="file" required/>
+                                    <input class="file" name="filename1" type="file" required/>
                                 </div>
                                 <div class="btn_container">
                                     <button type="submit"><span>완 료</span></button>
@@ -334,7 +339,7 @@
                         </form>
                     </div>
                     <div class="modal_container_non_fin" id="modal_container_non_fin<%=apply.get("Number")%>">
-                        <form method="post">
+                        <form method="post" action="_newTest_company_stop.jsp">
                             <div class="modal_box">
                                 <div class="item_container">
                                     <span class="item_span">중단 단계</span>
@@ -414,35 +419,24 @@
         var state = $('select[name=state'+id+']').val();
         location.href = '_newTest_company_change_state.jsp?companyNum='+'<%=s_id%>'+'&state='+state+'&applyNum='+id;
     }
-    function calling(obj){
-        // 전화걸기 버튼을 누를 시 상담중으로 상태변경
-        var id = obj.getAttribute("id").substring(4);
-        location.href = '_newTest_company_change_state.jsp?companyNum='+'<%=s_id%>'+'&state=4&applyNum='+id+'&call=true';
-    }
-    function massage(obj){
-        // 문자보내기 버튼을 누를 시 상담중으로 상태변경
-        var id = obj.getAttribute("id").substring(3);
-        location.href = '_newTest_company_change_state.jsp?companyNum='+'<%=s_id%>'+'&state=4&applyNum='+id+'&text=true';
-    }
     var modalNum;
     function open_modal(obj){
         modalNum = obj.id.slice(3);
         var modal = document.getElementById("modal_container_fin" + modalNum);
         modal.style.display = "flex"
-        location.href = "_newTest_company_change_state.jsp?companyNum="+"<%=s_id%>"+"&state=8&applyNum="+id;
+        //location.href = "_newTest_company_change_state.jsp?companyNum="+"<%=s_id%>"+"&state=8&applyNum="+id;
     }
     function close_modal(){
         var modal = document.getElementById("modal_container_fin" + modalNum);
         modal.style.display = "none"
     }
     function open_modal_non_fin(obj){
-        /*
+
         modalNum = obj.id.slice(4);
         var modal = document.getElementById("modal_container_non_fin" + modalNum);
         modal.style.display = "flex"
-         */
         var id = obj.getAttribute("id").substring(4);
-        location.href = "_newTest_company_change_state.jsp?companyNum="+"<%=s_id%>"+"&state=9&applyNum="+id;
+        //location.href = "_newTest_company_change_state.jsp?companyNum="+"<%=s_id%>"+"&state=9&applyNum="+id;
     }
     function close_modal_non_fin(){
         var modal = document.getElementById("modal_container_non_fin" + modalNum);
@@ -460,6 +454,17 @@
         if(selectedIndex === 0 || selectedIndex === 1){
             selectDiv[0][selectedIndex].selected = false;
             selectDiv[0][2].selected = true;
+
+            $.ajax("_newTest_company_change_state.jsp?companyNum=<%=s_id%>&state=4&applyNum="+boxID+"&text=true")
+            .done(function(){
+                //alert("성공");
+            })
+            .fail(function() {
+                //alert("실패");
+            })
+            .always(function() {
+                //alert("완료");
+            });
         }
     }
 
@@ -476,7 +481,7 @@
         //세션 없을 시 리다이렉트
         if("<%=s_id%>" == "null"){
             alert("로그인 세션이 만료되었습니다. 재로그인 해주세요.");
-            location.href = "index.jsp";
+            location.href = "homepage.jsp";
         }
     })
     // 새로고침 시 get parameter 초기화

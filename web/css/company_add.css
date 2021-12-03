@@ -1,0 +1,58 @@
+@import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@font-face{
+    font-family:'Nanum Gothic',sans-serif;
+}
+html{
+    height: 100%;
+}
+body{
+    width:100%;
+    height:100%;
+    margin: 0;
+}
+*{
+    font-family:'Nanum Gothic',sans-serif;
+    font-size: 11pt;
+    color: #313131;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+}
+form{
+    display: inline-block;
+    padding: 20px;
+    margin: 20px;
+}
+form h3{
+    font-size: 14pt;
+    margin-bottom: 20px;
+}
+form input{
+    display: block;
+    height: 27pt;
+    width: 300px;
+    border: none;
+    background: #f3f3f3;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 13px;
+    font-size: 10pt;
+}
+form div#check_pw{
+    text-align: left;
+    padding-left: 10px;
+    margin-left: 10px;
+    color: red;
+    font-size: 9pt;
+    position: relative;
+    display: none;
+}
+form input[type=submit]{
+    background: #348dee;
+    color: white;
+    font-weight: bold;
+    font-size: 11pt;
+    margin-top: 10px;
+}
+#main{
+    text-align: center;
+}

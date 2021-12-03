@@ -15,24 +15,21 @@
 
     //DB 관련 객체 선언
     Connection conn = DBUtil.getMySQLConnection();
+    ResultSet rs = null;
     PreparedStatement pstmt = null;
+    String query = "";
     String sql = "";
 
-    String name = "MS타일";
-    String address = "대구광역시 수성구 달구벌대로 2662, 1층(만촌동)";
-    String introduction = "소개글을 작성해주세요.";
-    int state = 1;
-    String phone = "010-7438-0801";
-    String profile_img = "https://somoonhouse.com/sources/anonymous.jpg";
-    String pw = "password(\"0801\")";
-
     //DB 가져오기 예시
-    sql = "insert into COMPANY (Name, Address, Introduction, State, Phone, Profile_img, Pw) values " +
-            "(\"MS타일\", \"대구광역시 수성구 달구벌대로 2662, 1층(만촌동)\", \"소개글을 작성해주세요.\", 1, \"010-7438-0801\", \"https://somoonhouse.com/sources/anonymous.jpg\", password(\"0801\"))";
-    pstmt = conn.prepareStatement(sql);
-    pstmt.executeUpdate();
+    /*query = "select * from KEYWORD";
+    pstmt = conn.prepareStatement(query);
+    rs = pstmt.executeQuery();
+    HashMap<String, String> keyword = new HashMap<String, String>();
+    while(rs.next()) {
+        keyword.put(rs.getString("Id"), rs.getString("Name"));
+    }
     pstmt.close();
-
+     */
 %>
 <!DOCTYPE html>
 <html>
@@ -49,7 +46,8 @@
 <%
     if(pstmt != null) {
         pstmt.close();
-        sql = "";
+        rs.close();
+        query = "";
         conn.close();
     }
 %>

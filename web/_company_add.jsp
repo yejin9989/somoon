@@ -12,25 +12,34 @@
 
     //파라미터 가져오기
     //String param = request.getParameter("param");
-    String apply_num = request.getParameter("applyNum") + "";
-    String company_num = request.getParameter("companyNum") + "";
-    //String apply_num = "1";
-    //String company_num = "2";
 
     //DB 관련 객체 선언
     Connection conn = DBUtil.getMySQLConnection();
-    ResultSet rs = null;
     PreparedStatement pstmt = null;
-    String query = "";
     String sql = "";
 
-    //DB update
-    query = "UPDATE ASSIGNED SET State = 1 WHERE Apply_num = ? AND Company_num = ?";
-    pstmt = conn.prepareStatement(query);
-    pstmt.setInt(1, Integer.parseInt(apply_num));
-    pstmt.setInt(2, Integer.parseInt(company_num));
+    String name = request.getParameter("name");
+    String address = request.getParameter("address");
+    String introduction = request.getParameter("introduction");
+    String state = "1";
+    String phone = request.getParameter("phone");
+    String profile_img = "https://somoonhouse.com/sources/anonymous.jpg";
+    String pw = request.getParameter("pw");
+
+    //DB 가져오기 예시
+    sql = "insert into COMPANY (Name, Address, Introduction, State, Phone, Profile_img, Pw) values " +
+            "(?, ?, ?, ?, ?, ?, password(?))";
+    pstmt = conn.prepareStatement(sql);
+    pstmt.setString(1, name);
+    pstmt.setString(2, address);
+    pstmt.setString(3, introduction);
+    pstmt.setString(4, state);
+    pstmt.setString(5, phone);
+    pstmt.setString(6, profile_img);
+    pstmt.setString(7,pw);
     pstmt.executeUpdate();
-    //pstmt.close();
+    pstmt.close();
+
 %>
 <!DOCTYPE html>
 <html>
@@ -43,22 +52,27 @@
     <title>소문난집</title>
 </head>
 <body>
+<%=mylog%>
 <%
-
     if(pstmt != null) {
         pstmt.close();
-        //rs.close();
-        query = "";
+        sql = "";
         conn.close();
     }
 %>
+
+
+
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
 <script>
-        alert('거절되었습니다.');
-        location.href = "newTest0.jsp";
+    //새 스크립트 작성
+    //window.close();
+    $("document").ready(function(){
+        history.back();
+    })
 </script>
 </body>
 </html>

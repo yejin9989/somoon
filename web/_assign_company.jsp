@@ -11,7 +11,7 @@
 <% response.setCharacterEncoding("UTF-8"); %>
 <%@ page language="java" %>
 <%@ page import="myPackage.*" %>
-<%@ page import="myPackage.MessageSend2" %>
+<%@ page import="myPackage.MessageSend3" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -157,7 +157,7 @@
 	String company_name = "";
 	String company_phone = "";
 	String msg_str = "";
-	MessageSend2 msg = new MessageSend2();
+	MessageSend3 msg = new MessageSend3();
 
 	for(String com : company1) {
 		sql = "SELECT Name, Phone, Id FROM COMPANY WHERE Id = '" + com +"'";
@@ -168,7 +168,7 @@
 			company_name = rs.getString("Name");
 			company_phone = rs.getString("Phone");
 		}
-		msg_str = "[소문난집]\n" + company_name + "님, 신규 상담 신청건이 있습니다. 3시간 내로 수락하지 않으면 사라지오니, 빠른 시일 내로 확인 부탁드립니다.\n\nhttps://somoonhouse.com/company_login.jsp?company_num="+company_id;
+		msg_str = "[소문난집]\n" + company_name + "님, 신규 상담 신청건이 있습니다. 선착순으로 마감되오니, 빠른 시일 내로 확인 부탁드립니다.\n\nhttps://somoonhouse.com/company_login.jsp?company_num="+company_id;
 
 
 		// 업체에게 문자 보내기
