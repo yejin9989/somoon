@@ -234,7 +234,7 @@
 
     */
 
-    const makeInteriorsCompanyInfoBox = (prop, index) => {
+    const makeInteriorsCompanyInfoBox = (prop) => {
         let interiorsContainer = document.getElementById("interior_body"),
             companyContainer, companyText, companyTextLeft,
             leftName, leftAddr, titleSub, companyImgs;
@@ -252,8 +252,7 @@
         titleSub = createEle("span", "title_sub");
         companyImgs = createEle("div", "company_imgs");
 
-        //companyContainer.href = "https://somoonhouse.com/newindex.jsp?bdNm=" + comName;
-        companyContainer.href = "http://localhost:8091/somoonhouse_war_exploded/interior_info.jsp?id=" + index;
+        companyContainer.href = "https://somoonhouse.com/interior_info.jsp?id=" + prop.id;
         leftName.innerHTML = comName;
         leftAddr.innerHTML = "대구";
         titleSub.innerHTML = "상담 " + counseling + "건";
@@ -273,7 +272,6 @@
         }
     }
 
-    let companyData;
     const getCompanyData = async () => {
         await fetch("https://somunbackend.com/auth-non/company/represent", {
             method: "GET",
@@ -284,17 +282,16 @@
                 return res.json();
             })
             .then((res) => {
-                companyData = res;
-                makeInteriorsCompanyInfo();
+                makeInteriorsCompanyInfo(res);
             })
             .catch((err) => {
                 console.log(err);
             })
     }
 
-    const makeInteriorsCompanyInfo = () => {
-        for(let i = 0; i < companyData.length; i++){
-            makeInteriorsCompanyInfoBox(companyData[i], i);
+    const makeInteriorsCompanyInfo = (data) => {
+        for(let i = 0; i < data.length; i++){
+            makeInteriorsCompanyInfoBox(data[i]);
         }
     }
     getCompanyData();
