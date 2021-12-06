@@ -56,7 +56,7 @@
                 <span class="key">대표</span><span class="value">길영민</span>
             </div>
             <div class="text">
-                <span class="key">주소</span><span class="value">대구광역시 북구 대현동 199-8번지</span>
+                <span class="key">주소</span><span class="value">대구광역시 북구 대학로 11-1</span>
             </div>
             <div class="text">
                 <span class="key">전화</span><span class="value">053-290-5959 ( 대표전화 / 고객센터 )</span>
