@@ -410,7 +410,7 @@
         transform: translateX(0) !important;
     }
     .mobileFooter{
-        display: none;
+        display: none !important;
     }
 }
 @media (max-width: 700px) {
