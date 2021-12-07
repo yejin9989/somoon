@@ -360,7 +360,7 @@
     color: #fff;
 }
 .mobileFooter{
-    display: flex;
+    display: none;
     position: fixed;
     align-items: center;
     justify-content: center;
