@@ -91,7 +91,7 @@
                 <span id="area_span">지역별 인테리어</span>
                 <div id="area_div">
                     <a href="https://somoonhouse.com/newindex.jsp?Daegu=141"><span>중구</span></a>
-                    <a href="https://somoonhous bcom/newindex.jsp?Daegu=142"><span>동구</span></a>
+                    <a href="https://somoonhouse.com/newindex.jsp?Daegu=142"><span>동구</span></a>
                     <a href="https://somoonhouse.com/newindex.jsp?Daegu=143"><span>서구</span></a>
                     <a href="https://somoonhouse.com/newindex.jsp?Daegu=144"><span>남구</span></a>
                     <a href="https://somoonhouse.com/newindex.jsp?Daegu=145"><span>북구</span></a>
@@ -173,12 +173,10 @@
     gtag('config', 'G-PC15JG6KGN');
 </script>
 <script>
-    window.onload = () => {
-        const isRemodelingForm = location.href.indexOf("remodeling_form.jsp") === -1 ? false : true;
-        if(isRemodelingForm){
-            const footer = document.getElementById("mobileFooter");
-            footer.style.display = "none";
-        }
+    const isRemodelingForm = location.href.indexOf("remodeling_form.jsp") === -1 ? false : true;
+    if(!isRemodelingForm){
+        const footer = document.getElementById("mobileFooter");
+        footer.style.display = "flex";
     }
 
     let scrollStartPos = window.scrollY,
