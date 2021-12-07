@@ -798,6 +798,7 @@
             partner_info_lower.appendChild(div);
         }
     }
+
 </script>
 </body>
 </html>

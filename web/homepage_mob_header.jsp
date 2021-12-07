@@ -173,12 +173,10 @@
     gtag('config', 'G-PC15JG6KGN');
 </script>
 <script>
-    window.onload = () => {
-        const isRemodelingForm = location.href.indexOf("remodeling_form.jsp") === -1 ? false : true;
-        if(isRemodelingForm){
-            const footer = document.getElementById("mobileFooter");
-            footer.style.display = "none";
-        }
+    const isRemodelingForm = location.href.indexOf("remodeling_form.jsp") === -1 ? false : true;
+    if(!isRemodelingForm){
+        const footer = document.getElementById("mobileFooter");
+        footer.style.display = "flex";
     }
 
     let scrollStartPos = window.scrollY,
