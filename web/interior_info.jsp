@@ -302,6 +302,8 @@
 
     const makeCaseBoxes = (data) => {
         for(let i = 0; i < 5; i++){
+            if(data[i] === undefined) continue;
+            console.log(i);
             makeCaseBox(data[i], i);
         }
     }
