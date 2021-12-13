@@ -373,9 +373,9 @@
     height: 60px;
     background: #348DEE;
     z-index: 4;
-    border-top: solid;
-    border-width: 1px;
-    border-color: #fff;
+    /*border-top: solid;*/
+    /*border-width: 1px;*/
+    /*border-color: #fff;*/
     transition: 0.7s;
     text-decoration: none;
 }
