@@ -175,12 +175,13 @@
         <div class="main_header">
             <form id="form_ing" name="form_ing" method="POST" action="newTest.jsp">
                 <div class="left_container">
-                    <div class="left_box">
+                    <div id="searchBox" class="left_box">
                         <div class="img_container">
                             <img src="https://somoonhouse.com/otherimg/assets/magnifying.png?raw=true" />
                         </div>
                         <div class="text_container">
-                            <input class="text_input" type="text" name="ing" placeholder="전화, 고객명, 주소" value="<%=ing_search%>" />
+                            <input id="text_input" class="text_input" type="text" name="ing" placeholder="전화, 고객명, 주소"
+                                   value="<%=ing_search%>" />
                         </div>
                     </div>
                 </div>
@@ -394,6 +395,16 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
 <script>
+    const inputBox = document.getElementById("text_input"),
+        searchBox = document.getElementById("searchBox");
+    inputBox.addEventListener('focus', (event) => {
+        searchBox.style.background = "#fff";
+        inputBox.style.background = "#fff";
+    })
+    inputBox.addEventListener('blur', (event) => {
+        searchBox.style.background = "#fafafa";
+        inputBox.style.background = "#fafafa";
+    })
     function slide_detail(obj){
         var boxNum = obj.id.slice(9);
         var box = document.getElementById("slide" + boxNum);

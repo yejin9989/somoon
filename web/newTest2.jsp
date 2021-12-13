@@ -158,12 +158,14 @@
         <div class="main_header">
             <div class="left_container">
                 <form id="fomr_aborted" name="form_aborted" method="post" action="newTest2.jsp">
-                    <div class="left_box">
+                    <div id="searchBox" class="left_box">
                         <div class="img_container">
                             <img src="https://somoonhouse.com/otherimg/assets/magnifying.png?raw=true" />
                         </div>
                         <div class="text_container">
-                            <input class="text_input" type="text" name="aborted" placeholder="전화, 고객명, 주소" value="<%=aborted_search%>" />
+                            <input id="text_input" class="text_input" type="text" name="aborted"
+                                   placeholder="전화, 고객명, 주소"
+                                   value="<%=aborted_search%>" />
                             <input type="submit" style="display:none;" />
                         </div>
                     </div>
@@ -208,7 +210,7 @@
                     </div>
                     <div class="slide_container" id="stop_slide<%=apply.get("Number")%>">
                         <div class="left">
-                            <div class="text"><span class="fir">주거 프라임</span></div>
+                            <%--<div class="text"><span class="fir">주거 프라임</span></div>--%>
                             <div class="text">
                                 <span class="sec_fir">성함</span>
                                 <span class="sec_sec"><%=apply.get("Name")%></span><!--span class="sec_sec">정진성</span-->
@@ -229,10 +231,10 @@
                                 <span class="sec_fir">예산</span>
                                 <span class="thr"><%=apply.get("Budget")%></span><!--span class="thr">8천만원 이하</span-->
                             </div>
-                            <div class="text">
+                            <%--<div class="text">
                                 <span class="sec_fir">신청한 디자인</span>
                                 <a href="<%=apply.get("URL")%>"><span class="for"><%=apply.get("Title")%></span></a>
-                            </div>
+                            </div>--%>
                             <div class="text">
                                 <span class="sec_fir">중단 단계</span>
                                 <span class="thr">여기 중단단계 입력</span>
@@ -268,6 +270,17 @@
 <script>
     //새 스크립트 작성
     //window.close();
+    const inputBox = document.getElementById("text_input"),
+        searchBox = document.getElementById("searchBox");
+    inputBox.addEventListener('focus', (event) => {
+        searchBox.style.background = "#fff";
+        inputBox.style.background = "#fff";
+    })
+    inputBox.addEventListener('blur', (event) => {
+        searchBox.style.background = "#fafafa";
+        inputBox.style.background = "#fafafa";
+    })
+
     function stop_btn(obj){
         var boxNum = obj.id.slice(3);
         var slide = document.getElementById("stop_slide" + boxNum);

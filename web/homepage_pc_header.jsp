@@ -144,6 +144,14 @@
     }
     const topBtn = document.getElementById("topBtn");
     topBtn.onclick = goToTop;
+
+    const isRemodelingForm = location.href.indexOf("remodeling_form.jsp") === -1 ? false : true;
+    if(isRemodelingForm){
+        window.onload = () => {
+            const fixedBtn = document.getElementsByClassName("fixed_button");
+            fixedBtn[0].style.display = "none";
+        }
+    }
 </script>
 </body>
 </html>
