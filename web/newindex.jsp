@@ -98,10 +98,7 @@
 </head>
 <body>
 <div id="container">
-    <div>
-        <span id="topBtn">top</span>
-        <span id="applyBtn"><div>상담<br>신청</div></span>
-    </div>
+
     <script>
         var topEle = $('#topBtn');
         var delay = 1000;
