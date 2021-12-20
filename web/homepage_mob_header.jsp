@@ -158,7 +158,7 @@
             <span>소문난집 전화문의</span>
         </div>
         <div class="menu_lower">
-            <span>053-290-5959</span>
+            <span onclick="call()">053-290-5959</span>
         </div>
     </div>
 </div>
@@ -246,6 +246,10 @@
         else{
             div.style.display = "flex";
         }
+    }
+
+    const call = () => {
+        location.href = "tel:053-290-5959";
     }
 </script>
 </body>
