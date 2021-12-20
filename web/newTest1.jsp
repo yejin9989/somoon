@@ -160,12 +160,13 @@
         <div class="main_header">
             <div class="left_container">
                 <form id="form_done" name="form_done" method="POST" action="newTest1.jsp">
-                    <div class="left_box">
+                    <div id="searchBox" class="left_box">
                         <div class="img_container">
                             <img src="https://somoonhouse.com/otherimg/assets/magnifying.png?raw=true" />
                         </div>
                         <div class="text_container">
-                            <input class="text_input" type="text" name="done" placeholder="전화, 고객명, 주소" value="<%=done_search%>"/>
+                            <input id="text_input" class="text_input" type="text" name="done" placeholder="전화, 고객명, 주소"
+                                   value="<%=done_search%>"/>
                             <input type="submit" style="display:none;" />
                         </div>
                     </div>
@@ -215,7 +216,7 @@
                     </div>
                     <div class="slide_container" id="fin_slide<%=apply.get("Number")%>">
                         <div class="left">
-                            <div class="text"><span class="fir">주거 프라임</span></div>
+<%--                            <div class="text"><span class="fir">주거 프라임</span></div>--%>
                             <div class="text">
                                 <span class="sec_fir">성함</span>
                                 <span class="sec_sec"><%=apply.get("Name")%></span><!--span class="sec_sec">정진성</span-->
@@ -236,10 +237,10 @@
                                 <span class="sec_fir">예산</span>
                                 <span class="thr"><%=apply.get("Budget")%></span><!--span class="thr">8천만원 이하</span-->
                             </div>
-                            <div class="text">
-                                <span class="sec_fir">신청한 디자인</span>
-                                <a href="<%=apply.get("URL")%>"><span class="for"><%=apply.get("Title")%></span></a>
-                            </div>
+<%--                            <div class="text">--%>
+<%--                                <span class="sec_fir">신청한 디자인</span>--%>
+<%--                                <a href="<%=apply.get("URL")%>"><span class="for"><%=apply.get("Title")%></span></a>--%>
+<%--                            </div>--%>
                         </div>
                         <div class="right">
                                 <%
@@ -269,6 +270,17 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
 <script>
+    const inputBox = document.getElementById("text_input"),
+        searchBox = document.getElementById("searchBox");
+    inputBox.addEventListener('focus', (event) => {
+        searchBox.style.background = "#fff";
+        inputBox.style.background = "#fff";
+    })
+    inputBox.addEventListener('blur', (event) => {
+        searchBox.style.background = "#fafafa";
+        inputBox.style.background = "#fafafa";
+    })
+
     function fin_btn(obj){
         var boxNum = obj.id.slice(3);
         var slide = document.getElementById("fin_slide" + boxNum);

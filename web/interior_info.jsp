@@ -232,7 +232,7 @@
     const url = location.href,
         urlPos = url.indexOf("?"),
         urlSub = url.substr(urlPos);
-        comID = urlPos >= 0 ? urlSub.substr(4) : "0";
+        comID = urlPos >= 0 ? urlSub.substr(4) : null;
 
     const getTargetCompanyData = async () => {
         const targetCompanyDataUrl = "https://somunbackend.com/auth-non/company/represent/" + comID;
@@ -250,7 +250,10 @@
             console.log(err);
         })
     }
-    getTargetCompanyData();
+    if(comID){
+        getTargetCompanyData();
+    }
+
 
     const makeTitle = (data) => {
         const titleName = document.getElementById("title_name"),
@@ -298,12 +301,13 @@
             console.log(err);
         })
     }
+
     getTargetCompanyCaseData();
 
     const makeCaseBoxes = (data) => {
-        for(let i = 0; i < 5; i++){
+        let viewMax = data.length > 5 ? 5 : data.length;
+        for(let i = 0; i < viewMax; i++){
             if(data[i] === undefined) continue;
-            console.log(i);
             makeCaseBox(data[i], i);
         }
     }
