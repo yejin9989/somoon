@@ -173,11 +173,13 @@
     gtag('config', 'G-PC15JG6KGN');
 </script>
 <script>
-    const isRemodelingForm = location.href.indexOf("remodeling_form.jsp") === -1 ? false : true;
-    const isCustomerRequest = location.href.indexOf("customer_request.jsp") === -1 ? false : true;
-    if(!isRemodelingForm && !isCustomerRequest){
-        const footer = document.getElementById("mobileFooter");
-        footer.style.display = "flex";
+    window.onload = () => {
+        const isRemodelingForm = location.href.indexOf("remodeling_form.jsp") === -1 ? false : true;
+        const isCustomerRequest = location.href.indexOf("customer_request.jsp") === -1 ? false : true;
+        if (!isRemodelingForm && !isCustomerRequest) {
+            const footer = document.getElementById("mobileFooter");
+            footer.style.display = "flex";
+        }
     }
 
     let scrollStartPos = window.scrollY,
