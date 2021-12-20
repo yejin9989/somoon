@@ -101,36 +101,6 @@
                             </div>
                             <span>모던</span>
                         </a>
-                        <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
-                            <div>
-                                <img src="https://somoonhouse.com/otherimg/assets/dog4.jpg?raw=true" />
-                            </div>
-                            <span>화이트</span>
-                        </a>
-                        <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
-                            <div>
-                                <img src="https://somoonhouse.com/otherimg/assets/dog4.jpg?raw=true" />
-                            </div>
-                            <span>침실</span>
-                        </a>
-                        <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
-                            <div>
-                                <img src="https://somoonhouse.com/otherimg/assets/dog4.jpg?raw=true" />
-                            </div>
-                            <span>화장실</span>
-                        </a>
-                        <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
-                            <div>
-                                <img src="https://somoonhouse.com/otherimg/assets/dog4.jpg?raw=true" />
-                            </div>
-                            <span>현관</span>
-                        </a>
-                        <a class="area" href="https://somoonhouse.com/newindex.jsp?theme_id=1">
-                            <div>
-                                <img src="https://somoonhouse.com/otherimg/assets/dog4.jpg?raw=true" />
-                            </div>
-                            <span>베란다</span>
-                        </a>
                     </div>
                 </div>
             </div-->
@@ -266,134 +236,6 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="https://github.com" class="style_container">
-                            <div class="box">
-                                <img src="https://somoonhouse.com/otherimg/assets/dog5.jpg?raw=true" />
-                            </div>
-                            <div class="text">
-                                <div class="txt fir">
-                                    <span class="fir_title">아이비디자인</span>
-                                    <div class="fir_box">
-                                        <span class="fir_sub">A/S 1년</span>
-                                    </div>
-                                    <div class="fir_box">
-                                        <span class="fir_sub">응답우수</span>
-                                    </div>
-                                </div>
-                                <span class="txt sec">서변동 서변월드메르디앙</span>
-                                <div class="txt thr">
-                                    <div class="thr_img">
-                                        <img src="https://somoonhouse.com/otherimg/assets/star.png?raw=true" />
-                                    </div>
-                                    <span>4.8</span>
-                                    <div class="thr_img">
-                                        <img src="https://somoonhouse.com/otherimg/assets/heart2.png?raw=true" />
-                                    </div>
-                                    <span>177</span>
-                                </div>
-                                <div class="txt fiv">
-                                    <span>33평</span>
-                                    <div class="sidebar"></div>
-                                    <span>600만원</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="https://github.com" class="style_container">
-                            <div class="box">
-                                <img src="https://somoonhouse.com/otherimg/assets/dog5.jpg?raw=true" />
-                            </div>
-                            <div class="text">
-                                <div class="txt fir">
-                                    <span class="fir_title">아이비디자인</span>
-                                    <div class="fir_box">
-                                        <span class="fir_sub">A/S 1년</span>
-                                    </div>
-                                    <div class="fir_box">
-                                        <span class="fir_sub">응답우수</span>
-                                    </div>
-                                </div>
-                                <span class="txt sec">서변동 서변월드메르디앙</span>
-                                <div class="txt thr">
-                                    <div class="thr_img">
-                                        <img src="https://somoonhouse.com/otherimg/assets/star.png?raw=true" />
-                                    </div>
-                                    <span>4.8</span>
-                                    <div class="thr_img">
-                                        <img src="https://somoonhouse.com/otherimg/assets/heart2.png?raw=true" />
-                                    </div>
-                                    <span>177</span>
-                                </div>
-                                <div class="txt fiv">
-                                    <span>33평</span>
-                                    <div class="sidebar"></div>
-                                    <span>600만원</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="https://github.com" class="style_container">
-                            <div class="box">
-                                <img src="https://somoonhouse.com/otherimg/assets/dog5.jpg?raw=true" />
-                            </div>
-                            <div class="text">
-                                <div class="txt fir">
-                                    <span class="fir_title">아이비디자인</span>
-                                    <div class="fir_box">
-                                        <span class="fir_sub">A/S 1년</span>
-                                    </div>
-                                    <div class="fir_box">
-                                        <span class="fir_sub">응답우수</span>
-                                    </div>
-                                </div>
-                                <span class="txt sec">서변동 서변월드메르디앙</span>
-                                <div class="txt thr">
-                                    <div class="thr_img">
-                                        <img src="https://somoonhouse.com/otherimg/assets/star.png?raw=true" />
-                                    </div>
-                                    <span>4.8</span>
-                                    <div class="thr_img">
-                                        <img src="https://somoonhouse.com/otherimg/assets/heart2.png?raw=true" />
-                                    </div>
-                                    <span>177</span>
-                                </div>
-                                <div class="txt fiv">
-                                    <span>33평</span>
-                                    <div class="sidebar"></div>
-                                    <span>600만원</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="https://github.com" class="style_container">
-                            <div class="box">
-                                <img src="https://somoonhouse.com/otherimg/assets/dog5.jpg?raw=true" />
-                            </div>
-                            <div class="text">
-                                <div class="txt fir">
-                                    <span class="fir_title">아이비디자인</span>
-                                    <div class="fir_box">
-                                        <span class="fir_sub">A/S 1년</span>
-                                    </div>
-                                    <div class="fir_box">
-                                        <span class="fir_sub">응답우수</span>
-                                    </div>
-                                </div>
-                                <span class="txt sec">서변동 서변월드메르디앙</span>
-                                <div class="txt thr">
-                                    <div class="thr_img">
-                                        <img src="https://somoonhouse.com/otherimg/assets/star.png?raw=true" />
-                                    </div>
-                                    <span>4.8</span>
-                                    <div class="thr_img">
-                                        <img src="https://somoonhouse.com/otherimg/assets/heart2.png?raw=true" />
-                                    </div>
-                                    <span>177</span>
-                                </div>
-                                <div class="txt fiv">
-                                    <span>33평</span>
-                                    <div class="sidebar"></div>
-                                    <span>600만원</span>
-                                </div>
-                            </div>
-                        </a>
                     </div>
                 </div>
             </div-->
@@ -465,12 +307,14 @@
     <script src="./consultReviewData.js"></script>
 <script>
     const createEle = (sortOfElement, className) => {
+        // dom element 만드는 함수
         let nameOfElement = document.createElement(sortOfElement);
         if (className !== undefined) nameOfElement.className = className;
         return nameOfElement;
     }
 
     const abs = (a) => {
+        // 절댓값으로 변환
         return a >= 0 ? a : -1 * a;
     }
 
@@ -752,6 +596,11 @@
         .then((res) => {
             companyData = res;
             makeHomepageCompanyInfo();
+            // if(history.state !== null){
+            //     for(let i = 0; i < history.state.moreBtnClick; i++){
+            //         infoBtn.click();
+            //     }
+            // }
         })
         .catch((err) => {
             console.log(err);
@@ -767,6 +616,29 @@
     }
     getCompanyData();
 
+    // const url = "http://192.168.0.27:8091/somoonhouse_war_exploded/homepage.jsp";
+    // const title = '';
+    // const state = {'moreBtnClick' : 0};
+    // history.pushState(state, title, url);
+    //
+    // let moreBtnClick = 0;
+    // var checkPageShow = false;
+    // window.onpageshow = (event) => {
+    //     checkPageShow = true;
+    //     if(event.persisted || (window.performance && window.performane.navigation.type == 2)){
+    //         alert("hi");
+    //         if(history.state !== null && history.state.moreBtnClick !== moreBtnClick){
+    //             for(let i = 0; i < history.state.moreBtnClick; i++) moreInfo.click();
+    //         }
+    //     }
+    // }
+    // window.onpagehide = (event) => {
+    //     if((window.performance.navigation.type == 0 || window.performance.navigation.type == 2) && checkPageShow){
+    //         alert("bye");
+    //     }
+    //
+    // }
+
     const makeMoreHomepageCompanyInfo = () => {
         for(let i = companyCount; i < companyCount + 4; i++){
             if(companyData[i] === undefined){
@@ -775,6 +647,8 @@
             }
             makeHomepageCompanyInfoBox(companyData[i]);
         }
+        // history.state.moreBtnClick++;
+        // moreBtnClick++;
         companyCount += 4;
     }
 
@@ -798,7 +672,6 @@
             partner_info_lower.appendChild(div);
         }
     }
-
 </script>
 </body>
 </html>
