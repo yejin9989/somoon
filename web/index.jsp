@@ -178,7 +178,7 @@
 					%>
 					<!-- input type="radio" name="Daegu" id="all" value="all"><label for="all" class="mylabel">대구전체</label-->
 					<div class="ajax_click">
-						<input class="area1" onClick="ajax_click(this)" type="radio" name="Daegu" id="jung-gu" value="141"<%if(Arrays.asList(request_areas).contains("141")) out.println("checked");%>><label for="jung-gu" class="mylabel">중구</label>
+						<input class="area1" onClick="ajax_click(this)" type="radio" name="Daegu" id="jung-gu" value="141"<%if(Arrays.asList(request_areas).contains("141")) out.println("checked");%>><label for="jung-gu" class="mylabel">중국</label>
 						<input class="area1" onClick="ajax_click(this)" type="radio" name="Daegu" id="dong-gu" value="142"<%if(Arrays.asList(request_areas).contains("142")) out.println("checked");%>><label for="dong-gu" class="mylabel">동구</label>
 						<input class="area1" onClick="ajax_click(this)" type="radio" name="Daegu" id="seo-gu" value="143"<%if(Arrays.asList(request_areas).contains("143")) out.println("checked");%>><label for="seo-gu" class="mylabel">서구</label>
 						<input class="area1" onClick="ajax_click(this)" type="radio" name="Daegu" id="nam-gu" value="144"<%if(Arrays.asList(request_areas).contains("144")) out.println("checked");%>><label for="nam-gu" class="mylabel">남구</label>
