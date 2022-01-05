@@ -106,10 +106,10 @@
             </div-->
             <div class="partner_info">
                 <div class="upper">
-                    <span>대구 인테리어 전문가를 만나보세요</span>
+                    <span>대구 인테리어 전문가를 만나나보세요</span>
                     <div>
                         <a href="https://somoonhouse.com/newindex.jsp?theme_id=1">
-                            <span>자세히보기</span>
+                            <span>자세히하하보기</span>
                             <img src="https://somoonhouse.com/otherimg/assets/arrow.png?raw=true" />
                         </a>
                     </div>
