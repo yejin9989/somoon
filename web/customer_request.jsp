@@ -371,9 +371,9 @@ select{
     					if(hm.get("state").equals("0") || hm.get("state").equals("1"))
     						continue;
     				%>
-    				<div class="company" id="<%out.print(hm.get("id"));%>">
+    				<div class="company" id="<%out.print(hm.get("id"));%>" style="cursor: pointer" onclick="location.href='https://somoonhouse.com/interior_info.jsp?id=<%out.print(hm.get("id"));%>'">
     					<div class="state">
-    						<div style="cursor: pointer" onclick="location.href='https://somoonhouse.com/interior_info.jsp?id=<%out.print(hm.get("id"));%>'"><%out.print(hm.get("name"));%></div>
+    						<div><%out.print(hm.get("name"));%></div>
     						<%if(hm.get("as_provide").equals("1")){
     							%>
     						<div id="as">A/S <%out.print(hm.get("as_warranty"));%></div><%
