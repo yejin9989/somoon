@@ -373,7 +373,7 @@ select{
     				%>
     				<div class="company" id="<%out.print(hm.get("id"));%>">
     					<div class="state">
-    						<div><%out.print(hm.get("name"));%></div>
+    						<div style="cursor: pointer" onclick="location.href='https://somoonhouse.com/interior_info.jsp?id=<%out.print(hm.get("id"));%>'"><%out.print(hm.get("name"));%></div>
     						<%if(hm.get("as_provide").equals("1")){
     							%>
     						<div id="as">A/S <%out.print(hm.get("as_warranty"));%></div><%
