@@ -227,12 +227,6 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
 <script>
-    function acept(){
-        alert("수락했습니다.")
-    }
-    function cancle(){
-        alert("거절했습니다.")
-    }
     $('.accept').click(function(){
         const id = $(this).attr("id");
         const rState = $(this)[0].classList[1].replace("rState-", "");
