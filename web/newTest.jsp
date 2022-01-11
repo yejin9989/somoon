@@ -162,7 +162,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/newTest.css"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <title>소문난집</title>
+    <title>소문난집 - 진행상담 관리</title>
 </head>
 <body>
 <%=mylog%>
@@ -394,6 +394,12 @@
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PC15JG6KGN');
+</script>
 <script>
     const inputBox = document.getElementById("text_input"),
         searchBox = document.getElementById("searchBox");

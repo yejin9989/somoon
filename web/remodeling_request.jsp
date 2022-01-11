@@ -320,7 +320,7 @@ textarea{
 </style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-<title>소문난집</title>
+<title>소문난집 - 견적받기</title>
 </head>
 <body>
 <div id="container">
