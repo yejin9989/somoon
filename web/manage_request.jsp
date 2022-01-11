@@ -257,7 +257,7 @@
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <title>소문난집</title>
+    <title>소문난집 - 신청 건 확인</title>
 </head>
 <body>
 <div id="container">
@@ -476,6 +476,14 @@ query="";
 conn.close();
 */
 %>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PC15JG6KGN');
+</script>
 <script>
     var remem_modal_id;
     var form_id;
