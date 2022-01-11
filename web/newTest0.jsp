@@ -142,7 +142,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/newTest0.css"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <title>소문난집</title>
+    <title>소문난집 - 신규상담 관리</title>
 </head>
 <body>
 <div class="body_container">
