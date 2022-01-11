@@ -44,7 +44,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/newTestPartnerNew.css"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <title>소문난집</title>
+    <title>소문난집 - 쿠폰 구매</title>
 </head>
 <body>
 <%=mylog%>

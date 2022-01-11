@@ -146,7 +146,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/newTest2.css"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <title>소문난집</title>
+    <title>소문난집 - 중단상담 관리</title>
 </head>
 <body>
 <%=mylog%>
