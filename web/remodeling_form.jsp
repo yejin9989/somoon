@@ -80,7 +80,7 @@ for(i=1; i<=division1.size(); i++){
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-<title>소문난집 - 리모델링 견적받기</title>
+<title>소문난집</title>
 </head>
 <body>
 <jsp:include page="/homepage_pc_header.jsp" flush="false" />
