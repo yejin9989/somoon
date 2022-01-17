@@ -68,7 +68,7 @@
     <title>소문난집</title>
 </head>
 <body>
-<div class="fixed_button">
+<div class="fixed_button" id="fixed_button">
     <span id="topBtn">top</span>
     <a href="https://somoonhouse.com/remodeling_form.jsp?item_num=0" id="applyBtn"><div>상담<br>신청</div></a>
 </div>
