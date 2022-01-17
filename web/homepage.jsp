@@ -307,12 +307,14 @@
     <script src="./consultReviewData.js"></script>
 <script>
     const createEle = (sortOfElement, className) => {
+        // dom element 만드는 함수
         let nameOfElement = document.createElement(sortOfElement);
         if (className !== undefined) nameOfElement.className = className;
         return nameOfElement;
     }
 
     const abs = (a) => {
+        // 절댓값으로 변환
         return a >= 0 ? a : -1 * a;
     }
 
