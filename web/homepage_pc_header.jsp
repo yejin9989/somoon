@@ -68,7 +68,7 @@
     <title>소문난집</title>
 </head>
 <body>
-<div class="fixed_button" id="fixed_button">
+<div class="fixed_button">
     <span id="topBtn">top</span>
     <a href="https://somoonhouse.com/remodeling_form.jsp?item_num=0" id="applyBtn"><div>상담<br>신청</div></a>
 </div>
@@ -148,7 +148,10 @@
     //상담신청페이지에서 버튼 숨김
     const isRemodelingForm = location.href.indexOf("remodeling_form.jsp") === -1 ? false : true;
     if(isRemodelingForm){
-           document.getElementById("fixed_button").style.display = "none";
+        window.onload = () => {
+            const fixedBtn = document.getElementsByClassName("fixed_button");
+            fixedBtn[0].style.display = "none";
+        }
     }
 </script>
 </body>
