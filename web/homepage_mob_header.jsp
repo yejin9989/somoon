@@ -173,6 +173,7 @@
     gtag('config', 'G-PC15JG6KGN');
 </script>
 <script>
+
     const isRemodelingFormMob = location.href.indexOf("remodeling_form.jsp") === -1 ? false : true;
     if(!isRemodelingFormMob){
         const footer = document.getElementById("mobileFooter");
