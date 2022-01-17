@@ -73,6 +73,7 @@
     padding: 20px;
     width: 100%;
     height: 100%;
+    min-width: 465px;
 }
 .body_container .body_main .main_container .partner_container .goods_container .goods_left_box{
     display:flex;
