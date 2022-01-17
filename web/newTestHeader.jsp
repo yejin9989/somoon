@@ -161,7 +161,7 @@
                     </div>
                 </a>
             </div>
-            <div class="menu_container">
+           <!-- <div class="menu_container">
                 <div class="menu_upper">
                     <div class="upper_img">
                         <img src="https://somoonhouse.com/otherimg/assets/call.png?raw=true" />
@@ -171,7 +171,7 @@
                 <div class="menu_lower">
                     <span>053-290-5959</span>
                 </div>
-            </div>
+            </div> -->
             <!--
             <a class="board_href" href="newTestBoard.jsp" target="_self">
                 <div class="board_container">
