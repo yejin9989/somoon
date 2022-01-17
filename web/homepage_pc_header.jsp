@@ -145,7 +145,6 @@
     const topBtn = document.getElementById("topBtn");
     topBtn.onclick = goToTop;
 
-    //상담신청페이지에서 버튼 숨김
     const isRemodelingForm = location.href.indexOf("remodeling_form.jsp") === -1 ? false : true;
     if(isRemodelingForm){
            document.getElementById("fixed_button").style.display = "none";
