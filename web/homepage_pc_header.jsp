@@ -145,6 +145,7 @@
     const topBtn = document.getElementById("topBtn");
     topBtn.onclick = goToTop;
 
+    //상담신청페이지 버튼삭제
     const isRemodelingFormPc = location.href.indexOf("remodeling_form.jsp") === -1 ? false : true;
     if(isRemodelingFormPc){
         document.getElementById("fixed_button").style.display = "none";
