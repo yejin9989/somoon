@@ -1006,9 +1006,12 @@ body{
         width: 100%;
         height: auto;
     }
-    .banner .turn{
-        display: none !important;
-    }
+
+    /* 주석처리하면 모바일 버전에서도 배너 양옆으로 넘기는 화살표가 생김.*/
+    /*.banner .turn{*/
+    /*    display: none !important;*/
+    /*}*/
+
     .body_container .review .lower .boxes{
         min-height: 460px;
     }
