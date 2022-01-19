@@ -66,8 +66,6 @@ body{
     justify-content: center;
     position: absolute;
     top:calc(50% - 25px);
-    width:70px;
-    height:70px;
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 35px;
     overflow: hidden;
@@ -80,14 +78,8 @@ body{
     object-fit: fill;
     filter: invert(0.4);
 }
-.body_container .banner .img_container .before{
-    left: 60px;
-}
 .body_container .banner .img_container .before img{
     transform: rotate(180deg);
-}
-.body_container .banner .img_container .after{
-    right: 60px;
 }
 .body_container .area_part{
     display: flex;
@@ -911,6 +903,17 @@ body{
     .body_container .partner_info .partner_info_container .box .box_upper .imgBox{
         width: 100%;
     }
+    /*pc버전 화살표 크기 밑 여백 고정*/
+    .body_container .banner .img_container .turn {
+        width: 70px;
+        height: 70px;
+    }
+    .body_container .banner .img_container .before{
+        left: 60px;
+    }
+    .body_container .banner .img_container .after{
+        right: 60px;
+    }
 }
 @media (max-width: 700px) {
     .upper_fixed{
@@ -1006,12 +1009,21 @@ body{
         width: 100%;
         height: auto;
     }
-
     /* 주석처리하면 모바일 버전에서도 배너 양옆으로 넘기는 화살표가 생김.*/
     /*.banner .turn{*/
     /*    display: none !important;*/
     /*}*/
-
+    /*모바일버전 화살표 크기 밑 여백 고정*/
+    .body_container .banner .img_container .turn {
+        width: 45px;
+        height: 45px;
+    }
+    .body_container .banner .img_container .before{
+        left: 15px;
+    }
+    .body_container .banner .img_container .after{
+        right: 15px;
+    }
     .body_container .review .lower .boxes{
         min-height: 460px;
     }
