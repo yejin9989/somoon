@@ -156,6 +156,11 @@
 %>
 <div class="body_container">
     <jsp:include page="/newTestHeader.jsp?tab=Done" flush="false" />
+    <%
+        for (int i = 0; i < datelist.size(); i++) {
+            for(String key : datelist.get(i).applies.keySet()){
+                HashMap apply = datelist.get(i).applies.get(key);
+    %>
     <div class="body_main">
         <div class="main_header">
             <div class="left_container">
@@ -181,11 +186,6 @@
                 <span>완료된 공사가 없습니다.</span>
             </div>
         </div>
-        <%
-            for (int i = 0; i < datelist.size(); i++) {
-                for(String key : datelist.get(i).applies.keySet()){
-                    HashMap apply = datelist.get(i).applies.get(key);
-        %>
         <div class="main_body_yes">
             <div class="main_container">
                 <div class="main_box">
@@ -197,13 +197,14 @@
                                 </div>
                             </div>
                             <div class="under_container">
-                                <div class="under_box">
-                                    <span>계약 성사 :<%=apply.get("Contract_date")%></span>
-                                    <!-- 이부분 수정 부탁 드립니다. 계약금, 계약서 이미지.. 모달창 띄워서 이미지 보여줘도 되구 자유롭게 해주세여 -->
-                                    <!--
-                                    <span>계약금 :<%=apply.get("contract_price")%></span>
-                                    <span>계약서 이미지 : <img src="<%=apply.get("contract_img_path")%>"> </span>
-                                    -->
+                                <div class="under_box" id="contract_date">
+                                    <span>계약 성사 : <%=apply.get("Contract_date")%></span>
+                                </div>
+                                <div class="under_box" id="contract_price">
+                                    <span>계약금 : <%=apply.get("contract_price")%>원</span>
+                                </div>
+                                <div class="under_box" id="btn_modal">
+                                    <span>계약서보기</span>
                                 </div>
                             </div>
                         </div>
@@ -257,11 +258,23 @@
                 </div>
             </div>
         </div>
-        <%
-                }
-            }
-        %>
     </div>
+    <!--계약서 확인 모달창-->
+    <div id="contract_modal" class="modal_overlay">
+        <div class="modal_window">
+            <div class="title">
+                <h2>계약서 확인</h2>
+            </div>
+            <div class="close_area">X</div>
+            <div class="content" style="overflow: scroll;">
+                <div>계약서 이미지 : <img src="<%=apply.get("contract_img_path")%>"> </div>
+            </div>
+        </div>
+    </div>
+    <%
+            }
+        }
+    %>
     <jsp:include page="/newTestFooter.jsp" flush="false" />
 </div>
 
@@ -271,7 +284,10 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
 <script>
     const inputBox = document.getElementById("text_input"),
-        searchBox = document.getElementById("searchBox");
+        searchBox = document.getElementById("searchBox"),
+        modal = document.getElementById("contract_modal"),
+        btnModal = document.getElementById("btn_modal"),
+        closeBtn = modal.querySelector(".close_area");
     inputBox.addEventListener('focus', (event) => {
         searchBox.style.background = "#fff";
         inputBox.style.background = "#fff";
@@ -280,6 +296,26 @@
         searchBox.style.background = "#fafafa";
         inputBox.style.background = "#fafafa";
     })
+
+    //modal_window_controller
+    btnModal.addEventListener("click", e => {
+        modal.style.display = "flex"
+    })
+    closeBtn.addEventListener("click", e => {
+        modal.style.display = "none"
+    })
+    modal.addEventListener("click", e => {
+        const evTarget = e.target
+        if(evTarget.classList.contains("modal_overlay")) {
+            modal.style.display = "none"
+        }
+    })
+    window.addEventListener("keyup", e => {
+        if(modal.style.display === "flex" && e.key === "Escape") {
+            modal.style.display = "none"
+        }
+    })
+    //-------------------------------------------------------------------
 
     function fin_btn(obj){
         var boxNum = obj.id.slice(3);
