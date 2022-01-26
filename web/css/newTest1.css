@@ -261,7 +261,7 @@
 .body_container .body_main .main_body_yes .main_container .main_box .left_box .under_container{
     display: grid;
     align-items: center;
-    margin-top: 30px;
+    margin: 15px 5px 5px 10px;
 }
 @media (min-width: 721px) {
     .body_container .body_main .main_body_yes .main_container .main_box .left_box .under_container{
@@ -299,8 +299,9 @@
     border-radius: 20px;
     margin: 0 5px 5px 5px;
 }
-#btn_modal{
-    width: 100px;
+.btn_modal{
+    cursor: pointer;
+    width: 100px !important;
 }
 .body_container .body_main .main_body_yes .main_container .main_box .left_box .under_container .under_box span{
     color: #efefef;
@@ -341,7 +342,7 @@
     }
 }
 /*계약서 확인하는 모달 창 css*/
-#contract_modal.modal_overlay {
+.modal_overlay {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -394,17 +395,14 @@
     text-shadow: 1px 1px 2px gray;
     color: white;
 }
-
 #contract_modal .content {
     width: 100%;
-    height: 90%;
+    height: 85%;
     margin-top: 20px;
     padding: 0px 10px;
     text-shadow: 1px 1px 2px gray;
     color: white;
-}
-#btn_modal {
-    cursor: pointer;
+    overflow: auto;
 }
 
 
