@@ -197,13 +197,14 @@
                                 </div>
                             </div>
                             <div class="under_container">
-                                <div class="under_box">
-                                    <span>계약 성사 :<%=apply.get("Contract_date")%></span>
-                                    <!-- 이부분 수정 부탁 드립니다. 계약금, 계약서 이미지.. 모달창 띄워서 이미지 보여줘도 되구 자유롭게 해주세여 -->
-                                    <!--
-                                    <span>계약금 :<%=apply.get("contract_price")%></span>
-                                    <span>계약서 이미지 : <img src="<%=apply.get("contract_img_path")%>"> </span>
-                                    -->
+                                <div class="under_box" id="contract_date">
+                                    <span>계약 성사 : <%=apply.get("Contract_date")%></span>
+                                </div>
+                                <div class="under_box" id="contract_price">
+                                    <span>계약금 : <%=apply.get("contract_price")%>원</span>
+                                </div>
+                                <div class="under_box btn_modal" id="btn_modal<%=apply.get("Number")%>" onclick="modal_func(this)">
+                                    <span>계약서보기</span>
                                 </div>
                             </div>
                         </div>
@@ -262,6 +263,29 @@
             }
         %>
     </div>
+    <!--계약서 확인 모달창-->
+    <%
+        for (int i = 0; i < datelist.size(); i++) {
+            for(String key : datelist.get(i).applies.keySet()){
+                HashMap apply = datelist.get(i).applies.get(key);
+    %>
+    <div id="modal<%=apply.get("Number")%>" class="modal_overlay">
+        <div id="contract_modal">
+            <div class="modal_window">
+                <div class="title">
+                    <h2>계약서 확인</h2>
+                </div>
+                <div id="close_area<%=apply.get("Number")%>" class="close_area" onclick="modal_close(this)">X</div>
+                <div class="content">
+                    <div>계약서 이미지 : <img src="<%=apply.get("contract_img_path")%>"> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%
+            }
+        }
+    %>
     <jsp:include page="/newTestFooter.jsp" flush="false" />
 </div>
 
@@ -272,6 +296,7 @@
 <script>
     const inputBox = document.getElementById("text_input"),
         searchBox = document.getElementById("searchBox");
+        //modals = document.getElementsByClassName("modal_overlay");
     inputBox.addEventListener('focus', (event) => {
         searchBox.style.background = "#fff";
         inputBox.style.background = "#fff";
@@ -280,6 +305,40 @@
         searchBox.style.background = "#fafafa";
         inputBox.style.background = "#fafafa";
     })
+
+    //modal_window_controller//
+    //modal_window_open
+    function modal_func(obj){
+        var modalNum = obj.id.slice(9);
+        var contractModal = document.getElementById("modal" + modalNum);
+        contractModal.style.display = "flex"
+    }
+    //modal_window_close
+    function modal_close(obj){
+        var modalNum = obj.id.slice(10);
+        var contractModal = document.getElementById("modal" + modalNum);
+        contractModal.style.display = "none"
+    }
+    //CLOSE OPTION - 미완성
+    // for (var i = 0; i < modals.length; i++) {
+    // 창 바깥쪽을 클릭했을 때 종료
+    //     var eachModal = modals[i];
+    //     console.log(eachModal);
+    //     eachModal.addEventListener("click", e => {
+    //         const evTarget = e.target
+    //         if(evTarget.classList.contains("modal_overlay")) {
+    //             eachModal.style.display = "none"
+    //         }
+    //     })
+    //
+    // ESC 키를 눌렀을 때 종료
+    //     window.addEventListener("keyup", e => {
+    //         if(eachModal.style.display === "flex" && e.key === "Escape") {
+    //             eachModal.style.display = "none"
+    //         }
+    //     })
+    // }
+    //-------------------------------------------------------------------
 
     function fin_btn(obj){
         var boxNum = obj.id.slice(3);
