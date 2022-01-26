@@ -156,11 +156,6 @@
 %>
 <div class="body_container">
     <jsp:include page="/newTestHeader.jsp?tab=Done" flush="false" />
-    <%
-        for (int i = 0; i < datelist.size(); i++) {
-            for(String key : datelist.get(i).applies.keySet()){
-                HashMap apply = datelist.get(i).applies.get(key);
-    %>
     <div class="body_main">
         <div class="main_header">
             <div class="left_container">
@@ -186,6 +181,11 @@
                 <span>완료된 공사가 없습니다.</span>
             </div>
         </div>
+        <%
+            for (int i = 0; i < datelist.size(); i++) {
+                for(String key : datelist.get(i).applies.keySet()){
+                    HashMap apply = datelist.get(i).applies.get(key);
+        %>
         <div class="main_body_yes">
             <div class="main_container">
                 <div class="main_box">
@@ -203,7 +203,7 @@
                                 <div class="under_box" id="contract_price">
                                     <span>계약금 : <%=apply.get("contract_price")%>원</span>
                                 </div>
-                                <div class="under_box" id="btn_modal">
+                                <div class="under_box btn_modal" id="btn_modal<%=apply.get("Number")%>" onclick="modal_func(this)">
                                     <span>계약서보기</span>
                                 </div>
                             </div>
@@ -258,16 +258,27 @@
                 </div>
             </div>
         </div>
+        <%
+                }
+            }
+        %>
     </div>
     <!--계약서 확인 모달창-->
-    <div id="contract_modal" class="modal_overlay">
-        <div class="modal_window">
-            <div class="title">
-                <h2>계약서 확인</h2>
-            </div>
-            <div class="close_area">X</div>
-            <div class="content" style="overflow: scroll;">
-                <div>계약서 이미지 : <img src="<%=apply.get("contract_img_path")%>"> </div>
+    <%
+        for (int i = 0; i < datelist.size(); i++) {
+            for(String key : datelist.get(i).applies.keySet()){
+                HashMap apply = datelist.get(i).applies.get(key);
+    %>
+    <div id="modal<%=apply.get("Number")%>" class="modal_overlay">
+        <div id="contract_modal">
+            <div class="modal_window">
+                <div class="title">
+                    <h2>계약서 확인</h2>
+                </div>
+                <div id="close_area<%=apply.get("Number")%>" class="close_area" onclick="modal_close(this)">X</div>
+                <div class="content">
+                    <div>계약서 이미지 : <img src="<%=apply.get("contract_img_path")%>"> </div>
+                </div>
             </div>
         </div>
     </div>
@@ -284,10 +295,8 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
 <script>
     const inputBox = document.getElementById("text_input"),
-        searchBox = document.getElementById("searchBox"),
-        modal = document.getElementById("contract_modal"),
-        btnModal = document.getElementById("btn_modal"),
-        closeBtn = modal.querySelector(".close_area");
+        searchBox = document.getElementById("searchBox");
+        //modals = document.getElementsByClassName("modal_overlay");
     inputBox.addEventListener('focus', (event) => {
         searchBox.style.background = "#fff";
         inputBox.style.background = "#fff";
@@ -297,24 +306,38 @@
         inputBox.style.background = "#fafafa";
     })
 
-    //modal_window_controller
-    btnModal.addEventListener("click", e => {
-        modal.style.display = "flex"
-    })
-    closeBtn.addEventListener("click", e => {
-        modal.style.display = "none"
-    })
-    modal.addEventListener("click", e => {
-        const evTarget = e.target
-        if(evTarget.classList.contains("modal_overlay")) {
-            modal.style.display = "none"
-        }
-    })
-    window.addEventListener("keyup", e => {
-        if(modal.style.display === "flex" && e.key === "Escape") {
-            modal.style.display = "none"
-        }
-    })
+    //modal_window_controller//
+    //modal_window_open
+    function modal_func(obj){
+        var modalNum = obj.id.slice(9);
+        var contractModal = document.getElementById("modal" + modalNum);
+        contractModal.style.display = "flex"
+    }
+    //modal_window_close
+    function modal_close(obj){
+        var modalNum = obj.id.slice(10);
+        var contractModal = document.getElementById("modal" + modalNum);
+        contractModal.style.display = "none"
+    }
+    //CLOSE OPTION - 미완성
+    // for (var i = 0; i < modals.length; i++) {
+    // 창 바깥쪽을 클릭했을 때 종료
+    //     var eachModal = modals[i];
+    //     console.log(eachModal);
+    //     eachModal.addEventListener("click", e => {
+    //         const evTarget = e.target
+    //         if(evTarget.classList.contains("modal_overlay")) {
+    //             eachModal.style.display = "none"
+    //         }
+    //     })
+    //
+    // ESC 키를 눌렀을 때 종료
+    //     window.addEventListener("keyup", e => {
+    //         if(eachModal.style.display === "flex" && e.key === "Escape") {
+    //             eachModal.style.display = "none"
+    //         }
+    //     })
+    // }
     //-------------------------------------------------------------------
 
     function fin_btn(obj){
