@@ -321,6 +321,7 @@
     }
     //CLOSE OPTION - 미완성
     // for (var i = 0; i < modals.length; i++) {
+    // 창 바깥쪽을 클릭했을 때 종료
     //     var eachModal = modals[i];
     //     console.log(eachModal);
     //     eachModal.addEventListener("click", e => {
@@ -330,6 +331,7 @@
     //         }
     //     })
     //
+    // ESC 키를 눌렀을 때 종료
     //     window.addEventListener("keyup", e => {
     //         if(eachModal.style.display === "flex" && e.key === "Escape") {
     //             eachModal.style.display = "none"
