@@ -578,14 +578,5 @@ for(i = 0; i < item.length; i++){
     </div>
 </div>
 </div>
-<!-- jsp:include page="footer.jsp" flush="false"/ -->
-<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
-<script type="text/javascript">
-if(!wcs_add) var wcs_add = {};
-wcs_add["wa"] = "3602e31fd32c7e";
-wcs_do();
-</script>
-
-<script type="text/javascript" src="slick-1.8.1/slick/slick.min.js"></script>
 </body>
 </html>

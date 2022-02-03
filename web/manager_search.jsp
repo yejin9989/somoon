@@ -220,7 +220,6 @@ item[i][16] = rs.getString("Part");
     	}
     }
 </script>
-<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
 <script type="text/javascript" src="slick-1.8.1/slick/slick.min.js"></script>
 </body>
 </html>

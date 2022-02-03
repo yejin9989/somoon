@@ -225,11 +225,7 @@ window.onload = function() {
 	}
 };
 </script>
-<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
 <script type="text/javascript">
-if(!wcs_add) var wcs_add = {};
-wcs_add["wa"] = "3602e31fd32c7e";
-wcs_do();
 if (window.navigator.userAgent.match(/MSIE|Internet Explorer|Trident/i)) {
 	alert("Edge 또는 Chrome을 사용해주시기 바랍니다.");
 	window.location = "microsoft-edge:" + window.location.href;
