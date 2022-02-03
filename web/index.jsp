@@ -677,14 +677,6 @@
 		}
 	}
 </script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
-<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-PC15JG6KGN');
-</script>
 <script language="javascript">
 	function goPopup(){
 		// 주소검색을 수행할 팝업 페이지를 호출합니다.

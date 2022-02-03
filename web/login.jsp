@@ -193,13 +193,5 @@ $("#signup").click(function(){
 	location.href="signup.jsp";
 })
 </script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
-<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-PC15JG6KGN');
-</script>
 </body>
 </html>
