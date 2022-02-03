@@ -303,7 +303,9 @@
                 </div>
                 <div id="close_area<%=apply.get("Number")%>" class="close_area" onclick="modal_close(this)">X</div>
                 <div class="content">
-                    <div>계약서 이미지 : <img src="<%=apply.get("contract_img_path")%>"> </div>
+                    <div>계약서 이미지 :
+                        <img src="<%=apply.get("contract_img_path")%>" onerror="this.src='https://somoonhouse.com/otherimg/assets/nocontract.svg?raw=true'">
+                    </div>
                 </div>
             </div>
         </div>
@@ -319,7 +321,7 @@
 <script>
     const inputBox = document.getElementById("text_input"),
         searchBox = document.getElementById("searchBox");
-        //modals = document.getElementsByClassName("modal_overlay");
+        modals = document.getElementsByClassName("modal_overlay");
     inputBox.addEventListener('focus', (event) => {
         searchBox.style.background = "#fff";
         inputBox.style.background = "#fff";
@@ -342,25 +344,25 @@
         var contractModal = document.getElementById("modal" + modalNum);
         contractModal.style.display = "none"
     }
-    //CLOSE OPTION - 미완성
-    // for (var i = 0; i < modals.length; i++) {
-    // 창 바깥쪽을 클릭했을 때 종료
-    //     var eachModal = modals[i];
-    //     console.log(eachModal);
-    //     eachModal.addEventListener("click", e => {
-    //         const evTarget = e.target
-    //         if(evTarget.classList.contains("modal_overlay")) {
-    //             eachModal.style.display = "none"
-    //         }
-    //     })
-    //
-    // ESC 키를 눌렀을 때 종료
-    //     window.addEventListener("keyup", e => {
-    //         if(eachModal.style.display === "flex" && e.key === "Escape") {
-    //             eachModal.style.display = "none"
-    //         }
-    //     })
-    // }
+    //ESC 키를 눌렀을 때 종료
+    window.addEventListener("keyup", e => {
+        for(var i=0;i<modals.length;i++){
+            var eachModals = modals[i];
+            if(eachModals.style.display === "flex" && e.key === "Escape") {
+                eachModals.style.display = "none"
+            }
+        }
+    })
+    //창 바깥쪽을 클릭했을 때 종료
+    for (var i = 0; i < modals.length; i++) {
+        var eachModal = modals[i];
+        eachModal.addEventListener("click", e => {
+            const evTarget = e.target;
+            if(evTarget.classList.contains("modal_overlay")) {
+                evTarget.style.display = "none"
+            }
+        })
+    }
     //-------------------------------------------------------------------
 
     function fin_btn(obj){

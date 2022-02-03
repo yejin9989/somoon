@@ -362,6 +362,9 @@
     font-weight: 600;
     color: #fff;
 }
+.fixed_button{
+    display: none;
+}
 .mobileFooter{
     display: none;
     position: fixed;
@@ -418,7 +421,7 @@
 }
 @media (max-width: 700px) {
     .fixed_button{
-        display: none;
+        display: none !important;
     }
     .upper_fixed_mob{
         width: 100%;
