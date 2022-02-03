@@ -150,6 +150,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <title>소문난집 - 완료상담 관리</title>
+    <!-- Meta Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '333710951988229');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+                   src="https://www.facebook.com/tr?id=333710951988229&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PC15JG6KGN');
+    </script>
+    <!-- END Global site tag (gtag.js) - Google Analytics -->
 </head>
 <body>
 <%
@@ -277,7 +303,9 @@
                 </div>
                 <div id="close_area<%=apply.get("Number")%>" class="close_area" onclick="modal_close(this)">X</div>
                 <div class="content">
-                    <div>계약서 이미지 : <img src="<%=apply.get("contract_img_path")%>"> </div>
+                    <div>계약서 이미지 :
+                        <img src="<%=apply.get("contract_img_path")%>" onerror="this.src='https://somoonhouse.com/otherimg/assets/nocontract.svg?raw=true'">
+                    </div>
                 </div>
             </div>
         </div>
@@ -290,13 +318,10 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
 <script>
     const inputBox = document.getElementById("text_input"),
         searchBox = document.getElementById("searchBox");
-        //modals = document.getElementsByClassName("modal_overlay");
+        modals = document.getElementsByClassName("modal_overlay");
     inputBox.addEventListener('focus', (event) => {
         searchBox.style.background = "#fff";
         inputBox.style.background = "#fff";
@@ -319,25 +344,25 @@
         var contractModal = document.getElementById("modal" + modalNum);
         contractModal.style.display = "none"
     }
-    //CLOSE OPTION - 미완성
-    // for (var i = 0; i < modals.length; i++) {
-    // 창 바깥쪽을 클릭했을 때 종료
-    //     var eachModal = modals[i];
-    //     console.log(eachModal);
-    //     eachModal.addEventListener("click", e => {
-    //         const evTarget = e.target
-    //         if(evTarget.classList.contains("modal_overlay")) {
-    //             eachModal.style.display = "none"
-    //         }
-    //     })
-    //
-    // ESC 키를 눌렀을 때 종료
-    //     window.addEventListener("keyup", e => {
-    //         if(eachModal.style.display === "flex" && e.key === "Escape") {
-    //             eachModal.style.display = "none"
-    //         }
-    //     })
-    // }
+    //ESC 키를 눌렀을 때 종료
+    window.addEventListener("keyup", e => {
+        for(var i=0;i<modals.length;i++){
+            var eachModals = modals[i];
+            if(eachModals.style.display === "flex" && e.key === "Escape") {
+                eachModals.style.display = "none"
+            }
+        }
+    })
+    //창 바깥쪽을 클릭했을 때 종료
+    for (var i = 0; i < modals.length; i++) {
+        var eachModal = modals[i];
+        eachModal.addEventListener("click", e => {
+            const evTarget = e.target;
+            if(evTarget.classList.contains("modal_overlay")) {
+                evTarget.style.display = "none"
+            }
+        })
+    }
     //-------------------------------------------------------------------
 
     function fin_btn(obj){
