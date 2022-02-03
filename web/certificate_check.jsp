@@ -129,15 +129,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-PC15JG6KGN');
-    </script>
     <link rel="SHORTCUT ICON" href="img/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="https://pm.pstatic.net/css/webfont_v170623.css"/>
     <link rel="stylesheet" type="text/css" href="slick-1.8.1/slick/slick.css"/>
