@@ -44,32 +44,7 @@ pstmt = conn.prepareStatement(query);
 
 <!DOCTYPE html>
 <html>
-<head>    <!-- Meta Pixel Code -->
-	<script>
-		!function(f,b,e,v,n,t,s)
-		{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-				n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-			if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-			n.queue=[];t=b.createElement(e);t.async=!0;
-			t.src=v;s=b.getElementsByTagName(e)[0];
-			s.parentNode.insertBefore(t,s)}(window, document,'script',
-				'https://connect.facebook.net/en_US/fbevents.js');
-		fbq('init', '333710951988229');
-		fbq('track', 'PageView');
-	</script>
-	<noscript><img height="1" width="1" style="display:none"
-				   src="https://www.facebook.com/tr?id=333710951988229&ev=PageView&noscript=1"
-	/></noscript>
-	<!-- End Meta Pixel Code -->
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-		gtag('config', 'G-PC15JG6KGN');
-	</script>
-	<!-- END Global site tag (gtag.js) - Google Analytics -->
+<head>
 <link rel="SHORTCUT ICON" href="img/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="https://pm.pstatic.net/css/webfont_v170623.css"/>
 <link rel="stylesheet" type="text/css" href="slick-1.8.1/slick/slick.css"/>
@@ -164,6 +139,35 @@ input[type="submit"]{
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <title>소문난집</title>
+	<!-- 사용자 행동 정보 수집 코드 시작 - Meta, GA -->
+	<!-- 모든 페이지에 하나씩만 포함되어 있어야 합니다. 위치는 </head> 바로 위로 통일 -->
+	<!-- Meta Pixel Code -->
+	<script>
+		!function(f,b,e,v,n,t,s)
+		{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+				n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+			if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+			n.queue=[];t=b.createElement(e);t.async=!0;
+			t.src=v;s=b.getElementsByTagName(e)[0];
+			s.parentNode.insertBefore(t,s)}(window, document,'script',
+				'https://connect.facebook.net/en_US/fbevents.js');
+		fbq('init', '483692416470707');
+		fbq('track', 'PageView');
+	</script>
+	<noscript><img height="1" width="1" style="display:none"
+				   src="https://www.facebook.com/tr?id=483692416470707&ev=PageView&noscript=1"
+	/></noscript>
+	<!-- End Meta Pixel Code -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-PC15JG6KGN');
+	</script>
+	<!-- END Global site tag (gtag.js) - Google Analytics -->
+	<!-- 사용자 행동 정보 수집 코드 끝 - Meta, GA -->
 </head>
 <body>
 <jsp:include page="/newTestHeader.jsp" flush="false" />
@@ -199,12 +203,6 @@ window.onload = function() {
 		location.href = "index.jsp";
 	}
 };
-</script>
-<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
-<script type="text/javascript">
-if(!wcs_add) var wcs_add = {};
-wcs_add["wa"] = "3602e31fd32c7e";
-wcs_do();
 </script>
 <script type="text/javascript" src="slick-1.8.1/slick/slick.min.js"></script>
 </div>
