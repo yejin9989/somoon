@@ -30,7 +30,7 @@
         int error = 0;
 
         //배분중 상태인 신청들 중에서 3시간이 지난 신청 확인하기
-        query = "select * from REMODELING_APPLY where State = 2 And Not Assigned_time BETWEEN DATE_ADD(NOW(), INTERVAL -3 HOUR ) AND NOW()";
+        query = "select * from REMODELING_APPLY where State = 2 And Not Assigned_time BETWEEN DATE_ADD(NOW(), INTERVAL -6 HOUR ) AND NOW()";
         pstmt = conn.prepareStatement(query);
         rs = pstmt.executeQuery();
 
