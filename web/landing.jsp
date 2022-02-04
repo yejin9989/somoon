@@ -45,9 +45,13 @@
     <!-- END Global site tag (gtag.js) - Google Analytics -->
 </head>
 <body>
-<img src="https://somoonhouse.com/otherimg/A랜딩페이지초안1.jpg">
-<img src="https://somoonhouse.com/otherimg/A랜딩페이지초안2.jpg">
-<img src="https://somoonhouse.com/otherimg/A랜딩페이지초안3.jpg">
+<img src="https://somoonhouse.com/otherimg/A랜딩1.jpg">
+<img src="https://somoonhouse.com/otherimg/A랜딩2.jpg">
+<img src="https://somoonhouse.com/otherimg/A랜딩3.jpg">
+<img src="https://somoonhouse.com/otherimg/A랜딩4.jpg">
+<img src="https://somoonhouse.com/otherimg/A랜딩5.jpg">
+<img src="https://somoonhouse.com/otherimg/A랜딩6.jpg">
+<img src="https://somoonhouse.com/otherimg/A랜딩7.jpg">
 <script>
     //새 스크립트 작성
 </script>
