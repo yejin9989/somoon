@@ -538,7 +538,7 @@ conn.close();
 <script>
     const countDownTimer = function (id, date){
         const _vvDate = new Date(date);
-        const _vDate = _vvDate.setHours(_vvDate.getHours()+3);
+        const _vDate = _vvDate.setHours(_vvDate.getHours()+6);
         const _second = 1000;
         const _minute = _second * 60;
         const _hour = _minute * 60;
@@ -567,7 +567,7 @@ conn.close();
 
         }
 
-        timer = setInterval(() => showRemaining(), 1000); // 나 동노간다 - 이현로 -
+        timer = setInterval(() => showRemaining(), 1000);
 
     }
 
