@@ -29,8 +29,8 @@
         //처리에 에러정보가 있으면 롤백
         int error = 0;
 
-        //배분중 상태인 신청들 중에서 3시간이 지난 신청 확인하기
-        query = "select * from REMODELING_APPLY where State = 2 And Not Assigned_time BETWEEN DATE_ADD(NOW(), INTERVAL -3 HOUR ) AND NOW()";
+        //배분중 상태인 신청들 중에서 6시간이 지난 신청 확인하기
+        query = "select * from REMODELING_APPLY where State = 2 And Not Assigned_time BETWEEN DATE_ADD(NOW(), INTERVAL -6 HOUR ) AND NOW()";
         pstmt = conn.prepareStatement(query);
         rs = pstmt.executeQuery();
 
@@ -39,7 +39,7 @@
             not_valid_items.add(rs.getString("Number"));
         }
 
-        //3시간 지난 신청들의 배분 정보에서 상태(대기)가 일 시에 상태(거절)로 변경
+        //6시간 지난 신청들의 배분 정보에서 상태(대기)가 일 시에 상태(거절)로 변경
         for (String number : not_valid_items){
             sql = "update ASSIGNED set State = 1 where State = 0 and Apply_num = " + number;
             pstmt = conn.prepareStatement(sql);
