@@ -239,20 +239,33 @@ for(i=1; i<=division1.size(); i++){
 				<a href="personal.html" target="_blank">전문보기</a>
 			</div>
 		</div>
+		<div class="form_mini" id="form9">
+			<!-- 중단사유 입력 -->
+			<div class="form_title">중단 사유를 입력해주세요.</div>
+			<div class="form_content">
+				<input type="text" name="area" pattern="\d*" class="block">
+			</div>
+		</div>
 		
 		<div class="estimate_navigator" id="navigator1">
 			<div class="not" id="notstart" style="display: none">다음</div>
 			<div class="start" id="yesstart">다음</div>
 		</div>
 		<div class="estimate_navigator" id="navigator2" style="display:none;">
+			<div class="reset">처음으로</div>
 			<div class="prev">뒤로</div>
 			<div class="next" id="yesnext">다음</div>
 			<div class="not" id="notnext" style="display: none">다음</div>
 		</div>
 		<div class="estimate_navigator" id="navigator3" style="display:none;">
+			<div class="reset">처음으로</div>
 			<div class="prev">뒤로</div>
 			<input type="submit" id="yesfinish" value="완료">
 			<div class="not" id="notfinish" style="display: none">완료</div>
+		</div>
+		<div class="estimate_navigator" id="navigator4" style="display:none;">
+			<input type="submit" id="yesquit" value="완료">
+			<div class="not" id="notquit" style="display: none">완료</div>
 		</div>
 		</form>
 	</div>
@@ -418,6 +431,19 @@ $('document').ready(function(){
 		elem.css('display', 'none');
 		$('#form'+num).css('display', 'block');
 		//form_vaild($('#form'+num+' input'));
+	})
+
+	//중단
+	$('.reset').click(function(){
+		$('.form_mini').each(function(){
+			if($(this).css('display') =='block'){
+				$(this).css('display', 'none');
+			}
+		})
+		$('#form9').css('display', 'block');
+
+		$(this).parent().css('display', 'none');
+		$('#navigator4').css('display', 'block');
 	})
 
 	function partly(){
