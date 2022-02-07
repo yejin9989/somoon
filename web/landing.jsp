@@ -14,6 +14,7 @@
 <head>
     <link rel="SHORTCUT ICON" href="https://somoonhouse.com/img/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/newindex.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/landing.css"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <title>소문난집 - 랜딩페이지</title>
@@ -45,13 +46,35 @@
     <!-- END Global site tag (gtag.js) - Google Analytics -->
 </head>
 <body>
-<img src="https://somoonhouse.com/otherimg/A랜딩1.jpg">
-<img src="https://somoonhouse.com/otherimg/A랜딩2.jpg">
-<img src="https://somoonhouse.com/otherimg/A랜딩3.jpg">
-<img src="https://somoonhouse.com/otherimg/A랜딩4.jpg">
-<img src="https://somoonhouse.com/otherimg/A랜딩5.jpg">
-<img src="https://somoonhouse.com/otherimg/A랜딩6.jpg">
-<img src="https://somoonhouse.com/otherimg/A랜딩7.jpg">
+<div class="img_contains">
+    <div class="img_contain" id="land_img1">
+        <img src="https://somoonhouse.com/otherimg/A랜딩1.jpg">
+    </div>
+    <div class="img_contain" id="land_img6-1" onclick="location.href='https://somoonhouse.com/remodeling_form.jsp'">
+        <img src="https://somoonhouse.com/otherimg/A랜딩6.jpg">
+    </div>
+    <div class="img_contain" id="land_img7-1" onclick="location.href='https://somoonhouse.com/homepage.jsp'">
+        <img src="https://somoonhouse.com/otherimg/A랜딩7.jpg">
+    </div>
+    <div class="img_contain" id="land_img2">
+        <img src="https://somoonhouse.com/otherimg/A랜딩2.jpg">
+    </div>
+    <div class="img_contain" id="land_img3">
+        <img src="https://somoonhouse.com/otherimg/A랜딩3.jpg">
+    </div>
+    <div class="img_contain" id="land_img4">
+        <img src="https://somoonhouse.com/otherimg/A랜딩4.jpg">
+    </div>
+    <div class="img_contain" id="land_img5">
+        <img src="https://somoonhouse.com/otherimg/A랜딩5.jpg">
+    </div>
+    <div class="img_contain" id="land_img6" onclick="location.href='https://somoonhouse.com/remodeling_form.jsp'">
+        <img src="https://somoonhouse.com/otherimg/A랜딩6.jpg">
+    </div>
+    <div class="img_contain" id="land_img7" onclick="location.href='https://somoonhouse.com/homepage.jsp'">
+        <img src="https://somoonhouse.com/otherimg/A랜딩7.jpg">
+    </div>
+</div>
 <script>
     //새 스크립트 작성
 </script>
