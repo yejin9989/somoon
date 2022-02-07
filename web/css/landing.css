@@ -14,11 +14,11 @@
     cursor: pointer;
 }
 
-@media (min-width: 1080px){
+@media (min-width: 900px){
     .img_contain{
         text-align: center;
     }
     .img_contain img{
-        width: 1080px;
+        width: 900px;
     }
 }
