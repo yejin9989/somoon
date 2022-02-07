@@ -1,0 +1,24 @@
+.img_contain img{
+    width: 100%;
+}
+#land_img1,#land_img6,#land_img7,#land_img6-1,#land_img7-1 {
+    background-color: #d8e2fd;
+}
+#land_img2,#land_img3,#land_img4{
+    background-color: #fffdf0;
+}
+#land_img5{
+    background-color: #4272f8;
+}
+#land_img6,#land_img7,#land_img6-1,#land_img7-1{
+    cursor: pointer;
+}
+
+@media (min-width: 1080px){
+    .img_contain{
+        text-align: center;
+    }
+    .img_contain img{
+        width: 1080px;
+    }
+}
