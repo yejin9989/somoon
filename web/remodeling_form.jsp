@@ -407,6 +407,12 @@ $('document').ready(function(){
 		//$('#notnext').css('display', 'inline-block');
 		//form_vaild();
 
+		gtag(‘event’, ‘다음버튼 누르기’, {
+		‘event_category’: categoryName,
+‘event_label’: labelName
+‘non_interaction’: true
+		});
+
 	})
 	
 	//이전 폼
