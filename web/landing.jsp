@@ -1,42 +1,22 @@
 <%@ page import="java.net.URLEncoder" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page language="java" import="java.text.*,java.sql.*,java.util.*,java.security.*,java.math.BigInteger" %>
-<%@ page language="java" import="myPackage.*" %>
+         pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setContentType("text/html; charset=utf-8"); %>
-<% session.setAttribute("page", "delete_ability.jsp"); %>
 <%
-//DB에 사용 할 객체들 정의
-Connection conn = DBUtil.getMySQLConnection();
-PreparedStatement pstmt = null;
-Statement stmt = null;
-String query = "";
-String sql = "";
-ResultSet rs = null;
-
-//세션 생성 create session
-session.setAttribute("page", "delete_ability.jsp"); // 현재 페이지 current page
-//세션 가져오기 get session
-String now = session.getAttribute("page")+""; // 현재 페이지 current page
-String s_id = session.getAttribute("s_id")+"";// 현재 사용자 current user
-String name = session.getAttribute("name")+"";
-
-String company_id = request.getParameter("company");
-company_id = "1";
-String ability_id = request.getParameter("ability_id");
-
-query = "delete from SPECIALIZED where Company_num = ? and Ability_num = ?";
-pstmt = conn.prepareStatement(query);
-pstmt.setString(1, company_id);
-pstmt.setString(2, ability_id);
-pstmt.executeUpdate();
+    //캐시 설정 - 이미지 캐시 폐기 기간을 늘려서 반응속도를 올림
+    response.setHeader("Cache-Control", "no-cache");
+    response.setHeader("Pragma", "no-cache");
+    response.setDateHeader("Expires", 31536000);
 %>
-
 <!DOCTYPE html>
 <html>
 <head>
-<title>소문난집</title>
+    <link rel="SHORTCUT ICON" href="https://somoonhouse.com/img/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/newindex.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>소문난집 - 랜딩페이지</title>
     <!-- Meta Pixel Code -->
     <script>
         !function(f,b,e,v,n,t,s)
@@ -65,14 +45,15 @@ pstmt.executeUpdate();
     <!-- END Global site tag (gtag.js) - Google Analytics -->
 </head>
 <body>
-<%
-//DB개체 정리
-/*
-pstmt.close();
-rs.close();
-query="";
-conn.close();
-*/
-%>
+<img src="https://somoonhouse.com/otherimg/A랜딩1.jpg">
+<img src="https://somoonhouse.com/otherimg/A랜딩2.jpg">
+<img src="https://somoonhouse.com/otherimg/A랜딩3.jpg">
+<img src="https://somoonhouse.com/otherimg/A랜딩4.jpg">
+<img src="https://somoonhouse.com/otherimg/A랜딩5.jpg">
+<img src="https://somoonhouse.com/otherimg/A랜딩6.jpg">
+<img src="https://somoonhouse.com/otherimg/A랜딩7.jpg">
+<script>
+    //새 스크립트 작성
+</script>
 </body>
 </html>
