@@ -53,10 +53,10 @@
   <div class="img_contain" id="land_img1">
     <img src="https://somoonhouse.com/otherimg/A랜딩1.jpg">
   </div>
-  <div class="img_contain" id="land_img6-1" onclick="location.href='https://somoonhouse.com/remodeling_form.jsp'">
+  <div class="img_contain" id="land_img6-1" onclick="location.href='remodeling_form.jsp?item_num=0'">
     <img src="https://somoonhouse.com/otherimg/A랜딩6.jpg">
   </div>
-  <div class="img_contain" id="land_img7-1" onclick="location.href='https://somoonhouse.com/homepage.jsp'">
+  <div class="img_contain" id="land_img7-1" onclick="location.href='homepage.jsp'">
     <img src="https://somoonhouse.com/otherimg/A랜딩7.jpg">
   </div>
   <div class="img_contain" id="land_img2">
