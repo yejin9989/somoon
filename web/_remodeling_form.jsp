@@ -137,11 +137,14 @@
 		pstmt.executeUpdate();
 
 		MessageSend2 msg = new MessageSend2();
-		String msg_str = name + "님, 상담 신청이 완료되었습니다! 2일 이내(주말/공휴일 제외)로 친절한 소문난집 담당자가 연락드릴 예정이니, 조금만 기다려주세요^^";
+		String msg_str = "새로운 신청이 있습니다.\n이름:"+name+"\n연락처:"+phone;
 
-
-		// 고객에게 문자 보내기
-//		msg.send(phone, msg_str, "lms");
+		// 관리자에게 알림 문자 보내기 (테스트가 아닌 경우만)
+		if(name.contains("개발") || name.contains("테스트") || name.contains("test")) {
+		}
+		else{
+			msg.send("01043997660", msg_str, "lms");
+		}
 		%>
 
 		<script>
@@ -212,4 +215,10 @@
 </head>
 <body>
 </body>
+<script>
+	const testConfirm = (name, phone) => {
+		alert("hi");
+		alert(name + phone);
+	}
+</script>
 </html>
