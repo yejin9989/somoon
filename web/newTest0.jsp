@@ -243,12 +243,36 @@
                         </div>
                     </div>
                 </div>
-                <%}
-                }
-                %>
             </div>
         </div>
     </div>
+<div id="modal<%=apply.get("Number")%>" class="modal_overlay">
+    <div id="refuse_modal">
+        <div class="modal_window">
+            <div class="title">
+                <h2>거절 사유 선택</h2>
+            </div>
+            <div id="close_area<%=apply.get("Number")%>" class="close_area" onclick="modal_close(this)">X</div>
+            <div class="content">
+                <form>
+                    <div>
+                        <input type="radio" name="comp_reason_id" value="1"> 고객 예산 부족 <br><br>
+                        <input type="radio" name="comp_reason_id" value="2"> 공사 일정 마감 <br><br>
+                        <input type="radio" name="comp_reason_id" value="3"> 해당 지역 공사 불가 <br><br>
+                        <input type="radio" name="comp_reason_id" value="4">
+                        <input type="text" name="comp_stop_reason" id="comp_stop_reason" placeholder="기타(직접입력)">
+                        <div id="ref_submit_div">
+                            <input type="button" class="refuse_submit" id="ref_sub<%=apply.get("Number")%>" value="등록">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<%}
+}
+%>
     <jsp:include page="/newTestFooter.jsp" flush="false" />
 </div>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -269,11 +293,60 @@
         }
     })
     $('.refuse').click(function(){
-        const id = $(this).attr("id");
-        const rState = $(this)[0].classList[1].replace("rState-", "");
-        const aState = $(this)[0].classList[2].replace("aState-", "");
+        var modalNum = this.id;
+        var contractModal = document.getElementById("modal" + modalNum);
+        contractModal.style.display = "flex"
+    })
 
-        location.href = "_newTest_company_refuse.jsp?companyNum="+"<%=s_id%>"+"&applyNum="+id;
+    //modal_window_controller//
+    ref_modals = document.getElementsByClassName("modal_overlay");
+    //modal_window_close
+    function modal_close(obj){
+        var modalNum = obj.id.slice(10);
+        var contractModal = document.getElementById("modal" + modalNum);
+        contractModal.style.display = "none"
+    }
+    //ESC 키를 눌렀을 때 종료
+    window.addEventListener("keyup", e => {
+        for(var i=0;i<ref_modals.length;i++){
+            var eachModals = ref_modals[i];
+            if(eachModals.style.display === "flex" && e.key === "Escape") {
+                eachModals.style.display = "none"
+            }
+        }
+    })
+    //창 바깥쪽을 클릭했을 때 종료
+    for (var i = 0; i < ref_modals.length; i++) {
+        var eachModal = ref_modals[i];
+        eachModal.addEventListener("mousedown", e => {
+            const evTarget = e.target;
+            if(evTarget.classList.contains("modal_overlay")) {
+                evTarget.style.display = "none"
+            }
+        })
+    }
+    //-------------------------------------------------------------------
+
+    $('.refuse_submit').click(function(){
+        const id = this.id.slice(7);
+
+        //입력오류 확인
+
+        var refid = $("input:radio[name='comp_reason_id']:checked").val( ) ;
+        var reason = document.getElementById("comp_stop_reason").value;
+
+        if(refid == null){
+            alert('중단 사유를 선택해주세요!');
+        }
+        else if(refid==='4' && reason===""){
+            alert('기타 사유를 입력해주세요!');
+            document.getElementById("comp_stop_reason").focus();
+        }
+        else{
+            // const rState = $(this).parent()[0].classList[1].replace("rState-", "");
+            // const aState = $(this).parent()[0].classList[2].replace("aState-", "");
+            location.href = "_newTest_company_refuse.jsp?companyNum="+"<%=s_id%>"+"&applyNum="+id+"&refuseId="+refid+"&refuseReason="+reason;
+        }
     })
 </script>
 <script>

@@ -14,8 +14,20 @@
     //String param = request.getParameter("param");
     String apply_num = request.getParameter("applyNum") + "";
     String company_num = request.getParameter("companyNum") + "";
+    String refuse_id = request.getParameter("refuseId") + "";
+    String refuse_reason = request.getParameter("refuseReason") + "";
     //String apply_num = "1";
     //String company_num = "2";
+
+    if(refuse_id.equals("1")){
+        refuse_reason="고객 예산 부족";
+    }
+    else if(refuse_id.equals("2")){
+        refuse_reason="공사 일정 마감";
+    }
+    else if(refuse_id.equals("3")){
+        refuse_reason="해당 지역 공사 불가";
+    }
 
     //DB 관련 객체 선언
     Connection conn = DBUtil.getMySQLConnection();
@@ -25,10 +37,14 @@
     String sql = "";
 
     //DB update
-    query = "UPDATE ASSIGNED SET State = 1 WHERE Apply_num = ? AND Company_num = ?";
+    query = "UPDATE ASSIGNED SET State = 1 , Refuse_id = ? , Refuse_reason = ? WHERE Apply_num = ? AND Company_num = ?";
     pstmt = conn.prepareStatement(query);
-    pstmt.setInt(1, Integer.parseInt(apply_num));
-    pstmt.setInt(2, Integer.parseInt(company_num));
+    pstmt.setString(1, refuse_id);
+    pstmt.setString(2, refuse_reason);
+    pstmt.setInt(3, Integer.parseInt(apply_num));
+    pstmt.setInt(4, Integer.parseInt(company_num));
+
+
     pstmt.executeUpdate();
     //pstmt.close();
 %>

@@ -373,6 +373,7 @@
     max-width: 600px;
     max-height: 500px;
     padding: 10px;
+    margin: auto;
 }
 #contract_modal .content img {
     width: 100%;

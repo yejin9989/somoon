@@ -242,8 +242,11 @@
 		<div class="form_mini" id="form9">
 			<!-- 중단사유 입력 -->
 			<div class="form_title">중단 사유를 입력해주세요.</div>
-			<div class="form_content">
-				<input type="text" name="reason" class="block">
+			<div class="form_content" style="text-align: left">
+				<input type="radio" name="reason_id" value="1"> 신청 과정이 너무 번거로움 <br><br>
+				<input type="radio" name="reason_id" value="2"> 아직 구체적인 계획이 없음 <br><br>
+				<input type="radio" name="reason_id" value="3">
+				<input type="text" name="stop_reason" id="stop_reason" class="block" placeholder="기타(직접입력)">
 			</div>
 		</div>
 
@@ -253,23 +256,23 @@
 <%--				 style="display: none"--%>
 		</div>
 		<div class="estimate_navigator" id="navigator2" style="display:none;">
-			<div class="reset">처음으로</div>
+			<div class="reset">종료</div>
 			<div class="prev">뒤로</div>
 			<div class="next" id="yesnext">다음</div>
 <%--				 style="display: none"--%>
 			<div class="not" id="notnext" style="display: none">다음</div>
 		</div>
 		<div class="estimate_navigator" id="navigator3" style="display:none;">
-			<div class="reset">처음으로</div>
+			<div class="reset">종료</div>
 			<div class="prev">뒤로</div>
 			<input type="submit" id="yesfinish" value="완료">
 <%--			style="display: none">--%>
 			<div class="not" id="notfinish" style="display: none">완료</div>
 		</div>
 		<div class="estimate_navigator" id="navigator4" style="display:none;">
-			<input type="submit" class="start" id="yesquit" value="완료">
+			<input type="button" class="start" id="yesquit" value="다음에 신청할게요" onclick="return quitRsn(this.form);">
 <%--				   style="display: none">--%>
-			<div class="not" id="notquit" style="display: none">완료</div>
+			<div class="not" id="notquit" style="display: none">다음에 신청할게요</div>
 		</div>
 	</form>
 </div>
@@ -375,10 +378,10 @@ conn.close();
 			}
 		}
 		$('.form_mini input').on("propertychange change keyup paste input", function(){
-			form_vaild();
+			//form_vaild();
 		})
 		//시작
-		$('.start').click(function(){
+		$('.start#yesstart').click(function(){
 			$('#form1').css('display', 'none');
 			$('#form2').css('display', 'block');
 
@@ -484,6 +487,28 @@ conn.close();
 	function formChk(){
 		//return confirm("");
 	}
+	function quitRsn(frm){
+		//입력오류 확인
+
+		var id = $("input:radio[name='reason_id']:checked").val( ) ;
+		var reason = document.getElementById("stop_reason").value;
+
+		if(id == null){
+			alert('중단 사유를 선택해주세요!');
+		}
+    	else if(id==='3' && reason===""){
+			alert('기타 사유를 입력해주세요!');
+			document.getElementById("stop_reason").focus();
+		}
+		else{
+			frm.action='_remodeling_form_stop.jsp';
+			frm.submit();
+		}
+		return true;
+	}
+
+
+
 </script>
 </body>
 </html>

@@ -9,17 +9,22 @@
     //필요한 변수 선언
     int i, j;
     String mylog = "";
-
     //파라미터 가져오기
     String reason_id = request.getParameter("reason_id");
     String stop_reason = request.getParameter("stop_reason");
+
+    if(reason_id.equals("1")){
+        stop_reason="신청 과정이 너무 번거로움";
+    }
+    else if(reason_id.equals("2")){
+        stop_reason="아직 구체적인 계획이 없음";
+    }
 
     //DB 관련 객체 선언
     Connection conn = DBUtil.getMySQLConnection();
     ResultSet rs = null;
     PreparedStatement pstmt = null;
     String sql = "";
-
     //DB insert
     sql = "INSERT INTO apply_stop_reason (reason_id, stop_reason) values (?, ?)";
     pstmt = conn.prepareStatement(sql);
@@ -43,12 +48,14 @@
 <%
     if(pstmt != null) {
         pstmt.close();
-        rs.close();
-        query = "";
+        sql = "";
         conn.close();
     }
 %>
-
+<script>
+    alert('더 나은 서비스로 찾아뵙겠습니다. 감사합니다.');
+    location.href = "homepage.jsp";
+</script>
 
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
