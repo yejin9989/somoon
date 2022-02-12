@@ -1,6 +1,6 @@
 <%@ page import="java.net.URLEncoder" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8" %>
 <%@ page language="java" import="java.text.*,java.sql.*,java.util.*,java.security.*,java.math.BigInteger" %>
 <%@ page language="java" import="myPackage.*" %>
 <% request.setCharacterEncoding("UTF-8"); %>
@@ -11,7 +11,7 @@
 
     //파라미터 가져오기
     //String param = request.getParameter("param");
-    String s_id = session.getAttribute("s_id")+"";
+    String s_id = session.getAttribute("s_id") + "";
     //String s_id = "35";
 
     //DB 관련 객체 선언
@@ -23,28 +23,32 @@
 
     //변수설정
     String[] buildingType = {"아파트", "빌라", "주택", "원룸"};
-    class Dates{
+    class Dates {
         String date;
         HashMap<String, HashMap<String, String>> applies;
         HashMap<String, HashMap<String, String>> details;
 
-        void setDate(String date){
+        void setDate(String date) {
             this.date = date;
         }
-        void setApplies(HashMap applies){
+
+        void setApplies(HashMap applies) {
             this.applies = applies;
         }
-        void setDetails(HashMap details){
+
+        void setDetails(HashMap details) {
             this.details = details;
         }
 
-        String getDate(){
+        String getDate() {
             return this.date;
         }
-        HashMap getApplies(){
+
+        HashMap getApplies() {
             return this.applies;
         }
-        HashMap getDetails(){
+
+        HashMap getDetails() {
             return this.details;
         }
     }
@@ -60,7 +64,7 @@
 
     LinkedList<Dates> datelist = new LinkedList<Dates>();
 
-    while(rs.next()) {
+    while (rs.next()) {
 
         Dates date = new Dates();
         date.setDate(rs.getString("Apply_date"));
@@ -79,15 +83,14 @@
 
         while (rs2.next()) {
             HashMap<String, String> temp = new HashMap<String, String>();
-            if(rs2.getString("Item_num").equals("0")){
+            if (rs2.getString("Item_num").equals("0")) {
                 temp.put("Title", "통합 신청 버튼으로 신청했습니다.");
                 temp.put("URL", "#");
-            }
-            else{
+            } else {
                 query = "select * from REMODELING where Number = " + rs2.getString("Item_num");
                 pstmt = conn.prepareStatement(query);
                 ResultSet rs3 = pstmt.executeQuery();
-                while(rs3.next()){
+                while (rs3.next()) {
                     temp.put("Title", rs3.getString("Title"));
                     temp.put("URL", rs3.getString("URL"));
                 }
@@ -97,7 +100,7 @@
             temp.put("Name", rs2.getString("R.Name"));
             temp.put("Phone", rs2.getString("R.Phone"));
             temp.put("Address", rs2.getString("R.Address"));
-            if(rs2.getString("R.Building_type")!=null && !rs2.getString("R.Building_type").equals("null"))
+            if (rs2.getString("R.Building_type") != null && !rs2.getString("R.Building_type").equals("null"))
                 temp.put("Building_type", buildingType[Integer.parseInt(rs2.getString("R.Building_type"))]);
             else
                 temp.put("Building_type", "정보없음");
@@ -137,23 +140,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="SHORTCUT ICON" href="https://somoonhouse.com/img/favicon.ico" />
+    <link rel="SHORTCUT ICON" href="https://somoonhouse.com/img/favicon.ico"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/newTest0.css"/>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <title>소문난집 - 신규상담 관리</title>
     <!-- 사용자 행동 정보 수집 코드 시작 - Meta, GA -->
     <!-- 모든 페이지에 하나씩만 포함되어 있어야 합니다. 위치는 </head> 바로 위로 통일 -->
     <!-- Meta Pixel Code -->
     <script>
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
             'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '483692416470707');
         fbq('track', 'PageView');
@@ -166,7 +179,11 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
         gtag('js', new Date());
         gtag('config', 'G-PC15JG6KGN');
     </script>
@@ -175,11 +192,11 @@
 </head>
 <body>
 <div class="body_container">
-    <jsp:include page="/newTestHeader.jsp?tab=New" flush="false" />
+    <jsp:include page="/newTestHeader.jsp?tab=New" flush="false"/>
     <div class="body_main">
         <div class="main_body_none">
             <div class="img_container">
-                <img src="https://somoonhouse.com/otherimg/assets/search2.png?raw=true" />
+                <img src="https://somoonhouse.com/otherimg/assets/search2.png?raw=true"/>
             </div>
             <div class="text_container">
                 <span>신규 신청건이 없습니다.</span>
@@ -187,13 +204,13 @@
         </div>
         <div class="main_body_yes">
             <div-- class="main_container">
-                <%
+                    <%
                     for (int i = 0; i < datelist.size(); i++) {
                 %>
                 <!--div class="date_container">
                     <span><%=datelist.get(i).getDate()%></span>
                 </div-->
-                <%
+                    <%
                     for(String key : datelist.get(i).applies.keySet()){
                         HashMap apply = datelist.get(i).applies.get(key);
                 %>
@@ -202,13 +219,16 @@
                         <div class="text_container">
                             <!--<div class="text"><span class="fir">주거 프라임</span></div>-->
                             <div class="text">
-                                <span class="sec_sec"><%=apply.get("Building_type")%> <%=apply.get("Area")%>평</span><!--span class="sec_sec">아파트 32평</span-->
+                                <span class="sec_sec"><%=apply.get("Building_type")%> <%=apply.get("Area")%>평</span>
+                                <!--span class="sec_sec">아파트 32평</span-->
                             </div>
                             <div class="text">
-                                <span class="thr"><%=apply.get("Address")%></span><!--span class="thr">대구 남구 어쩌구</span-->
+                                <span class="thr"><%=apply.get("Address")%></span>
+                                <!--span class="thr">대구 남구 어쩌구</span-->
                             </div>
                             <div class="text">
-                                <span class="thr"><%=apply.get("Due")%> / <%=apply.get("Budget")%></span><!--span class="thr">1개월 이내 / 8천만원 이하</span-->
+                                <span class="thr"><%=apply.get("Due")%> / <%=apply.get("Budget")%></span>
+                                <!--span class="thr">1개월 이내 / 8천만원 이하</span-->
                             </div>
                             <!--
                             <div class="text">
@@ -217,23 +237,28 @@
                             -->
                         </div>
                         <div class="under_container">
-                            <a href="#" target="_self" class="accept rState-<%=apply.get("rState")%> aState-<%=apply.get("aState")%>" id="<%=apply.get("Number")%>">
+                            <a href="#" target="_self"
+                               class="accept rState-<%=apply.get("rState")%> aState-<%=apply.get("aState")%>"
+                               id="<%=apply.get("Number")%>">
                                 <div class="side_container">
                                     <div class="img_container">
-                                        <img src="https://somoonhouse.com/otherimg/assets/check8.png?raw=true" />
+                                        <img src="https://somoonhouse.com/otherimg/assets/check8.png?raw=true"/>
                                     </div>
                                     <div class="text_container distri">
                                         <span>수락</span>
                                     </div>
                                     <div class="text_container_wait">
-                                        <span>남은 시간(<div style="display:inline-block" id="timer<%=apply.get("Number")%>"></div>)</span>
+                                        <span>남은 시간(<div style="display:inline-block"
+                                                         id="timer<%=apply.get("Number")%>"></div>)</span>
                                     </div>
                                 </div>
                             </a>
-                            <a href="#" target="_self" class="refuse rState-<%=apply.get("rState")%> aState-<%=apply.get("aState")%>" id="<%=apply.get("Number")%>">
+                            <a href="#" target="_self"
+                               class="refuse rState-<%=apply.get("rState")%> aState-<%=apply.get("aState")%>"
+                               id="<%=apply.get("Number")%>">
                                 <div class="side_container">
                                     <div class="img_container">
-                                        <img src="https://somoonhouse.com/otherimg/assets/cancle.png?raw=true" />
+                                        <img src="https://somoonhouse.com/otherimg/assets/cancle.png?raw=true"/>
                                     </div>
                                     <div class="text_container">
                                         <span>거절</span>
@@ -243,9 +268,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
+</div>
 <div id="modal<%=apply.get("Number")%>" class="modal_overlay">
     <div id="refuse_modal">
         <div class="modal_window">
@@ -270,29 +295,28 @@
         </div>
     </div>
 </div>
-<%}
-}
+<%
+        }
+    }
 %>
-    <jsp:include page="/newTestFooter.jsp" flush="false" />
+<jsp:include page="/newTestFooter.jsp" flush="false"/>
 </div>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script>
-    $('.accept').click(function(){
+    $('.accept').click(function () {
         const id = $(this).attr("id");
         const rState = $(this)[0].classList[1].replace("rState-", "");
         const aState = $(this)[0].classList[2].replace("aState-", "");
 
-        if( $('#timer'+id).text() == "시간종료"){
+        if ($('#timer' + id).text() == "시간종료") {
             alert("제한시간 내에 수락하지 않아 해당 신청건은 받으실 수 없습니다.");
-        }
-        else if(rState == "3"){
+        } else if (rState == "3") {
             alert("선착순 마감된 상담건입니다.")
-        }
-        else {
+        } else {
             location.href = "_newTest_company_accept.jsp?companyNum=" + "<%=s_id%>" + "&applyNum=" + id;
         }
     })
-    $('.refuse').click(function(){
+    $('.refuse').click(function () {
         var modalNum = this.id;
         var contractModal = document.getElementById("modal" + modalNum);
         contractModal.style.display = "flex"
@@ -300,17 +324,19 @@
 
     //modal_window_controller//
     ref_modals = document.getElementsByClassName("modal_overlay");
+
     //modal_window_close
-    function modal_close(obj){
+    function modal_close(obj) {
         var modalNum = obj.id.slice(10);
         var contractModal = document.getElementById("modal" + modalNum);
         contractModal.style.display = "none"
     }
+
     //ESC 키를 눌렀을 때 종료
     window.addEventListener("keyup", e => {
-        for(var i=0;i<ref_modals.length;i++){
+        for (var i = 0; i < ref_modals.length; i++) {
             var eachModals = ref_modals[i];
-            if(eachModals.style.display === "flex" && e.key === "Escape") {
+            if (eachModals.style.display === "flex" && e.key === "Escape") {
                 eachModals.style.display = "none"
             }
         }
@@ -320,50 +346,48 @@
         var eachModal = ref_modals[i];
         eachModal.addEventListener("mousedown", e => {
             const evTarget = e.target;
-            if(evTarget.classList.contains("modal_overlay")) {
+            if (evTarget.classList.contains("modal_overlay")) {
                 evTarget.style.display = "none"
             }
         })
     }
     //-------------------------------------------------------------------
 
-    $('.refuse_submit').click(function(){
+    $('.refuse_submit').click(function () {
         const id = this.id.slice(7);
 
         //입력오류 확인
 
-        var refid = $("input:radio[name='comp_reason_id']:checked").val( ) ;
+        var refid = $("input:radio[name='comp_reason_id']:checked").val();
         var reason = document.getElementById("comp_stop_reason").value;
 
-        if(refid == null){
+        if (refid == null) {
             alert('중단 사유를 선택해주세요!');
-        }
-        else if(refid==='4' && reason===""){
+        } else if (refid === '4' && reason === "") {
             alert('기타 사유를 입력해주세요!');
             document.getElementById("comp_stop_reason").focus();
-        }
-        else{
+        } else {
             // const rState = $(this).parent()[0].classList[1].replace("rState-", "");
             // const aState = $(this).parent()[0].classList[2].replace("aState-", "");
-            location.href = "_newTest_company_refuse.jsp?companyNum="+"<%=s_id%>"+"&applyNum="+id+"&refuseId="+refid+"&refuseReason="+reason;
+            location.href = "_newTest_company_refuse.jsp?companyNum=" + "<%=s_id%>" + "&applyNum=" + id + "&refuseId=" + refid + "&refuseReason=" + reason;
         }
     })
 </script>
 <script>
-    const countDownTimer = function (id, date){
+    const countDownTimer = function (id, date) {
         const _vvDate = new Date(date);
-        const _vDate = _vvDate.setHours(_vvDate.getHours()+6);
+        const _vDate = _vvDate.setHours(_vvDate.getHours() + 6);
         const _second = 1000;
         const _minute = _second * 60;
         const _hour = _minute * 60;
         const _day = _hour * 24;
         let timer;
 
-        function showRemaining(){
+        function showRemaining() {
             const now = new Date();
             const distDt = _vDate - now;
 
-            if(distDt < 0){
+            if (distDt < 0) {
                 clearInterval(timer);
                 document.getElementById(id).textContent = "시간종료";
                 return;
@@ -381,7 +405,7 @@
 
         }
 
-        timer = setInterval(function(){
+        timer = setInterval(function () {
             showRemaining()
         }, 1000);
 
@@ -395,22 +419,21 @@
         %>
     var str = "<%=apply.get("Assigned_time")%>";
     var date = str.split("-"); //{2021}, {06}, {23 17:32:09.0}
-    var time = (date[2].substring(date[2].indexOf(" ")+1, date[2].length)).split(":");
+    var time = (date[2].substring(date[2].indexOf(" ") + 1, date[2].length)).split(":");
     date[2] = date[2].substring(0, date[2].indexOf(" "));
-    countDownTimer("timer"+"<%=apply.get("Number")%>", date[1]+"/"+date[2]+"/"+date[0]+" "+time[0]+":"+time[1]);
+    countDownTimer("timer" + "<%=apply.get("Number")%>", date[1] + "/" + date[2] + "/" + date[0] + " " + time[0] + ":" + time[1]);
     //countDownTimer("timer"+"<%=apply.get("Number")%>", '06/29/2021 00:00 AM');
     <%
         }
 }
 %>
-    $('document').ready(function(){
-        if('<%=datelist.size()%>' == '0'){
+    $('document').ready(function () {
+        if ('<%=datelist.size()%>' == '0') {
             $('.main_body_none').css('display', 'flex');
-            $('.main_body_yes').css('display','none');
-        }
-        else{
+            $('.main_body_yes').css('display', 'none');
+        } else {
             $('.main_body_none').css('display', 'none');
-            $('.main_body_yes').css('display','flex');
+            $('.main_body_yes').css('display', 'flex');
         }
     })
 </script>
