@@ -215,10 +215,4 @@
 </head>
 <body>
 </body>
-<script>
-	const testConfirm = (name, phone) => {
-		alert("hi");
-		alert(name + phone);
-	}
-</script>
 </html>
