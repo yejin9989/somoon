@@ -290,36 +290,36 @@
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(1.5px);
     -webkit-backdrop-filter: blur(1.5px);
-    border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
     z-index: 100;
 }
 
 #refuse_modal .modal_window {
-    background: rgba(74, 121, 244, 0.8);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 32px 0 rgba(135, 135, 135, 0.37);
     backdrop-filter: blur(13.5px);
     -webkit-backdrop-filter: blur(13.5px);
-    border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
     position: relative;
     width: 100%;
     height: 100%;
     max-width: 600px;
     max-height: 500px;
-    padding: 10px;
+    padding: 18px 14px;
     margin: auto;
 }
 
 #refuse_modal .title {
     padding-left: 10px;
     display: inline;
-    text-shadow: 1px 1px 2px gray;
     color: white;
 }
 
 #refuse_modal .title h2 {
     display: inline;
+    font-weight: 600;
+    font-size: 16px;
+    color: black;
 }
 
 #refuse_modal .close_area {
@@ -327,8 +327,11 @@
     float: right;
     padding-right: 10px;
     cursor: pointer;
-    text-shadow: 1px 1px 2px gray;
-    color: white;
+    color: black;
+    background-image: url(https://somoonhouse.com/otherimg/assets/cancel.png?raw=true);
+    background-size: 24px 24px;
+    width: 24px;
+    height: 24px;
 }
 
 #refuse_modal .content {
@@ -336,30 +339,44 @@
     height: 85%;
     margin-top: 20px;
     padding: 0px 10px;
-    text-shadow: 1px 1px 2px gray;
-    color: white;
+    color: black;
     overflow: auto;
 }
 
+#refuse_modal .content .input_box{
+    display: block;
+    font-size: 11pt;
+    margin-bottom: 10px;
+}
+
+#refuse_modal .content .input_box .input_box_text{
+    display: inline-block;
+}
 #ref_submit_div {
     text-align: center;
 }
 
 #refuse_modal .content #comp_stop_reason {
     border: 0;
-    border-radius: 15px;
     height: 25px;
-    width: 250px;
+    width: 235px;
     outline: none;
-    padding-left: 10px;
+    background: #efefef;
+    box-shadow: 2px 2px 4px 1px #00000033;
+    padding: 20px 7px;
 }
 
 #refuse_modal .content .refuse_submit {
-    width: 50px;
-    height: 30px;
+    width: 70%;
+    height: 36px;
     padding: 3px;
     border: 0;
-    border-radius: 10px;
+    border-radius: 17px;
     margin-top: 10px;
+    background-color: #4A79F4;
+    color: white;
+    font-size: 12pt;
+    box-shadow: 2px 2px 3px 0px #0000006b;
+    letter-spacing: 3pt;
 }
 
