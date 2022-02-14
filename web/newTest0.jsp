@@ -277,15 +277,25 @@
             <div class="title">
                 <h2>거절 사유 선택</h2>
             </div>
-            <div id="close_area<%=apply.get("Number")%>" class="close_area" onclick="modal_close(this)">X</div>
+            <div id="close_area<%=apply.get("Number")%>" class="close_area" onclick="modal_close(this)"></div>
             <div class="content">
                 <form>
                     <div>
-                        <input type="radio" name="comp_reason_id" value="1"> 고객 예산 부족 <br><br>
-                        <input type="radio" name="comp_reason_id" value="2"> 공사 일정 마감 <br><br>
-                        <input type="radio" name="comp_reason_id" value="3"> 해당 지역 공사 불가 <br><br>
-                        <input type="radio" name="comp_reason_id" value="4">
-                        <input type="text" name="comp_stop_reason" id="comp_stop_reason" placeholder="기타(직접입력)">
+                        <div class="input_box">
+                            <input type="radio" name="comp_reason_id" value="1"> 고객 예산 부족
+                        </div>
+                        <div class="input_box">
+                            <input type="radio" name="comp_reason_id" value="2"> 공사 일정 마감
+                        </div>
+                        <div class="input_box">
+                            <input type="radio" name="comp_reason_id" value="3"> 해당 지역 공사 불가
+                        </div>
+                        <div class="input_box">
+                            <input type="radio" name="comp_reason_id" value="4">
+                                <div class="input_box_text">
+                                    <input type="text" name="comp_stop_reason" id="comp_stop_reason" placeholder="기타(직접입력)">
+                                </div>
+                        </div>
                         <div id="ref_submit_div">
                             <input type="button" class="refuse_submit" id="ref_sub<%=apply.get("Number")%>" value="등록">
                         </div>

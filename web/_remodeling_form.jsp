@@ -139,6 +139,7 @@
 		MessageSend2 msg = new MessageSend2();
 		String msg_str = "새로운 신청이 있습니다.\n이름:"+name+"\n연락처:"+phone;
 
+		String str = "";
 		// 관리자에게 알림 문자 보내기 (테스트가 아닌 경우만)
 		if(name.contains("개발") || name.contains("테스트") || name.contains("test")) {
 		}
@@ -149,6 +150,7 @@
 
 		<script>
 		alert('견적 신청 완료!\n2일 이내(주말 제외)로 친절한 소문난집 담당자가 연락드릴 예정이니, 조금만 기다려주세요 🙂');
+		alert('<%=str%>');
 		//alert(<%=building_type%>+'building_type'+<%=div1%>+'div1');
 		location.href = "homepage.jsp";
 		</script>

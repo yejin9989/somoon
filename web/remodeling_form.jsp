@@ -263,18 +263,22 @@
             <%--				 style="display: none"--%>
         </div>
         <div class="estimate_navigator" id="navigator2" style="display:none;">
-            <div class="reset">종료</div>
             <div class="prev">뒤로</div>
             <div class="next" id="yesnext">다음</div>
             <%--				 style="display: none"--%>
             <div class="not" id="notnext" style="display: none">다음</div>
+            <div class="reset">
+                <div>다음에 신청할게요</div>
+            </div>
         </div>
         <div class="estimate_navigator" id="navigator3" style="display:none;">
-            <div class="reset">종료</div>
             <div class="prev">뒤로</div>
             <input type="submit" id="yesfinish" value="완료">
             <%--			style="display: none">--%>
             <div class="not" id="notfinish" style="display: none">완료</div>
+            <div class="reset">
+                <div>다음에 신청할게요</div>
+            </div>
         </div>
         <div class="estimate_navigator" id="navigator4" style="display:none;">
             <input type="button" class="start" id="yesquit" value="다음에 신청할게요" onclick="return quitRsn(this.form);">
