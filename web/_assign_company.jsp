@@ -37,6 +37,7 @@
 	int num = 0;
 	String[] company1 = request.getParameterValues("company");
 	String apply_num = request.getParameter("apply_num");
+	String memo = request.getParameter("memo");
 	String state = "0";
 	
 	//받을 때 숫자형태가 아닌데 숫자로 입력해야하는경우 변환해주기
@@ -64,18 +65,20 @@
 			assigned_count = rs.getInt("count(*)");
 		}
 		if(assigned_count > 0){
-			sql = "UPDATE ASSIGNED set State = ? Where Apply_num = ? and Company_num = ?";
+			sql = "UPDATE ASSIGNED set State = ?, Memo = ? Where Apply_num = ? and Company_num = ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, state);
-			pstmt.setString(2, apply_num);
-			pstmt.setString(3, company);
+			pstmt.setString(2, memo);
+			pstmt.setString(3, apply_num);
+			pstmt.setString(4, company);
 		}
 		else{
-			sql = "INSERT INTO ASSIGNED (Apply_num, Company_num, State, Assigned_id, Memo, Aborted_state) VALUES(?, ?, ?, default, default, default)";
+			sql = "INSERT INTO ASSIGNED (Apply_num, Company_num, State, Assigned_id, Memo, Aborted_state) VALUES(?, ?, ?, default, ? , default)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, apply_num);
 			pstmt.setString(2, company);
 			pstmt.setString(3, state);
+			pstmt.setString(4,memo);
 		}
 		//확인
 			//out.println(pstmt);
