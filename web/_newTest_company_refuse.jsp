@@ -1,6 +1,6 @@
 <%@ page import="java.net.URLEncoder" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8" %>
 <%@ page language="java" import="java.text.*,java.sql.*,java.util.*,java.security.*,java.math.BigInteger" %>
 <%@ page language="java" import="myPackage.*" %>
 <% request.setCharacterEncoding("UTF-8"); %>
@@ -14,8 +14,18 @@
     //String param = request.getParameter("param");
     String apply_num = request.getParameter("applyNum") + "";
     String company_num = request.getParameter("companyNum") + "";
+    String refuse_id = request.getParameter("refuseId") + "";
+    String refuse_reason = request.getParameter("refuseReason") + "";
     //String apply_num = "1";
     //String company_num = "2";
+
+    if (refuse_id.equals("1")) {
+        refuse_reason = "고객 예산 부족";
+    } else if (refuse_id.equals("2")) {
+        refuse_reason = "공사 일정 마감";
+    } else if (refuse_id.equals("3")) {
+        refuse_reason = "해당 지역 공사 불가";
+    }
 
     //DB 관련 객체 선언
     Connection conn = DBUtil.getMySQLConnection();
@@ -25,33 +35,47 @@
     String sql = "";
 
     //DB update
-    query = "UPDATE ASSIGNED SET State = 1 WHERE Apply_num = ? AND Company_num = ?";
+    query = "UPDATE ASSIGNED SET State = 1 , Refuse_id = ? , Refuse_reason = ? WHERE Apply_num = ? AND Company_num = ?";
     pstmt = conn.prepareStatement(query);
-    pstmt.setInt(1, Integer.parseInt(apply_num));
-    pstmt.setInt(2, Integer.parseInt(company_num));
+    pstmt.setString(1, refuse_id);
+    pstmt.setString(2, refuse_reason);
+    pstmt.setInt(3, Integer.parseInt(apply_num));
+    pstmt.setInt(4, Integer.parseInt(company_num));
+
+
     pstmt.executeUpdate();
     //pstmt.close();
 %>
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="SHORTCUT ICON" href="https://somoonhouse.com/img/favicon.ico" />
+    <link rel="SHORTCUT ICON" href="https://somoonhouse.com/img/favicon.ico"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/newindex.css"/>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <title>소문난집</title>
     <!-- 사용자 행동 정보 수집 코드 시작 - Meta, GA -->
     <!-- 모든 페이지에 하나씩만 포함되어 있어야 합니다. 위치는 </head> 바로 위로 통일 -->
     <!-- Meta Pixel Code -->
     <script>
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
             'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '483692416470707');
         fbq('track', 'PageView');
@@ -64,7 +88,11 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
         gtag('js', new Date());
         gtag('config', 'G-PC15JG6KGN');
     </script>
@@ -74,7 +102,7 @@
 <body>
 <%
 
-    if(pstmt != null) {
+    if (pstmt != null) {
         pstmt.close();
         //rs.close();
         query = "";
@@ -83,8 +111,8 @@
 %>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script>
-        alert('거절되었습니다.');
-        location.href = "newTest0.jsp";
+    alert('거절되었습니다.');
+    location.href = "newTest0.jsp";
 </script>
 </body>
 </html>
