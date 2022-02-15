@@ -70,3 +70,9 @@
 .reason{
     padding: 5px;
 }
+.reason_container a{
+    padding-bottom: 5px;
+}
+.comp_rsn{
+    padding: 0 0 100px 0;
+}
