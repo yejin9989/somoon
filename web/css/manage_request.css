@@ -241,6 +241,9 @@ textarea{
 .company_status td, .company_status b{
     font-size: 13px;
 }
+.company_status td span b{
+    color: red;
+}
 .manager_cancel{
     background: #b7b7b7;
     color: white;

@@ -19,13 +19,12 @@
     ResultSet rs = null;
 
     //DB Select
-    query = "SELECT refuse_id, refuse_reason, count(*) AS count FROM ASSIGNED GROUP BY refuse_id HAVING refuse_id IS NOT NULL";
+    query = "SELECT company_num, refuse_id, refuse_reason, count(*) AS count FROM ASSIGNED GROUP BY refuse_id HAVING refuse_id IS NOT NULL";
     pstmt = conn.prepareStatement(query);
     rs = pstmt.executeQuery();
 
     //통계 받아오기
     LinkedList<HashMap<String, String>> refuse = new LinkedList<HashMap<String, String>>();
-    int total = 0;
     while(rs.next()){
         HashMap<String, String> id_reason = new HashMap<String, String>();
         String refuse_id = rs.getString("refuse_id")+"";
@@ -39,17 +38,40 @@
         id_reason.put("reason", refuse_reason);
         id_reason.put("count", reason_count);
         refuse.add(id_reason);
-//        total += count;
     }
 
     //기타 사유 받아오기
-    query = "SELECT refuse_reason FROM ASSIGNED WHERE refuse_id = 4";
+    query = "SELECT A.refuse_reason, C.name FROM ASSIGNED AS A LEFT JOIN COMPANY AS C ON A.company_num = C.id WHERE refuse_id = 4";
     pstmt = conn.prepareStatement(query);
     rs = pstmt.executeQuery();
-    LinkedList<String> reason = new LinkedList<String>();
+    LinkedList<HashMap<String,String>> reason = new LinkedList<HashMap<String,String>>();
     while(rs.next()){
+        HashMap<String,String> refuse_hm = new HashMap<String,String>();
         String refuse_reason = rs.getString("refuse_reason")+"";
-        reason.add(refuse_reason);
+        String refuse_company = rs.getString("name")+"";
+
+        refuse_hm.put("reason", refuse_reason);
+        refuse_hm.put("company", refuse_company);
+        reason.add(refuse_hm);
+    }
+
+    //사유별 업체 횟수 종합하기
+    query = "SELECT C.name, A.refuse_id, A.refuse_reason, count(*) AS count FROM ASSIGNED AS A LEFT JOIN COMPANY AS C ON A.company_num = C.id WHERE refuse_id IS NOT NULL GROUP BY refuse_id, company_num";
+    pstmt = conn.prepareStatement(query);
+    rs = pstmt.executeQuery();
+    LinkedList<HashMap<String,String>> company = new LinkedList<HashMap<String,String>>();
+    while(rs.next()){
+        HashMap<String,String> company_hm = new HashMap<String,String>();
+        String company_name = rs.getString("name")+"";
+        String refuse_id = rs.getString("refuse_id")+"";
+        String refuse_reason = rs.getString("refuse_reason")+"";
+        String refuse_count = rs.getString("count")+"";
+
+        company_hm.put("name", company_name);
+        company_hm.put("id", refuse_id);
+        company_hm.put("reason", refuse_reason);
+        company_hm.put("count", refuse_count);
+        company.add(company_hm);
     }
 
 %>
@@ -59,7 +81,7 @@
     <link rel="SHORTCUT ICON" href="https://somoonhouse.com/img/favicon.ico"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/newindex.css"/>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/show_refuse_reason.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/show_reason.css"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <title>소문난집</title>
@@ -70,7 +92,7 @@
     <jsp:include page="/homepage_mob_header.jsp" flush="false" />
     <div id="content">
         <div class="reason_container">
-            <h1>거절 사유 확인</h1>
+            <h1>업체 신규건 거절 사유 확인</h1>
 
             <h3>거절 사유 비율</h3>
 
@@ -102,13 +124,75 @@
             <div id = "etc_reason_container" style="display: none">
                 <%
                     for(int idx = 0; idx < reason.size(); idx++){
-                        String rsn = reason.get(idx);
+                        HashMap<String,String> rsn = reason.get(idx);
                 %>
-                <div class = "reason"> -  <% out.println(rsn);%></div>
+                <div class = "reason"> - <% out.println(rsn.get("company"));%> : <% out.println(rsn.get("reason"));%></div>
                 <%
                     }
                 %>
             </div>
+
+            <h3>사례별 기업 확인</h3>
+            <div>
+                <a href="javascript:company_show(1);">고객 예산 부족</a><br><br>
+                <a href="javascript:company_show(2);">공사 일정 마감</a><br><br>
+                <a href="javascript:company_show(3);">해당 지역 불가</a><br><br>
+                <a href="javascript:company_show(4);">기타 사유</a><br><br>
+                <div class="comp_rsn" id="company_reason1" style="display: none;">
+                    <h4>고객 예산 부족</h4>
+                    <%
+                        for(int idx = 0; idx < company.size(); idx++){
+                            HashMap<String,String> cpny = company.get(idx);
+                            if(cpny.get("id").equals("1")){
+                    %>
+                    <div class = "reason"> - <% out.println(cpny.get("name"));%> : <% out.println(cpny.get("count"));%>회</div>
+                    <%
+                            }
+                        }
+                    %>
+                </div>
+                <div class="comp_rsn" id="company_reason2" style="display: none;">
+                    <h4>공사 일정 마감</h4>
+                    <%
+                        for(int idx = 0; idx < company.size(); idx++){
+                            HashMap<String,String> cpny = company.get(idx);
+                            if(cpny.get("id").equals("2")){
+                    %>
+                    <div class = "reason"> - <% out.println(cpny.get("name"));%> : <% out.println(cpny.get("count"));%>회</div>
+                    <%
+                            }
+                        }
+                    %>
+                </div>
+                <div class="comp_rsn" id="company_reason3" style="display: none;">
+                    <h4>해당 지역 불가</h4>
+                    <%
+                        for(int idx = 0; idx < company.size(); idx++){
+                            HashMap<String,String> cpny = company.get(idx);
+                            if(cpny.get("id").equals("3")){
+                    %>
+                    <div class = "reason"> - <% out.println(cpny.get("name"));%> : <% out.println(cpny.get("count"));%>회</div>
+                    <%
+                            }
+                        }
+                    %>
+                </div>
+                <div class="comp_rsn" id="company_reason4" style="display: none;">
+                    <h4>기타 사유</h4>
+                    <%
+                        for(int idx = 0; idx < company.size(); idx++){
+                            HashMap<String,String> cpny = company.get(idx);
+                            if(cpny.get("id").equals("4")){
+                    %>
+                    <div class = "reason"> - <% out.println(cpny.get("name"));%> : <% out.println(cpny.get("count"));%>회</div>
+                    <%
+                            }
+                        }
+                    %>
+                </div>
+                <div class="comp_rsn" id="company_reason5"></div>
+            </div>
+
 
         </div>
     </div>
@@ -128,6 +212,22 @@
     var color = ['#9986dd', '#fbb871', '#bd72ac', '#f599dc']; //색상
     var newDeg = []; //차트 deg
     var totalNum = 0;
+
+    function company_show(i){
+        var _class = document.getElementsByClassName("comp_rsn");
+        var _cmp = document.getElementById('company_reason'+i);
+
+        for(var i=0; i<_class.length; i++){
+            _class[i].style.display = 'none';
+        }
+
+        if(_cmp.style.display === 'none'){
+            _cmp.style.display = 'block';
+        }
+        else{
+            _cmp.style.display = 'none';
+        }
+    }
 
     function index_color(){
         for (var i = 0; i < _chartColor.length; i++) {

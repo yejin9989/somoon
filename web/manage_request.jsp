@@ -152,13 +152,14 @@
         //업체전달 완료일 경우
         if(!item_state.equals("0")){
             String status[] = {"신규(대기)", "신규(거절)", "진행중(상담예정)", "진행중(부재중)", "진행중(상담중)", "진행중(미팅예정)", "진행중(계약진행중)", "(계약완료)x", "완료(계약완료)", "중단(통화불가)", "중단(사유입력)", "상담취소"};
-            String query2 = "select C.Name, A.State from COMPANY C, ASSIGNED A where A.Company_num = C.Id and Apply_num = ?";
+            String query2 = "select C.Name, A.State, A.refuse_reason from COMPANY C, ASSIGNED A where A.Company_num = C.Id and Apply_num = ?";
 
             pstmt = conn.prepareStatement(query2);
             pstmt.setString(1, item_number);
             ResultSet rs2 = pstmt.executeQuery();
             while(rs2.next()){
                 HashMap<String, String> statemap = new HashMap<String, String>();
+                statemap.put("reason", rs2.getString("refuse_reason"));
                 statemap.put("name", rs2.getString("Name"));
                 statemap.put("state", status[Integer.parseInt(rs2.getString("State"))]);
                 statelist.add(statemap);
@@ -392,6 +393,9 @@
                                         <tr>
                                             <td><%out.print(statemap.get("name"));%></td>
                                             <td><b><%out.print(statemap.get("state"));%></b></td>
+                                            <% if(statemap.get("state").equals("신규(거절)") && !(statemap.get("reason")==null)){%>
+                                            <td><span><b> -<%out.print(statemap.get("reason"));%></b></span></td>
+                                            <%}%>
                                         </tr>
                                         <%}%>
                                     </table>

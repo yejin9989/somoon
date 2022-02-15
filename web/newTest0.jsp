@@ -295,7 +295,7 @@
                             <input type="radio" name="comp_reason_id" value="2"> 공사 일정 마감
                         </div>
                         <div class="input_box">
-                            <input type="radio" name="comp_reason_id" value="3"> 해당 지역 공사 불가
+                            <input type="radio" name="comp_reason_id" value="3"> 해당 지역 불가
                         </div>
                         <div class="input_box">
                             <input type="radio" name="comp_reason_id" value="4">
