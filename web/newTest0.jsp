@@ -230,11 +230,11 @@
                                 <span class="thr"><%=apply.get("Due")%> / <%=apply.get("Budget")%></span>
                                 <!--span class="thr">1개월 이내 / 8천만원 이하</span-->
                             </div>
-                            <!--
+                            <%if(!(apply.get("Memo")==null)){%>
                             <div class="text">
-                                <a href="<%=apply.get("URL")%>>"><span class="for"><%=apply.get("Title")%></span></a>
+                                <span class="thr">특이사항 : <%=apply.get("Memo")%></span>
                             </div>
-                            -->
+                            <%}%>
                         </div>
                         <div class="under_container">
                             <a href="#" target="_self"

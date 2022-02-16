@@ -432,7 +432,7 @@
                                                 }
                                             %>
                                             <div>
-                                                <input type="text" name="memo" class="remark" placeholder="기타 특이사항을 입력해주세요">
+                                                <textarea type="text" name="memo" class="remark" placeholder="기타 특이사항을 입력해주세요"></textarea>
                                             </div>
                                             <div class="submit_btn">
                                                 <input type="submit" value="넘기기">
