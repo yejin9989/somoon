@@ -238,11 +238,11 @@ textarea{
     top: 50%;
     transform: translate(0, -50%);
 }
-.company_status td, .company_status b{
-    font-size: 13px;
-}
 .company_status td span b{
     color: red;
+}
+.company_status td, .company_status b{
+    font-size: 13px;
 }
 .manager_cancel{
     background: #b7b7b7;
