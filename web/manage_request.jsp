@@ -321,7 +321,7 @@
                             <%if(hm.get("state").equals("2")){%><div id="stt2"><% out.println("배분중");%></div><%}%>
                             <%if(hm.get("state").equals("3")){%><div id="stt3"><% out.println("전체수락");%></div><%}%>
                             <%if(hm.get("state").equals("4")){%><div id="stt3"><% out.println("고객취소");%></div><%}%>
-                            <%if(hm.get("state").equals("4")){%><div id="stt3"><% out.println("관리자삭제");%></div><%}%>
+                            <%if(hm.get("state").equals("5")){%><div id="stt3"><% out.println("관리자삭제");%></div><%}%>
                         </div>
                     </div>
                     <div class="item_wrapper">
@@ -370,7 +370,7 @@
                                         <%if(hm.get("state").equals("2")){%><div id="stt2"><% out.println("배분중");%></div><%}%>
                                         <%if(hm.get("state").equals("3")){%><div id="stt3"><% out.println("전체수락");%></div><%}%>
                                         <%if(hm.get("state").equals("4")){%><div id="stt3"><% out.println("고객취소");%></div><%}%>
-                                        <%if(hm.get("state").equals("4")){%><div id="stt3"><% out.println("관리자삭제");%></div><%}%> </div>
+                                        <%if(hm.get("state").equals("5")){%><div id="stt3"><% out.println("관리자삭제");%></div><%}%> </div>
                                     </div>
                                     <div class="info">
                                         <%

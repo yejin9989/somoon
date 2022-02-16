@@ -69,45 +69,45 @@
     <div id="content">
         <div class="reason_container">
             <h1>고객 상담신청 중단 사유 확인</h1>
+            <div class="main_container">
+                <h3>거절 사유 비율</h3>
 
-            <h3>거절 사유 비율</h3>
+                <div class="chart">
+                    <%
+                        for(int idx =0; idx < stop.size(); idx++){
+                            HashMap<String, String> hm = stop.get(idx);
+                    %>
+                    <div class="chart-bar" id="reason<%out.println(hm.get("id"));%>" data-deg=<%out.println(hm.get("count"));%>></div>
+                    <%
+                        }
+                    %>
+                </div>
+                <div class="chart_exp">
+                    <%
+                        for(int idx =0; idx < stop.size(); idx++){
+                            HashMap<String, String> hm = stop.get(idx);
+                    %>
+                    <div class = chart_color id="color<%out.println(hm.get("id"));%>"></div>
+                    <div class = chart_reason><%out.println(hm.get("reason"));%> : <%out.println(hm.get("count"));%>건</div>
+                    <div></div>
+                    <%
+                        }
+                    %>
+                </div>
 
-            <div class="chart">
-                <%
-                    for(int idx =0; idx < stop.size(); idx++){
-                        HashMap<String, String> hm = stop.get(idx);
-                %>
-                <div class="chart-bar" id="reason<%out.println(hm.get("id"));%>" data-deg=<%out.println(hm.get("count"));%>></div>
-                <%
-                    }
-                %>
+                <h3>기타 사유 확인</h3>
+                <a href="javascript:reason_show();">펼쳐보기</a>
+                <div id = "etc_reason_container" style="display: none">
+                    <%
+                        for(int idx = 0; idx < reason.size(); idx++){
+                            String rsn = reason.get(idx);
+                    %>
+                    <div class = "reason"> - <% out.println(rsn);%></div>
+                    <%
+                        }
+                    %>
+                </div>
             </div>
-            <div class="chart_exp">
-                <%
-                    for(int idx =0; idx < stop.size(); idx++){
-                        HashMap<String, String> hm = stop.get(idx);
-                %>
-                <div class = chart_color id="color<%out.println(hm.get("id"));%>"></div>
-                <div class = chart_reason><%out.println(hm.get("reason"));%> : <%out.println(hm.get("count"));%>건</div>
-                <div></div>
-                <%
-                    }
-                %>
-            </div>
-
-            <h3>기타 사유 확인</h3>
-            <a href="javascript:reason_show();">펼쳐보기</a>
-            <div id = "etc_reason_container" style="display: none">
-                <%
-                    for(int idx = 0; idx < reason.size(); idx++){
-                        String rsn = reason.get(idx);
-                %>
-                <div class = "reason"> - <% out.println(rsn);%></div>
-                <%
-                    }
-                %>
-            </div>
-
         </div>
     </div>
 </div>
