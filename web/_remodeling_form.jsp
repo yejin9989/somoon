@@ -137,15 +137,20 @@
 		pstmt.executeUpdate();
 
 		MessageSend2 msg = new MessageSend2();
-		String msg_str = name + "님, 상담 신청이 완료되었습니다! 2일 이내(주말/공휴일 제외)로 친절한 소문난집 담당자가 연락드릴 예정이니, 조금만 기다려주세요^^";
+		String msg_str = "새로운 신청이 있습니다.\n이름:"+name+"\n연락처:"+phone;
 
-
-		// 고객에게 문자 보내기
-//		msg.send(phone, msg_str, "lms");
+		String str = "";
+		// 관리자에게 알림 문자 보내기 (테스트가 아닌 경우만)
+		if(name.contains("개발") || name.contains("테스트") || name.contains("test")) {
+		}
+		else{
+			msg.send("01043997660", msg_str, "lms");
+		}
 		%>
 
 		<script>
 		alert('견적 신청 완료!\n2일 이내(주말 제외)로 친절한 소문난집 담당자가 연락드릴 예정이니, 조금만 기다려주세요 🙂');
+		alert('<%=str%>');
 		//alert(<%=building_type%>+'building_type'+<%=div1%>+'div1');
 		location.href = "homepage.jsp";
 		</script>
@@ -208,6 +213,13 @@
 		gtag('config', 'G-PC15JG6KGN');
 	</script>
 	<!-- END Global site tag (gtag.js) - Google Analytics -->
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+				new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+			'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-TQFGN2T');</script>
+	<!-- End Google Tag Manager -->
 	<!-- 사용자 행동 정보 수집 코드 끝 - Meta, GA -->
 </head>
 <body>

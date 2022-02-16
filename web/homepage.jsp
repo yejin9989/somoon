@@ -67,6 +67,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="소문난집">
+    <meta property="og:description" content="믿을 수 있는 대구 리모델링 업체, 견적 플랫폼 소문난집">
+    <meta property="og:image" content="https://www.somoonhouse.com/otherimg/assets/thumnail.png">
+    <meta property="og:url" content="https://www.somoonhouse.com/">
+    <meta name="description" content="믿을 수 있는 대구 리모델링 업체, 견적 플랫폼 소문난집">
     <title>소문난집</title>
     <!-- 사용자 행동 정보 수집 코드 시작 - Meta, GA -->
     <!-- 모든 페이지에 하나씩만 포함되어 있어야 합니다. 위치는 </head> 바로 위로 통일 -->
@@ -96,6 +102,13 @@
         gtag('config', 'G-PC15JG6KGN');
     </script>
     <!-- END Global site tag (gtag.js) - Google Analytics -->
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TQFGN2T');</script>
+    <!-- End Google Tag Manager -->
     <!-- 사용자 행동 정보 수집 코드 끝 - Meta, GA -->
 </head>
 <body>

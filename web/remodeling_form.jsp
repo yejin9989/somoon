@@ -85,6 +85,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <title>소문난집 - 리모델링 견적받기</title>
+    <!-- 사용자 행동 정보 수집 코드 시작 - Meta, GA -->
+    <!-- 모든 페이지에 하나씩만 포함되어 있어야 합니다. 위치는 </head> 바로 위로 통일 -->
+    <!-- Meta Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '483692416470707');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+                   src="https://www.facebook.com/tr?id=483692416470707&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC15JG6KGN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PC15JG6KGN');
+    </script>
+    <!-- END Global site tag (gtag.js) - Google Analytics -->
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TQFGN2T');</script>
+    <!-- End Google Tag Manager -->
+    <!-- 사용자 행동 정보 수집 코드 끝 - Meta, GA -->
 </head>
 <body>
 <jsp:include page="/homepage_pc_header.jsp" flush="false"/>
@@ -263,18 +299,22 @@
             <%--				 style="display: none"--%>
         </div>
         <div class="estimate_navigator" id="navigator2" style="display:none;">
-            <div class="reset">종료</div>
             <div class="prev">뒤로</div>
             <div class="next" id="yesnext">다음</div>
             <%--				 style="display: none"--%>
             <div class="not" id="notnext" style="display: none">다음</div>
+            <div class="reset">
+                <div>다음에 신청할게요</div>
+            </div>
         </div>
         <div class="estimate_navigator" id="navigator3" style="display:none;">
-            <div class="reset">종료</div>
             <div class="prev">뒤로</div>
             <input type="submit" id="yesfinish" value="완료">
             <%--			style="display: none">--%>
             <div class="not" id="notfinish" style="display: none">완료</div>
+            <div class="reset">
+                <div>다음에 신청할게요</div>
+            </div>
         </div>
         <div class="estimate_navigator" id="navigator4" style="display:none;">
             <input type="button" class="start" id="yesquit" value="다음에 신청할게요" onclick="return quitRsn(this.form);">
