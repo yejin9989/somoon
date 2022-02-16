@@ -24,10 +24,13 @@
 	//DB에 사용 할 객체들 정의
 	Connection conn = DBUtil.getMySQLConnection();
 	PreparedStatement pstmt = null;
+	PreparedStatement pstmt2 = null;
 	Statement stmt = null;
 	String query = "";
 	String sql = "";
+	String sql2 = "";
 	ResultSet rs = null;
+	ResultSet rs2 = null;
 	%>
 	<%
 	//처리에 에러정보가 있으면 롤백
@@ -65,27 +68,32 @@
 			assigned_count = rs.getInt("count(*)");
 		}
 		if(assigned_count > 0){
-			sql = "UPDATE ASSIGNED set State = ?, Memo = ? Where Apply_num = ? and Company_num = ?";
+			sql = "UPDATE ASSIGNED set State = ? Where Apply_num = ? and Company_num = ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, state);
-			pstmt.setString(2, memo);
-			pstmt.setString(3, apply_num);
-			pstmt.setString(4, company);
+			pstmt.setString(2, apply_num);
+			pstmt.setString(3, company);
 		}
 		else{
-			sql = "INSERT INTO ASSIGNED (Apply_num, Company_num, State, Assigned_id, Memo, Aborted_state) VALUES(?, ?, ?, default, ? , default)";
+			sql = "INSERT INTO ASSIGNED (Apply_num, Company_num, State, Assigned_id, Memo, Aborted_state) VALUES(?, ?, ?, default, default, default)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, apply_num);
 			pstmt.setString(2, company);
 			pstmt.setString(3, state);
-			pstmt.setString(4,memo);
 		}
 		//확인
 			//out.println(pstmt);
-		
+
+		//특이사항 업데이트
+		sql2 = "UPDATE REMODELING_APPLY set remark = ? WHERE Number = ?";
+		pstmt2 = conn.prepareStatement(sql2);
+		pstmt2.setString(1, memo);
+		pstmt2.setString(2,apply_num);
+
 		//실행
 		if(error == 0){
 			pstmt.executeUpdate();
+			pstmt2.executeUpdate();
 		}
 		else{
 			%>

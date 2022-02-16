@@ -113,6 +113,7 @@
             temp.put("Calling", rs2.getString("R.Calling"));
             temp.put("Pw", rs2.getString("R.Pw"));
             temp.put("Assigned_time", rs2.getString("R.Assigned_time"));
+            temp.put("remark", rs2.getString("R.remark"));
             temp.put("aState", rs2.getString("A.State"));
             temp.put("Assigned_id", rs2.getString("A.Assigned_id"));
             temp.put("Memo", rs2.getString("A.Memo"));
@@ -232,9 +233,9 @@
                                 <span class="thr"><%=apply.get("Due")%> / <%=apply.get("Budget")%></span>
                                 <!--span class="thr">1개월 이내 / 8천만원 이하</span-->
                             </div>
-                            <%if(!(apply.get("Memo")==null)){%>
+                            <%if(!(apply.get("remark")==null)){%>
                             <div class="text">
-                                <span class="thr remark">특이사항 : <%=apply.get("Memo")%></span>
+                                <span class="thr remark">특이사항 : <%=apply.get("remark")%></span>
                                 <!--span class="thr">특이사항 : memo 기록</span>-->
                             </div>
                             <%}%>
