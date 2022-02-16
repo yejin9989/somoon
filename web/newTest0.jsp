@@ -210,16 +210,11 @@
             </div>
         </div>
         <div class="main_body_yes">
-            <div-- class="main_container">
-                    <%
+            <div class="main_container">
+                <%
                     for (int i = 0; i < datelist.size(); i++) {
-                %>
-                <!--div class="date_container">
-                    <span><%=datelist.get(i).getDate()%></span>
-                </div-->
-                    <%
-                    for(String key : datelist.get(i).applies.keySet()){
-                        HashMap apply = datelist.get(i).applies.get(key);
+                        for(String key : datelist.get(i).applies.keySet()){
+                            HashMap apply = datelist.get(i).applies.get(key);
                 %>
                 <div class="box_container">
                     <div class="main_box">
@@ -239,7 +234,8 @@
                             </div>
                             <%if(!(apply.get("Memo")==null)){%>
                             <div class="text">
-                                <span class="thr">특이사항 : <%=apply.get("Memo")%></span>
+                                <span class="thr remark">특이사항 : <%=apply.get("Memo")%></span>
+                                <!--span class="thr">특이사항 : memo 기록</span>-->
                             </div>
                             <%}%>
                         </div>
@@ -275,9 +271,19 @@
                         </div>
                     </div>
                 </div>
+                <%
+                        }
+                    }
+                %>
+            </div>
         </div>
     </div>
 </div>
+<%
+    for (int i = 0; i < datelist.size(); i++) {
+        for(String key : datelist.get(i).applies.keySet()){
+            HashMap apply = datelist.get(i).applies.get(key);
+%>
 <div id="modal<%=apply.get("Number")%>" class="modal_overlay">
     <div id="refuse_modal">
         <div class="modal_window">
@@ -299,9 +305,9 @@
                         </div>
                         <div class="input_box">
                             <input type="radio" name="comp_reason_id" value="4">
-                                <div class="input_box_text">
-                                    <input type="text" name="comp_stop_reason" id="comp_stop_reason" placeholder="기타(직접입력)">
-                                </div>
+                            <div class="input_box_text">
+                                <input type="text" name="comp_stop_reason" id="comp_stop_reason" placeholder="기타(직접입력)">
+                            </div>
                         </div>
                         <div id="ref_submit_div">
                             <input type="button" class="refuse_submit" id="ref_sub<%=apply.get("Number")%>" value="등록">

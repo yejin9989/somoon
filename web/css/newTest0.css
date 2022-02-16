@@ -152,6 +152,9 @@
     color: #555;
     font-weight: 600;
 }
+.body_container .body_main .main_body_yes .main_container .box_container .main_box .text_container .text .remark{
+    font-size: 10px;
+}
 
 .body_container .body_main .main_body_yes .main_container .box_container .main_box .text_container .text .for {
     color: rgba(74, 121, 244, 0.8);
