@@ -24,10 +24,13 @@
 	//DB에 사용 할 객체들 정의
 	Connection conn = DBUtil.getMySQLConnection();
 	PreparedStatement pstmt = null;
+	PreparedStatement pstmt2 = null;
 	Statement stmt = null;
 	String query = "";
 	String sql = "";
+	String sql2 = "";
 	ResultSet rs = null;
+	ResultSet rs2 = null;
 	%>
 	<%
 	//처리에 에러정보가 있으면 롤백
@@ -37,6 +40,7 @@
 	int num = 0;
 	String[] company1 = request.getParameterValues("company");
 	String apply_num = request.getParameter("apply_num");
+	String memo = request.getParameter("memo");
 	String state = "0";
 	
 	//받을 때 숫자형태가 아닌데 숫자로 입력해야하는경우 변환해주기
@@ -79,10 +83,17 @@
 		}
 		//확인
 			//out.println(pstmt);
-		
+
+		//특이사항 업데이트
+		sql2 = "UPDATE REMODELING_APPLY set remark = ? WHERE Number = ?";
+		pstmt2 = conn.prepareStatement(sql2);
+		pstmt2.setString(1, memo);
+		pstmt2.setString(2,apply_num);
+
 		//실행
 		if(error == 0){
 			pstmt.executeUpdate();
+			pstmt2.executeUpdate();
 		}
 		else{
 			%>
