@@ -1,18 +1,22 @@
 @import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css);
-@font-face{
-font-family:'Nanum Gothic',sans-serif;
+
+@font-face {
+    font-family: 'Nanum Gothic', sans-serif;
 }
-*{
-font-family:'Nanum Gothic',sans-serif;
-font-size: 11pt;
-color: #313131;
+
+* {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 11pt;
+    color: #313131;
 }
-body{
-	padding: 0;
-	margin: 0;
-	background: #efefef;
-	text-align: center;
+
+body {
+    padding: 0;
+    margin: 0;
+    background: #efefef;
+    text-align: center;
 }
+
 #container {
     width: 100%;
     max-width: 700px;
@@ -23,6 +27,7 @@ body{
     padding: 20px;
     box-sizing: border-box;
 }
+
 #somun_navbar {
     /*border-bottom: 1px solid #c8c8c8;*/
     display: inline-block;
@@ -31,55 +36,64 @@ body{
     padding: 39px 0 11px;
     background: white;
 }
-.form_mini{
-	/*border: 1px solid black;*/
-	padding: 50px;
-	width: 100%;
-	box-sizing: border-box;
-	display:none;
-	/*position: absolute;*/
+
+.form_mini {
+    /*border: 1px solid black;*/
+    padding: 50px;
+    width: 100%;
+    box-sizing: border-box;
+    display: none;
+    /*position: absolute;*/
 }
-.form_title{
-	font-size: 15pt;
-	font-weight: bold;
-	margin: 0 0 30px 0;	
+
+.form_title {
+    font-size: 15pt;
+    font-weight: bold;
+    margin: 0 0 30px 0;
 }
-.mini_title{
-	font-size: 15pt;
-	font-weight: bold;
-	margin: 26px 0 20px 0;	
+
+.mini_title {
+    font-size: 15pt;
+    font-weight: bold;
+    margin: 26px 0 20px 0;
 }
-.form_content{
-	text-align:center;
-	width: 66%;
-	margin: 0 auto;
-	display: inline-block;
+
+.form_content {
+    text-align: center;
+    width: 66%;
+    margin: 0 auto;
+    display: inline-block;
 }
-.block{
-	text-align:left;
+
+.block {
+    text-align: left;
 }
-.center{
-	text-align:center;
+
+.center {
+    text-align: center;
 }
-label{
-width: 38%;
-display:inline-block;
-cursor:pointer;
--webkit-user-select:none;
--moz-user-select:none;
--ms-user-select:none;
-border: 1px solid #cacaca;
-border-radius: 5px;
-padding: 11px 19px;
-margin: 3px 1px;
-background-color: white;
-color: #747474;
-text-align:center;
+
+label {
+    width: 38%;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    border: 1px solid #cacaca;
+    border-radius: 5px;
+    padding: 11px 19px;
+    margin: 3px 1px;
+    background-color: white;
+    color: #747474;
+    text-align: center;
 }
-.nametag{
-	display:block;
+
+.nametag {
+    display: block;
 }
-.cert_btn{
+
+.cert_btn {
     width: 34%;
     height: 34px;
     border: none;
@@ -87,132 +101,176 @@ text-align:center;
     border-radius: 5px;
     cursor: pointer;
 }
-#cert_start{
+
+#cert_start {
     background: #1f1f1f;
 }
-#cert_ok{
+
+#cert_ok {
     background: #6aacff;
 }
-.cert_input{
-	width:60% !important;
+
+.cert_input {
+    width: 60% !important;
 }
-#form1 img{
-	width: 50px;
-	height: 50px;
+
+#form1 img {
+    width: 50px;
+    height: 50px;
 }
-#form5 img{
-	width: 100px;
-	height: 100px;
-	display: block;
-	margin: auto;
+
+#form5 img {
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin: auto;
 }
+
 #form1 input[type="radio"]:checked + label,
-#form5 input[type="checkbox"]:checked + label{
-	    color: #2b2b2b;
+#form5 input[type="checkbox"]:checked + label {
+    color: #2b2b2b;
     background-color: #ffffff;
     border: 1px solid #6aacff;
     box-shadow: 0px 0px 8px 0px #3cb2ff;
 }
-#form2 input[type="text"]{
-	width: 28%;
+
+#form2 input[type="text"] {
+    width: 28%;
 }
-div.item{
-margin: 20px 0px;
-border: 1px solid #d2d2d2;
-padding: 18px;
-border-radius: 5px;
-background: white;
-text-align: left;
+
+div.item {
+    margin: 20px 0px;
+    border: 1px solid #d2d2d2;
+    padding: 18px;
+    border-radius: 5px;
+    background: white;
+    text-align: left;
 }
-div input[type="text"], div input[type="number"], select{
-border: none;
-border-bottom: 1px solid #d2d2d2;
-height: 25px;
-width: 85%;
-margin-right: 6px;
+
+div input[type="text"], div input[type="number"], select {
+    border: none;
+    border-bottom: 1px solid #d2d2d2;
+    height: 25px;
+    width: 85%;
+    margin-right: 6px;
 }
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-	/* input number 화살표 없애기*/
-  -webkit-appearance: none;
+    /* input number 화살표 없애기*/
+    -webkit-appearance: none;
 }
-input[type="radio"], #form5 input[type="checkbox"]{
-display:none;
+
+input[type="radio"], #form5 input[type="checkbox"] {
+    display: none;
 }
-input[type="radio"]:checked + label{
-color : white;
-background-color : #6aacff;
-border: 1px solid #6aacff;
+
+input[type="radio"]:checked + label {
+    color: white;
+    background-color: #6aacff;
+    border: 1px solid #6aacff;
 }
-input[type="submit"]{
-	border: none;
-	border-radius:10px;
-	height: 50px;
-	line-height: 50px;
-	cursor: pointer;
-	font-size: 14pt;
-	display: inline-block;
-	-webkit-appearance:none;
-	-webkit-border-radius:10px;
+
+#form9 input[type="radio"] {
+    display: inline-block;
 }
-.agree a{
-font-size: 10px;
-text-decoration: underline;
-color:gray;
+
+input[type="submit"], input[type="button"] {
+    border: none;
+    border-radius: 10px;
+    height: 50px;
+    line-height: 50px;
+    cursor: pointer;
+    font-size: 14pt;
+    display: inline-block;
+    -webkit-appearance: none;
+    -webkit-border-radius: 10px;
 }
-.estimate_navigator{
-	display: block;
+
+.agree a {
+    font-size: 10px;
+    text-decoration: underline;
+    color: gray;
 }
-.estimate_navigator div{
-	display: inline-block;
-	width:30%;
-	cursor: pointer;
-	height: 50px;
-	line-height: 50px;
-	font-size: 14pt;
-	border-radius: 10px;
-	-webkit-appearance:none;
-	-webkit-border-radius:10px;
+
+.estimate_navigator {
+    display: block;
 }
+
+.estimate_navigator div {
+    display: inline-block;
+    width: 30%;
+    cursor: pointer;
+    height: 50px;
+    line-height: 50px;
+    font-size: 13pt;
+    border-radius: 10px;
+    -webkit-appearance: none;
+    -webkit-border-radius: 10px;
+}
+
 .estimate_navigator .prev{
     color: #505050;
     background: white;
-    width: 30%;
+    width: 20%;
     border: 1px solid #a2a2a2;
 }
-.estimate_navigator .next, .estimate_navigator .start, input[type="submit"]{
-	color:white;
-	background: #589dff;
-	width:60%;
+.estimate_navigator .reset{
+    display: block;
+    text-align: center;
+    width: 100%;
 }
-.start, .not{
-	width: 100% !important;
+.estimate_navigator .reset div{
+    display: inline-block;
+    color: #a7a7a7;
+    width: fit-content;
+    font-size: 10pt;
+    height: 24pt;
+    border-bottom: 1px solid #c1c1c1;
+    border-radius: 0px;
+    padding-bottom: 1px;
 }
-.not{
-	background-color: #efefef !important;
+.estimate_navigator .next, .estimate_navigator .start, input[type="submit"] {
+    color: white;
+    background: #589dff;
+    width: 55%;
+}
+
+.start, .not {
+    width: 100% !important;
+}
+
+.not {
+    background-color: #efefef !important;
     color: #b5b5b5;
     cursor: default !important;
 }
-#notnext, #notfinish{
-	width: 60% !important;
+
+#notnext, #notfinish {
+    width: 55% !important;
 }
-#form_description{
-text-align: center;
+
+#form_description {
+    text-align: center;
 }
-#form_description h2{
-font-size: 18pt;
-font-weight: unset;
+
+#form_description h2 {
+    font-size: 18pt;
+    font-weight: unset;
 }
-footer{
+
+footer {
     text-align: left;
 }
-footer div{
-	max-width: 700px;
-	margin: auto;
+
+footer div {
+    max-width: 700px;
+    margin: auto;
     font-size: 9pt;
     color: #a7a7a7;
 }
-.notice{
+
+.notice {
     width: 100%;
     box-sizing: border-box;
     margin: 30px auto 0;
@@ -220,41 +278,34 @@ footer div{
     border-radius: 5px;
     background: #efefef;
 }
-.notice p{
+
+.notice p {
     font-size: 10pt;
     color: #232323;
 }
-@media (max-width : 700px){
-.form_content{
-	width: 100%;
+
+@media (max-width: 700px) {
+    .form_content {
+        width: 100%;
+    }
+
+    label {
+        width: 33%;
+    }
+
+    .form_mini {
+        padding: 20px;
+    }
+
+    #banner {
+        background: url(https://somoonhouse.com/otherimg/estimate/AS_banner.jpeg);
+        width: 100%;
+        height: 100px;
+        background-size: 100%;
+        background-position-y: 50%;
+    }
+
+    #container {
+        margin: auto;
+    }
 }
-label{
-	width: 33%;
-}
-.form_mini{
-	padding: 20px;
-}
-#banner{
-	background: url(https://somoonhouse.com/otherimg/estimate/AS_banner.jpeg);
-	width: 100%;
-	height: 100px;
-	background-size: 100%;
-	background-position-y: 50%;
-}
-#container{
-	margin: auto;
-}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-

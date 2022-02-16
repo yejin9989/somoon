@@ -152,13 +152,14 @@
         //업체전달 완료일 경우
         if(!item_state.equals("0")){
             String status[] = {"신규(대기)", "신규(거절)", "진행중(상담예정)", "진행중(부재중)", "진행중(상담중)", "진행중(미팅예정)", "진행중(계약진행중)", "(계약완료)x", "완료(계약완료)", "중단(통화불가)", "중단(사유입력)", "상담취소"};
-            String query2 = "select C.Name, A.State from COMPANY C, ASSIGNED A where A.Company_num = C.Id and Apply_num = ?";
+            String query2 = "select C.Name, A.State, A.refuse_reason from COMPANY C, ASSIGNED A where A.Company_num = C.Id and Apply_num = ?";
 
             pstmt = conn.prepareStatement(query2);
             pstmt.setString(1, item_number);
             ResultSet rs2 = pstmt.executeQuery();
             while(rs2.next()){
                 HashMap<String, String> statemap = new HashMap<String, String>();
+                statemap.put("reason", rs2.getString("refuse_reason"));
                 statemap.put("name", rs2.getString("Name"));
                 statemap.put("state", status[Integer.parseInt(rs2.getString("State"))]);
                 statelist.add(statemap);
@@ -277,6 +278,13 @@
         gtag('config', 'G-PC15JG6KGN');
     </script>
     <!-- END Global site tag (gtag.js) - Google Analytics -->
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TQFGN2T');</script>
+    <!-- End Google Tag Manager -->
     <!-- 사용자 행동 정보 수집 코드 끝 - Meta, GA -->
 </head>
 <body>
@@ -313,7 +321,7 @@
                             <%if(hm.get("state").equals("2")){%><div id="stt2"><% out.println("배분중");%></div><%}%>
                             <%if(hm.get("state").equals("3")){%><div id="stt3"><% out.println("전체수락");%></div><%}%>
                             <%if(hm.get("state").equals("4")){%><div id="stt3"><% out.println("고객취소");%></div><%}%>
-                            <%if(hm.get("state").equals("4")){%><div id="stt3"><% out.println("관리자삭제");%></div><%}%>
+                            <%if(hm.get("state").equals("5")){%><div id="stt3"><% out.println("관리자삭제");%></div><%}%>
                         </div>
                     </div>
                     <div class="item_wrapper">
@@ -362,7 +370,7 @@
                                         <%if(hm.get("state").equals("2")){%><div id="stt2"><% out.println("배분중");%></div><%}%>
                                         <%if(hm.get("state").equals("3")){%><div id="stt3"><% out.println("전체수락");%></div><%}%>
                                         <%if(hm.get("state").equals("4")){%><div id="stt3"><% out.println("고객취소");%></div><%}%>
-                                        <%if(hm.get("state").equals("4")){%><div id="stt3"><% out.println("관리자삭제");%></div><%}%> </div>
+                                        <%if(hm.get("state").equals("5")){%><div id="stt3"><% out.println("관리자삭제");%></div><%}%> </div>
                                     </div>
                                     <div class="info">
                                         <%
@@ -385,6 +393,9 @@
                                         <tr>
                                             <td><%out.print(statemap.get("name"));%></td>
                                             <td><b><%out.print(statemap.get("state"));%></b></td>
+                                            <% if(statemap.get("state").equals("신규(거절)") && !(statemap.get("reason")==null)){%>
+                                            <td><span><b> -<%out.print(statemap.get("reason"));%></b></span></td>
+                                            <%}%>
                                         </tr>
                                         <%}%>
                                     </table>

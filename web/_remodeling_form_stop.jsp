@@ -1,69 +1,45 @@
 <%@ page import="java.net.URLEncoder" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8" %>
 <%@ page language="java" import="java.text.*,java.sql.*,java.util.*,java.security.*,java.math.BigInteger" %>
 <%@ page language="java" import="myPackage.*" %>
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setContentType("text/html; charset=utf-8"); %>
 <%
-    //캐시 설정 - 이미지 캐시 폐기 기간을 늘려서 반응속도를 올림
-    response.setHeader("Cache-Control", "no-cache");
-    response.setHeader("Pragma", "no-cache");
-    response.setDateHeader("Expires", 31536000);
-
-    /*
-    //네이버 로그인 시 필요
-    String clientId = "G8MVoxXfGciyZW5dF4p1";//애플리케이션 클라이언트 아이디값";
-    String redirectURI = URLEncoder.encode("http://somoonhouse.com/callback.jsp", "UTF-8");
-    SecureRandom random = new SecureRandom();
-    String state = new BigInteger(130, random).toString();
-    String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
-    apiURL += "&client_id=" + clientId;
-    apiURL += "&redirect_uri=" + redirectURI;
-    apiURL += "&state=" + state;
-    session.setAttribute("state", state);
-
-    //네이버 로그인 시 CSRF 방지를 위한 상태 토큰 검증
-    //세션 또는 별도의 저장 공간에 저장된 상태 토큰과 콜백으로 전달받은 state 파라미터 값이 일치해야 함
-    //콜백 응답에서 state 파라미터의 값을 가져옴
-    state = request.getParameter("state");
-     */
-
-    // 세션 가져오기 get session
-    String s_id = session.getAttribute("s_id")+"";// 현재 사용자 current user
-
-    //파라미터 가져오기
-    String param = request.getParameter("param");
-
     //필요한 변수 선언
+    int i, j;
     String mylog = "";
+    //파라미터 가져오기
+    String reason_id = request.getParameter("reason_id");
+    String stop_reason = request.getParameter("stop_reason");
+
+    if (reason_id.equals("1")) {
+        stop_reason = "신청 과정이 너무 번거로움";
+    } else if (reason_id.equals("2")) {
+        stop_reason = "아직 구체적인 계획이 없음";
+    }
 
     //DB 관련 객체 선언
     Connection conn = DBUtil.getMySQLConnection();
     ResultSet rs = null;
     PreparedStatement pstmt = null;
-    String query = "";
     String sql = "";
-
-    //DB 가져오기 예시
-    /*query = "select * from KEYWORD";
-    pstmt = conn.prepareStatement(query);
-    rs = pstmt.executeQuery();
-    HashMap<String, String> keyword = new HashMap<String, String>();
-    while(rs.next()) {
-        keyword.put(rs.getString("Id"), rs.getString("Name"));
-    }
+    //DB insert
+    sql = "INSERT INTO apply_stop_reason (reason_id, stop_reason) values (?, ?)";
+    pstmt = conn.prepareStatement(sql);
+    pstmt.setString(1, reason_id);
+    pstmt.setString(2, stop_reason);
+    pstmt.executeUpdate();
     pstmt.close();
-     */
 %>
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="SHORTCUT ICON" href="https://somoonhouse.com/img/favicon.ico" />
+    <link rel="SHORTCUT ICON" href="https://somoonhouse.com/img/favicon.ico"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/newindex.css"/>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <title>소문난집</title>
     <!-- 사용자 행동 정보 수집 코드 시작 - Meta, GA -->
     <!-- 모든 페이지에 하나씩만 포함되어 있어야 합니다. 위치는 </head> 바로 위로 통일 -->
@@ -103,32 +79,24 @@
     <!-- 사용자 행동 정보 수집 코드 끝 - Meta, GA -->
 </head>
 <body>
-<div id="container">
-    <div>
-        <span id="topBtn">top</span>
-        <span id="applyBtn"><div>상담<br>신청</div></span>
-    </div>
-    <navbar>
-        <jsp:include page="navbar.jsp" flush="false"/>
-    </navbar>
-    <div id="main">
-        <div
-    </div>
-    <footer>
-        <jsp:include page="newTestFooter.jsp" flush="false"/>
-    </footer>
-</div>
+<%=mylog%>
 <%
-    if(pstmt != null) {
+    if (pstmt != null) {
         pstmt.close();
-        rs.close();
-        query = "";
+        sql = "";
         conn.close();
     }
 %>
+<script>
+    alert('더 나은 서비스로 찾아뵙겠습니다. 감사합니다.');
+    location.href = "homepage.jsp";
+</script>
+
+
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script>
-//새 스크립트 작성
+    //새 스크립트 작성
+    //window.close();
 </script>
 </body>
 </html>
