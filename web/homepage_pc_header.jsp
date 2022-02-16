@@ -70,13 +70,13 @@
 <body>
 <div class="fixed_button" id="fixed_button">
     <span id="topBtn">top</span>
-    <a href="https://somoonhouse.com/remodeling_form.jsp?item_num=0" id="applyBtn"><div>상담<br>신청</div></a>
+    <a href="remodeling_form.jsp?item_num=0" id="applyBtn"><div>상담<br>신청</div></a>
 </div>
 <div class="upper_fixed_pc"></div>
 <div class="body_container_header">
     <div class="header_pc">
         <div class="header_left">
-            <a href="https://somoonhouse.com/" target="_self">
+            <a href="homepage.jsp" target="_self">
                 <img src="https://somoonhouse.com/otherimg/index/somunlogo.jpg" />
             </a>
         </div>
@@ -84,26 +84,26 @@
             <div id="area_header_pc">
                 <span>지역별 인테리어</span>
                 <div id="area_div_pc">
-                    <a href="https://somoonhouse.com/newindex.jsp?Daegu=141"><span>중구</span></a>
-                    <a href="https://somoonhouse.com/newindex.jsp?Daegu=142"><span>동구</span></a>
-                    <a href="https://somoonhouse.com/newindex.jsp?Daegu=143"><span>서구</span></a>
-                    <a href="https://somoonhouse.com/newindex.jsp?Daegu=144"><span>남구</span></a>
-                    <a href="https://somoonhouse.com/newindex.jsp?Daegu=145"><span>북구</span></a>
-                    <a href="https://somoonhouse.com/newindex.jsp?Daegu=146"><span>수성구</span></a>
-                    <a href="https://somoonhouse.com/newindex.jsp?Daegu=147"><span>달서구</span></a>
-                    <a href="https://somoonhouse.com/newindex.jsp?Daegu=148"><span>달성군</span></a>
-                    <a href="https://somoonhouse.com/newindex.jsp?Daegu=15"><span>경북</span></a>
+                    <a href="newindex.jsp?Daegu=141"><span>중구</span></a>
+                    <a href="newindex.jsp?Daegu=142"><span>동구</span></a>
+                    <a href="newindex.jsp?Daegu=143"><span>서구</span></a>
+                    <a href="newindex.jsp?Daegu=144"><span>남구</span></a>
+                    <a href="newindex.jsp?Daegu=145"><span>북구</span></a>
+                    <a href="newindex.jsp?Daegu=146"><span>수성구</span></a>
+                    <a href="newindex.jsp?Daegu=147"><span>달서구</span></a>
+                    <a href="newindex.jsp?Daegu=148"><span>달성군</span></a>
+                    <a href="newindex.jsp?Daegu=15"><span>경북</span></a>
                 </div>
             </div>
             <div class="sidebar"></div>
-            <a href="https://somoonhouse.com/newindex.jsp?theme_id=1">
+            <a href="newindex.jsp?theme_id=1">
                 <span>인기 인테리어</span>
             </a>
             <!--a>
                 <span>시공 후기</span>
             </a-->
             <div class="sidebar"></div>
-            <a href="https://somoonhouse.com/interiors.jsp">
+            <a href="interiors.jsp">
                 <span>파트너스</span>
             </a>
         </div>

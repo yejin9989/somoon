@@ -189,6 +189,8 @@ input[type="checkbox"]:checked + label span {
 			<!-- 로그인 구역 -->
 				<div id="admin">👨‍🔧소문난집 관리자 페이지👩‍🔧</div>
 				<div class="mybox" id="check">신청 건 확인</div>
+				<div class="mybox" id="stop">고객 상담신청 중단 사유 확인</div>
+				<div class="mybox" id="refuse">업체 신규건 거절 사유 확인</div>
 				<!-- <div class="mybox" id="upload">사례 등록</div> -->
 				<div class="mybox" id="searchurl">아파트 사례정보 검색</div>
 				<!-- <div class="mybox" id="blog">소문난 블로그</div> -->
@@ -213,6 +215,10 @@ conn.close();
 	$('.mybox').click(function(){
 		if($(this).attr('id') == "check")
 			location.href='manage_request.jsp';
+		else if($(this).attr('id') == "stop")
+			location.href='show_stop_reason.jsp';
+		else if($(this).attr('id') == "refuse")
+			location.href='show_refuse_reason.jsp';
 		else if($(this).attr('id') == "upload")
 			location.href='item_upload.jsp';
 		else if($(this).attr('id') == "home")
