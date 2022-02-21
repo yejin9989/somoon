@@ -419,7 +419,7 @@ select{
     				</div>
     			<%}%>
     			</div>
-    			<div id="request_cancel">상담취소하기</div>
+    			<!--<div id="request_cancel">상담취소하기</div>-->
 				<!-- div class="info">
 					<span>상담 전체 평가하기</span>
 					<textarea></textarea>
