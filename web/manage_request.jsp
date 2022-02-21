@@ -114,6 +114,10 @@
         String item_url = "";
         String item_calling = rs.getString("Calling")+"";
         String item_assigned_time = rs.getString("Assigned_time")+"";
+        String item_remark = "";
+        if(rs.getString("remark")!=null) {
+            item_remark = rs.getString("remark") + "";
+        }
         LinkedList statelist = new LinkedList<HashMap<String, String>>();
 
         //통합 신청일 경우(item number가 0임)
@@ -184,6 +188,7 @@
         itemmap.put("state", item_state);
         itemmap.put("calling", item_calling);
         itemmap.put("assigned_time", item_assigned_time);
+        itemmap.put("remark", item_remark);
 
         totalstatemap.put(item_number.toString(), statelist);
         itemlist.add(itemmap);
@@ -443,7 +448,7 @@
                                                 }
                                             %>
                                             <div>
-                                                <textarea type="text" name="memo" class="remark" placeholder="기타 특이사항을 입력해주세요"></textarea>
+                                                <textarea type="text" name="memo" class="remark" placeholder="기타 특이사항을 입력해주세요"><%if(!(hm.get("remark").equals(""))){out.print(hm.get("remark"));}%></textarea>
                                             </div>
                                             <div class="submit_btn">
                                                 <input type="submit" value="넘기기">
