@@ -24,7 +24,7 @@
     } else if (refuse_id.equals("2")) {
         refuse_reason = "공사 일정 마감";
     } else if (refuse_id.equals("3")) {
-        refuse_reason = "해당 지역 공사 불가";
+        refuse_reason = "해당 지역 불가";
     }
 
     //DB 관련 객체 선언
