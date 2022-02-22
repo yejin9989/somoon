@@ -183,6 +183,9 @@ input[type="submit"]{
 </head>
 <body>
 <div id="container">
+	<jsp:include page="/homepage_pc_header.jsp" flush="false" />
+	<jsp:include page="/homepage_mob_header.jsp" flush="false" />
+	<div></div>
 <div id="somun_navbar">
 	<div id="somun_menu"></div>
 	<div style="float:left;width:100%;height:max-content;margin-bottom:10px;text-align:center;">
