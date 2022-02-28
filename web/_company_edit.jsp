@@ -24,8 +24,6 @@ String now = session.getAttribute("page")+""; // 현재 페이지 current page
 String s_id = session.getAttribute("s_id")+"";// 현재 사용자 current user
 String name = session.getAttribute("name")+"";
 
-String company_id = request.getParameter("company");
-
 String company_area = request.getParameter("company_area");
 String company_as_warranty = request.getParameter("company_as_warranty");
 String company_as_fee = request.getParameter("company_as_fee");
@@ -74,13 +72,13 @@ pstmt.setString(5, company_as_fee);
 pstmt.setString(6, company_as_provide);
 pstmt.setString(7, company_limit_fee);
 pstmt.setString(8, company_start_year);
-pstmt.setString(9, company_id);
+pstmt.setString(9, s_id);
 pstmt.executeUpdate();
 
 // 부분시공 가능 여부 업데이트하기
 query = "select count(*) cnt from SPECIALIZED where Company_num = ? and Ability_num = 11";
 pstmt = conn.prepareStatement(query);
-pstmt.setString(1, company_id);
+pstmt.setString(1, s_id);
 rs = pstmt.executeQuery();
 while(rs.next()) {
 	query = "delete from SPECIALIZED where Company_num = ? and Ability_num = 11";
@@ -130,7 +128,7 @@ if(company_abilities != null){
 		//specialized에 해당 능력 넣기
 		query = "insert into SPECIALIZED values(?, ?)";
 		pstmt = conn.prepareStatement(query);
-		pstmt.setString(1, company_id);
+		pstmt.setString(1, s_id);
 		pstmt.setString(2, ability_id);
 		pstmt.executeUpdate();
 	}
