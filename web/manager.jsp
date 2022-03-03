@@ -198,6 +198,7 @@ input[type="checkbox"]:checked + label span {
 				<div class="mybox" id="license">사업자등록증</div>
 				<div class="mybox" id="certificate">자격증 확인</div>
 				<div class="mybox" id="coupon_consulting_status">업체별 상품 및 상담 현황</div>
+				<div class="mybox" id="badge">업체 뱃지 부여</div>
 			</form>
 	</div>
 		<!------------ 내용물  --------------->
@@ -233,6 +234,8 @@ conn.close();
 			location.href='certificate_check.jsp';
 		else if($(this).attr('id') == "coupon_consulting_status")
 			location.href='manage_coupon.jsp';
+		else if($(this).attr('id') == "badge")
+			location.href="add_badge.jsp";
 	})
 </script>
 <script type="text/javascript" src="slick-1.8.1/slick/slick.min.js"></script>
