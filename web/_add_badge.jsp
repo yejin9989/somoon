@@ -14,6 +14,7 @@
     //String param = request.getParameter("param");
     String company = request.getParameter("companySelect") + "";
     String[] ability = request.getParameterValues("abilitySelect");
+    String as_warranty = request.getParameter("ASyear");
 
     //DB 관련 객체 선언
     Connection conn = DBUtil.getMySQLConnection();
@@ -39,6 +40,19 @@
         }
     }
 
+    if(!as_warranty.equals("")){
+        query = "UPDATE COMPANY SET as_provide = 1, as_warranty = ? WHERE id = ?";
+        pstmt = conn.prepareStatement(query);
+        pstmt.setString(1, as_warranty);
+        pstmt.setString(2, company);
+        pstmt.executeUpdate();
+    }
+    else{
+        query = "UPDATE COMPANY SET as_provide = 0, as_warranty = null WHERE id = ?";
+        pstmt = conn.prepareStatement(query);
+        pstmt.setString(1, company);
+        pstmt.executeUpdate();
+    }
 
 
     pstmt.close();
@@ -49,8 +63,9 @@
 </head>
 <body>
 <script>
+    alert('>><%=as_warranty%><<');
     alert('반영 완료 되었습니다.');
-    history.back();
+    location.href = "add_badge.jsp";
 </script>
 </body>
 </html>

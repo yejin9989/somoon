@@ -5,3 +5,7 @@
 .badge_container {
     display: block;
 }
+
+#as_year {
+    width: 15px;
+}

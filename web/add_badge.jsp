@@ -37,7 +37,7 @@
     }
 
     //DB Select
-    query = "SELECT Id, Name FROM COMPANY WHERE State = 1";
+    query = "SELECT Id, Name, As_provide, As_warranty FROM COMPANY WHERE State = 1";
     pstmt = conn.prepareStatement(query);
     rs = pstmt.executeQuery();
 
@@ -47,9 +47,13 @@
         HashMap<String, String> comp_hm = new HashMap<String, String>();
         String id = rs.getString("Id")+"";
         String name = rs.getString("Name")+"";
+        String as = rs.getString("As_provide")+"";
+        String as_war = rs.getString("As_warranty")+"";
 
         comp_hm.put("comp_name", name);
         comp_hm.put("comp_id", id);
+        comp_hm.put("comp_as", as);
+        comp_hm.put("comp_as_war", as_war);
         company.add(comp_hm);
     }
 
@@ -87,24 +91,9 @@
     <jsp:include page="/homepage_pc_header.jsp" flush="false" />
     <jsp:include page="/homepage_mob_header.jsp" flush="false" />
         <div id="content">
-            <h2>업체 뱃지 부여</h2>
-<%--            <h3>뱃지 확인</h3>--%>
-<%--            ---------------------------------------------------------------------------------------------%>
-<%--            <div class="badge_chk">--%>
-<%--                <%--%>
-<%--                    for(int idx =0; idx < badge.size(); idx++){--%>
-<%--                        HashMap<String, String> hm = badge.get(idx);--%>
-<%--                %>--%>
-<%--                <span class = badge><%out.print(hm.get("badge_id"));%>. <%out.print(hm.get("badge_title"));%>&#9;</span>--%>
-<%--                <%--%>
-<%--                        if((idx+1)%5==0){%><br><br><%}--%>
-<%--                    }--%>
-<%--                %>--%>
-<%--            </div>--%>
-<%--            ---------------------------------------------------------------------------------------------%>
-            <h3>뱃지 부여</h3>
-            <h4>업체 선택</h4>
             <form action = "_add_badge.jsp" method="post">
+                <h2>업체 뱃지 부여</h2>
+                <h3>업체 선택</h3>
                 <select name="companySelect" id="select_comp" onchange="check_badge(this)">
                     <%
                         for (HashMap<String, String> hm : company) {
@@ -115,52 +104,86 @@
                     %>
                 </select>
 
+                <h3>A/S 뱃지 부여</h3>
+                A/S 기간을 년 단위로 숫자만 입력해주세요.
+                <div class="AS_container">
+                    <input type="text" name="ASyear" id="as_year" placeholder="0">년
+                </div>
+
+                <h3>기타 뱃지 부여</h3>
                 <div class="badge_container">
                     <%
                         for (HashMap<String, String> hm2 : badge) {
                     %>
                     <div class="badge_item">
-                        <input type="checkbox" name = "abilitySelect" class="badge_check" value="<%out.print(hm2.get("badge_id"));%>"><%out.print(hm2.get("badge_id"));%>. <%out.print(hm2.get("badge_title"));%> </input>
+                        <input type="checkbox" name = "abilitySelect" class="badge_check" value="<%out.print(hm2.get("badge_id"));%>" onchange="checking()">
+                        <%out.print(hm2.get("badge_id"));%>. <%out.print(hm2.get("badge_title"));%> </input>
                     </div>
                     <%
                         }
                     %>
                 </div>
-                <input type="submit" id="badge_sbm"/>
+                <input type="submit" id="badge_sbm" value="등록">
+
             </form>
         </div>
 </div>
 <script>
-    var array = new Array();
-    function create_hm(){
+    var array_cb = new Array();
+    var array_cp = new Array();
+    function create_hm_cb(){
         <%
         for (HashMap<String, String> hm3 : comp_badge) {
         %>
         var hashmap = new Map();
         hashmap.set("comp_num", "<%=hm3.get("comp_num")%>");
         hashmap.set("abil_num", "<%=hm3.get("abil_num")%>");
-        array.push(hashmap);
+        array_cb.push(hashmap);
+        <%
+        }
+        %>
+    }
+    function create_hm_cp(){
+        <%
+        for (HashMap<String, String> hm : company) {
+        %>
+        var hashmap = new Map();
+        hashmap.set("comp_id","<%=hm.get("comp_id")%>");
+        hashmap.set("comp_as","<%=hm.get("comp_as")%>");
+        hashmap.set("comp_as_war","<%=hm.get("comp_as_war")%>");
+        array_cp.push(hashmap);
         <%
         }
         %>
     }
 
     function check_badge(e) {
-        create_hm();
+        create_hm_cb();
+        create_hm_cp();
         var checkbox = document.getElementsByClassName("badge_check");
-        // document.querySelectorAll(".badge_check").forEach(function(v, i) {v.checked = false;});
+        var textbox = document.getElementById("as_year");
+
+        textbox.value = "";
         for(var j = 0; j< checkbox.length; j++){
-            checkbox[j].removeAttribute("checked");
+            checkbox[j].checked = false;
         }
-        for(var i = 0; i < array.length; i++){
-            if(array[i].get("comp_num")===e.value){
-                var num = Number(array[i].get("abil_num"))-1;
-                console.log(num);
-                console.log(checkbox[num]);
-                checkbox[num].setAttribute("checked", "checked");
+
+        for(var k = 0; k < array_cp.length; k++){
+            if(array_cp[k].get("comp_id")===e.value){
+                if(array_cp[k].get("comp_as")==='1'){
+                    textbox.value = array_cp[k].get("comp_as_war");
+                }
+            }
+        }
+        for(var i = 0; i < array_cb.length; i++){
+            if(array_cb[i].get("comp_num")===e.value){
+                var num = Number(array_cb[i].get("abil_num"))-1;
+                checkbox[num].checked = true;
             }
         }
     }
+
+
     check_badge(document.getElementById("select_comp"));
 </script>
 </body>
