@@ -63,7 +63,6 @@
 </head>
 <body>
 <script>
-    alert('>><%=as_warranty%><<');
     alert('반영 완료 되었습니다.');
     location.href = "add_badge.jsp";
 </script>
