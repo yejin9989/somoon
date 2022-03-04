@@ -184,7 +184,7 @@ if(s_id.equals("")){
 				<%
 			}
 			%>
-			<div id="add_ability"><span>+</span></div>
+<%--			<div id="add_ability"><span>+</span></div>--%>
 		</div>
 		<hr>
 		<div id="introduction"><textarea cols=30 name="company_introduction"><%if(company_introduction != null && !company_introduction.equals("") && !company_introduction.equals("null")){%><%=company_introduction%><%}else{%>소개글을 작성해주세요.<%}%></textarea></div>
@@ -216,7 +216,6 @@ $("#select_as_warranty").change(function() {
 	let val = -1;
 	$("#select_as_warranty option:selected").each(function() {
 		val = $(this).index();
-		console.log(val, $(this))
 	})
 	if(val == 0) $("#as_fee").css("display","none");
 	else $("#as_fee").css("display","block");

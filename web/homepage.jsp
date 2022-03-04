@@ -3,6 +3,7 @@
          pageEncoding="UTF-8"%>
 <%@ page language="java" import="java.text.*,java.sql.*,java.util.*,java.security.*,java.math.BigInteger" %>
 <%@ page language="java" import="myPackage.*" %>
+<%@ page import="javax.resource.cci.ResultSet" %>
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setContentType("text/html; charset=utf-8"); %>
 <%
@@ -565,7 +566,8 @@
             partnerInfoContainer, partnerInfoBox,
             boxUpper, boxLower, upperFirstImgBox, upperFirstImg,
             upperSecondImgBox, upperSecondImg, lowerTextFir, lowerTextThr,
-            firTitle, firBox, firSub, thrTitleSub;
+            firTitle, thrTitleSub;
+        let firBox = [], firSub = [];
 
         partnerInfoContainer = createEle("a", "partner_info_container");
         partnerInfoBox = createEle("div", "box");
@@ -581,16 +583,27 @@
         thrTitleSub = createEle("span", "title_sub");
 
         const war = prop.as_warranty,
+            // badge = prop.badge,
             counseling = prop.counseling,
             construction = prop.construction,
             img1 = prop.represent_img1,
             img2 = prop.represent_img2,
             comName = prop.name;
+        let count = 0;
         if(war != null){
-            firBox = createEle("div", "fir_box");
-            firSub = createEle("span", "fir_sub");
-            firSub.innerHTML = "A/S " + war + "년";
+            firBox[count] = createEle("div", "fir_box");
+            firSub[count] = createEle("span", "fir_sub");
+            firSub[count].innerHTML = "A/S " + war + "년";
+            count++;
         }
+        // if(badge != null){
+        //     for(let i = 0; i < badge.length; i++){
+        //         if(count>=3)break;
+        //         firBox[count] = createEle("div", "fir_box");
+        //         firSub[count] = createEle("span", "fir_sub");
+        //         firSub[count].innerHTML = badge.name;
+        //     }
+        // }
         partnerInfoContainer.href = "https://somoonhouse.com/interior_info.jsp?id=" + prop.id;
         firTitle.innerHTML = comName;
         thrTitleSub.innerHTML = "상담 " + counseling + "건";
@@ -609,9 +622,11 @@
         boxLower.appendChild(lowerTextThr);
         lowerTextFir.appendChild(firTitle);
         lowerTextThr.appendChild(thrTitleSub);
-        if(war != null){
-            lowerTextFir.appendChild(firBox);
-            firBox.appendChild(firSub);
+        if(count !== 0){
+            for(let i = 0; i < count; i++){
+                lowerTextFir.appendChild(firBox[i]);
+                firBox[i].appendChild(firSub[i]);
+            }
         }
     }
 
