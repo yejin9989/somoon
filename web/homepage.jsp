@@ -601,7 +601,7 @@
         //         if(count>=3)break;
         //         firBox[count] = createEle("div", "fir_box");
         //         firSub[count] = createEle("span", "fir_sub");
-        //         firSub[count].innerHTML = badge.name;
+        //         firSub[count].innerHTML = badge[i].name;
         //     }
         // }
         partnerInfoContainer.href = "https://somoonhouse.com/interior_info.jsp?id=" + prop.id;
