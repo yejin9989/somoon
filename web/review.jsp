@@ -210,7 +210,7 @@
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="./consultReviewData.js"></script>
 <script>
-    let data = [10, 8, 20, 400, 512];
+    let data = [100, 8, 20, 400, 512];
     var highData = 0;
     data.forEach((prop) => {
         if(prop > highData){

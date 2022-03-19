@@ -109,11 +109,12 @@ input[type="checkbox"]:checked + label span {
     text-align: right;
 }
 .evaluate{
+    color: white;
+    border-radius: 10px;
+    background-color: #3e70ff;
     font-size: 10px;
     display: inline-block;
     padding: 2px;
-    text-decoration: underline;
-    text-underline-position: under;
     cursor: pointer;
 }
 .construct{
