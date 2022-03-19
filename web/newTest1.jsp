@@ -344,18 +344,21 @@
     //modal_window_controller//
     //modal_window_open
     function modal_func(obj){
+        $('body').css("overflow", "hidden");
         var modalNum = obj.id.slice(9);
         var contractModal = document.getElementById("modal" + modalNum);
         contractModal.style.display = "flex"
     }
     //modal_window_close
     function modal_close(obj){
+        $('body').css("overflow", "scroll");
         var modalNum = obj.id.slice(10);
         var contractModal = document.getElementById("modal" + modalNum);
         contractModal.style.display = "none"
     }
     //ESC 키를 눌렀을 때 종료
     window.addEventListener("keyup", e => {
+        $('body').css("overflow", "scroll");
         for(var i=0;i<modals.length;i++){
             var eachModals = modals[i];
             if(eachModals.style.display === "flex" && e.key === "Escape") {
@@ -369,6 +372,7 @@
         eachModal.addEventListener("click", e => {
             const evTarget = e.target;
             if(evTarget.classList.contains("modal_overlay")) {
+                $('body').css("overflow", "scroll");
                 evTarget.style.display = "none"
             }
         })
