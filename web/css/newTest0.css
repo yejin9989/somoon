@@ -383,3 +383,7 @@
     letter-spacing: 3pt;
 }
 
+input[type="text"]:disabled {
+    background: darkgrey !important;
+}
+

@@ -296,18 +296,18 @@
                 <form>
                     <div>
                         <div class="input_box">
-                            <input type="radio" name="comp_reason_id" value="1"> 고객 예산 부족
+                            <input type="radio" class="reason_id" name="comp_reason_id" value="1"> 고객 예산 부족
                         </div>
                         <div class="input_box">
-                            <input type="radio" name="comp_reason_id" value="2"> 공사 일정 마감
+                            <input type="radio" class="reason_id" name="comp_reason_id" value="2"> 공사 일정 마감
                         </div>
                         <div class="input_box">
-                            <input type="radio" name="comp_reason_id" value="3"> 해당 지역 불가
+                            <input type="radio" class="reason_id" name="comp_reason_id" value="3"> 해당 지역 불가
                         </div>
                         <div class="input_box">
-                            <input type="radio" name="comp_reason_id" value="4">
+                            <input type="radio" class="reason_id_etc" name="comp_reason_id" value="4">
                             <div class="input_box_text">
-                                <input type="text" name="comp_stop_reason" id="comp_stop_reason" placeholder="기타(직접입력)">
+                                <input type="text" name="comp_stop_reason" class="text_dis" id="comp_stop_reason" placeholder="기타(직접입력)" disabled>
                             </div>
                         </div>
                         <div id="ref_submit_div">
@@ -396,6 +396,23 @@
             location.href = "_newTest_company_refuse.jsp?companyNum=" + "<%=s_id%>" + "&applyNum=" + id + "&refuseId=" + refid + "&refuseReason=" + reason;
         }
     })
+
+    $(document).ready(function(){
+
+        // 라디오버튼 클릭시 이벤트 발생
+        $("input:radio[name=comp_reason_id]").click(function(){
+
+            if($("input[name=comp_reason_id]:checked").val() === "4"){
+                $("input:text[name=comp_stop_reason]").attr("disabled",false);
+                // radio 버튼의 value 값이 1이라면 활성화
+
+            }else{
+                $("input:text[name=comp_stop_reason]").attr("disabled",true);
+                // radio 버튼의 value 값이 0이라면 비활성화
+            }
+        });
+    });
+
 </script>
 <script>
     const countDownTimer = function (id, date) {
