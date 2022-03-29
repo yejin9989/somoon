@@ -6,15 +6,28 @@
 <%@ page language="java" import="myPackage.*" %>
 <%@ page import="java.io.File" %>
 <%@ page import="java.util.Date" %>
+<%@ page import="java.time.LocalDateTime,java.time.format.DateTimeFormatter" %>
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setContentType("text/html; charset=utf-8"); %>
 <%
     //필요한 변수 선언
     int i, j;
     String mylog = "";
+    java.sql.Timestamp d = null;
 
     //파라미터 가져오기
     //String param = request.getParameter("param");
+
+    //현재날짜 받아오기
+    Calendar cal = Calendar.getInstance();
+    String year = Integer.toString(cal.get(Calendar.YEAR));
+    String month = Integer.toString(cal.get(Calendar.MONTH)+1);
+    String date = Integer.toString(cal.get(Calendar.DATE));
+    String hour = Integer.toString(cal.get(Calendar.HOUR_OF_DAY));
+    String minute = Integer.toString(cal.get(Calendar.MINUTE));
+    String second = Integer.toString(cal.get(Calendar.SECOND));
+    String todayformat = year+"-"+month+"-"+date+" "+hour+":"+minute+":"+second;
+    d = java.sql.Timestamp.valueOf(todayformat);
 
     // 파라미터
     String assign = "";
@@ -106,7 +119,7 @@
 
     if(error == 0){
         //DB에 계약일시, 파일명, 계약금액 넣고 상태 업데이트
-        query = "INSERT INTO client_review(assign_id, state, remodeling_apply_id, company_id, rate, text) VALUES (?, ?, ?, ?, ?, ?)";
+        query = "INSERT INTO client_review(assign_id, state, remodeling_apply_id, company_id, rate, text, submit_date) VALUES (?, ?, ?, ?, ?, ?, ?)";
         pstmt = conn.prepareStatement(query);
         pstmt.setString(1, assign);
         pstmt.setString(2, state);
@@ -114,6 +127,7 @@
         pstmt.setString(4, comp);
         pstmt.setString(5, rate);
         pstmt.setString(6, text);
+        pstmt.setTimestamp(7,d);
         pstmt.executeUpdate();
 
         query = "SELECT id FROM client_review WHERE assign_id = ?";
@@ -138,7 +152,7 @@
 %>
 <script>
     alert('평가 등록을 완료했습니다.');
-    // history.back();
+    history.back();
 </script>
 <%
 }
@@ -146,7 +160,7 @@ else{
 %>
 <script>
     alert('평가 등록에 실패했습니다.');
-    // history.back();
+    history.back();
 </script>
 <%
     }
