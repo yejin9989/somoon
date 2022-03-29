@@ -78,7 +78,7 @@
         String rate = rs.getString("rate")+"";
         String text = rs.getString("text")+"";
         String submit_date = rs.getString("submit_date");
-        submit_date = submit_date.substring(0,submit_date.lastIndexOf("."));
+//        submit_date = submit_date.substring(0,submit_date.lastIndexOf("."));
         text = text.replaceAll("\r\n", "<br/>");
         if (state.equals("0")) {
             state = "상담평가";
