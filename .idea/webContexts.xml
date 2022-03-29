@@ -8,6 +8,8 @@
         <entry key="file://$PROJECT_DIR$/web/banner_edit.jsp" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/checking.html" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/company_edit.jsp" value="file://$PROJECT_DIR$/web" />
+        <entry key="file://$PROJECT_DIR$/web/css" value="file://$PROJECT_DIR$/web" />
+        <entry key="file://$PROJECT_DIR$/web/css/customer_request.css" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/homepage_mob_header.jsp" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/index.jsp" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/interior_detail.jsp" value="file://$PROJECT_DIR$/web" />
@@ -16,6 +18,7 @@
         <entry key="file://$PROJECT_DIR$/web/newTestPartnerNew.jsp" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/new_company_request.jsp" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/newindex.jsp" value="file://$PROJECT_DIR$/web" />
+        <entry key="file://$PROJECT_DIR$/web/review.jsp" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/review_del.jsp" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/theme_display_item_upload.jsp" value="file://$PROJECT_DIR$/web" />
       </map>
