@@ -77,6 +77,12 @@
                 </a>
             </div>
             <div class="right_header">
+                <a href="newTestReview.jsp" target="_self"> <!--style 해제 해주어야함-->
+                    <div class="img_container">
+                        <img class="review"
+                             src="https://somoonhouse.com/otherimg/assets/review.png?raw=true" />
+                    </div>
+                </a>
                 <a href="newTestPartnerNew.jsp" target="_self"> <!--style 해제 해주어야함-->
                     <div class="img_container">
                         <img class="cart"
