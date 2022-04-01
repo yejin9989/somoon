@@ -5,7 +5,7 @@
 <%@ page language="java" import="myPackage.*" %>
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setContentType("text/html; charset=utf-8"); %>
-<% session.setAttribute("page", "remodeling_form.jsp"); %>
+<%--<% session.setAttribute("page", "remodeling_form.jsp"); %>--%>
 <%
 
 /*로그인된 세션 아이디(추후개발) 가져오기, 현재 페이지 저장
@@ -21,7 +21,7 @@ String sql = "";
 ResultSet rs = null;
 
 //세션 생성 create session
-session.setAttribute("page", "company_login.jsp"); // 현재 페이지 current page
+//session.setAttribute("page", "company_login.jsp"); // 현재 페이지 current page
 //세션 가져오기 get session
 String now = session.getAttribute("page")+""; // 현재 페이지 current page
 String s_id = session.getAttribute("s_id")+"";// 현재 사용자 current user
