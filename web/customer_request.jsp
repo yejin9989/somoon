@@ -70,6 +70,45 @@
             company_as_warranty = rs1.getString("As_warranty");
         }
 
+        //리뷰 여부 확인하기
+        query = "select count(*),state,rate,text,submit_date from client_review where company_id = ? and assign_id = ? and state = 0";
+        pstmt = conn.prepareStatement(query);
+        pstmt.setString(1, company_num);
+        pstmt.setString(2 , assign_id);
+        ResultSet rs2 = pstmt.executeQuery();
+        String review0_cnt = "";
+        String review0_state = "";
+        String review0_rate = "";
+        String review0_text = "";
+        String review0_date = "";
+        while (rs2.next()) {
+            review0_state = rs2.getString("state");
+            review0_rate = rs2.getString("rate");
+            review0_text = rs2.getString("text");
+            review0_date = rs2.getString("submit_date");
+            review0_cnt = rs2.getString("count(*)");
+        }
+
+        //리뷰 여부 확인하기
+        query = "select count(*),state,rate,text,submit_date from client_review where company_id = ? and assign_id = ? and state = 1";
+        pstmt = conn.prepareStatement(query);
+        pstmt.setString(1, company_num);
+        pstmt.setString(2 , assign_id);
+        ResultSet rs3 = pstmt.executeQuery();
+        String review1_cnt = "";
+        String review1_state = "";
+        String review1_rate = "";
+        String review1_text = "";
+        String review1_date = "";
+        while (rs3.next()) {
+            review1_state = rs3.getString("state");
+            review1_rate = rs3.getString("rate");
+            review1_text = rs3.getString("text");
+            review1_date = rs3.getString("submit_date");
+            review1_cnt = rs3.getString("count(*)");
+        }
+
+
 		companymap.put("assign_id", assign_id);
 		companymap.put("name", company_name);
         companymap.put("as_provide", company_as_provide);
@@ -78,6 +117,16 @@
         companymap.put("phone", company_phone);
         companymap.put("state", state_eng);
         companymap.put("id", company_num);
+        companymap.put("mid_cnt",review0_cnt);
+        companymap.put("mid_rate",review0_rate);
+        companymap.put("mid_text",review0_text);
+        companymap.put("mid_date",review0_date);
+        companymap.put("mid_state",review0_state);
+        companymap.put("fin_cnt",review1_cnt);
+        companymap.put("fin_state",review1_state);
+        companymap.put("fin_rate",review1_rate);
+        companymap.put("fin_date",review1_date);
+        companymap.put("fin_text",review1_text);
         companylist.add(companymap);
     }
 
@@ -252,14 +301,26 @@
                                     </div>
                                 </div>
                                 <div class="evaluate_box">
+                                    <% if(false/*fin*/) {
+                                        if(Integer.parseInt(hm.get("fin_cnt")) == 0){%>
                                     <div class="evaluate construct" id="eval_1<%out.print(hm.get("id"));%>"
                                          onclick="open_modal(this.id)">시공 평가
                                     </div>
+                                    <%} else {%>
+                                    <div class="evaluate fin" id="eval_1<%out.print(hm.get("id"));%>"
+                                         onclick="open_modal_r(this.id)">평가 완료</div>
+                                    <%}}%>
+                                    <%if(Integer.parseInt(hm.get("mid_cnt")) == 0){%>
                                     <div class="evaluate consult" id="eval_0<%out.print(hm.get("id"));%>"
                                          onclick="open_modal(this.id)">상담 평가
                                     </div>
+                                    <%} else {%>
+                                    <div class="evaluate fin" id="eval_1<%out.print(hm.get("id"));%>"
+                                         onclick="open_modal_r(this.id)">평가 완료</div>
+                                    <%}%>
                                 </div>
                             </div>
+                            <%if((Integer.parseInt(hm.get("mid_cnt"))==0)||(Integer.parseInt(hm.get("fin_cnt"))==0)){%>
                             <div class="modal_item" id="modal_item<%out.print(hm.get("id"));%>" style="display: none;"
                                  onclick="modal_container_click()">
                                 <div class="modal" onclick="modal_click()">
@@ -267,7 +328,7 @@
                                         <form action="_customer_request.jsp" method="post"
                                               enctype="multipart/form-data">
                                             <div class="eval_content">
-												<input type="hidden" name="assign" value="<%out.print(hm.get("assign_id"));%>">
+                                                <input type="hidden" name="assign" value="<%out.print(hm.get("assign_id"));%>">
                                                 <input type="hidden" name="state"
                                                        id="eval_state<%out.print(hm.get("id"));%>">
                                                 <input type="hidden" name="comp" value="<%out.print(hm.get("id"));%>">
@@ -300,15 +361,19 @@
                                                 <h3>사진 첨부하기</h3>
                                                 <h4>사진은 최대 5장까지 첨부 가능합니다.</h4>
                                                 <h6>사진을 다시 클릭하시면 삭제하실 수 있습니다.</h6>
-                                                <div class="eval photo">
-                                                    <div id="imagePreview">
-                                                        <label for="review_img0" id="img_label0"
+                                                <div class="eval photo" id="<%=hm.get("id")%>">
+                                                    <div id="imagePreview<%=hm.get("id")%>">
+                                                        <input type="hidden" id="index<%=hm.get("id")%>" value="0">
+                                                        <input type="hidden" id="cnt<%=hm.get("id")%>" value="0">
+                                                        <label for="review_img<%=hm.get("id")%>0" id="img_label<%=hm.get("id")%>0"
                                                                class="add_photo"></label>
-                                                        <input type="file" name="img0" id="review_img0"
+                                                        <input type="file" name="img0" id="review_img<%=hm.get("id")%>0"
                                                                class="review_photo" accept="image/*">
                                                     </div>
                                                 </div>
-                                                평가는 익명으로 업체에 전달됩니다.<br><br>
+                                                평가는 익명으로 업체에 전달되며<br>
+                                                작성하신 리뷰는 수정이 불가능합니다.<br><br>
+
                                                 <input class="eval" type="submit" value="등록">
                                             </div>
                                         </form>
@@ -320,6 +385,8 @@
                                     </div>
                                 </div>
                             </div>
+                            <%}%>
+
                             <%}%>
                         </div>
                         <!--<div id="request_cancel">상담취소하기</div>-->
@@ -371,6 +438,7 @@ conn.close();
         //리뷰 모달창 컨트롤러
         var remem_modal_id;
         const open_modal = (prop) => {
+            $('body').css("overflow", "hidden");
             var state_id = prop.slice(5);
             var id = state_id.slice(1);
             var state = state_id.slice(0, 1)
@@ -382,6 +450,7 @@ conn.close();
             remem_modal_id = modal_id;
         }
         const close_modal = () => {
+            $('body').css("overflow", "scroll");
             var modal = document.getElementById(remem_modal_id);
             modal.style.display = 'none';
         }
@@ -408,8 +477,14 @@ conn.close();
 
             sel_files = [];
 
+            var revimg_id = e.target.parentElement.parentElement.id;
             var files = e.target.files;
             var fileArr = Array.prototype.slice.call(files);
+            var ind = document.getElementById("index"+revimg_id);
+            var cnt = document.getElementById("cnt"+revimg_id);
+            index = parseInt(ind.value);
+            filecnt = parseInt(cnt.value);
+            console.log(index, filecnt);
 
             fileArr.forEach(function (f) {
                 if (!f.type.match("image/.*")) {
@@ -420,15 +495,19 @@ conn.close();
                     sel_files.push(f);
                     var reader = new FileReader();
                     reader.onload = function (e) {
-                        var label = document.getElementById('img_label' + index);
+                        var label = {};
+                        label = document.getElementById('img_label' + revimg_id + index);
+                        console.log(label);
                         label.remove();
                         var html = "<a id='img_id_" + index + "'><img class='img_prv' src='" + e.target.result + "' data-file='" + f.name + "'></a>";
-                        $('#imagePreview').append(html);
+                        $('#imagePreview'+revimg_id).append(html);
                         index++;
                         filecnt++;
+                        ind.setAttribute("value", index);
+                        cnt.setAttribute("value", filecnt);
                         if (filecnt < 5) {
-                            var upload = "<label for='review_img" + index + "' id='img_label" + index + "' class='add_photo'></label> <input type='file' name='img" + index + "' id='review_img" + index + "' class='review_photo' accept='image/*'>";
-                            $('#imagePreview').append(upload);
+                            var upload = "<label for='review_img" + revimg_id + index + "' id='img_label" + revimg_id + index + "' class='add_photo'></label> <input type='file' name='img" + index + "' id='review_img" + revimg_id + index + "' class='review_photo' accept='image/*'>";
+                            $('#imagePreview'+revimg_id).append(upload);
                         }
                     };
                     reader.readAsDataURL(f);
@@ -441,16 +520,19 @@ conn.close();
 
         function img_del(e) {
             var delimg = e.target.parentNode;
+            var id = delimg.parentElement.id.slice(12);
             var img_num = e.target.parentElement.id.slice(7);
-            var img_input = document.getElementById("review_img" + img_num);
-            console.log(img_num);
-            console.log(img_input);
+            var img_input = document.getElementById("review_img" + id + img_num);
+            var cnt = document.getElementById("cnt"+id);
+            filecnt = parseInt(cnt.value);
             filecnt--;
+            cnt.setAttribute("value", filecnt);
+            console.log(img_num,cnt,filecnt);
             delimg.remove();
             img_input.remove();
             if (filecnt === 4) {
-                var upload = "<label for='review_img" + index + "' id='img_label" + index + "' class='add_photo'></label> <input type='file' name='img" + index + "' id='review_img" + index + "' class='review_photo' accept='image/*'>";
-                $('#imagePreview').append(upload);
+                var upload = "<label for='review_img" + id + index + "' id='img_label" + id + index + "' class='add_photo'></label> <input type='file' name='img" + index + "' id='review_img" + id + index + "' class='review_photo' accept='image/*'>";
+                $('#imagePreview'+id).append(upload);
             }
         }
 
