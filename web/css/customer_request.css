@@ -117,6 +117,10 @@ input[type="checkbox"]:checked + label span {
     padding: 2px;
     cursor: pointer;
 }
+.evaluate.fin{
+    background-color: grey;
+    cursor: default;
+}
 .construct{
     display: none;
 }
@@ -346,6 +350,13 @@ select{
     padding: 5px;
     width: 100px;
     height: 100px;
+}
+
+@media (max-width: 700px) {
+    .modal_item .modal {
+        width: 80%;
+        height: 65%;
+    }
 }
 
 @media (max-width : 530px){
