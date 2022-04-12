@@ -45,11 +45,11 @@ const getBannerData = async () => {
 getBannerData();
 
 const banner = document.getElementsByClassName("bannerBox");
-let bannerPos = 22;
+let bannerPos = 0;
 
 const bannerLeft = () => {
-    if(bannerPos === 22){
-        bannerPos = banner.length * -100 + 22;
+    if(bannerPos === 0){
+        bannerPos = banner.length * -100;
     }
     bannerPos += 100;
     for(let i = 0; i < banner.length; i++){
@@ -57,8 +57,8 @@ const bannerLeft = () => {
     }
 }
 const bannerRight = () => {
-    if(bannerPos === -100 * (banner.length - 1) + 22){
-        bannerPos = 122;
+    if(bannerPos === -100 * (banner.length - 1)){
+        bannerPos = 100;
     }
     bannerPos -= 100;
     for(let i = 0; i < banner.length; i++){
@@ -84,8 +84,8 @@ turn[1].addEventListener("click", () => {
     }, 5000);
 })
 const bannerAutoSlide = () => {
-    if(bannerPos === -100 * (banner.length - 1) + 22){
-        bannerPos = 122;
+    if(bannerPos === -100 * (banner.length - 1)){
+        bannerPos = 100;
     }
     bannerPos -= 100;
     for(let i = 0; i < banner.length; i++){
