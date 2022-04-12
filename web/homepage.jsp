@@ -583,7 +583,7 @@
         thrTitleSub = createEle("span", "title_sub");
 
         const war = prop.as_warranty,
-            // badge = prop.badge,
+            badge = prop.SPECIALIZEDs,
             counseling = prop.counseling,
             construction = prop.construction,
             img1 = prop.represent_img1,
@@ -596,14 +596,15 @@
             firSub[count].innerHTML = "A/S " + war + "년";
             count++;
         }
-        // if(badge != null){
-        //     for(let i = 0; i < badge.length; i++){
-        //         if(count>=3)break;
-        //         firBox[count] = createEle("div", "fir_box");
-        //         firSub[count] = createEle("span", "fir_sub");
-        //         firSub[count].innerHTML = badge[i].name;
-        //     }
-        // }
+        if(badge[0].Ability_num != null){
+            for(let i = 0; i < badge.length; i++){
+                if(count>=3)break;
+                firBox[count] = createEle("div", "fir_box");
+                firSub[count] = createEle("span", "fir_sub");
+                firSub[count].innerHTML = badge[i].COMPANY_ABILITy.Title;
+                count++;
+            }
+        }
         partnerInfoContainer.href = "https://somoonhouse.com/interior_info.jsp?id=" + prop.id;
         firTitle.innerHTML = comName;
         thrTitleSub.innerHTML = "상담 " + counseling + "건";

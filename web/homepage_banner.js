@@ -18,6 +18,10 @@ const makeBanner = () => {
         bannerBox.appendChild(bannerImg);
         bannerParent.appendChild(bannerBox);
     }
+    const banner = document.getElementsByClassName("bannerBox");
+    for(let i = 0; i < banner.length; i++){
+        banner[i].style.transform = "translateX(" + bannerPos + "%)";
+    }
 }
 
 let bannerData;
@@ -41,10 +45,11 @@ const getBannerData = async () => {
 getBannerData();
 
 const banner = document.getElementsByClassName("bannerBox");
-let bannerPos = 0;
+let bannerPos = 22;
+
 const bannerLeft = () => {
-    if(bannerPos === 0){
-        bannerPos = banner.length * -100;
+    if(bannerPos === 22){
+        bannerPos = banner.length * -100 + 22;
     }
     bannerPos += 100;
     for(let i = 0; i < banner.length; i++){
@@ -52,8 +57,8 @@ const bannerLeft = () => {
     }
 }
 const bannerRight = () => {
-    if(bannerPos === -100 * (banner.length - 1)){
-        bannerPos = 100;
+    if(bannerPos === -100 * (banner.length - 1) + 22){
+        bannerPos = 122;
     }
     bannerPos -= 100;
     for(let i = 0; i < banner.length; i++){
@@ -79,8 +84,8 @@ turn[1].addEventListener("click", () => {
     }, 5000);
 })
 const bannerAutoSlide = () => {
-    if(bannerPos === -100 * (banner.length - 1)){
-        bannerPos = 100;
+    if(bannerPos === -100 * (banner.length - 1) + 22){
+        bannerPos = 122;
     }
     bannerPos -= 100;
     for(let i = 0; i < banner.length; i++){
