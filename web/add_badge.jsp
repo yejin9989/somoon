@@ -91,7 +91,7 @@
     <jsp:include page="/homepage_pc_header.jsp" flush="false" />
     <jsp:include page="/homepage_mob_header.jsp" flush="false" />
         <div id="content">
-            <form action = "_add_badge.jsp" method="post">
+            <form onsubmit="add_badge();">
                 <h2>업체 뱃지 부여</h2>
                 <h3>업체 선택</h3>
                 <select name="companySelect" id="select_comp" onchange="check_badge(this)">
@@ -157,6 +157,32 @@
         %>
     }
 
+    const add_badge = async () => {
+        await fetch("https://somunbackend.com/auth-non/badge/"+company_num+"&"+ability_num, {
+            method: "POST",
+            headers: {
+            }
+        })
+            .catch((err) => {
+                console.log(err);
+            })
+    }
+
+    const del_badge = async () => {
+        await fetch("https://somunbackend.com/auth-non/badge/"+company_num, {
+            method: "DELETE",
+            headers: {
+            }
+        })
+            .catch((err) => {
+                console.log(err);
+            })
+    }
+
+    function badge(){
+        del_badge();
+        add_badge();
+    }
     function check_badge(e) {
         create_hm_cb();
         create_hm_cp();
@@ -182,7 +208,6 @@
             }
         }
     }
-
 
     check_badge(document.getElementById("select_comp"));
 </script>
