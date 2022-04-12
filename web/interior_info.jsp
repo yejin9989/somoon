@@ -292,7 +292,13 @@
         if(data[0].counseling != 0){
             titleSub.innerHTML = "상담 " + data[0].counseling + "건";
         }
-        infoImg.src = data[0].represent_img1;
+        if(data[0].represent_img1 !== "https://somoonhouse.com/sources/anonymous.jpg"){
+            infoImg.src = data[0].represent_img1;
+        }
+        else{
+            infoImg.src = "https://somoonhouse.com/sources/noprofile1.png";
+            infoImg.setAttribute("style","object-fit: contain");
+        }
 
         const makeDetail = (titleStr, subStr) => {
             let infoDiv, titleDiv, subDiv;
@@ -334,6 +340,7 @@
 
     const makeCaseBoxes = (data) => {
         let viewMax = data.length > 5 ? 5 : data.length;
+        if (viewMax === 0){noCaseBox();}
         for(let i = 0; i < viewMax; i++){
             if(data[i] === undefined) continue;
             makeCaseBox(data[i], i);
@@ -370,6 +377,26 @@
         caseBox.appendChild(boxLower);
         caseContainer.appendChild(caseBox);
         infoCaseSlider.appendChild(caseContainer);
+    }
+
+    const noCaseBox = () => {
+        let  infoCaseSlider = document.getElementById("interior_info_case_slider"),
+            noCaseContainer, imgContainer, img, txtContainer, txt ;
+
+        noCaseContainer = createEle("div", "main_body_none");
+        imgContainer = createEle("div", "img_containers");
+        txtContainer = createEle("div", "text_container");
+        img = createEle("img");
+        txt = createEle("span");
+
+        img.src = "https://somoonhouse.com/otherimg/assets/nocase.png?raw=true";
+        txt.innerHTML = "등록된 시공 사례가 없습니다."
+
+        imgContainer.appendChild(img);
+        txtContainer.appendChild(txt);
+        noCaseContainer.appendChild(imgContainer);
+        noCaseContainer.appendChild(txtContainer);
+        infoCaseSlider.appendChild(noCaseContainer);
     }
 </script>
 </body>
