@@ -89,6 +89,7 @@ input[type="checkbox"]:checked + label span {
 }
 #container {
     width: 100%;
+	height: 100%;
     max-width: 700px;
     margin: 0 auto;
     box-shadow: 0px 0px 20px #f4f4f4;
