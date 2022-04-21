@@ -1055,4 +1055,7 @@ body{
         width: 15px !important;
         height: 15px !important;
     }
+    .body_container .partner_info .partner_info_container .box .box_lower .fir .fir_box span{
+        height: 20px !important;
+    }
 }
