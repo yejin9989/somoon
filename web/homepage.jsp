@@ -341,9 +341,10 @@
     <script src="./homepage_banner.js"></script>
     <script src="./consultReviewData.js"></script>
 <script>
-    const createEle = (sortOfElement, className) => {
+    const createEle = (sortOfElement, className, idName) => {
         let nameOfElement = document.createElement(sortOfElement);
         if (className !== undefined) nameOfElement.className = className;
+        if (idName !== undefined) nameOfElement.id = idName;
         return nameOfElement;
     }
 
@@ -577,7 +578,7 @@
         upperFirstImg = createEle("img");
         upperSecondImgBox = createEle("div", "imgBox secondImg");
         upperSecondImg = createEle("img");
-        lowerTextFir = createEle("div", "txt fir");
+        lowerTextFir = createEle("div", "txt fir", prop.id);
         lowerTextThr = createEle("div", "txt thr");
         firTitle = createEle("span", "fir_title");
         thrTitleSub = createEle("span", "title_sub");
@@ -595,16 +596,9 @@
             firSub[count] = createEle("span", "fir_sub");
             firSub[count].innerHTML = "A/S " + war + "년";
             count++;
+            console.log(count)
         }
-        if(badge[0].Ability_num != null){
-            for(let i = 0; i < badge.length; i++){
-                if(count>=3)break;
-                firBox[count] = createEle("div", "fir_box");
-                firSub[count] = createEle("span", "fir_sub");
-                firSub[count].innerHTML = badge[i].COMPANY_ABILITy.Title;
-                count++;
-            }
-        }
+
         partnerInfoContainer.href = "https://somoonhouse.com/interior_info.jsp?id=" + prop.id;
         firTitle.innerHTML = comName;
         thrTitleSub.innerHTML = "상담 " + counseling + "건";
@@ -627,6 +621,24 @@
             for(let i = 0; i < count; i++){
                 lowerTextFir.appendChild(firBox[i]);
                 firBox[i].appendChild(firSub[i]);
+            }
+        }
+    }
+
+    const addBadgeHompageCompanyInfoBox = (prop) => {
+        let badgeBox = document.getElementById(prop.id);
+        let firBox = [], firSub = [];
+
+        if(badge[0].Ability_num != null){
+            for(let i = 0; i < badge.length; i++){
+                console.log(badge)
+                if(count>=3)break;
+                firBox[count] = createEle("div", "fir_box");
+                firSub[count] = createEle("span", "fir_sub");
+                firSub[count].innerHTML = badge[i].COMPANY_ABILITy.Title;
+                count++;
+                console.log(count)
+                console.log(badge[i].COMPANY_ABILITy.Title)
             }
         }
     }
